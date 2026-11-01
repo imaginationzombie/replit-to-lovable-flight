@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary":"#ffffff","tertiary":"#3d4c54","on-secondary":"#ffffff","tertiary-container":"#54646c","inverse-primary":"#83d6c2","secondary-container":"#c2e9c9","surface-container-high":"#e7e8e6","on-error-container":"#93000a","on-secondary-fixed-variant":"#2c4e36","background":"#f9faf8","surface-container-highest":"#e1e3e1","primary-fixed-dim":"#83d6c2","on-error":"#ffffff","tertiary-fixed":"#d5e5ef","surface-tint":"#006b5b","surface-dim":"#d9dad8","on-tertiary-fixed-variant":"#3a4951","on-secondary-fixed":"#00210e","on-surface-variant":"#3e4946","on-background":"#191c1b","surface-bright":"#f9faf8","on-primary-fixed":"#00201a","primary":"#005447","on-surface":"#191c1b","on-tertiary":"#ffffff","surface-container":"#edeeec","primary-container":"#086e5e","on-primary-fixed-variant":"#005144","tertiary-fixed-dim":"#b9c9d3","outline":"#6e7976","on-tertiary-container":"#d0e0ea","secondary-fixed":"#c5eccc","inverse-surface":"#2e3130","secondary":"#43664d","primary-fixed":"#9ff2de","inverse-on-surface":"#f0f1ef","error-container":"#ffdad6","on-primary-container":"#99edd9","secondary-fixed-dim":"#aad0b1","surface":"#f9faf8","surface-variant":"#e1e3e1","error":"#ba1a1a","on-secondary-container":"#486a51","surface-container-low":"#f3f4f2","on-tertiary-fixed":"#0e1d25","surface-container-lowest":"#ffffff","outline-variant":"#bec9c4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-2xl":"4rem","gutter-sm":"1rem","margin":"1.25rem","gutter-lg":"2rem","margin-md":"2.5rem","space-sm":"0.5rem","space-lg":"1.5rem","space-md":"1rem","gutter":"1.5rem","margin-lg":"4rem","space-xl":"2.5rem","space-xs":"0.25rem"},"fontFamily":{"label-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"]},"fontSize":{"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"600"}],"title-lg":["18px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-background selection:bg-secondary-container selection:text-on-secondary-fixed"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-[0_2px_8px_rgba(8,110,94,0.18)]"><span class="material-symbols-outlined text-[20px]">cleaning_services</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight leading-tight">Housekeeper</span><span class="font-label-sm text-label-sm text-outline tracking-wider uppercase leading-none">Booking Admin</span></div></div><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-fixed-variant">PRO</span></div><div class="overflow-y-auto flex-1 px-space-sm py-space-sm space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">Operations</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="command-overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Command Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multi-pro-crew-dispatch" href="#"><span class="material-symbols-outlined text-[20px]">local_shipping</span><span>Multi-Pro &amp; Crew Dispatch</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="all-employees-master-schedule" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Master Schedule</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="live-field-stream" href="#"><span class="material-symbols-outlined text-[20px]">sensors</span><span>Live Field Stream</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">CRM &amp; Growth</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="customer-directory-accounts" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Customer Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="twilio-campaign-hub" href="#"><span class="material-symbols-outlined text-[20px]">sms</span><span>Twilio Campaign Hub</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="web-campaign-traffic" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Web &amp; Traffic</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="master-stats-hub" href="#"><span class="material-symbols-outlined text-[20px]">monitoring</span><span>Master Stats Hub</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">HR &amp; Rewards</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="lottery-rewards-engine" href="#"><span class="material-symbols-outlined text-[20px]">military_tech</span><span>Lottery &amp; Rewards</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="recruit-onboarding" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Recruit &amp; Onboarding</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="tax-withholding-tracker" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Tax &amp; Withholding</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">Configuration</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="services-packages" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span>Services &amp; Packages</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="territory-buffers" href="#"><span class="material-symbols-outlined text-[20px]">share_location</span><span>Territory &amp; Buffers</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="navigation-hub-directory" href="#"><span class="material-symbols-outlined text-[20px]">folder_managed</span><span>Nav Hub Directory</span></a></nav></div></div></div><div class="p-space-sm bg-surface-container-low"><div class="p-space-sm bg-surface-container-lowest rounded-xl flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary-container flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span></span><span class="font-label-sm text-label-sm text-secondary font-semibold">Dispatch Core Online</span></div><span class="font-label-sm text-label-sm text-outline">v3.4.1</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined text-outline absolute left-3 top-1/2 -translate-y-1/2 text-[18px]">search</span><input class="w-full h-10 pl-9 pr-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search jobs, technicians, bookings (#HB-)..." type="search"/></div><a class="hidden xl:flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md shadow-[0_2px_8px_rgba(8,110,94,0.06)] hover:bg-primary hover:text-on-primary transition-colors" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">call</span><span>(814) 952-1964</span></a></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span>Live Feed Active</span></div><button class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><button class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help</span></button><div class="h-6 w-[1px] bg-outline-variant/40 mx-space-xs"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Admin HQ</span><span class="font-label-sm text-label-sm text-outline leading-none">Dispatch Ops</span></div></div></div></header><main class="w-full pt-16 bg-background min-h-screen px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<div class="w-full max-w-[1440px] mx-auto space-y-space-xl pb-space-2xl">
+<!-- Top Action Bar & Telemetry Status -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Telemetry &amp; Traffic Engine</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Real-Time Sync • Production Zero State</span>
+</div>
+<div class="flex items-baseline gap-space-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Campaign Traffic</h1>
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Node ID: HK-814-CORE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Multi-channel telemetry tracking across regional PA-09 territories, Twilio telephony webhooks, and housekeeper referral matrices.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-high transition-all" id="open-link-modal">
+<span class="material-symbols-outlined text-[18px] text-primary">add_link</span>
+<span>Create Tracking Link</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-high transition-all" id="open-10dlc-modal">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+<span>Configure 10DLC</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-md hover:bg-primary transition-all" id="open-qr-modal">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+<span>Generate QR Matrix</span>
+</button>
+</div>
+</div>
+<!-- Acquisition KPI Grid (Asymmetric High-Impact Minimalist) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Metric 1: Total Visitors -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-surface-container-low opacity-60"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Unique Canvas Visits</span>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">travel_explore</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-bold leading-none tracking-tight">0</span>
+<span class="font-label-sm text-label-sm text-outline">sessions</span>
+</div>
+<div class="mt-space-lg flex items-center justify-between pt-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg px-space-lg pb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">0.0/hr velocity</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Awaiting Pulse</span>
+</div>
+</div>
+<!-- Metric 2: Inbound Twilio Calls -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Inbound Twilio VoIP</span>
+<div class="w-7 h-7 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">call_log</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-bold leading-none tracking-tight">0</span>
+<span class="font-label-sm text-label-sm text-outline">routed calls</span>
+</div>
+<div class="mt-space-lg flex items-center justify-between pt-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg px-space-lg pb-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">(814) 952-1964</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">100% IVR Ready</span>
+</div>
+</div>
+<!-- Metric 3: Confirmed Online Bookings -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Online Bookings</span>
+<div class="w-7 h-7 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[16px]">event_available</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-bold leading-none tracking-tight">0</span>
+<span class="font-label-sm text-label-sm text-outline">confirmed</span>
+</div>
+<div class="mt-space-lg flex items-center justify-between pt-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg px-space-lg pb-space-sm">
+<span class="font-label-sm text-label-sm text-outline">Pipeline Value</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">$0.00 Gross</span>
+</div>
+</div>
+<!-- Metric 4: Conversion Rate -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Gross Conversion</span>
+<div class="w-7 h-7 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[16px]">percent</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-bold leading-none tracking-tight">0.0</span>
+<span class="font-headline-sm text-headline-sm text-outline font-bold leading-none">%</span>
+</div>
+<div class="mt-space-lg flex items-center justify-between pt-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg px-space-lg pb-space-sm">
+<span class="font-label-sm text-label-sm text-outline">Target Benchmark</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">4.8% SLA</span>
+</div>
+</div>
+</div>
+<!-- Main Content Grid: Split Attribution & Regional Nodes -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Channel Attribution Breakdown (7 cols) -->
+<div class="lg:col-span-7 space-y-space-lg">
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface tracking-tight">Attribution Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated customer touchpoints partitioned by channel origin.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">4 Core Channels</span>
+</div>
+</div>
+<!-- Channel Data Stack -->
+<div class="space-y-space-sm">
+<!-- Row 1: Google Organic -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">search_check</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface">Google Organic / Local Search</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">SEO</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Google Business Profile, Local Map Packs (DuBois Region)</span>
+</div>
+</div>
+<div class="flex items-center sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<span class="font-title-lg text-title-lg text-on-surface font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Visits</span>
+</div>
+<div class="text-left sm:text-right w-16">
+<span class="font-title-lg text-title-lg text-on-surface-variant font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Leads</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Housekeeper Referral Links -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface">Housekeeper Personalized Links</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-[10px]">12 Pros</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Direct employee vanity slugs (e.g., /pro/elena-m)</span>
+</div>
+</div>
+<div class="flex items-center sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<span class="font-title-lg text-title-lg text-on-surface font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Visits</span>
+</div>
+<div class="text-left sm:text-right w-16">
+<span class="font-title-lg text-title-lg text-on-surface-variant font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Leads</span>
+</div>
+</div>
+</div>
+<!-- Row 3: Twilio SMS Campaigns -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">sms</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface">Twilio SMS Campaigns</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">10DLC</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Automated follow-ups &amp; recurring clean reminders</span>
+</div>
+</div>
+<div class="flex items-center sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<span class="font-title-lg text-title-lg text-on-surface font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Visits</span>
+</div>
+<div class="text-left sm:text-right w-16">
+<span class="font-title-lg text-title-lg text-on-surface-variant font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Leads</span>
+</div>
+</div>
+</div>
+<!-- Row 4: Direct Booking Phone -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface">Direct Phone (814) 952-1964</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-[10px]">Direct IVR</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Print flyers, vehicle magnets, yard signage</span>
+</div>
+</div>
+<div class="flex items-center sm:justify-end gap-space-xl">
+<div class="text-left sm:text-right">
+<span class="font-title-lg text-title-lg text-on-surface font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Dials</span>
+</div>
+<div class="text-left sm:text-right w-16">
+<span class="font-title-lg text-title-lg text-on-surface-variant font-bold">0</span>
+<span class="block font-label-sm text-label-sm text-outline">Leads</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty Matrix Annotation -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[18px]">info</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Attribution weights automatically resolve when initial visitor cookies attach.</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Zero Attribution Loss</span>
+</div>
+</div>
+<!-- Real-Time Event Log (Empty State) -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface tracking-tight">Live Click &amp; Ingestion Stream</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time webhooks, employee link referrals, and inbound voice calls.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Listening on Port 443</span>
+</div>
+</div>
+<!-- Empty State Container -->
+<div class="p-space-xl rounded-xl bg-surface-container-low text-center flex flex-col items-center justify-center space-y-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[24px]">hub</span>
+</div>
+<div class="max-w-md space-y-1">
+<h3 class="font-title-md text-title-md text-on-surface">No Campaign or Referral Events Logged</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Tracking clicks from employee referral links, SMS broadcasts, and Google organic traffic in real time. Events appear here automatically as traffic triggers the gateway.
+              </p>
+</div>
+<div class="pt-space-xs flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm px-space-sm py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-mono">DEBUG: /webhook/twilio/click</span>
+<span class="font-label-sm text-label-sm px-space-sm py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-mono">STATUS: 200 READY</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Territory Traffic Map & Node Diagnostics (5 cols) -->
+<div class="lg:col-span-5 space-y-space-lg">
+<!-- Territory Node Dispatch Status -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface tracking-tight">Territory Nodes</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central PA Operational Service Corridors</p>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-bold">0 Active Nodes</span>
+</div>
+<!-- Stylized Map Canvas Container -->
+<div class="relative w-full h-64 rounded-xl overflow-hidden bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center" data-location="DuBois, Pennsylvania" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4xFfyxS59BpD1CPkOQWo6kG63YhnCSE5LfXGAFykATDayXosIGuKyWeyMnJK3UR1tflu8ygN_lD-paJeY6KCwEJiE29JCAVUFOee53y83TBG6490Ey3v_0i8ijC1RS5fqHgH9RL1IIHE1aARmFV1rs_pGKGxS0DQw_OUUqqoLqV9NgNYE2PDL3jAbA_mFOWG0Bn_LAIuZLNLjsW1KdOrDYv3gHdKkQ4zuYQp8Hlj0TrnaypLLrliM')"></div>
+<!-- Map Overlay Backdrop -->
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px] p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-1 rounded bg-surface-container-lowest/90 text-on-surface font-label-sm text-label-sm font-semibold shadow-sm">
+                  Corridor 814 Primary Zone
+                </span>
+<span class="px-space-sm py-1 rounded bg-surface-container-lowest/90 text-outline font-label-sm text-label-sm">
+                  Lat 41.119° N
+                </span>
+</div>
+<!-- Territory Indicators Pins on Map -->
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs rounded bg-surface-container-lowest/95 backdrop-blur shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">DuBois HQ</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">0 Hits</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest/95 backdrop-blur shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Brookville</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">0 Hits</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest/95 backdrop-blur shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Punxsutawney</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">0 Hits</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest/95 backdrop-blur shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Reynoldsville</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">0 Hits</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Territory Node List Details -->
+<div class="space-y-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">DuBois (15801)</span>
+<span class="font-body-sm text-body-sm text-outline">Central Dispatch Core</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Standby</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">0 Sessions</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Brookville (15825)</span>
+<span class="font-body-sm text-body-sm text-outline">West County Buffer Zone</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Standby</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">0 Sessions</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Punxsutawney (15767)</span>
+<span class="font-body-sm text-body-sm text-outline">South Hub Corridor</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Standby</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">0 Sessions</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Reynoldsville (15851)</span>
+<span class="font-body-sm text-body-sm text-outline">Route 322 Corridor Node</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Standby</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">0 Sessions</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Infrastructure & Health Diagnostics Panel -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface">Telephony &amp; Webhook Health</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Healthy
+            </span>
+</div>
+<div class="space-y-space-xs text-body-sm font-body-sm">
+<div class="flex items-center justify-between py-1">
+<span class="text-outline">Twilio Subaccount Status</span>
+<span class="font-label-sm text-label-sm text-on-surface font-mono">AC_live_verified</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-outline">10DLC Campaign Registry</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Active Tier-2 Brand</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-outline">UTM Auto-Tagger Script</span>
+<span class="font-label-sm text-label-sm text-on-surface">v2.4 Injecting</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-outline">Last Webhook Handshake</span>
+<span class="font-label-sm text-label-sm text-on-surface font-mono">42 seconds ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Ambient Image Banner -->
+<div class="relative w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-sm p-space-lg flex flex-col md:flex-row items-center gap-space-lg">
+<div class="w-full md:w-1/3 h-44 rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A pristine, minimalist residential sunroom flooded with soft natural morning light. Warm wooden floors reflect clean air with botanical green indoor plants in the background. Calm, organized, peaceful domestic tranquility with no clutter, showing warm porcelain tones and forest emerald accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDELPIV339ZQU0GkIWtjHy3T_inw-JISC2lWwTxXCfJaRMGd--25Ie7ym0v-4_LjfZ3BtHhAbFTTmDEmLaOtefpDXoxWdcNzGRkdF97qUOOwVvYLCCWBzXzUQ1dId-BHzSKSp-OC0itlYPZx6OJ7WDQ52iaCsw3QodI79js2vIHpbuSnkoIfFKCiMzcwaosbFlb8EedmlZxPpJXqJOVuwURejRAdy4uy2D4DMlVjmfOmMk6xhmJ4P1x"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+<div class="w-full md:w-2/3 space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm">Standard of Care</span>
+<span class="font-label-sm text-label-sm text-outline">Verified Attribution Guarantee</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Precision tracking without customer friction.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          Every QR scan, housekeeper referral card, and local search visit connects directly with dispatch scheduling so compensation and marketing ROI remain 100% transparent.
+        </p>
+</div>
+</div>
+</div>
+<!-- Modal: Create Twilio Tracking Link (Hidden by default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-space-md" id="modal-tracking-link">
+<div class="w-full max-w-lg rounded-2xl bg-surface-container-lowest p-space-xl shadow-xl space-y-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">add_link</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Create Twilio Tracking Link</h3>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high flex items-center justify-center text-outline" id="close-link-modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Target Destination URL</label>
+<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container" type="text" value="https://housekeeperbooking.com/book"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Campaign Tag / Slug</label>
+<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container" placeholder="e.g. dubois-spring-refresh-2025" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Channel Medium</label>
+<select class="w-full h-11 px-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option>Twilio SMS Broadcast</option>
+<option>Direct Mail QR</option>
+<option>Social Billboard</option>
+<option>Local Radio Promo</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Assigned Territory</label>
+<select class="w-full h-11 px-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option>All PA-09 Hubs</option>
+<option>DuBois Core</option>
+<option>Brookville Corridor</option>
+<option>Punxsutawney Area</option>
+<option>Reynoldsville</option>
+</select>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-md text-label-md" id="cancel-link-modal">Cancel</button>
+<button class="px-space-lg py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-md hover:bg-primary transition-colors" id="save-link-modal">Generate Dynamic Link</button>
+</div>
+</div>
+</div>
+<!-- Modal: Configure 10DLC (Hidden by default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-space-md" id="modal-10dlc">
+<div class="w-full max-w-lg rounded-2xl bg-surface-container-lowest p-space-xl shadow-xl space-y-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">10DLC Carrier Registration</h3>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high flex items-center justify-center text-outline" id="close-10dlc-modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-1">
+<span class="font-label-md text-label-md text-on-surface block">Brand Registration ID</span>
+<span class="font-mono text-outline">BND-HK-PA-99201</span>
+<span class="font-label-sm text-label-sm text-secondary block pt-1 font-semibold">TCR Approved • Sole Proprietorship / Standard</span>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Registered Campaign Use-Case</label>
+<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-high font-body-sm text-body-sm text-on-surface cursor-not-allowed" readonly="" type="text" value="Customer Care &amp; Booking Confirmations (Transactional)"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Opt-In Consent Flow Description</label>
+<textarea class="w-full p-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" rows="3">Users opt-in during online checkout at housekeeperbooking.com or by texting CLEAN to (814) 952-1964. Opt-out supported via STOP.</textarea>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-md text-label-md" id="cancel-10dlc-modal">Close</button>
+<button class="px-space-lg py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-md hover:bg-primary transition-colors" id="save-10dlc-modal">Sync TCR Status</button>
+</div>
+</div>
+</div>
+<!-- Modal: Generate QR Matrix (Hidden by default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-space-md" id="modal-qr">
+<div class="w-full max-w-md rounded-2xl bg-surface-container-lowest p-space-xl shadow-xl space-y-space-lg text-center">
+<div class="flex items-center justify-between text-left">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Generate Vector QR</h3>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-high flex items-center justify-center text-outline" id="close-qr-modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Simulated Pristine QR Code Graphic -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col items-center justify-center">
+<div class="w-44 h-44 bg-surface-container-lowest p-3 rounded-lg shadow-sm flex items-center justify-center">
+<svg class="w-full h-full text-primary" fill="currentColor" viewbox="0 0 100 100">
+<path d="M10 10h30v30h-30zM15 15v20h20v-20zM60 10h30v30h-30zM65 15v20h20v-20zM10 60h30v30h-30zM15 65v20h20v-20zM22 22h6v6h-6zM72 22h6v6h-6zM22 72h6v6h-6zM45 10h10v10h-10zM45 30h10v10h-10zM45 50h10v10h-10zM45 70h10v10h-10zM45 90h10v10h-10zM60 60h10v10h-10zM75 60h15v10h-15zM60 75h25v10h-25zM85 85h10v10h-10zM65 85h10v10h-10zM10 45h35v10h-35zM60 45h30v10h-30z"></path>
+</svg>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono mt-space-sm">hkb.to/814-core</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-left">
+        Vector SVG output formatted for high-resolution print (Flyers, Door Hangers, Technician Vehicle Vinyl).
+      </p>
+<div class="flex items-center justify-between gap-space-sm pt-space-xs">
+<button class="w-1/2 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md" id="cancel-qr-modal">Close</button>
+<button class="w-1/2 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-md hover:bg-primary transition-colors" onclick="alert('Vector QR asset exported to clipboard.')">Download SVG</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple Modal Interactivity Handlers
+  const linkModal = document.getElementById('modal-tracking-link');
+  const dlcModal = document.getElementById('modal-10dlc');
+  const qrModal = document.getElementById('modal-qr');
+
+  document.getElementById('open-link-modal')?.addEventListener('click', () => {
+    linkModal.classList.remove('hidden');
+    linkModal.classList.add('flex');
+  });
+  document.getElementById('close-link-modal')?.addEventListener('click', () => {
+    linkModal.classList.add('hidden');
+    linkModal.classList.remove('flex');
+  });
+  document.getElementById('cancel-link-modal')?.addEventListener('click', () => {
+    linkModal.classList.add('hidden');
+    linkModal.classList.remove('flex');
+  });
+  document.getElementById('save-link-modal')?.addEventListener('click', () => {
+    linkModal.classList.add('hidden');
+    linkModal.classList.remove('flex');
+  });
+
+  document.getElementById('open-10dlc-modal')?.addEventListener('click', () => {
+    dlcModal.classList.remove('hidden');
+    dlcModal.classList.add('flex');
+  });
+  document.getElementById('close-10dlc-modal')?.addEventListener('click', () => {
+    dlcModal.classList.add('hidden');
+    dlcModal.classList.remove('flex');
+  });
+  document.getElementById('cancel-10dlc-modal')?.addEventListener('click', () => {
+    dlcModal.classList.add('hidden');
+    dlcModal.classList.remove('flex');
+  });
+  document.getElementById('save-10dlc-modal')?.addEventListener('click', () => {
+    dlcModal.classList.add('hidden');
+    dlcModal.classList.remove('flex');
+  });
+
+  document.getElementById('open-qr-modal')?.addEventListener('click', () => {
+    qrModal.classList.remove('hidden');
+    qrModal.classList.add('flex');
+  });
+  document.getElementById('close-qr-modal')?.addEventListener('click', () => {
+    qrModal.classList.add('hidden');
+    qrModal.classList.remove('flex');
+  });
+  document.getElementById('cancel-qr-modal')?.addEventListener('click', () => {
+    qrModal.classList.add('hidden');
+    qrModal.classList.remove('flex');
+  });
+</script></main></div></body></html>

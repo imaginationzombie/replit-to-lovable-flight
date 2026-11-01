@@ -1,0 +1,373 @@
+<!DOCTYPE html><html class="h-full" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-lowest": "#ffffff", "surface-container-high": "#e7e8e6", "surface-bright": "#f9faf8", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#005144", "on-secondary-fixed": "#00210e", "on-primary": "#ffffff", "secondary-fixed-dim": "#aad0b1", "inverse-primary": "#83d6c2", "on-tertiary": "#ffffff", "on-error": "#ffffff", "inverse-surface": "#2e3130", "on-background": "#191c1b", "surface": "#f9faf8", "inverse-on-surface": "#f0f1ef", "outline-variant": "#bec9c4", "on-error-container": "#93000a", "secondary": "#43664d", "error-container": "#ffdad6", "tertiary-container": "#54646c", "on-secondary-fixed-variant": "#2c4e36", "primary-fixed": "#9ff2de", "on-surface-variant": "#3e4946", "on-surface": "#191c1b", "on-tertiary-fixed": "#0e1d25", "secondary-fixed": "#c5eccc", "primary-fixed-dim": "#83d6c2", "surface-variant": "#e1e3e1", "outline": "#6e7976", "tertiary-fixed-dim": "#b9c9d3", "tertiary-fixed": "#d5e5ef", "tertiary": "#3d4c54", "on-primary-container": "#99edd9", "surface-container-low": "#f3f4f2", "on-secondary-container": "#486a51", "surface-container": "#edeeec", "on-tertiary-container": "#d0e0ea", "error": "#ba1a1a", "surface-container-highest": "#e1e3e1", "surface-tint": "#006b5b", "background": "#f9faf8", "on-primary-fixed": "#00201a", "secondary-container": "#c2e9c9", "on-tertiary-fixed-variant": "#3a4951", "primary": "#005447", "surface-dim": "#d9dad8", "primary-container": "#086e5e" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-2xl": "4rem", "gutter-lg": "2rem", "gutter-sm": "1rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "1.25rem", "gutter": "1.5rem", "margin-lg": "4rem", "margin-md": "2.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem" }, fontFamily: { "display-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"] }, fontSize: { "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="HousekeeperBooking.com Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WqDzmaxTVxp_iCpia1UD2Tj7swxmVIZRY4b74kNjffvep_psqJS6-Q2rzRluwxdh-En6t78i_jdGQc0maIvsOOpWbdO5Hvioj0FtjeWKQNX091kpwlPWUK0QL1Kwu6ZKGzQA6bm6hxw3QiWjXnFOEVicmNpo1MvB59V3q_0jheoxJh72eAVp9gHRTDbMDEKD-T4z_ebfvbWYmSoyzCXnyVRIh3u7NbbLVoXqipBWAZJRp_uwi1I1Nnwq4"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate leading-tight">HousekeeperBooking</span><span class="font-label-sm text-label-sm text-primary tracking-wide leading-none">Pro Staff Portal</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><a aria-label="Call HousekeeperBooking at (814) 952-1964" class="flex items-center gap-1 h-9 px-3 rounded-full bg-secondary-container/60 text-primary hover:bg-secondary-container active:scale-95 transition-all text-decoration-none" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">call</span><span class="font-label-md text-label-md">(814) 952-1964</span></a><a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary hover:opacity-90 active:scale-95 transition-all" data-path="customer-login" href="#" title="Switch Account / Login"><span class="material-symbols-outlined text-[18px]">switch_account</span></a></div></div></header><main class="flex flex-col relative w-full pt-16 pb-32 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Greeting & Contextual Alert Banner -->
+<section class="px-margin pt-space-md pb-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block">Elena Vance • Tier 1 Pro</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Daily Builder</h1>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-high px-2.5 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Live Dispatch</span>
+</div>
+</div>
+<!-- Smart Optimization Alert -->
+<div class="mt- space-xs bg-secondary-container/60 p-space-sm rounded-xl flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-7 h-7 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">route</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-secondary-container truncate">
+<strong class="font-title-md">Route Optimized:</strong> 18 min transit saved today!
+        </p>
+</div>
+<button class="font-label-sm text-label-sm font-bold text-primary hover:underline flex-shrink-0" type="button">
+        Details
+      </button>
+</div>
+<div class="mt-1 flex flex-col gap-1"><span class="font-label-sm text-[11px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">pin_drop</span>Working Territories:</span><div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none"><span class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-primary text-on-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[13px]">check</span>DuBois, PA (Primary)</span><span class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-primary text-on-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[13px]">check</span>Punxsutawney, PA</span><button type="button" class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 transition-colors"><span class="material-symbols-outlined text-[13px]">add</span>Brookville, PA</button><button type="button" class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 transition-colors"><span class="material-symbols-outlined text-[13px]">add</span>Reynoldsville, PA</button></div></div></section>
+<!-- Horizontal Date Navigation Bar -->
+<nav aria-label="Schedule Calendar Days" class="px-margin py-space-xs">
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<!-- Day 1: Past/Yesterday -->
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 px-2 rounded-xl bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all" type="button">
+<span class="font-label-sm text-label-sm opacity-70">Tue</span>
+<span class="font-title-md text-title-md">24</span>
+<span class="font-label-sm text-[10px] text-outline">Done</span>
+</button>
+<!-- Day 2: Today (Active) -->
+<button class="flex flex-col items-center justify-center min-w-[76px] py-2 px-3 rounded-xl bg-primary text-on-primary shadow-md relative transition-transform active:scale-95" type="button">
+<span class="font-label-sm text-[10px] uppercase font-bold text-primary-fixed">Today</span>
+<span class="font-title-lg text-title-lg font-bold leading-tight">Wed 25</span>
+<div class="flex items-center gap-0.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="font-label-sm text-[10px] text-primary-fixed">5.5h</span>
+</div>
+</button>
+<!-- Day 3 -->
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 px-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all" type="button">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Thu</span>
+<span class="font-title-md text-title-md">26</span>
+<span class="font-label-sm text-[10px] text-primary font-bold">4.0h</span>
+</button>
+<!-- Day 4 -->
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 px-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all" type="button">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fri</span>
+<span class="font-title-md text-title-md">27</span>
+<span class="font-label-sm text-[10px] text-tertiary">Off</span>
+</button>
+<!-- Day 5 -->
+<button class="flex flex-col items-center justify-center min-w-[64px] py-2 px-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all" type="button">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sat</span>
+<span class="font-title-md text-title-md">28</span>
+<span class="font-label-sm text-[10px] text-primary font-bold">6.5h</span>
+</button>
+<!-- Future Picker Icon -->
+<button aria-label="Open Full Calendar" class="flex items-center justify-center w-10 h-14 rounded-xl bg-surface-container text-on-surface-variant flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</button>
+</div>
+</nav>
+<!-- Drag & Drop Status Indicator & Stats -->
+<div class="px-margin pt-space-xs pb-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<!-- Custom Toggle visual -->
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" id="dragModeToggle" type="checkbox">
+<div class="w-10 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary peer-checked:after:translate-x-4 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all shadow-inner"></div>
+<span class="ml-2 font-label-md text-label-md text-on-surface font-semibold">Snap &amp; Drop</span>
+</label>
+<span class="inline-flex items-center text-[10px] font-label-sm bg-primary-fixed/40 text-on-primary-fixed-variant px-1.5 py-0.5 rounded">Active</span>
+</div>
+<div class="flex items-center gap-space-xs text-right">
+<div class="text-right"><span class="font-label-sm text-[10px] text-on-surface-variant block">Your Est. Take-Home Earnings (5h clean + 2 drives + bonus)</span><div class="flex items-center justify-end gap-1.5"><span class="font-title-md text-title-md font-bold text-primary">$158.00 Pro Payout</span><span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded font-bold">50% Add-ons &amp; Bonus</span></div><span class="font-label-sm text-[10px] font-normal text-on-surface-variant block">$25/h clean • $4/drive • 50% add-ons • +$12.50 on-demand rush (optional)</span></div>
+</div>
+</div>
+<!-- Interactive Instruction Pill -->
+<div class="px-margin mb-space-sm"><div class="bg-secondary-container/60 border border-secondary-container px-3 py-2.5 rounded-xl flex flex-col gap-1.5 text-on-surface-variant"><div class="flex items-center justify-between gap-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-primary">security</span><span class="font-label-sm text-[11px] font-bold uppercase tracking-wider text-primary">Enforced Rule: Mandatory 30-Min Transit Buffer</span></div><span class="font-label-sm text-[10px] bg-primary text-on-primary px-2 py-0.5 rounded-full font-bold uppercase">Paid Transit ($4/drive)</span></div><p class="font-body-sm text-body-sm leading-tight text-on-secondary-container"><strong>Non-negotiable policy:</strong> A 30-minute transit and kit-sanitization window is automatically locked between all client homes to protect transit safety.</p><p class="font-body-sm text-body-sm leading-tight text-on-secondary-container pt-1 border-t border-secondary-container/60"><strong>Automated Territory Dispatch &amp; On-Demand Bonus:</strong> Standard bookings require 48h advance notice. When clients pay a $25 rush fee for on-demand bookings, you receive a 50% commission bonus: <strong>+$12.50 On-Demand Rush Pay</strong> (on top of $25/h + $4 drive pay). Claiming on-demand shifts is <strong>100% OPTIONAL</strong>.</p></div></div>
+<!-- Interactive Drag-and-Drop Hour Timeline Canvas -->
+<div class="px-margin flex flex-col gap-space-sm">
+<!-- TIMELINE CONTAINER -->
+<div class="relative bg-surface-container-lowest rounded-2xl p-space-md shadow-sm">
+<!-- 08:00 AM Slot (Open Available Target) -->
+<div class="relative flex items-start gap-3 py-2 min-h-[64px]">
+<div class="w-14 flex-shrink-0 pt-0.5">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">08:00</span>
+<span class="font-label-sm text-[10px] text-outline block">AM</span>
+</div>
+<div class="flex-1 rounded-xl bg-surface-container-low/70 p-2.5 flex items-center justify-between hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="simulateDrop('08:00 AM')">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">add_circle</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary">Tap or Drop Shift Slot (1h)</span>
+</div>
+<span class="font-label-sm text-[10px] bg-surface-container px-2 py-0.5 rounded text-outline group-hover:bg-primary-fixed group-hover:text-on-primary-fixed">Free</span>
+</div>
+</div>
+<!-- 09:00 AM - 11:30 AM Slot (Already Scheduled Confirmed Job) -->
+<div class="relative flex items-start gap-3 py-2">
+<div class="w-14 flex-shrink-0 pt-1">
+<span class="font-label-md text-label-md text-primary font-bold">09:00</span>
+<span class="font-label-sm text-[10px] text-outline block">AM</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant mt-3 block">2.5 hrs</span>
+</div>
+<!-- Draggable Card: Booked Standard Clean -->
+<div class="flex-1 bg-surface-container-low rounded-xl p-3 shadow-sm hover:shadow-md transition-all relative overflow-hidden group" draggable="true" id="jobCard1">
+<!-- Left emerald accent bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-title-md text-title-md text-on-surface font-bold truncate">Highland Park Villa</span>
+<span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded-full font-bold">Confirmed</span>
+<span class="font-label-sm text-[10px] bg-primary text-on-primary px-1.5 py-0.5 rounded-full font-bold">DuBois, PA</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">cleaning_services</span>
+                Standard Clean • 3 Bed / 2 Bath
+              </p>
+</div>
+<!-- Grab Handle -->
+<button aria-label="Drag Handle" class="w-7 h-7 rounded-lg bg-surface-container-high/60 flex items-center justify-center text-on-surface-variant cursor-grab active:cursor-grabbing hover:bg-secondary-container hover:text-primary transition-all flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</button>
+</div>
+<!-- Micro-details strip -->
+<div class="mt-2.5 pt-2 pl-1 flex items-center justify-between bg-surface-container-lowest/80 rounded-lg p-2"><div class="flex flex-col gap-1.5 w-full"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="flex items-center gap-1 font-label-sm text-[11px] text-on-surface-variant"><span class="material-symbols-outlined text-[13px] text-outline">key</span> Lockbox: #4812</span><span class="flex items-center gap-1 font-label-sm text-[11px] text-on-surface-variant"><span class="material-symbols-outlined text-[13px] text-outline">pets</span> 1 Golden Retriever</span></div><div class="text-right"><span class="font-title-md text-title-md font-bold text-primary">$87.50 Pro Payout</span><span class="font-label-sm text-[10px] text-outline block leading-none">$62.50 base + $25 add-on</span></div></div><div class="flex items-center justify-between pt-1 border-t border-secondary-container/60 bg-secondary-container/30 px-2 py-1 rounded"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px] text-primary">kitchen</span><span class="font-label-sm text-[11px] text-on-surface font-medium">Add-on: Deep Fridge &amp; Oven</span></div><span class="font-label-sm text-[10px] bg-primary text-on-primary px-1.5 py-0.5 rounded font-bold">Your 50% Share: +$25.00</span></div></div></div>
+<!-- Drag Snap Indicator Visual -->
+<div class="mt-1.5 flex items-center justify-between text-outline text-[10px] font-label-sm pl-1">
+<span class="">09:00 AM – 11:30 AM</span>
+<span class="text-primary font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">navigation</span> 12m travel (+$4.00 transit pay)</span>
+</div>
+</div>
+</div>
+<!-- Travel Buffer Indicator -->
+<div class="relative flex items-center gap-3 py-1 text-on-surface-variant/70"><div class="w-14 flex-shrink-0 text-right pr-2"><span class="material-symbols-outlined text-[14px] text-primary">arrow_downward</span></div><div class="flex-1 flex items-center justify-between py-1.5 px-3 rounded-lg bg-secondary-container/60 border border-secondary-container"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-primary">commute</span><span class="font-label-md text-label-md font-semibold text-primary">Mandatory 30m Transit &amp; Sanitize Buffer</span></div><span class="font-label-sm text-[10px] bg-primary text-on-primary px-2 py-0.5 rounded font-bold">+$4.00 Transit Pay</span></div></div>
+<!-- 12:00 PM - 01:00 PM Slot (Personal Break / School Run Block) -->
+<div class="relative flex items-start gap-3 py-2">
+<div class="w-14 flex-shrink-0 pt-1">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">12:00</span>
+<span class="font-label-sm text-[10px] text-outline block">PM</span>
+</div>
+<div class="flex-1 bg-surface-container-high rounded-xl p-3 relative overflow-hidden group">
+<!-- Diagonal Mint Calming Pattern / Indicator -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">coffee</span>
+</div>
+<div>
+<span class="font-title-md text-title-md text-on-surface block font-semibold">Lunch &amp; Personal Errands</span>
+<span class="font-label-sm text-[11px] text-outline">Blocked (Non-Bookable) • 60 mins</span>
+</div>
+</div>
+<!-- Grab Handle -->
+<button aria-label="Drag Break" class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant cursor-grab hover:bg-surface-container-highest transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 01:30 PM Drop Zone & Active Dragging Target Illustration -->
+<!-- 03:30 PM - 04:00 PM Mandatory 30m Buffer --><div class="relative flex items-center gap-3 py-1 text-on-surface-variant/70"><div class="w-14 flex-shrink-0 text-right pr-2"><span class="material-symbols-outlined text-[14px] text-primary">arrow_downward</span></div><div class="flex-1 flex items-center justify-between py-1.5 px-3 rounded-lg bg-secondary-container/60 border border-secondary-container"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div><div class="flex items-start justify-between pl-1"><div><div class="flex items-center gap-1.5 flex-wrap"><span class="font-title-md text-title-md text-on-surface font-bold">Open for Auto-Dispatch</span><span class="font-label-sm text-[10px] bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.5 rounded font-bold">Standard: Ready</span><span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded font-bold">Optional Rush: Enabled</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Instant booking enabled for verified clients • On-Demand optional</p></div><div class="flex items-center gap-1"><button aria-label="Resize Duration" class="w-7 h-7 rounded-lg bg-surface-container-high/60 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" type="button"><span class="material-symbols-outlined text-[16px]">height</span></button><button aria-label="Drag Block" class="w-7 h-7 rounded-lg bg-surface-container-high/60 flex items-center justify-center text-on-surface-variant cursor-grab hover:text-primary transition-all" type="button"><span class="material-symbols-outlined text-[18px]">drag_indicator</span></button></div></div><div class="mt-2.5 pt-2 pl-1 flex items-center justify-between text-outline text-[11px] font-label-sm"><div class="flex flex-col"><span class="text-on-surface font-semibold">Your Payout: $29.00 est. ($25/hr + $4 drive)</span><span class="text-primary font-bold">+ $12.50 Rush Pay bonus if on-demand booked ($41.50 total)</span></div><span class="font-title-md text-title-md font-bold text-secondary">$29.00 est.</span></div></div></div><!-- 04:00 PM - 05:00 PM Slot (Auto-Dispatch Window Shifted by 30m Buffer) --><div class="relative flex items-start gap-3 py-2"><div class="w-14 flex-shrink-0 pt-1"><span class="font-label-md text-label-md text-primary font-bold">04:00</span><span class="font-label-sm text-[10px] text-outline block">PM</span><span class="font-label-sm text-[10px] text-on-surface-variant mt-3 block">1.0 hr</span></div><div class="flex-1 bg-surface-container-low rounded-xl p-3 relative overflow-hidden group"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div><div class="flex items-start justify-between pl-1"><div><div class="flex items-center gap-1.5 flex-wrap"><span class="font-title-md text-title-md text-on-surface font-bold">Open for Auto-Dispatch (1.5h)</span><span class="font-label-sm text-[10px] bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.5 rounded font-bold">Ready</span><span class="font-label-sm text-[10px] bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-semibold">On-Demand: 100% Optional</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Instant booking • Cleaner payout guaranteed on schedule</p></div><div class="flex items-center gap-1"><button aria-label="Resize Duration" class="w-7 h-7 rounded-lg bg-surface-container-high/60 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" type="button"><span class="material-symbols-outlined text-[16px]">height</span></button><button aria-label="Drag Block" class="w-7 h-7 rounded-lg bg-surface-container-high/60 flex items-center justify-center text-on-surface-variant cursor-grab hover:text-primary transition-all" type="button"><span class="material-symbols-outlined text-[18px]">drag_indicator</span></button></div></div><div class="mt-2.5 pt-2 pl-1 flex items-center justify-between text-outline text-[11px] font-label-sm"><div class="flex flex-col"><span class="text-on-surface font-semibold">Your Payout: $41.50 est. ($37.50 base + $4 drive)</span><span class="text-primary font-bold">If claimed as On-Demand: +$12.50 Rush Pay ($54.00 total)</span></div><span class="font-title-md text-title-md font-bold text-secondary">$41.50 est.</span></div></div></div>
+<!-- 03:30 PM - 05:00 PM Slot (Open for Auto-Dispatch Window) -->
+<div class="relative flex items-start gap-3 py-2">
+<div class="w-14 flex-shrink-0 pt-1">
+<span class="font-label-md text-label-md text-primary font-bold">03:30</span>
+<span class="font-label-sm text-[10px] text-outline block">PM</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant mt-3 block">1.5 hrs</span>
+</div>
+<div class="flex-1 bg-surface-container-low rounded-xl p-3 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between pl-1">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold">Open for Auto-Dispatch</span>
+<span class="font-label-sm text-[10px] bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.5 rounded font-bold">Ready</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Instant booking enabled for verified clients</p>
+</div>
+<!-- Resize & Grab handles -->
+<div class="flex items-center gap-1">
+<button aria-label="Resize Duration" class="w-7 h-7 rounded-lg bg-surface-container-high/60 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">height</span>
+</button>
+<button aria-label="Drag Block" class="w-7 h-7 rounded-lg bg-surface-container-high/60 flex items-center justify-center text-on-surface-variant cursor-grab hover:text-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">drag_indicator</span>
+</button>
+</div>
+</div>
+<div class="mt-2.5 pt-2 pl-1 flex items-center justify-between text-outline text-[11px] font-label-sm"><span class="">Rate: $25.00/hr (+$4 transit pay)</span><span class="font-title-md text-title-md font-bold text-secondary">$37.50 est.</span></div>
+</div>
+</div>
+<!-- 05:00 PM Hard Stop Guard Rail -->
+<div class="relative flex items-center gap-3 py-2 text-on-surface-variant">
+<div class="w-14 flex-shrink-0 text-right pr-2">
+<span class="font-label-md text-label-md text-error font-bold">05:00</span>
+<span class="font-label-sm text-[10px] text-error block">PM</span>
+</div>
+<div class="flex-1 bg-surface-container py-1.5 px-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-error">nightlife</span>
+<span class="font-label-md text-label-md font-bold">Evening Hard Stop</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant">No bookings after 5 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Route Optimization & Travel Buffer Settings Module -->
+<section class="px-margin pt-space-md flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span><h2 class="font-title-md text-title-md text-on-surface">Unassigned Staging Tray</h2></div><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-bold">4 items</span></div><div class="flex items-center justify-between bg-surface-container-low p-2.5 rounded-xl"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">bolt</span><div class="flex flex-col"><span class="font-label-md text-label-md font-semibold text-on-surface">Accept On-Demand Shifts</span><span class="font-label-sm text-[10px] text-on-surface-variant">Earn +$12.50 rush pay bonus (50% of fee) • Strictly optional</span></div></div><label class="relative inline-flex items-center cursor-pointer select-none"><input checked="" class="sr-only peer" type="checkbox"><div class="w-10 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary peer-checked:after:translate-x-4 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all shadow-inner"></div><span class="ml-2 font-label-sm text-[11px] font-bold text-primary">ON (Optional)</span></label></div><p class="font-body-sm text-body-sm text-on-surface-variant">Hold and drag any card directly up onto an empty time slot above (all values show your Cleaner Take-Home Payout):</p><div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true"><div class="flex items-center gap-2.5 min-w-0"><div class="w-8 h-8 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[18px]">more_time</span></div><div class="min-w-0"><div class="flex items-center gap-1.5"><span class="font-title-md text-title-md text-on-surface truncate">Custom Available Window</span><span class="font-label-sm text-[10px] bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.2 rounded font-bold">2.0 hrs</span><span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded font-bold">Earn $54 Pro Payout</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">$25/h + $4 drive • Auto-accepts standard cleans</p></div></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span></div></div><div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true"><div class="flex items-center gap-2.5 min-w-0"><div class="w-8 h-8 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[18px]">bolt</span></div><div class="min-w-0"><div class="flex items-center gap-1.5 flex-wrap"><span class="font-title-md text-title-md text-on-surface truncate">On-Demand Quick Clean (Optional)</span><span class="font-label-sm text-[10px] bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.2 rounded font-bold">1.0 hr</span><span class="font-label-sm text-[10px] bg-primary text-on-primary px-1.5 py-0.2 rounded font-bold">Earn $41.50 Pro Payout</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">$25 base + $4 drive + $12.50 rush pay • 100% Optional</p></div></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span></div></div><div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true"><div class="flex items-center gap-2.5 min-w-0"><div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[18px]">cleaning_services</span></div><div class="min-w-0"><div class="flex items-center gap-1.5"><span class="font-title-md text-title-md text-on-surface truncate">Deep Clean • Maplewood</span><span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded font-bold">Earn $66.50 Pro Payout</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">Est. 2.5 hrs ($62.50 clean + $4 drive)</p></div></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span></div></div><div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true"><div class="flex items-center gap-2.5 min-w-0"><div class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-[18px]">bedtime</span></div><div class="min-w-0"><div class="flex items-center gap-1.5"><span class="font-title-md text-title-md text-on-surface truncate">Quick Errand / Rest Break</span><span class="font-label-sm text-[10px] bg-surface-container-highest text-on-surface-variant px-1.5 py-0.2 rounded font-bold">45 min</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">Supplies restock or personal downtime</p></div></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span></div></div><div class="pt-1 flex flex-wrap gap-1.5"><button class="py-1 px-2.5 rounded-full bg-surface-container-low text-primary hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">add</span> + 1hr Clean (Earn $29 Pro Payout)</button><button class="py-1 px-2.5 rounded-full bg-surface-container-low text-primary hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">kitchen</span> + Refrigerator Add-on (Earn $25.00 - 50% share)</button><button class="py-1 px-2.5 rounded-full bg-secondary-container text-primary hover:bg-surface-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">bolt</span> + On-Demand Rush (+$12.50 Bonus - Optional)</button><button class="py-1 px-2.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">school</span> School Block (9:30-1:30)</button><button class="py-1 px-2.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">bedtime</span> Evening Buffer</button></div></div>
+<div class="mt-1 flex flex-col gap-1"><span class="font-label-sm text-[11px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">pin_drop</span>Working Territories:</span><div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none"><span class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-primary text-on-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[13px]">check</span>DuBois, PA (Primary)</span><span class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-primary text-on-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[13px]">check</span>Punxsutawney, PA</span><button type="button" class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 transition-colors"><span class="material-symbols-outlined text-[13px]">add</span>Brookville, PA</button><button type="button" class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 transition-colors"><span class="material-symbols-outlined text-[13px]">add</span>Reynoldsville, PA</button></div></div></section>
+<!-- Drag & Drop Staging Dock / Unassigned Jobs Tray -->
+<section class="px-margin pt-space-md pb-space-lg flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+<h2 class="font-title-md text-title-md text-on-surface">Unassigned Staging Tray</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-bold">4 items</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Hold and drag any card directly up onto an empty time slot above:
+      </p>
+<!-- Draggable Item 1: Open Availability Block -->
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[18px]">more_time</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate">Custom Available Window</span>
+<span class="font-label-sm text-[10px] bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.2 rounded font-bold">2.0 hrs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Auto-accepts standard cleans</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span>
+</div>
+</div><div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true"><div class="flex items-center gap-2.5 min-w-0"><div class="w-8 h-8 rounded-lg bg-primary-fixed/40 text-primary flex items-center justify-center flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[18px]">flash_on</span></div><div class="min-w-0"><div class="flex items-center gap-1.5"><span class="font-title-md text-title-md text-on-surface truncate">1hr Quick Clean • Touch-Up</span><span class="font-label-sm text-[10px] bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.2 rounded font-bold">1.0 hr</span><span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded font-bold">$60</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">Express touch-up &amp; surface sanitize • Rapid turnaround</p></div></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span></div></div>
+<!-- Draggable Item 2: Dispatch Pending Job Request -->
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-[18px]">arrow_back_ios_new</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate">Deep Clean • Maplewood</span>
+<span class="font-label-sm text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded font-bold">$125</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Est. 2.5 hrs • Move-Out spec</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span>
+</div>
+</div>
+<!-- Draggable Item 3: Personal Errand -->
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between cursor-grab active:cursor-grabbing hover:bg-surface-container transition-all shadow-sm" draggable="true">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">bedtime</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate">Quick Errand / Rest Break</span>
+<span class="font-label-sm text-[10px] bg-surface-container-highest text-on-surface-variant px-1.5 py-0.2 rounded font-bold">45 min</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Supplies restock or school pick-up</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">drag_indicator</span>
+</div>
+</div>
+<!-- Quick Preset Addition Chips -->
+<div class="pt-1 flex flex-wrap gap-1.5"><button class="py-1 px-2.5 rounded-full bg-surface-container-low text-primary hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">add</span> + 1hr Quick Clean ($60)</button>
+<button class="py-1 px-2.5 rounded-full bg-surface-container-low text-primary hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span> + 2hr Open Slot
+        </button>
+<button class="py-1 px-2.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">school</span> School Block (9:30-1:30)
+        </button>
+<button class="py-1 px-2.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-secondary-container text-label-md font-label-md transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">bedtime</span> Evening Buffer
+        </button>
+</div>
+</div>
+<div class="mt-1 flex flex-col gap-1"><span class="font-label-sm text-[11px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">pin_drop</span>Working Territories:</span><div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none"><span class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-primary text-on-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[13px]">check</span>DuBois, PA (Primary)</span><span class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-primary text-on-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 shadow-xs"><span class="material-symbols-outlined text-[13px]">check</span>Punxsutawney, PA</span><button type="button" class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 transition-colors"><span class="material-symbols-outlined text-[13px]">add</span>Brookville, PA</button><button type="button" class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-primary px-2.5 py-1 rounded-full font-semibold flex-shrink-0 transition-colors"><span class="material-symbols-outlined text-[13px]">add</span>Reynoldsville, PA</button></div></div></section>
+<!-- Pro Care & Safety Guarantee Seal -->
+<section class="px-margin pb-space-xl flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[22px]">health_and_safety</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">HousekeeperBooking Dispatch Standards</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mt-1">
+      Your schedule enforces our safe transit guarantee. Need custom coverage or dispatch help? Direct line: <strong class="text-primary">(814) 952-1964</strong>.
+    </p>
+</section>
+<!-- Client-side Micro-interactions for Drag, Drop and Schedule Optimizations -->
+<script>
+    function simulateDrop(slotTime) {
+      const notification = document.createElement('div');
+      notification.className = "fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-primary text-on-primary px-4 py-2 rounded-full font-label-md text-label-md shadow-xl flex items-center gap-2 animate-bounce";
+      notification.innerHTML = '<span class="material-symbols-outlined text-[16px]">check_circle</span> Added 2hr slot at ' + slotTime;
+      document.body.appendChild(notification);
+      setTimeout(() => notification.remove(), 2500);
+    }
+
+    function triggerAutoOptimize() {
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">sync</span> Optimizing...';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">done_all</span> Routes Optimized!';
+        btn.classList.add('bg-secondary');
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          btn.classList.remove('bg-secondary');
+        }, 2200);
+      }, 1000);
+    }
+
+    // Global save handler referenced in shell
+    window.saveScheduleConfirmation = function() {
+      const banner = document.createElement('div');
+      banner.className = "fixed bottom-28 left-4 right-4 z-50 bg-primary text-on-primary p-4 rounded-xl shadow-2xl flex items-center justify-between";
+      banner.innerHTML = `
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[24px]">verified</span>
+          <div>
+            <div class="font-title-md text-title-md font-bold">Schedule Published!</div>
+            <div class="font-body-sm text-body-sm opacity-90">Auto-dispatch activated for 5.5 hours.</div>
+          </div>
+        </div>
+        <button onclick="this.parentElement.remove()" class="w-8 h-8 rounded-full bg-surface-container-lowest/20 flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      `;
+      document.body.appendChild(banner);
+      setTimeout(() => { if (banner.parentElement) banner.remove(); }, 4000);
+    };
+  </script>
+</div></main><aside class="fixed bottom-16 inset-x-0 z-40 px-margin pointer-events-none pb-2"><div class="max-w-md mx-auto pointer-events-auto flex items-center gap-space-sm bg-surface-container-lowest/95 backdrop-blur-xl p-2 rounded-xl shadow-[0_8px_24px_-4px_rgba(8,110,94,0.12),0_4px_12px_-2px_rgba(47,62,70,0.06)]"><a class="flex-1 flex items-center justify-center gap-1.5 h-11 px-3 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container active:scale-98 transition-all min-h-[44px]" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">phone_in_talk</span><span class="font-label-md text-label-md truncate">Dispatch (814) 952-1964</span></a><button class="flex-1 flex items-center justify-center gap-1.5 h-11 px-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary active:scale-98 transition-all min-h-[44px] cursor-pointer" onclick="saveScheduleConfirmation()" type="button"><span class="material-symbols-outlined text-[18px]">event_available</span><span class="font-label-lg text-label-lg font-bold">Save Schedule</span></button></div></aside><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(47,62,70,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="housekeeperbooking-com-home-gallery" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-sm text-[10px]">Home</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="manage-bookings-account" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span class="font-label-sm text-[10px]">Bookings</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-primary font-bold transition-colors hover:text-on-surface" data-path="employee-housekeeper-panel" href="#"><span class="material-symbols-outlined text-[20px]">more_time</span><span class="font-label-sm text-[10px]">My Schedule</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="admin-management-portal" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="font-label-sm text-[10px]">Admin</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="customer-login" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="font-label-sm text-[10px]">Portal Login</span></a></div></nav>
+
+</body></html>

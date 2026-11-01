@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary":"#ffffff","tertiary":"#3d4c54","on-secondary":"#ffffff","tertiary-container":"#54646c","inverse-primary":"#83d6c2","secondary-container":"#c2e9c9","surface-container-high":"#e7e8e6","on-error-container":"#93000a","on-secondary-fixed-variant":"#2c4e36","background":"#f9faf8","surface-container-highest":"#e1e3e1","primary-fixed-dim":"#83d6c2","on-error":"#ffffff","tertiary-fixed":"#d5e5ef","surface-tint":"#006b5b","surface-dim":"#d9dad8","on-tertiary-fixed-variant":"#3a4951","on-secondary-fixed":"#00210e","on-surface-variant":"#3e4946","on-background":"#191c1b","surface-bright":"#f9faf8","on-primary-fixed":"#00201a","primary":"#005447","on-surface":"#191c1b","on-tertiary":"#ffffff","surface-container":"#edeeec","primary-container":"#086e5e","on-primary-fixed-variant":"#005144","tertiary-fixed-dim":"#b9c9d3","outline":"#6e7976","on-tertiary-container":"#d0e0ea","secondary-fixed":"#c5eccc","inverse-surface":"#2e3130","secondary":"#43664d","primary-fixed":"#9ff2de","inverse-on-surface":"#f0f1ef","error-container":"#ffdad6","on-primary-container":"#99edd9","secondary-fixed-dim":"#aad0b1","surface":"#f9faf8","surface-variant":"#e1e3e1","error":"#ba1a1a","on-secondary-container":"#486a51","surface-container-low":"#f3f4f2","on-tertiary-fixed":"#0e1d25","surface-container-lowest":"#ffffff","outline-variant":"#bec9c4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-2xl":"4rem","gutter-sm":"1rem","margin":"1.25rem","gutter-lg":"2rem","margin-md":"2.5rem","space-sm":"0.5rem","space-lg":"1.5rem","space-md":"1rem","gutter":"1.5rem","margin-lg":"4rem","space-xl":"2.5rem","space-xs":"0.25rem"},"fontFamily":{"label-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"]},"fontSize":{"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"600"}],"title-lg":["18px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-background selection:bg-secondary-container selection:text-on-secondary-fixed"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-[0_2px_8px_rgba(8,110,94,0.18)]"><span class="material-symbols-outlined text-[20px]">cleaning_services</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight leading-tight">Housekeeper</span><span class="font-label-sm text-label-sm text-outline tracking-wider uppercase leading-none">Booking Admin</span></div></div><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-fixed-variant">PRO</span></div><div class="overflow-y-auto flex-1 px-space-sm py-space-sm space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">Operations</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="command-overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Command Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multi-pro-crew-dispatch" href="#"><span class="material-symbols-outlined text-[20px]">local_shipping</span><span>Multi-Pro &amp; Crew Dispatch</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="all-employees-master-schedule" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Master Schedule</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="live-field-stream" href="#"><span class="material-symbols-outlined text-[20px]">sensors</span><span>Live Field Stream</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">CRM &amp; Growth</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="customer-directory-accounts" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Customer Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="twilio-campaign-hub" href="#"><span class="material-symbols-outlined text-[20px]">sms</span><span>Twilio Campaign Hub</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="web-campaign-traffic" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Web &amp; Traffic</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="master-stats-hub" href="#"><span class="material-symbols-outlined text-[20px]">monitoring</span><span>Master Stats Hub</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">HR &amp; Rewards</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="lottery-rewards-engine" href="#"><span class="material-symbols-outlined text-[20px]">military_tech</span><span>Lottery &amp; Rewards</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="recruit-onboarding" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Recruit &amp; Onboarding</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="tax-withholding-tracker" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Tax &amp; Withholding</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm pt-space-xs font-label-sm text-label-sm uppercase text-outline tracking-wider">Configuration</div><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_4px_12px_rgba(8,110,94,0.15)]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="services-packages" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span>Services &amp; Packages</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="territory-buffers" href="#"><span class="material-symbols-outlined text-[20px]">share_location</span><span>Territory &amp; Buffers</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="navigation-hub-directory" href="#"><span class="material-symbols-outlined text-[20px]">folder_managed</span><span>Nav Hub Directory</span></a></nav></div></div></div><div class="p-space-sm bg-surface-container-low"><div class="p-space-sm bg-surface-container-lowest rounded-xl flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary-container flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span></span><span class="font-label-sm text-label-sm text-secondary font-semibold">Dispatch Core Online</span></div><span class="font-label-sm text-label-sm text-outline">v3.4.1</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined text-outline absolute left-3 top-1/2 -translate-y-1/2 text-[18px]">search</span><input class="w-full h-10 pl-9 pr-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search jobs, technicians, bookings (#HB-)..." type="search"/></div><a class="hidden xl:flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md shadow-[0_2px_8px_rgba(8,110,94,0.06)] hover:bg-primary hover:text-on-primary transition-colors" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">call</span><span>(814) 952-1964</span></a></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span>Live Feed Active</span></div><button class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><button class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help</span></button><div class="h-6 w-[1px] bg-outline-variant/40 mx-space-xs"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Admin HQ</span><span class="font-label-sm text-label-sm text-outline leading-none">Dispatch Ops</span></div></div></div></header><main class="w-full pt-16 bg-background min-h-screen px-space-lg py-space-lg"><div class="flex flex-col w-full space-y-space-xl">
+<!-- Top Hero Bar / Identity Status -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-primary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md relative z-10">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+            1099-NEC Independent Pro
+          </span>
+<span class="font-label-sm text-label-sm text-outline">IRS Schedule C Compliance Engine</span>
+</div>
+<div class="flex items-baseline gap-space-sm flex-wrap">
+<span class="font-headline-md text-headline-md text-on-background">Contractor Tax Center &amp; Vault</span>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">FY2025</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+          Real-time reserve balancing, IRS standard mileage tracking ($0.67/mi), and verified supply expense logs for autonomous housecleaning pros across PA District 09.
+        </p>
+</div>
+<!-- Quick Action / Support Contact Cluster -->
+<div class="flex flex-wrap items-center gap-space-sm shrink-0">
+<div class="hidden sm:flex flex-col items-end px-space-sm text-right">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Bookkeeping Desk</span>
+<a class="font-title-md text-title-md text-primary font-bold hover:underline flex items-center gap-1" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+            (814) 952-1964
+          </a>
+</div>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-space-xs shadow-sm" id="btn-open-trip">
+<span class="material-symbols-outlined text-[18px] text-primary">add_road</span>
+<span>+ Log Trip</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-space-xs shadow-sm" id="btn-open-receipt">
+<span class="material-symbols-outlined text-[18px] text-primary">receipt_long</span>
+<span>+ Upload Supply Receipt</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all shadow-[0_4px_14px_rgba(8,110,94,0.18)] flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+<span>Transfer to Tax Vault</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bento Metrology: 4 Primary Metrics -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Estimated 1099 Liability -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Est. 1099 Tax Liability</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="metric-liability">$0.00</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary-container inline-block"></span>
+<span>Effective rate: <strong>15.3% SE + Est. State</strong></span>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-0 rounded-full transition-all duration-500"></div>
+</div>
+</div>
+<!-- Card 2: Gross Business Billings -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Gross Business Billings</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="metric-gross">$0.00</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+<span>Zero unauthorized wage leaks</span>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-0 rounded-full"></div>
+</div>
+</div>
+<!-- Card 3: Verified Write-Offs -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Verified Write-Offs</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">price_check</span>
+</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="metric-writeoffs">$0.00</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-label-sm text-label-sm text-outline">0 mi log • 0 receipts verified</span>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-0 rounded-full"></div>
+</div>
+</div>
+<!-- Card 4: Recommended Reserve Vault -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Tax Vault Reserve</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-bold">0% Funded</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="metric-vault">$0.00</span>
+<span class="font-body-sm text-body-sm text-outline">/ target $0.00</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">savings</span>
+<span>FDIC-Insured Sub-Vault</span>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline w-0 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Middle Grid: Split Deadlines Table & Territory Buffer Map/Context -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Quarterly Tax Deadlines Schedule Table (7 cols) -->
+<div class="lg:col-span-7 flex flex-col rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-md">
+<div class="space-y-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_today</span>
+<span class="font-title-lg text-title-lg text-on-surface font-semibold">Quarterly Estimated Tax Schedule</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">IRS 1040-ES &amp; Pennsylvania Rev-414 filing timeline</p>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-mono">
+          Standard Cycle
+        </span>
+</div>
+<div class="overflow-x-auto -mx-space-lg px-space-lg">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l-lg">Quarter Period</th>
+<th class="py-space-sm px-space-md">Earnings Range</th>
+<th class="py-space-sm px-space-md">Due Date</th>
+<th class="py-space-sm px-space-md">Withholding Safe Harbor</th>
+<th class="py-space-sm px-space-md rounded-r-lg text-right">Filing Status</th>
+</tr>
+</thead>
+<tbody class="text-on-surface">
+<!-- Q1 Row (Active Upcoming) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-title-md text-title-md font-semibold text-primary">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+                  Q1
+                </div>
+</td>
+<td class="py-space-md px-space-md font-mono text-outline">Jan 01 – Mar 31</td>
+<td class="py-space-md px-space-md font-semibold text-on-surface">April 15, 2025</td>
+<td class="py-space-md px-space-md">
+<span class="font-mono text-on-surface-variant">$0.00</span>
+<span class="text-outline text-label-sm block">100% PY target</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                  Current Filing Target
+                </span>
+</td>
+</tr>
+<!-- Q2 Row -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-title-md text-title-md font-semibold text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-container-highest"></span>
+                  Q2
+                </div>
+</td>
+<td class="py-space-md px-space-md font-mono text-outline">Apr 01 – May 31</td>
+<td class="py-space-md px-space-md text-on-surface-variant">June 15, 2025</td>
+<td class="py-space-md px-space-md">
+<span class="font-mono text-outline">$0.00</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-outline font-label-sm text-label-sm">
+                  Scheduled
+                </span>
+</td>
+</tr>
+<!-- Q3 Row -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-title-md text-title-md font-semibold text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-container-highest"></span>
+                  Q3
+                </div>
+</td>
+<td class="py-space-md px-space-md font-mono text-outline">Jun 01 – Aug 31</td>
+<td class="py-space-md px-space-md text-on-surface-variant">September 15, 2025</td>
+<td class="py-space-md px-space-md">
+<span class="font-mono text-outline">$0.00</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-outline font-label-sm text-label-sm">
+                  Scheduled
+                </span>
+</td>
+</tr>
+<!-- Q4 Row -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs font-title-md text-title-md font-semibold text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-container-highest"></span>
+                  Q4
+                </div>
+</td>
+<td class="py-space-md px-space-md font-mono text-outline">Sep 01 – Dec 31</td>
+<td class="py-space-md px-space-md text-on-surface-variant">January 15, 2026</td>
+<td class="py-space-md px-space-md">
+<span class="font-mono text-outline">$0.00</span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-outline font-label-sm text-label-sm">
+                  Scheduled
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Compliance Callout Footer -->
+<div class="mt-auto pt-space-md flex items-center justify-between bg-surface-container-low p-space-sm rounded-lg text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">security</span>
+<span class="font-body-sm text-body-sm">Zero wage withholding leakage protection active. Auto-withheld at bill settlement.</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">IRS Rev Proc 2024-40</span>
+</div>
+</div>
+<!-- Right Side: Tri-County Service Territory Mileage Calculation Engine (5 cols) -->
+<div class="lg:col-span-5 flex flex-col rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-title-lg text-title-lg text-on-surface font-semibold">Standard Mileage Rate Engine</span>
+<p class="font-body-sm text-body-sm text-outline">PA District Route Corridor</p>
+</div>
+<div class="px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-bold">
+          $0.67 / mi
+        </div>
+</div>
+<!-- Territory Route Map Block with data-location -->
+<div class="w-full h-44 rounded-xl bg-surface-container-low relative overflow-hidden bg-cover bg-center shadow-inner flex flex-col justify-end p-space-sm" data-location="DuBois, Brookville, Punxsutawney, Reynoldsville, PA" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqTHJO7csFn1w1QJVUQruojc9YU8xx7sC8TMPp4f01LEPT2aeUbHuQPbJbb_ayMOgLi7jxiTJ_AImsFIQcFdyB1FFqjZsNF7zjfmPHkq-s1L1uAJsxtCJQtOYKpVj-TOenCNPiv27MLeI-qxr__oEKMiSaAlyNJI0MajtDm_eJSpL4tunnkEzTum1XuCgCBIxZuWiLsKCvw7ah1NRVFBYle-2hwqeRdJmQ4dKVJzjyripcs9yyN15Z')">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/20 to-transparent"></div>
+<div class="relative z-10 flex items-center justify-between text-on-primary">
+<div>
+<div class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed">Dispatch Buffer Zone</div>
+<div class="font-title-md text-title-md font-semibold">DuBois • Brookville • Punxsy • Reynoldsville</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/20 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-mono">
+            4 Corridors
+          </span>
+</div>
+</div>
+<!-- Corridor Quick Estimator Table -->
+<div class="space-y-space-xs font-body-sm text-body-sm">
+<div class="flex items-center justify-between py-1.5 px-space-sm rounded bg-surface-container-low">
+<span class="text-on-surface font-medium">DuBois HQ ↔ Brookville Service Loop</span>
+<span class="font-mono text-primary font-semibold">18.4 mi (~$12.33 write-off)</span>
+</div>
+<div class="flex items-center justify-between py-1.5 px-space-sm rounded bg-surface-container-low">
+<span class="text-on-surface font-medium">DuBois HQ ↔ Punxsutawney Hub</span>
+<span class="font-mono text-primary font-semibold">20.2 mi (~$13.53 write-off)</span>
+</div>
+<div class="flex items-center justify-between py-1.5 px-space-sm rounded bg-surface-container-low">
+<span class="text-on-surface font-medium">Reynoldsville Transit &amp; Turn</span>
+<span class="font-mono text-primary font-semibold">8.1 mi (~$5.43 write-off)</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container text-on-surface-variant flex items-start gap-space-xs text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary shrink-0 mt-0.5">info</span>
+<span>Every dispatch job assigned via the core terminal calculates return travel automatically upon GPS job clearance.</span>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Deductions & Mileage Ledger Table with Pure Zero State -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<!-- Ledger Header with Search and Filter Tools -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="space-y-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">receipt</span>
+<span class="font-title-lg text-title-lg text-on-surface font-semibold">Deductions &amp; Mileage Ledger</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-outline font-mono">0 Entries</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">IRS-audit ready audit trail with GPS address timestamps and OCR receipt slips</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="relative">
+<span class="material-symbols-outlined text-outline absolute left-2.5 top-1/2 -translate-y-1/2 text-[16px]">filter_list</span>
+<select class="h-9 pl-8 pr-6 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none cursor-pointer">
+<option>All Trips &amp; Write-offs</option>
+<option>Mileage Only</option>
+<option>Cleaning Supplies (Eco-friendly)</option>
+<option>Equipment &amp; Vacuums</option>
+</select>
+</div>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export 1040-ES</span>
+</button>
+</div>
+</div>
+<!-- Production Table Header Structure -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l-lg">Date Logged</th>
+<th class="py-space-sm px-space-md">Trip / Deduction Purpose</th>
+<th class="py-space-sm px-space-md">Start &amp; End Address</th>
+<th class="py-space-sm px-space-md">Distance / Calculation</th>
+<th class="py-space-sm px-space-md">Total Deductible</th>
+<th class="py-space-sm px-space-md">Receipt File</th>
+<th class="py-space-sm px-space-md rounded-r-lg text-right">IRS Status</th>
+</tr>
+</thead>
+<tbody id="deductions-table-body">
+<!-- Handled via script / zero-state fallback -->
+</tbody>
+</table>
+</div>
+<!-- Dynamic Zero State Presentation -->
+<div class="py-space-2xl px-space-lg flex flex-col items-center justify-center text-center bg-surface-container-low/40 rounded-xl space-y-space-md" id="zero-state-container">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[32px] text-tertiary">inventory_2</span>
+</div>
+<div class="space-y-space-xs max-w-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">0 Deductions or Mileage Logged</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Use <strong class="text-primary">+ Log Trip</strong> or <strong class="text-primary">+ Upload Supply Receipt</strong> to record tax write-offs for 1099 filings. Dispatch bookkeeping desk is standing by for phone logs at 
+          <a class="text-primary underline font-semibold" href="tel:8149521964">(814) 952-1964</a>. No unauthorized wage leaks.
+        </p>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-space-sm pt-space-xs">
+<button class="px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all shadow-[0_2px_8px_rgba(8,110,94,0.15)] flex items-center gap-space-xs" id="zero-btn-trip">
+<span class="material-symbols-outlined text-[18px]">add_road</span>
+<span>+ Log Trip (DuBois, Brookville, Punxsy, Reynoldsville)</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors shadow-sm flex items-center gap-space-xs" id="zero-btn-receipt">
+<span class="material-symbols-outlined text-[18px] text-primary">cloud_upload</span>
+<span>+ Upload Supply Receipt</span>
+</button>
+</div>
+<!-- Trust Assurance Badges in Zero State -->
+<div class="pt-space-md flex flex-wrap items-center justify-center gap-space-md font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+          Strict Rev. Proc. 2024-40 Compliant
+        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+          GPS Verified PA Travel Records
+        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+          Zero Unauthorized Wage Leaks
+        </span>
+</div>
+</div>
+</div>
+<!-- Interactive Modal / Slide-Over for Logging Trips -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden flex items-center justify-center p-space-md" id="modal-trip">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">add_road</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Record Travel Mileage</span>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" id="modal-trip-close">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="p-space-lg space-y-space-md" id="form-log-trip">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Trip Purpose</label>
+<input class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="trip-purpose" placeholder="e.g. Standard Deep Clean Residence Service" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Origin Town</label>
+<select class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="trip-origin">
+<option value="DuBois, PA">DuBois, PA</option>
+<option value="Brookville, PA">Brookville, PA</option>
+<option value="Punxsutawney, PA">Punxsutawney, PA</option>
+<option value="Reynoldsville, PA">Reynoldsville, PA</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Destination</label>
+<select class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="trip-dest">
+<option value="Brookville, PA">Brookville, PA (18.4 mi)</option>
+<option value="Punxsutawney, PA">Punxsutawney, PA (20.2 mi)</option>
+<option value="Reynoldsville, PA">Reynoldsville, PA (8.1 mi)</option>
+<option value="DuBois, PA">DuBois, PA (Return)</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Distance (Miles)</label>
+<input class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface font-mono focus:outline-none focus:ring-2 focus:ring-primary-container" id="trip-miles" placeholder="18.4" required="" step="0.1" type="number" value="18.4"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">IRS Rate Value</label>
+<div class="w-full h-11 px-space-sm rounded-lg bg-surface-container font-mono text-body-sm text-primary font-bold flex items-center" id="trip-calc-preview">
+              $12.33 write-off
+            </div>
+</div>
+</div>
+<div class="pt-space-xs flex justify-end gap-space-xs">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" id="modal-trip-cancel" type="button">
+            Cancel
+          </button>
+<button class="px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all shadow-sm" type="submit">
+            Commit to 1099 Ledger
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Interactive Modal for Uploading Receipts -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden flex items-center justify-center p-space-md" id="modal-receipt">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">receipt_long</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Upload Supply Expense Receipt</span>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" id="modal-receipt-close">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="p-space-lg space-y-space-md" id="form-log-receipt">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Merchant / Store</label>
+<input class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="receipt-vendor" placeholder="e.g. CleanPro Supply Depot / Target DuBois" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Expense Amount ($)</label>
+<input class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface font-mono focus:outline-none focus:ring-2 focus:ring-primary-container" id="receipt-amount" placeholder="48.50" required="" step="0.01" type="number"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Category</label>
+<select class="w-full h-11 px-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="receipt-category">
+<option>Non-Toxic Solutions / Detergents</option>
+<option>Microfiber Packs &amp; Mops</option>
+<option>HEPA Filter Replacements</option>
+<option>Protective Gloves &amp; Booties</option>
+</select>
+</div>
+</div>
+<div class="border-2 border-dashed border-outline-variant/50 rounded-xl p-space-lg flex flex-col items-center justify-center text-center bg-surface-container-low/40 hover:bg-surface-container-low transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px] text-primary">cloud_upload</span>
+<span class="font-label-md text-label-md text-on-surface mt-1">Click to attach photo or PDF invoice</span>
+<span class="font-body-sm text-body-sm text-outline">JPEG, PNG, or PDF up to 10MB</span>
+</div>
+<div class="pt-space-xs flex justify-end gap-space-xs">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" id="modal-receipt-cancel" type="button">
+            Cancel
+          </button>
+<button class="px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all shadow-sm" type="submit">
+            Save Write-off
+          </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // IRS 2025 Mileage Rate Constant
+    var MILEAGE_RATE = 0.67;
+
+    // Elements
+    var modalTrip = document.getElementById('modal-trip');
+    var modalReceipt = document.getElementById('modal-receipt');
+    var btnOpenTrip = document.getElementById('btn-open-trip');
+    var btnOpenReceipt = document.getElementById('btn-open-receipt');
+    var zeroBtnTrip = document.getElementById('zero-btn-trip');
+    var zeroBtnReceipt = document.getElementById('zero-btn-receipt');
+    var modalTripClose = document.getElementById('modal-trip-close');
+    var modalTripCancel = document.getElementById('modal-trip-cancel');
+    var modalReceiptClose = document.getElementById('modal-receipt-close');
+    var modalReceiptCancel = document.getElementById('modal-receipt-cancel');
+
+    var formTrip = document.getElementById('form-log-trip');
+    var formReceipt = document.getElementById('form-log-receipt');
+    var tripMilesInput = document.getElementById('trip-miles');
+    var tripCalcPreview = document.getElementById('trip-calc-preview');
+
+    var zeroState = document.getElementById('zero-state-container');
+    var ledgerTableBody = document.getElementById('deductions-table-body');
+
+    var metricLiability = document.getElementById('metric-liability');
+    var metricGross = document.getElementById('metric-gross');
+    var metricWriteoffs = document.getElementById('metric-writeoffs');
+    var metricVault = document.getElementById('metric-vault');
+
+    var ledgerItems = [];
+
+    // Open/Close Modals
+    function toggleTripModal(open) {
+      if (modalTrip) modalTrip.classList.toggle('hidden', !open);
+    }
+    function toggleReceiptModal(open) {
+      if (modalReceipt) modalReceipt.classList.toggle('hidden', !open);
+    }
+
+    if (btnOpenTrip) btnOpenTrip.addEventListener('click', function() { toggleTripModal(true); });
+    if (zeroBtnTrip) zeroBtnTrip.addEventListener('click', function() { toggleTripModal(true); });
+    if (modalTripClose) modalTripClose.addEventListener('click', function() { toggleTripModal(false); });
+    if (modalTripCancel) modalTripCancel.addEventListener('click', function() { toggleTripModal(false); });
+
+    if (btnOpenReceipt) btnOpenReceipt.addEventListener('click', function() { toggleReceiptModal(true); });
+    if (zeroBtnReceipt) zeroBtnReceipt.addEventListener('click', function() { toggleReceiptModal(true); });
+    if (modalReceiptClose) modalReceiptClose.addEventListener('click', function() { toggleReceiptModal(false); });
+    if (modalReceiptCancel) modalReceiptCancel.addEventListener('click', function() { toggleReceiptModal(false); });
+
+    // Live Mileage Calculation update
+    if (tripMilesInput && tripCalcPreview) {
+      tripMilesInput.addEventListener('input', function() {
+        var miles = parseFloat(tripMilesInput.value) || 0;
+        var total = (miles * MILEAGE_RATE).toFixed(2);
+        tripCalcPreview.textContent = '$' + total + ' write-off';
+      });
+    }
+
+    // Submit Trip
+    if (formTrip) {
+      formTrip.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var purpose = document.getElementById('trip-purpose').value;
+        var origin = document.getElementById('trip-origin').value;
+        var dest = document.getElementById('trip-dest').value;
+        var miles = parseFloat(document.getElementById('trip-miles').value) || 0;
+        var writeoff = miles * MILEAGE_RATE;
+
+        ledgerItems.push({
+          type: 'mileage',
+          date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+          purpose: purpose,
+          route: origin + ' → ' + dest,
+          details: miles.toFixed(1) + ' mi @ $' + MILEAGE_RATE + '/mi',
+          amount: writeoff,
+          attachment: 'GPS Corridor Log.pdf',
+          status: 'Verified (IRS Rev Proc)'
+        });
+
+        renderLedger();
+        toggleTripModal(false);
+        formTrip.reset();
+      });
+    }
+
+    // Submit Receipt
+    if (formReceipt) {
+      formReceipt.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var vendor = document.getElementById('receipt-vendor').value;
+        var category = document.getElementById('receipt-category').value;
+        var amount = parseFloat(document.getElementById('receipt-amount').value) || 0;
+
+        ledgerItems.push({
+          type: 'expense',
+          date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+          purpose: vendor + ' (' + category + ')',
+          route: 'In-Store Physical / Order Slip',
+          details: '100% Ordinary & Necessary',
+          amount: amount,
+          attachment: 'Receipt_' + Math.floor(1000 + Math.random() * 9000) + '.jpg',
+          status: 'Logged & Stamped'
+        });
+
+        renderLedger();
+        toggleReceiptModal(false);
+        formReceipt.reset();
+      });
+    }
+
+    // Render Ledger and Update Metrics
+    function renderLedger() {
+      if (ledgerItems.length === 0) {
+        if (zeroState) zeroState.classList.remove('hidden');
+        if (ledgerTableBody) ledgerTableBody.innerHTML = '';
+        if (metricWriteoffs) metricWriteoffs.textContent = '$0.00';
+        return;
+      }
+
+      if (zeroState) zeroState.classList.add('hidden');
+      if (!ledgerTableBody) return;
+
+      var totalDeductions = 0;
+      var rowsHtml = '';
+
+      ledgerItems.forEach(function(item) {
+        totalDeductions += item.amount;
+        rowsHtml += '<tr class="hover:bg-surface-container-low/60 transition-colors border-b border-surface-container/60">' +
+          '<td class="py-space-md px-space-md font-mono text-outline">' + item.date + '</td>' +
+          '<td class="py-space-md px-space-md font-medium text-on-surface">' + item.purpose + '</td>' +
+          '<td class="py-space-md px-space-md text-on-surface-variant font-mono text-[13px]">' + item.route + '</td>' +
+          '<td class="py-space-md px-space-md font-mono text-outline">' + item.details + '</td>' +
+          '<td class="py-space-md px-space-md font-mono font-bold text-primary">$' + item.amount.toFixed(2) + '</td>' +
+          '<td class="py-space-md px-space-md"><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-outline hover:text-primary cursor-pointer"><span class="material-symbols-outlined text-[16px]">attach_file</span>' + item.attachment + '</span></td>' +
+          '<td class="py-space-md px-space-md text-right"><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm">' + item.status + '</span></td>' +
+        '</tr>';
+      });
+
+      ledgerTableBody.innerHTML = rowsHtml;
+      if (metricWriteoffs) metricWriteoffs.textContent = '$' + totalDeductions.toFixed(2);
+    }
+  })();
+</script></main></div></body></html>

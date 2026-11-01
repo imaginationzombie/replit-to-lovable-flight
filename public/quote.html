@@ -1,0 +1,579 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#c2e9c9", "on-error": "#ffffff", "background": "#f9faf8", "on-secondary-fixed-variant": "#2c4e36", "on-surface": "#191c1b", "inverse-primary": "#83d6c2", "surface-container-high": "#e7e8e6", "inverse-on-surface": "#f0f1ef", "on-secondary": "#ffffff", "on-secondary-fixed": "#00210e", "surface-container-low": "#f3f4f2", "on-tertiary-fixed-variant": "#3a4951", "tertiary-fixed-dim": "#b9c9d3", "primary-fixed": "#9ff2de", "tertiary-fixed": "#d5e5ef", "surface-container-highest": "#e1e3e1", "on-primary-fixed-variant": "#005144", "on-tertiary-fixed": "#0e1d25", "surface-bright": "#f9faf8", "primary-container": "#086e5e", "secondary-fixed-dim": "#aad0b1", "surface-dim": "#d9dad8", "error": "#ba1a1a", "secondary": "#43664d", "on-tertiary": "#ffffff", "on-background": "#191c1b", "surface-tint": "#006b5b", "on-surface-variant": "#3e4946", "on-error-container": "#93000a", "tertiary": "#3d4c54", "inverse-surface": "#2e3130", "tertiary-container": "#54646c", "outline-variant": "#bec9c4", "on-primary": "#ffffff", "primary-fixed-dim": "#83d6c2", "surface-variant": "#e1e3e1", "on-tertiary-container": "#d0e0ea", "secondary-fixed": "#c5eccc", "on-primary-container": "#99edd9", "error-container": "#ffdad6", "on-secondary-container": "#486a51", "primary": "#005447", "surface": "#f9faf8", "outline": "#6e7976", "surface-container-lowest": "#ffffff", "on-primary-fixed": "#00201a", "surface-container": "#edeeec" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-2xl": "4rem", "margin": "1.25rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem", "margin-lg": "4rem", "gutter-lg": "2rem", "margin-md": "2.5rem", "gutter-sm": "1rem", "space-xl": "2.5rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"] }, "fontSize": { "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.5rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_12px_rgba(47,62,70,0.05)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1XA7p3QZvkjxTkU16vC4M8sZ8bf3lnofpON31_7LKeGoM10EFBRmxrAi53Q8Y-yTB6SM2ZBcbX3NNJh2QAkfGXngw7rSHBkX_Gy0WtGjORsyAwuXEZcVnKMsEtlGtX3B-43UXhjyPLaTfDTFTmFMMxBWgFEABxN8umpU-mAgZykQ-63s7kBBjifrrL8gkGZIJm4AmfC_4ttC6Iq3fVPsmTixRQNHoesSms4qhPKt47wCdYfm-uTfjmjxJI"><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider truncate">HousekeeperBooking</span><h1 class="font-title-md text-title-md text-on-surface truncate leading-tight">Instant Quote</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><a aria-label="Call (814) 952-1964" class="min-h-[44px] px-space-sm py-space-xs rounded-full bg-secondary-container/40 text-primary flex items-center gap-1 hover:bg-secondary-container/70 active:scale-95 transition-all" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">call</span><span class="font-label-sm text-label-sm font-semibold hidden xs:inline">(814) 952-1964</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-28 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient background blur -->
+<div class="absolute top-0 right-0 w-72 h-72 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-96 left-0 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Hero & Welcome Section -->
+<section class="px-margin pt-space-md pb-space-lg flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-1.5 self-start px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-fixed-variant shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-sm text-label-sm tracking-wide uppercase">100% Transparent Pricing • No Hidden Fees</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">
+        Get Your Instant Quote
+      </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Select your home cleaning package, customize with limited 50% off promotional add-ons, and book online in under 60 seconds.
+      </p>
+</div>
+<!-- Live Direct Phone Assistance Card -->
+<div class="mt-space-xs p-space-sm rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[18px]">support_agent</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Need personalized guidance?</span>
+<span class="font-label-md text-label-md text-primary font-semibold truncate">Dispatch team standing by</span>
+</div>
+</div>
+<a class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container-lowest text-primary shadow-sm hover:bg-secondary-container/40 active:scale-95 transition-all flex items-center gap-1 font-label-md text-label-md" href="tel:8149521964">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span class="">(814) 952-1964</span>
+</a>
+</div>
+</section>
+<!-- Visual Accent Divider with Sanctuary Leaf Cue -->
+<div class="px-margin my-space-xs flex items-center gap-3">
+<div class="h-0.5 flex-1 bg-surface-container-high rounded-full"></div>
+<div class="w-2 h-2 rounded-full bg-primary/40"></div>
+<div class="h-0.5 flex-1 bg-surface-container-high rounded-full"></div>
+</div>
+<form class="flex flex-col gap-space-lg px-margin py-space-md" id="calculator-form" onsubmit="event.preventDefault();">
+<!-- STEP 1: Territory Selection -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">1</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Select Service Territory</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold bg-secondary-container/50 px-2 py-0.5 rounded-full">Central PA</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        All vetted cleaners are local to your area with mandatory 30-min travel buffers.
+      </p>
+<div class="grid grid-cols-2 gap-space-xs mt-1" id="territory-group">
+<!-- Territory 1: DuBois -->
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="territory" type="radio" value="DuBois, PA">
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm peer-checked:bg-secondary-container/40 transition-all flex flex-col gap-1 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-semibold">DuBois, PA</span>
+<span class="material-symbols-outlined text-primary text-[20px] opacity-100 peer-checked:block">check_circle</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">Most Active Hub</span>
+</div>
+</label>
+<!-- Territory 2: Brookville -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="territory" type="radio" value="Brookville, PA">
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm peer-checked:bg-secondary-container/40 transition-all flex flex-col gap-1 relative">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Brookville</span>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">radio_button_unchecked</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Jefferson County</span>
+</div>
+</label>
+<!-- Territory 3: Punxsutawney -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="territory" type="radio" value="Punxsutawney, PA">
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm peer-checked:bg-secondary-container/40 transition-all flex flex-col gap-1 relative">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Punxsutawney</span>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">radio_button_unchecked</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Route 119 Corridor</span>
+</div>
+</label>
+<!-- Territory 4: Reynoldsville -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="territory" type="radio" value="Reynoldsville, PA">
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm peer-checked:bg-secondary-container/40 transition-all flex flex-col gap-1 relative">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Reynoldsville</span>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">radio_button_unchecked</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sandy Valley Area</span>
+</div>
+</label>
+</div>
+</section>
+<!-- STEP 2: Primary Cleaning Package -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">2</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Choose Cleaning Package</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 2 of 6</span>
+</div>
+<div class="flex flex-col gap-3" id="package-list">
+<!-- Package 1: Light Clean -->
+<label class="cursor-pointer block">
+<input class="peer sr-only" data-hours="1.0" data-name="Light Clean (Express Maintenance)" data-price="60" name="package" type="radio" value="light">
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm transition-all peer-checked:shadow-md flex flex-col gap-2 relative">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Light Clean (Express Maintenance)</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">1.0 Hour • 1 Dedicated Pro</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$60.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Rapid surface touch-up, kitchen &amp; bath wipe down, high-touch sanitization, and trash removal. Ideal for routine upkeep.
+            </p>
+</div>
+</label>
+<!-- Package 2: Medium Clean (Recommended & Default Checked) -->
+<label class="cursor-pointer block relative">
+<input checked="" class="peer sr-only" data-hours="2.0" data-name="Medium Clean (Standard Residential)" data-price="120" name="package" type="radio" value="medium">
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-md transition-all flex flex-col gap-2 relative overflow-hidden bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest to-secondary-container/20">
+<!-- Top highlight badge -->
+<div class="flex items-center justify-between gap-2 mb-0.5">
+<span class="px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider font-bold">
+                ⭐ Most Popular Choice
+              </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+                100% Reclean Guarantee
+              </span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-on-surface font-bold">Medium Clean (Standard Residential)</span>
+<span class="font-label-md text-label-md text-primary font-semibold">2.0 Hours • 1 Vetted Specialist</span>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$120.00</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Flat rate</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Comprehensive whole-home clean: vacuuming &amp; mopping, deep bath/kitchen sanitation, surface dusting, linen change, and organic deodorizing.
+            </p>
+</div>
+</label>
+<!-- Package 3: Heavy Clean -->
+<label class="cursor-pointer block">
+<input class="peer sr-only" data-hours="3.5" data-name="Heavy Clean (Deep Scrub &amp; Scale)" data-price="240" name="package" type="radio" value="heavy">
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm transition-all peer-checked:shadow-md flex flex-col gap-2 relative">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Heavy Clean (Deep Scrub &amp; Scale)</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">3.5 Hours • 1 Intensive Pro</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$240.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Intensive restorative scrub: heavy soap scum, kitchen grease cutting, tile grout detail, baseboards wipe down, and appliance exteriors.
+            </p>
+</div>
+</label>
+<!-- Package 4: Move-In / Move-Out -->
+<label class="cursor-pointer block">
+<input class="peer sr-only" data-hours="3.0" data-name="Move-In / Move-Out Turnover" data-price="360" name="package" type="radio" value="movein">
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm transition-all peer-checked:shadow-md flex flex-col gap-2 relative">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Move-In / Move-Out Turnover</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Strict 3.0 Hours • 2 to 3 Pros Crew</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$360.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Full empty home restoration: inside all kitchen cabinets/drawers, deep baseboard sanitize, closet sweep, ready for strict landlord lease inspection.
+            </p>
+</div>
+</label>
+</div>
+</section>
+<!-- STEP 3: Promotional Add-ons (50% Off) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">3</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Special Promo Add-Ons</h3>
+</div>
+<span class="font-label-sm text-label-sm text-error font-bold bg-error-container/40 px-2 py-0.5 rounded-full uppercase tracking-wider">
+          🔥 50% Off Flash
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Bundle deep specialty treatments with your primary package. Time buffers are automatically synced.
+      </p>
+<div class="grid grid-cols-1 gap-2.5" id="addons-group"><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input checked="" class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="45" data-original="50" data-price="25" data-title="Interior Refrigerator" name="addon" type="checkbox" value="fridge"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Interior Refrigerator</span><span class="font-body-sm text-body-sm text-on-surface-variant">Shelves out, sanitized &amp; dried (+45m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$25.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$50.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input checked="" class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="45" data-original="60" data-price="30" data-title="Deep Oven Clean" name="addon" type="checkbox" value="oven"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Deep Oven Clean</span><span class="font-body-sm text-body-sm text-on-surface-variant">Eco-friendly carbon dissolve (+45m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$30.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$60.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="60" data-original="70" data-price="35" data-title="Interior Windows" name="addon" type="checkbox" value="windows"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Interior Windows</span><span class="font-body-sm text-body-sm text-on-surface-variant">Streak-free glass &amp; tracks vacuum (+60m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$35.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$70.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="60" data-original="80" data-price="40" data-title="Hand Baseboards" name="addon" type="checkbox" value="baseboards"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Hand Baseboards</span><span class="font-body-sm text-body-sm text-on-surface-variant">Hand-wiped edge to edge (+60m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$40.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$80.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="45" data-original="60" data-price="30" data-title="Inside Kitchen Cabinets &amp; Drawers" name="addon" type="checkbox" value="cabinets"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Inside Kitchen Cabinets &amp; Drawers</span><span class="font-body-sm text-body-sm text-on-surface-variant">Empty shelves wiped, crumb vacuum (+45m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$30.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$60.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="40" data-original="50" data-price="25" data-title="Wall Spot Washing &amp; Trim" name="addon" type="checkbox" value="walls"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Wall Spot Washing &amp; Trim</span><span class="font-body-sm text-body-sm text-on-surface-variant">Door frame scuffs, switch plates &amp; spots (+40m)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$25.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$50.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="30" data-original="30" data-price="15" data-title="Dishwasher Deep Clean &amp; Descaling" name="addon" type="checkbox" value="dishwasher"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Dishwasher Deep Clean &amp; Descaling</span><span class="font-body-sm text-body-sm text-on-surface-variant">Filter clean, rim scrub &amp; sanitizing cycle (+30m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$15.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$30.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="45" data-original="70" data-price="35" data-title="Pet Hair Carpet Extraction &amp; Sanitization" name="addon" type="checkbox" value="pethair"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Pet Hair Carpet Extraction &amp; Sanitization</span><span class="font-body-sm text-body-sm text-on-surface-variant">Heavy dander rake &amp; enzyme deodorize (+45m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$35.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$70.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="35" data-original="50" data-price="25" data-title="Patio, Balcony &amp; Entryway Sweep / Power Rinse" name="addon" type="checkbox" value="patio"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Patio, Balcony &amp; Entryway Sweep / Power Rinse</span><span class="font-body-sm text-body-sm text-on-surface-variant">Surface wash, rail wipe &amp; entryway scrub (+35m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$25.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$50.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="40" data-original="60" data-price="30" data-title="Interior Blinds &amp; Shutter Detailed Dusting" name="addon" type="checkbox" value="blinds"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Interior Blinds &amp; Shutter Detailed Dusting</span><span class="font-body-sm text-body-sm text-on-surface-variant">Slat-by-slat microfiber wipe &amp; anti-static polish (+40m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$30.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$60.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="25" data-original="25" data-price="12.5" data-title="Microwave &amp; Small Appliance Degreasing" name="addon" type="checkbox" value="microwave"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Microwave &amp; Small Appliance Degreasing</span><span class="font-body-sm text-body-sm text-on-surface-variant">Interior steam sanitized, turntable degreased (+25m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$12.50</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$25.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="45" data-original="40" data-price="20" data-title="Eco Laundry Wash &amp; Fold (2 Loads)" name="addon" type="checkbox" value="laundry"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Eco Laundry Wash &amp; Fold (2 Loads)</span><span class="font-body-sm text-body-sm text-on-surface-variant">Organic detergent, tumble dry &amp; precision fold (+45m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$20.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$40.00</span></div></label><label class="cursor-pointer p-3.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between gap-3 active:scale-[0.99] transition-transform"><div class="flex items-start gap-3 min-w-0"><input class="mt-0.5 w-5 h-5 accent-primary rounded cursor-pointer flex-shrink-0" data-buffer="40" data-original="70" data-price="35" data-title="Mattress UV Deep Clean &amp; Allergen Sanitization" name="addon" type="checkbox" value="mattress"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface font-semibold">Mattress UV Deep Clean &amp; Allergen Sanitization</span><span class="font-body-sm text-body-sm text-on-surface-variant">HEPA extraction &amp; UV germicidal wand treatment (+40m buffer)</span></div></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-md text-title-md text-primary font-bold">$35.00</span><span class="font-label-sm text-label-sm text-on-surface-variant line-through">$70.00</span></div></label></div>
+</section>
+<!-- STEP 4: Date & Arrival Window -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">4</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Schedule Arrival Window</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Step 4 of 6</span>
+</div>
+<!-- Advance Notice Alert Callout -->
+<div class="p-3.5 rounded-xl bg-surface-container-low shadow-sm flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">event_available</span>
+<div class="flex flex-col gap-1">
+<p class="font-label-md text-label-md text-on-surface font-semibold">
+            Standard 48-Hour Advance Notice Enforced
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Need emergency same-day or next-day rush? Call Dispatch at <a class="text-primary font-semibold underline" href="tel:8149521964">(814) 952-1964</a> (+50% rush upcharge applies for immediate deployment).
+          </p>
+</div>
+</div>
+<div class="flex flex-col gap-3 mt-1">
+<!-- Date Selection -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="booking-date">Service Date</label>
+<div class="relative">
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm outline-none focus:bg-surface-container-low transition-colors" id="booking-date" type="date" value="2026-09-26">
+</div>
+</div>
+<!-- Arrival Window Selector -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="booking-window">Preferred Cleaner Arrival Window</label>
+<div class="relative">
+<select class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm outline-none appearance-none pr-10" id="booking-window">
+<option selected="" value="morning">Morning Window: 8:30 AM - 11:30 AM (Popular)</option>
+<option value="afternoon">Afternoon Window: 1:00 PM - 4:00 PM</option>
+<option value="late">Late Afternoon: 4:30 PM - 7:30 PM</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- STEP 5: Live Quote Summary & Breakdown Card -->
+<section class="flex flex-col gap-space-sm" id="quote-breakdown-section">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">5</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Instant Live Quote Breakdown</h3>
+</div>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Live Sync
+        </span>
+</div>
+<!-- Quote Summary Elevated Box with subtle spruce glow -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-md p-space-md flex flex-col gap-space-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-primary"></div>
+<!-- Breakdown lines -->
+<div class="flex flex-col gap-2.5 pt-1" id="quote-line-items">
+<div class="flex justify-between items-start text-on-surface">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold" id="summary-package-name">Medium Clean (Standard Residential)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Core service • 2.0 hrs</span>
+</div>
+<span class="font-title-md text-title-md font-bold text-on-surface" id="summary-package-price">$120.00</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant text-body-sm font-body-sm" id="addon-item-oven">
+<span class="">Oven Cleaning Add-on (50% Promo)</span>
+<div class="flex items-center gap-1.5">
+<span class="line-through text-on-surface-variant text-label-sm font-label-sm">$60</span>
+<span class="font-semibold text-on-surface text-body-md font-body-md">$30.00</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant text-body-sm font-body-sm" id="addon-item-fridge">
+<span class="">Refrigerator Detailing Add-on (50% Promo)</span>
+<div class="flex items-center gap-1.5">
+<span class="line-through text-on-surface-variant text-label-sm font-label-sm">$50</span>
+<span class="font-semibold text-on-surface text-body-md font-body-md">$25.00</span>
+</div>
+</div>
+<!-- Dynamic Promotional Discount Tag Line -->
+<div class="p-2.5 rounded-lg bg-secondary-container/50 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Specialty Add-ons 50% Off Promo</span>
+</div>
+<span class="font-title-md text-title-md text-primary font-bold" id="summary-discount">-$55.00</span>
+</div>
+</div>
+<!-- Duration and Crew Metadata Badges -->
+<div class="grid grid-cols-2 gap-2 p-3 rounded-xl bg-surface-container-low text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">timelapse</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Est. Service Time</span>
+<span class="font-label-md text-label-md font-bold" id="summary-est-time">3.5 Hours</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">groups</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Assigned Crew</span>
+<span class="font-label-md text-label-md font-bold" id="summary-crew">1 Pro Specialist</span>
+</div>
+</div>
+</div>
+<!-- Grand Total Block -->
+<div class="flex items-baseline justify-between pt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Total Guaranteed Quote</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">All taxes &amp; supplies included</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-primary font-bold" id="summary-grand-total">$175.00</span>
+</div>
+</div>
+<!-- Peace of mind notice -->
+<div class="p-3 rounded-xl bg-surface-container text-on-surface-variant flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0 mt-0.5">lock_clock</span>
+<p class="font-label-sm text-label-sm leading-normal">
+<strong>Zero upfront charges</strong> until your cleaner finishes the on-site walkthrough and you sign off on our 50-point checklist.
+          </p>
+</div>
+</div>
+</section>
+<!-- STEP 6: Customer Details & 1-Tap Booking -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">6</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Contact &amp; Service Address</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Instant Confirmation</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Full Name -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="cust-name">Full Name *</label>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm outline-none focus:bg-surface-container-low transition-colors" id="cust-name" placeholder="e.g. Sarah Jenkins" required="" type="text">
+</div>
+<!-- Email Address -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="cust-email">Email Address (For Calendar invite &amp; quote copy) *</label>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm outline-none focus:bg-surface-container-low transition-colors" id="cust-email" placeholder="sarah.jenkins@example.com" required="" type="email">
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="cust-phone">Mobile Phone (For SMS cleaner ETA updates) *</label>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm outline-none focus:bg-surface-container-low transition-colors" id="cust-phone" placeholder="(814) 555-0192" required="" type="tel">
+</div>
+<!-- Service Street Address -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="cust-address">Service Street Address (with Apt / Suite / Unit) *</label>
+<input class="w-full h-12 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm outline-none focus:bg-surface-container-low transition-colors" id="cust-address" placeholder="142 E Long Ave, Apt 2B, DuBois, PA 15801" required="" type="text">
+</div>
+<!-- Payment Method Toggle -->
+<div class="flex flex-col gap-2 mt-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Payment Guarantee Option</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="payment" type="radio" value="card">
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm peer-checked:bg-secondary-container/40 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">credit_card</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Credit Card</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stripe 256-bit</span>
+</div>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="payment" type="radio" value="paypal">
+<div class="p-3 rounded-xl bg-surface-container-lowest shadow-sm peer-checked:bg-secondary-container/40 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">PayPal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1-Tap Checkout</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Primary Booking Action Button -->
+<div class="mt-space-sm flex flex-col gap-2.5">
+<button class="w-full h-14 rounded-xl bg-primary text-on-primary font-title-md text-title-md font-bold shadow-md hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="book-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+<span id="btn-text" class="">Book Appointment • $175.00 Total</span>
+</button>
+<!-- Secondary Actions -->
+<div class="flex items-center gap-2">
+<button class="flex-1 h-11 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1.5 shadow-sm" id="save-quote-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">outgoing_mail</span>
+<span class="">Save for 7 Days</span>
+</button>
+<a class="h-11 px-4 rounded-xl bg-surface-container-low text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1.5 shadow-sm" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">phone</span>
+<span class="">Call Team</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- TRUST & GUARANTEE 4-PANEL BADGES -->
+<section class="mt-space-xs grid grid-cols-2 gap-2.5">
+<div class="p-3 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-1.5">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">100% Reclean</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Free same-day re-touch if you're not delighted.</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-1.5">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">Vetted Pros</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PA criminal background checked &amp; insured.</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-1.5">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">security</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">256-Bit SSL</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PCI-DSS certified secure payment storage.</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-1.5">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">update</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">Easy Reschedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1-tap adjustments up to 48h before arrival.</span>
+</div>
+</section>
+<!-- Visual reassurance preview card: Before & After Sanctuary -->
+<section class="mt-space-xs flex flex-col gap-2 p-4 rounded-2xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">spa</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Pristine Standards</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Non-Toxic &amp; Pet Safe</span>
+</div>
+<div class="relative w-full h-36 rounded-xl overflow-hidden shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Sun-drenched, freshly cleaned modern living room and kitchen in central Pennsylvania with gleaming hardwood floors, tidy countertops, fresh eucalyptus bouquet on table, and soft morning sunlight pouring through clean glass windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_AiTW8sdUg0a5bumYh33CEscEz6bg4_KgGWrphZMIrgvab4wM5LUejGxOUtX6REhesWEa2TfjKd5rbOWXbWnC_7_CVj0V8SI-yP4zKLNzgkhOl_avPVyZmRC42Aryez4e3A9dxDhH6vDZSDQ1YgMaTNBI31kIrQ19i4eLue1A7kweg946CMOM2smx2qMfFxBS8V4tDueL9asGZX_TcRwc8LNi3qyhdL2iaHNgJYv_0qTj1PJ35dr3">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-2.5 left-3 right-3 flex justify-between items-end text-white">
+<span class="font-label-md text-label-md font-semibold drop-shadow-sm">Walk into pure domestic serenity.</span>
+<span class="font-label-sm text-label-sm bg-primary/90 px-2 py-0.5 rounded-full drop-shadow">Freshness Guaranteed</span>
+</div>
+</div>
+</section>
+</form>
+<!-- Interactive Script for Live Calculation & Confirmation Toast -->
+<script>
+    (function() {
+      const packageInputs = document.querySelectorAll('input[name="package"]');
+      const addonInputs = document.querySelectorAll('input[name="addon"]');
+      const grandTotalEl = document.getElementById('summary-grand-total');
+      const btnTextEl = document.getElementById('btn-text');
+      const packageNameEl = document.getElementById('summary-package-name');
+      const packagePriceEl = document.getElementById('summary-package-price');
+      const estTimeEl = document.getElementById('summary-est-time');
+      const crewEl = document.getElementById('summary-crew');
+      const discountEl = document.getElementById('summary-discount');
+      const bookBtn = document.getElementById('book-btn');
+      const saveQuoteBtn = document.getElementById('save-quote-btn');
+
+      function calculateQuote() {
+        let selectedPackage = document.querySelector('input[name="package"]:checked');
+        if (!selectedPackage) return;
+
+        let basePrice = parseFloat(selectedPackage.dataset.price || '120');
+        let baseHours = parseFloat(selectedPackage.dataset.hours || '2.0');
+        let packageName = selectedPackage.dataset.name || 'Medium Clean';
+        let packageVal = selectedPackage.value;
+
+        let totalAddonsPrice = 0;
+        let totalDiscount = 0;
+        let totalBufferMinutes = 0;
+
+        addonInputs.forEach(input => {
+          if (input.checked) {
+            let price = parseFloat(input.dataset.price || '0');
+            let original = parseFloat(input.dataset.original || price.toString());
+            let buffer = parseInt(input.dataset.buffer || '0', 10);
+
+            totalAddonsPrice += price;
+            totalDiscount += (original - price);
+            totalBufferMinutes += buffer;
+          }
+        });
+
+        let grandTotal = basePrice + totalAddonsPrice;
+        let totalHours = (baseHours + (totalBufferMinutes / 60)).toFixed(1);
+
+        // Update DOM
+        if (packageNameEl) packageNameEl.textContent = packageName;
+        if (packagePriceEl) packagePriceEl.textContent = '$' + basePrice.toFixed(2);
+        if (grandTotalEl) grandTotalEl.textContent = '$' + grandTotal.toFixed(2);
+        if (btnTextEl) btnTextEl.textContent = 'Book Appointment • $' + grandTotal.toFixed(2) + ' Total';
+        if (discountEl) discountEl.textContent = '-$' + totalDiscount.toFixed(2);
+        if (estTimeEl) estTimeEl.textContent = totalHours + ' Hours';
+
+        // Crew assignment display
+        if (crewEl) {
+          if (packageVal === 'movein') {
+            crewEl.textContent = '2-3 Pros Crew';
+          } else {
+            crewEl.textContent = '1 Pro Specialist';
+          }
+        }
+      }
+
+      packageInputs.forEach(input => input.addEventListener('change', calculateQuote));
+      addonInputs.forEach(input => input.addEventListener('change', calculateQuote));
+
+      // Booking validation & feedback
+      if (bookBtn) {
+        bookBtn.addEventListener('click', function() {
+          const nameInput = document.getElementById('cust-name');
+          const emailInput = document.getElementById('cust-email');
+          const phoneInput = document.getElementById('cust-phone');
+          const addressInput = document.getElementById('cust-address');
+
+          if (!nameInput.value.trim() || !emailInput.value.trim() || !phoneInput.value.trim() || !addressInput.value.trim()) {
+            alert('Please fill out your contact and service address details before completing booking.');
+            if (!nameInput.value.trim()) nameInput.focus();
+            else if (!emailInput.value.trim()) emailInput.focus();
+            else if (!phoneInput.value.trim()) phoneInput.focus();
+            else addressInput.focus();
+            return;
+          }
+
+          const currentTotal = grandTotalEl ? grandTotalEl.textContent : '$175.00';
+          bookBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">autorenew</span> Confirming Reservation...';
+          bookBtn.disabled = true;
+
+          setTimeout(function() {
+            bookBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span> Appointment Confirmed!';
+            bookBtn.classList.remove('bg-primary');
+            bookBtn.classList.add('bg-secondary');
+            alert('Success! Your booking for ' + currentTotal + ' is scheduled. Confirmation details have been sent to ' + emailInput.value);
+          }, 1200);
+        });
+      }
+
+      // Save quote button feedback
+      if (saveQuoteBtn) {
+        saveQuoteBtn.addEventListener('click', function() {
+          const emailInput = document.getElementById('cust-email');
+          if (!emailInput.value.trim()) {
+            alert('Please enter your email address to save this quote.');
+            emailInput.focus();
+            return;
+          }
+          saveQuoteBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-primary">done</span> Saved for 7 Days';
+          setTimeout(() => {
+            saveQuoteBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">outgoing_mail</span> Save for 7 Days';
+          }, 3000);
+        });
+      }
+
+      // Initial run
+      calculateQuote();
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(47,62,70,0.06)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm">Home</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] transition-colors gap-0.5 text-primary font-bold" data-path="instant-quote" href="#"><span class="material-symbols-outlined text-[22px]">calculate</span><span class="font-label-sm text-label-sm">Quote</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="my-bookings" href="#"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="font-label-sm text-label-sm">Bookings</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="account" href="#"><span class="material-symbols-outlined text-[22px]">person_outline</span><span class="font-label-sm text-label-sm">Account</span></a></div></nav>
+
+</body></html>

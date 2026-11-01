@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>HousekeeperBooking.com</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#005144","secondary-container":"#c2e9c9","surface":"#f9faf8","tertiary-fixed":"#d5e5ef","on-tertiary-container":"#d0e0ea","background":"#f9faf8","inverse-primary":"#83d6c2","primary":"#005447","on-tertiary":"#ffffff","surface-dim":"#d9dad8","on-secondary":"#ffffff","primary-fixed-dim":"#83d6c2","surface-container-high":"#e7e8e6","tertiary-fixed-dim":"#b9c9d3","on-tertiary-fixed":"#0e1d25","secondary":"#43664d","surface-container-highest":"#e1e3e1","outline":"#6e7976","surface-bright":"#f9faf8","primary-fixed":"#9ff2de","on-surface-variant":"#3e4946","inverse-on-surface":"#f0f1ef","tertiary":"#3d4c54","on-secondary-container":"#486a51","on-secondary-fixed-variant":"#2c4e36","secondary-fixed":"#c5eccc","on-error-container":"#93000a","error-container":"#ffdad6","on-primary-fixed":"#00201a","surface-variant":"#e1e3e1","surface-container-lowest":"#ffffff","inverse-surface":"#2e3130","outline-variant":"#bec9c4","primary-container":"#086e5e","secondary-fixed-dim":"#aad0b1","on-primary-container":"#99edd9","on-tertiary-fixed-variant":"#3a4951","surface-container":"#edeeec","surface-container-low":"#f3f4f2","tertiary-container":"#54646c","on-secondary-fixed":"#00210e","on-background":"#191c1b","on-surface":"#191c1b","error":"#ba1a1a","on-primary":"#ffffff","surface-tint":"#006b5b","on-error":"#ffffff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin-md":"2.5rem","gutter-lg":"2rem","margin-lg":"4rem","space-sm":"0.5rem","space-xs":"0.25rem","space-2xl":"4rem",margin:"1.25rem","space-xl":"2.5rem","gutter-sm":"1rem","space-md":"1rem","space-lg":"1.5rem",gutter:"1.5rem"},fontFamily:{"headline-lg-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"]},fontSize:{"headline-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-md":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg":["56px",{lineHeight:"64px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-sm":["22px",{lineHeight:"30px",letterSpacing:"0em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"700"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"400"}],"headline-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"title-lg":["18px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XA7p3QZvkjxTkU16vC4M8sZ8bf3lnofpON31_7LKeGoM10EFBRmxrAi53Q8Y-yTB6SM2ZBcbX3NNJh2QAkfGXngw7rSHBkX_Gy0WtGjORsyAwuXEZcVnKMsEtlGtX3B-43UXhjyPLaTfDTFTmFMMxBWgFEABxN8umpU-mAgZykQ-63s7kBBjifrrL8gkGZIJm4AmfC_4ttC6Iq3fVPsmTixRQNHoesSms4qhPKt47wCdYfm-uTfjmjxJI"/><a class="font-title-lg text-title-lg text-primary tracking-tight" data-path="home" href="#">HousekeeperBooking<span class="text-secondary">.com</span></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#">Home</a><a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" data-path="services-and-pricing" href="#">Services &amp; Pricing</a><a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" data-path="instant-quote" href="#">Instant Quote</a><a aria-current="page" class="transition-colors text-primary font-bold" data-path="careers" href="recruit.html">Careers</a><a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Customer Portal</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg hover:bg-secondary-fixed transition-colors" href="tel:8149521964"><span class="material-symbols-outlined text-primary text-[20px]">call</span><span class="tracking-tight">(814) 952-1964</span></a><a class="hidden sm:inline-flex items-center px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary transition-colors" data-path="instant-quote" href="#">Book Clean Now</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle ambient background accents -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 -right-40 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-[600px] -left-40 w-96 h-96 bg-secondary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Section 1: Hero Header Banner -->
+<section class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-2xl relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<!-- Hero Text & Quick Action -->
+<div class="lg:col-span-7 space-y-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+            Now Hiring Professional Housekeepers &amp; Cleaners in Central PA
+          </div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-tight">
+            Join Our Tri-County <br/>
+<span class="text-primary font-bold">Housekeeper Pro</span> Team
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Earn competitive compensation, build your own flexible schedule, and clean with non-toxic, hospital-grade eco-botanicals across Central PA (DuBois, Brookville, Punxsutawney &amp; Reynoldsville).
+          </p>
+<!-- Key Metrics Pills -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-xs max-w-xl">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)]">
+<span class="font-headline-sm text-headline-sm text-primary block font-bold">$22 - $28/hr</span>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Average Take-Home</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)]">
+<span class="font-headline-sm text-headline-sm text-primary block font-bold">Weekly</span>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Automated Payouts</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)]">
+<span class="font-headline-sm text-headline-sm text-primary block font-bold">100% Eco</span>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Safe Supplies Provided</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="inline-flex items-center gap-space-xs px-space-xl py-space-md rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary transition-all" href="#pro-application-form">
+<span>Start Application Form</span>
+<span class="material-symbols-outlined text-[20px]">arrow_downward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs px-space-lg py-space-md rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg hover:bg-secondary-fixed transition-colors" href="tel:8149521964">
+<span class="material-symbols-outlined text-primary text-[20px]">support_agent</span>
+<span>(814) 952-1964</span>
+</a>
+</div>
+</div>
+<!-- Hero Visual Showcase -->
+<div class="lg:col-span-5 relative">
+<div class="relative rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest p-space-sm">
+<img class="w-full h-[430px] object-cover rounded-xl" data-alt="A professional, cheerful housekeeper in a clean modern green uniform using non-toxic botanical cleaning spray on a sunlit kitchen countertop in a bright DuBois Central Pennsylvania home, high daylight, authentic photography, warm interior colors, botanical greenery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIV9JJHI5CkKJWXAWePZrtbp6fHptOq-bUnrIEROBaGgufzqayjH3EWMnT6WeMbQYoAeXmxUC85VTNvX6TVwI_788ODgReQQC9eLSCBpsKp2t2NZinVq5SeE2ztOoloBXFb-VuPtzVgkKRqwU5UXc7Qiy1tA5GIVlt9GECNFaeJi_eNQeHb5C-2P7Kr4JQq2X_zi_pK02PMkydJQ2dBFLk2GWY5R9uCP_kPkAf8VB79mAdjixjvgBE"/>
+<div class="absolute bottom-6 left-6 right-6 p-space-md bg-surface-container-lowest/95 backdrop-blur-md rounded-xl shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">nature_people</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Zero Harsh Chemicals</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Central PA Certified Green Fleet</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[28px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Why Clean with HousekeeperBooking.com (Key Benefits Grid) -->
+<section class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-2xl">
+<div class="text-center max-w-3xl mx-auto mb-space-xl">
+<div class="inline-flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-primary mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+          Built For Independent Housekeepers
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Why Clean with HousekeeperBooking.com
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
+          We treat our cleaning professionals with the autonomy, respect, and compensation that top-tier residential work deserves.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)] hover:shadow-lg transition-all flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Autonomous Self-Scheduling</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Build your daily appointment schedule to fit your lifestyle. Choose your preferred towns, morning or afternoon blocks, and personal days off.
+            </p>
+</div>
+<div class="pt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
+<span>Complete flexibility</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)] hover:shadow-lg transition-all flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[26px]">timer</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Guaranteed Transit Buffer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Strict 30-minute buffers between every job across DuBois, Brookville, and Punxsy so you never have to rush from home to home.
+            </p>
+</div>
+<div class="pt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
+<span>Relaxed transit windows</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)] hover:shadow-lg transition-all flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[26px]">eco</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Safe Non-Toxic Supplies</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              We provide premium hospital-grade botanical products with zero harsh chemical fumes or bleach headaches. Safe for you, families, and pets.
+            </p>
+</div>
+<div class="pt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
+<span>All solutions provided</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)] hover:shadow-lg transition-all flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[26px]">account_balance_wallet</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface">Fast Automated Payouts</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Reliable weekly direct payouts via PayPal Hyperwallet with transparent digital records, real-time tips, and year-end tax tracking vaults.
+            </p>
+</div>
+<div class="pt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
+<span>Every Friday direct deposit</span>
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Role Requirements & Onboarding Criteria (Split Section) -->
+<section class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-stretch">
+<!-- Criteria Left Panel -->
+<div class="lg:col-span-6 bg-surface-container-lowest p-space-xl rounded-3xl shadow-[0_2px_12px_rgba(47,62,70,0.03)] flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">checklist</span>
+              Standards of Excellence
+            </div>
+<h2 class="font-headline-md text-headline-md text-on-surface">What We Look For</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              We look for courteous, reliable professionals who take pride in detail and residential transformation.
+            </p>
+<ul class="space-y-space-md pt-space-sm">
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Meticulous Attention to Detail</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clean edges, polished surfaces, spot-free glass, and disciplined room care.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">directions_car</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Valid PA Driver's License &amp; Reliable Vehicle</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Must have your own insured vehicle to travel comfortably across your chosen routes.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Smartphone with GPS Navigation</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">To view daily client checklists, receive dispatch alerts, and confirm arrival times.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Warm Hospitality &amp; Client Respect</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Delivering domestic peace of mind and discreet, trusted service in client homes.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container flex items-center gap-space-md">
+<span class="material-symbols-outlined text-primary text-[28px]">shield</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+              Must pass a comprehensive background check and PA state records verification during onboarding.
+            </div>
+</div>
+</div>
+<!-- Hiring Steps Right Panel -->
+<div class="lg:col-span-6 bg-surface-container-high p-space-xl rounded-3xl shadow-[0_2px_12px_rgba(47,62,70,0.03)] flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-primary-container text-on-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">pace</span>
+              Swift Turnaround
+            </div>
+<h2 class="font-headline-md text-headline-md text-on-surface">The 3-Step Hiring Process</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              From online submission to your first paid assignment in as little as 3-5 business days.
+            </p>
+<div class="space-y-space-lg pt-space-sm">
+<!-- Step 1 -->
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest font-title-lg text-title-lg text-primary flex items-center justify-center shadow-sm shrink-0 font-bold">
+                  1
+                </div>
+<div class="space-y-space-xs">
+<div class="font-title-md text-title-md text-on-surface">Submit Online Application &amp; Work History</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Fill out our 2-minute application below detailing your experience, preferred towns, and weekly availability.
+                  </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest font-title-lg text-title-lg text-primary flex items-center justify-center shadow-sm shrink-0 font-bold">
+                  2
+                </div>
+<div class="space-y-space-xs">
+<div class="font-title-md text-title-md text-on-surface">Phone Interview with PA Dispatch Team</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    A brief, 15-minute phone conversation with our local coordinator at <strong>(814) 952-1964</strong> to review your goals.
+                  </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest font-title-lg text-title-lg text-primary flex items-center justify-center shadow-sm shrink-0 font-bold">
+                  3
+                </div>
+<div class="space-y-space-xs">
+<div class="font-title-md text-title-md text-on-surface">Verification &amp; Eco-Kit Orientation</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Digital background screening, license clearance, and picking up your complimentary hospital-grade botanical supplies.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">call</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Recruitment Direct Desk</div>
+<div class="font-body-sm text-body-sm text-primary font-bold">(814) 952-1964</div>
+</div>
+</div>
+<a class="px-space-md py-space-xs bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md hover:bg-secondary-fixed transition-colors" href="tel:8149521964">Call Now</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Interactive Desktop Pro Application Form -->
+<section class="max-w-4xl mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-2xl" id="pro-application-form">
+<div class="bg-surface-container-lowest rounded-3xl p-space-xl lg:p-space-2xl shadow-xl relative overflow-hidden">
+<!-- Accent top line -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-primary-container"></div>
+<div class="mb-space-lg text-center">
+<div class="inline-flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-primary mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+            Tri-County Pro Candidate Portal
+          </div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Professional Housekeeper Application</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto mt-space-xs">
+            Submit your credentials below. Our local recruitment desk will review and reach out within 24 hours.
+          </p>
+</div>
+<form class="space-y-space-lg" id="recruitForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+<!-- Name & Phone -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="fullName">Full Name *</label>
+<input class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary transition-all" id="fullName" placeholder="e.g. Jessica Miller" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="phone">Phone Number *</label>
+<input class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary transition-all" id="phone" placeholder="e.g. (814) 555-0142" required="" type="tel"/>
+</div>
+</div>
+<!-- Email & Town -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="email">Email Address *</label>
+<input class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary transition-all" id="email" placeholder="jessica.miller@example.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="coverageArea">Primary Town / Preferred Coverage *</label>
+<select class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary transition-all" id="coverageArea" required="">
+<option disabled="" selected="" value="">Select Primary Area</option>
+<option value="DuBois, PA">DuBois, PA</option>
+<option value="Brookville, PA">Brookville, PA</option>
+<option value="Punxsutawney, PA">Punxsutawney, PA</option>
+<option value="Reynoldsville, PA">Reynoldsville, PA</option>
+<option value="Surrounding Tri-County">Surrounding Tri-County (Flexible)</option>
+</select>
+</div>
+</div>
+<!-- Experience & Add-on Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="experience">Years of Professional Housekeeping / Cleaning Experience *</label>
+<select class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary transition-all" id="experience" required="">
+<option disabled="" selected="" value="">Select Experience Level</option>
+<option value="Less than 1 year">Less than 1 year</option>
+<option value="1-2 years">1-2 years</option>
+<option value="3-5 years">3-5 years</option>
+<option value="5+ years">5+ years (Master Cleaner)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs" for="hoursGoal">Desired Weekly Hours</label>
+<select class="w-full h-12 px-space-md rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary transition-all" id="hoursGoal">
+<option value="Part-time (10-20 hrs/wk)">Part-time (10-20 hrs/week)</option>
+<option value="Part-time (20-30 hrs/wk)">Part-time (20-30 hrs/week)</option>
+<option value="Full-time (30-40 hrs/wk)">Full-time (30-40 hrs/week)</option>
+<option value="Flexible / Weekends Only">Flexible / Weekends Only</option>
+</select>
+</div>
+</div>
+<!-- Availability Checkboxes -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs">Availability Windows (Select all that apply) *</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+<label class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" name="availability" type="checkbox" value="Weekdays"/>
+<span class="font-body-sm text-body-sm text-on-surface">Weekdays</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary" name="availability" type="checkbox" value="Weekends"/>
+<span class="font-body-sm text-body-sm text-on-surface">Weekends</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" name="availability" type="checkbox" value="Mornings"/>
+<span class="font-body-sm text-body-sm text-on-surface">Mornings (8am - 12pm)</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" name="availability" type="checkbox" value="Afternoons"/>
+<span class="font-body-sm text-body-sm text-on-surface">Afternoons (12pm - 5pm)</span>
+</label>
+</div>
+</div>
+<!-- Resume / Bio Upload Dropzone -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-space-xs">Resume &amp; Work History (PDF, DOCX, or Image)</label>
+<div class="p-space-lg rounded-2xl bg-surface-container-low hover:bg-surface-container border-2 border-dashed border-outline-variant hover:border-primary cursor-pointer transition-all flex flex-col items-center justify-center text-center group" id="dropzone" onclick="document.getElementById('resumeFile').click();">
+<input accept=".pdf,.doc,.docx,.png,.jpg" class="hidden" id="resumeFile" onchange="handleFileSelected(this)" type="file"/>
+<div class="w-12 h-12 rounded-full bg-secondary-container text-primary flex items-center justify-center mb-space-xs group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface" id="dropzoneText">
+                Click to browse or drag &amp; drop your resume here
+              </p>
+<p class="font-body-sm text-body-sm text-outline mt-1">
+                Accepted: .pdf, .docx, or photo of references (Max 15MB)
+              </p>
+</div>
+</div>
+<!-- Driver License & Transportation confirmation -->
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-space-xs">
+<label class="flex items-start gap-space-sm cursor-pointer">
+<input class="w-5 h-5 rounded text-primary focus:ring-primary mt-0.5" id="driverConfirm" required="" type="checkbox"/>
+<div class="font-body-sm text-body-sm text-on-surface">
+<span class="font-title-md text-title-md block text-on-surface">Transportation &amp; Credential Confirmation *</span>
+                I confirm that I hold a valid PA Driver's License, maintain valid auto insurance, have dependable personal transit, and can pass a routine criminal background screening.
+              </div>
+</label>
+</div>
+<!-- Submit CTA -->
+<div class="pt-space-xs">
+<button class="w-full py-space-md rounded-xl bg-primary-container text-on-primary font-title-md text-title-md font-bold shadow-md hover:bg-primary transition-all flex items-center justify-center gap-space-sm" id="submitBtn" type="submit">
+<span>Submit Housekeeper Application</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+<!-- Status Alert area (Hidden by default) -->
+<div class="hidden p-space-md rounded-xl bg-secondary-container text-on-secondary-container flex items-center gap-space-sm" id="formSuccess">
+<span class="material-symbols-outlined text-primary text-[28px]">task_alt</span>
+<div>
+<div class="font-title-md text-title-md font-bold">Application Received!</div>
+<p class="font-body-sm text-body-sm">Thank you for applying. A dispatch coordinator will call you from (814) 952-1964 within 24 business hours to arrange your telephone interview.</p>
+</div>
+</div>
+<!-- Support Micro-copy -->
+<div class="text-center pt-space-xs">
+<p class="font-body-sm text-body-sm text-outline">
+              Need assistance with your application? Call our recruitment coordinator directly at
+              <a class="text-primary font-bold hover:underline" href="tel:8149521964">(814) 952-1964</a>.
+            </p>
+</div>
+</form>
+</div>
+</section>
+<!-- Section 5: Applicant Status & Existing Pro Quick Links Banner -->
+<section class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-2xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card: Candidate Tracker -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)] flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">manage_search</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Already applied?</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Check your recruiter status or submit supplemental documents.</p>
+</div>
+</div>
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap" onclick="alert('Applicant Tracking Portal: Please enter your phone number to view live submission status.');" type="button">
+            Check Status
+          </button>
+</div>
+<!-- Card: Existing Cleaner Login -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)] flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Current Housekeeper Pro?</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Access your daily schedule, job briefs, and payout vault.</p>
+</div>
+</div>
+<a class="px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-colors whitespace-nowrap" data-path="customer-portal" href="#">
+            Pro Workspace
+          </a>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  function handleFileSelected(input) {
+    const dropText = document.getElementById('dropzoneText');
+    if (input.files && input.files[0]) {
+      dropText.innerHTML = '<span class="text-primary font-bold">Selected:</span> ' + input.files[0].name;
+    }
+  }
+
+  function handleFormSubmit() {
+    const btn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+    
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">refresh</span> Processing Submission...';
+
+    setTimeout(() => {
+      btn.style.display = 'none';
+      successMsg.classList.remove('hidden');
+      document.getElementById('recruitForm').reset();
+    }, 900);
+  }
+</script></main><footer class="w-full bg-surface-container-low text-on-surface-variant pt-space-2xl pb-space-xl shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg mb-space-2xl"><div class="lg:col-span-2 space-y-space-md pr-space-md"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[28px]">eco</span><span class="font-headline-sm text-headline-sm text-primary tracking-tight">HousekeeperBooking.com</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Immaculate freshness, domestic tranquility, and non-toxic residential care tailored for local homeowners across Jefferson &amp; Clearfield counties.</p><div class="p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_12px_rgba(47,62,70,0.03)] flex items-start gap-space-sm max-w-sm"><span class="material-symbols-outlined text-primary text-[24px]">verified</span><div><div class="font-label-lg text-label-lg text-on-surface">100% Reclean Guarantee</div><p class="font-body-sm text-body-sm text-on-surface-variant">Not completely delighted? We return within 24 hours and reclean for free.</p></div></div><div class="pt-space-xs"><div class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Direct Dispatch Hotline</div><a class="font-title-lg text-title-lg text-primary hover:underline flex items-center gap-space-xs mt-space-xs" href="tel:8149521964"><span class="material-symbols-outlined text-primary text-[20px]">support_agent</span>(814) 952-1964</a></div></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Service Areas</h4><ul class="space-y-space-sm font-body-md text-body-md"><li class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>DuBois, PA</li><li class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>Brookville, PA</li><li class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>Punxsutawney, PA</li><li class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[16px]">location_on</span>Reynoldsville, PA</li><li class="text-body-sm font-body-sm text-outline pt-space-xs">&amp; Surrounding Tri-County</li></ul></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Cleaning Services</h4><ul class="space-y-space-sm font-body-md text-body-md"><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="services-and-pricing" href="#">Standard Care Refresh</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="services-and-pricing" href="#">Deep Detail Clean</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="services-and-pricing" href="#">Move-In / Move-Out</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="services-and-pricing" href="#">Eco AirBnb Turnover</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="services-and-pricing" href="#">Appliance Interior Sanitization</a></li></ul></div><div><h4 class="font-title-md text-title-md text-on-surface mb-space-md">Company</h4><ul class="space-y-space-sm font-body-md text-body-md"><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="careers" href="recruit.html">Careers</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Customer Portal</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="terms-of-service" href="#">Terms of Service</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="instant-quote" href="#">Instant Quote</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-outline"><p>© 2025 HousekeeperBooking.com. All rights reserved. Locally owned &amp; certified non-toxic.</p><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a><a class="hover:text-on-surface transition-colors" data-path="careers" href="recruit.html">Careers</a></div></div></div></footer><div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md p-space-sm shadow-[0_-4px_16px_rgba(0,0,0,0.08)] flex items-center gap-space-sm"><a class="flex-1 inline-flex items-center justify-center gap-space-xs py-space-sm rounded-lg bg-secondary-container text-on-secondary-container font-label-lg text-label-lg" href="tel:8149521964"><span class="material-symbols-outlined text-primary text-[20px]">call</span>Call Now</a><a class="flex-1 inline-flex items-center justify-center py-space-sm rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg" data-path="instant-quote" href="#">Book Online</a></div></body></html>

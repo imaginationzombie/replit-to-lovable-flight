@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#f0f1ef", "on-tertiary-fixed": "#0e1d25", "surface-tint": "#006b5b", "surface-container-high": "#e7e8e6", "on-surface-variant": "#3e4946", "outline-variant": "#bec9c4", "surface-container-low": "#f3f4f2", "on-primary-fixed-variant": "#005144", "on-secondary-fixed": "#00210e", "surface-bright": "#f9faf8", "primary-fixed": "#9ff2de", "on-error": "#ffffff", "surface-variant": "#e1e3e1", "on-tertiary-fixed-variant": "#3a4951", "on-tertiary": "#ffffff", "primary-container": "#086e5e", "on-surface": "#191c1b", "on-secondary": "#ffffff", "on-tertiary-container": "#d0e0ea", "outline": "#6e7976", "background": "#f9faf8", "error": "#ba1a1a", "tertiary-fixed-dim": "#b9c9d3", "on-background": "#191c1b", "primary-fixed-dim": "#83d6c2", "on-secondary-fixed-variant": "#2c4e36", "tertiary-container": "#54646c", "surface": "#f9faf8", "on-secondary-container": "#486a51", "surface-dim": "#d9dad8", "tertiary": "#3d4c54", "secondary-fixed": "#c5eccc", "on-primary": "#ffffff", "secondary-container": "#c2e9c9", "inverse-primary": "#83d6c2", "tertiary-fixed": "#d5e5ef", "on-primary-container": "#99edd9", "inverse-surface": "#2e3130", "primary": "#005447", "on-primary-fixed": "#00201a", "surface-container": "#edeeec", "surface-container-lowest": "#ffffff", "on-error-container": "#93000a", "secondary": "#43664d", "secondary-fixed-dim": "#aad0b1", "error-container": "#ffdad6", "surface-container-highest": "#e1e3e1" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-md": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-lg": "2rem", "margin-lg": "4rem", "space-2xl": "4rem", "space-md": "1rem", "gutter-sm": "1rem", "space-xl": "2.5rem", "margin": "1.25rem" }, "fontFamily": { "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"] }, "fontSize": { "headline-sm": ["22px", {"lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600"}], "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}], "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}], "body-sm": ["13px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400"}], "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "title-lg": ["18px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600"}], "body-md": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-gutter-sm flex items-center gap-space-sm bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex-shrink-0"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XA7p3QZvkjxTkU16vC4M8sZ8bf3lnofpON31_7LKeGoM10EFBRmxrAi53Q8Y-yTB6SM2ZBcbX3NNJh2QAkfGXngw7rSHBkX_Gy0WtGjORsyAwuXEZcVnKMsEtlGtX3B-43UXhjyPLaTfDTFTmFMMxBWgFEABxN8umpU-mAgZykQ-63s7kBBjifrrL8gkGZIJm4AmfC_4ttC6Iq3fVPsmTixRQNHoesSms4qhPKt47wCdYfm-uTfjmjxJI"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-primary truncate leading-tight">HousekeeperBooking</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Operations Admin</span></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md"><nav class="space-y-space-md" data-active-classes="bg-primary-container text-on-primary font-title-md rounded-lg shadow-sm"><div class="space-y-space-xs"><p class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">1. Core Dispatch &amp; Ops</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="operations-command" href="#"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Operations Command</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="schedule-dispatch-hub" href="#"><span class="material-symbols-outlined text-[18px]">schedule</span><span>Schedule &amp; Dispatch Hub</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="multi-pro-dispatch" href="#"><span class="material-symbols-outlined text-[18px]">groups</span><span>Multi-Pro &amp; Crew Dispatch</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="master-schedule" href="#"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Master Schedule</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="cleaner-roster" href="#"><span class="material-symbols-outlined text-[18px]">badge</span><span>Cleaner Roster &amp; Profiles</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">2. Clients &amp; Bookings</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="customer-directory" href="#"><span class="material-symbols-outlined text-[18px]">contact_page</span><span>Customer Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="bookings" href="#"><span class="material-symbols-outlined text-[18px]">book_online</span><span>Bookings &amp; Inbound Leads</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="services-config" href="#"><span class="material-symbols-outlined text-[18px]">room_preferences</span><span>Services &amp; Territory Config</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">3. Staff &amp; Recruiting</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="recruit-admin" href="#"><span class="material-symbols-outlined text-[18px]">person_add</span><span>Recruit &amp; Onboarding</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="applicant-tracker" href="#"><span class="material-symbols-outlined text-[18px]">assignment_ind</span><span>Applicant Tracker</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs transition-colors bg-primary-container text-on-primary font-title-md rounded-lg shadow-sm" data-path="staff-communications" href="#"><span class="material-symbols-outlined text-[18px]">forum</span><span>Staff Communications</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="message-audit" href="#"><span class="material-symbols-outlined text-[18px]">verified_user</span><span>Message Audit &amp; Safety</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-lottery" href="#"><span class="material-symbols-outlined text-[18px]">military_tech</span><span>Staff Lottery &amp; Rewards</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">4. Finance &amp; Growth</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">payments</span><span>Payments &amp; Gateway</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tax-tracker" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Tax &amp; Withholding Tracker</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="marketing-ads" href="#"><span class="material-symbols-outlined text-[18px]">campaign</span><span>Marketing &amp; Ad Creatives</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="sms-campaigns" href="#"><span class="material-symbols-outlined text-[18px]">sms</span><span>SMS &amp; Twilio Campaigns</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="traffic-analytics" href="#"><span class="material-symbols-outlined text-[18px]">analytics</span><span>Web Traffic &amp; Analytics</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-sm text-label-sm text-outline uppercase tracking-wider">5. System</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="master-nav" href="#"><span class="material-symbols-outlined text-[18px]">menu_book</span><span>Navigation Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-login" href="#"><span class="material-symbols-outlined text-[18px]">lock</span><span>Admin Lock / Login</span></a></div></nav></div><div class="p-space-sm bg-surface-container rounded-t-xl mx-space-sm mb-space-sm space-y-space-xs flex-shrink-0"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[16px]">call</span><span class="font-label-sm text-label-sm font-bold">24/7 DISPATCH HOTLINE</span></div><p class="font-body-sm text-body-sm text-on-surface font-semibold pl-6">(814) 952-1964</p><div class="flex items-center justify-between pt-space-xs text-outline font-label-sm text-label-sm"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">verified</span> PA Certified</span><span>v2.6</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-gutter-sm"><div class="flex items-center gap-space-xs"><span class="font-title-lg text-title-lg text-primary">HousekeeperBooking.com</span><span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded">ADMIN HQ</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">location_on</span><span class="font-label-md text-label-md text-on-surface-variant">Central PA: DuBois • Punxsutawney • Brookville • Reynoldsville</span></div></div><div class="flex items-center gap-gutter-sm"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 bg-secondary-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-secondary-fixed-variant">Systems Online • Dispatch Active</span></div><div class="hidden lg:flex items-center gap-space-xs text-primary font-title-md text-title-md"><span class="material-symbols-outlined text-[18px]">phone_in_talk</span><span class="font-label-sm text-label-sm text-on-surface-variant">Hotline:</span><span class="font-label-lg text-label-lg font-bold">(814) 952-1964</span></div><div class="flex items-center gap-space-sm pl-space-sm"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Staff Messages"><span class="material-symbols-outlined text-[20px]">chat_bubble</span><span class="absolute 1 top-0.5 right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center leading-none">4</span></button><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Notifications"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-0.5 right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-error text-on-error font-label-sm text-label-sm flex items-center justify-center leading-none">3</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs cursor-pointer" title="Admin Profile"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface px-gutter py-space-lg"><div class="flex flex-col w-full">
+<div class="flex flex-col gap-space-lg mb-space-xl">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">record_voice_over</span>
+<span>Central PA Staff Telemetry &amp; Dispatch Line</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Admin &amp; Staff Communications Hub</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Broadcast dispatch announcements, coordinate team shifts, and direct message cleaners across DuBois, Punxsutawney, Brookville, and Reynoldsville.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm self-start lg:self-center">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-lg font-label-lg text-label-lg transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">filter_list</span>
+<span>Filter by Territory</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container rounded-lg font-label-lg text-label-lg transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">cell_tower</span>
+<span>Staff Shift Ping</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-primary-container hover:bg-primary text-on-primary rounded-lg font-label-lg text-label-lg transition-all shadow-md">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+<span>+ New Announcement Broadcast</span>
+</button>
+</div>
+</div>
+<!-- KPI Stats Cards (4 items) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Staff Online</span>
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-on-surface">14 Pros</div>
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mt-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>All 4 Central PA Hubs connected</span>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Unread Cleaner Messages</span>
+<span class="p-1.5 bg-error-container text-on-error-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">mark_chat_unread</span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-error">4 Inquiries</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="material-symbols-outlined text-[15px] text-primary">timer</span>
+<span>Avg reply time: <strong>4.2 mins</strong></span>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Priority response SLA</span>
+<span class="text-primary font-semibold">&lt; 10m target</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Daily Broadcasts Sent</span>
+<span class="p-1.5 bg-surface-container text-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">podcasts</span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-on-surface">2 Updates</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm mt-1 truncate">
+            Shift reminders &amp; weather advisory
+          </div>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+<span>100% confirmation delivery rate</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Wage Privacy Safeguard</span>
+<span class="p-1.5 bg-secondary-container text-on-secondary-fixed-variant rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</span>
+</div>
+<div class="my-space-sm">
+<div class="font-headline-lg text-headline-lg text-primary flex items-center gap-2">
+            Active
+            <span class="material-symbols-outlined text-[24px] text-primary">lock</span>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm mt-1 line-clamp-1">
+            Cleaner hourly rates &amp; customer tips hidden
+          </div>
+</div>
+<div class="text-outline font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">policy</span>
+<span>Zero wage leaks in group channels</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main 3-Column Work Area: Channels list, Active chat feed, Duty Drawer -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Channels & Conversations (lg:col-span-4 xl:col-span-3) -->
+<div class="lg:col-span-4 xl:col-span-3 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Search Staff / Hub -->
+<div class="p-space-md bg-surface-container-low">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-container-lowest text-on-surface placeholder:text-outline rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Search staff name, hub, or channel..." type="text"/>
+</div>
+<!-- Filter Sub-Tabs -->
+<div class="flex items-center gap-1 mt-space-sm p-0.5 bg-surface-container rounded-lg text-on-surface-variant">
+<button class="flex-1 py-1 px-2 rounded-md font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-primary shadow-xs text-center">Channels</button>
+<button class="flex-1 py-1 px-2 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center">DMs (4)</button>
+<button class="flex-1 py-1 px-2 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center">Urgent</button>
+</div>
+</div>
+<div class="divide-y divide-transparent overflow-y-auto max-h-[720px] p-space-xs space-y-space-md">
+<!-- Team Channels List -->
+<div>
+<div class="px-space-sm py-space-xs flex items-center justify-between text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<span>Team Channels</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer hover:text-primary">add</span>
+</div>
+<div class="space-y-0.5 mt-1">
+<!-- Active Channel -->
+<a class="flex items-start gap-space-sm p-space-sm rounded-lg bg-secondary-container text-on-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary mt-0.5">tag</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-primary truncate">#central-pa-all-staff</span>
+<span class="font-label-sm text-label-sm text-on-secondary-container font-semibold">Now</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-secondary-container truncate mt-0.5">Heavy rain notice on I-80 corridor</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary">18 members</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Broadcast on</span>
+</div>
+</div>
+</a>
+<!-- Other Channels -->
+<a class="flex items-start gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] text-outline mt-0.5">tag</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-medium text-on-surface truncate">#dubois-hub-dispatch</span>
+<span class="font-label-sm text-label-sm text-outline">10:02a</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Sarah Jenkins checked in at 10:00 AM</p>
+<span class="font-label-sm text-label-sm text-outline">5 members</span>
+</div>
+</a>
+<a class="flex items-start gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] text-outline mt-0.5">tag</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-medium text-on-surface truncate">#punxsutawney-crews</span>
+<span class="px-1.5 py-0.2 bg-primary text-on-primary font-label-sm text-label-sm rounded-full">1 unread</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Route updates around Mahoning St</p>
+<span class="font-label-sm text-label-sm text-outline">4 members</span>
+</div>
+</a>
+<a class="flex items-start gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] text-outline mt-0.5">tag</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-medium text-on-surface truncate">#brookville-reynoldsville</span>
+<span class="font-label-sm text-label-sm text-outline">09:14a</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Supplies restocked at Brookville depot</p>
+<span class="font-label-sm text-label-sm text-outline">6 members</span>
+</div>
+</a>
+<a class="flex items-start gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] text-outline mt-0.5">tag</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-medium text-on-surface truncate">#movers-and-heavy-crews</span>
+<span class="font-label-sm text-label-sm text-outline">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Move-In / Move-Out crew assignments</p>
+<span class="font-label-sm text-label-sm text-outline">3 members</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Direct Staff Messages -->
+<div class="pt-space-xs">
+<div class="px-space-sm py-space-xs flex items-center justify-between text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<span>Direct Staff Messages</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">4 active</span>
+</div>
+<div class="space-y-0.5 mt-1">
+<!-- Elena Vance -->
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<div class="relative flex-shrink-0">
+<div class="w-9 h-9 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center font-title-md text-title-md font-bold">
+                  EV
+                </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">Elena Vance</span>
+<span class="px-1.5 py-0.5 bg-primary text-on-primary font-label-sm text-label-sm rounded-full leading-none">2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">DuBois • Can I pick up the 3:00 PM routine clean?</p>
+</div>
+</a>
+<!-- Sarah Jenkins -->
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<div class="relative flex-shrink-0">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-title-md text-title-md font-bold">
+                  SJ
+                </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-semibold text-on-surface truncate">Sarah Jenkins</span>
+<span class="px-1.5 py-0.5 bg-primary text-on-primary font-label-sm text-label-sm rounded-full leading-none">1</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Brookville • Checklist completed for 452 Liberty St</p>
+</div>
+</a>
+<!-- Derek Foster -->
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<div class="relative flex-shrink-0">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-title-md text-title-md font-bold">
+                  DF
+                </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-medium text-on-surface truncate">Derek Foster</span>
+<span class="font-label-sm text-label-sm text-outline">10:18a</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Reynoldsville • Arrived on site for 3-hour Move-Out</p>
+</div>
+</a>
+<!-- Amanda Cole -->
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg hover:bg-surface-container text-on-surface transition-all" href="#">
+<div class="relative flex-shrink-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-title-md text-title-md font-bold">
+                  AC
+                </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-outline"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-medium text-on-surface truncate">Amanda Cole</span>
+<span class="font-label-sm text-label-sm text-outline">09:44a</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Punxsutawney • Confirmed 48-hr advance booking queue</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- MIDDLE COLUMN: Active Chat Window (lg:col-span-8 xl:col-span-6) -->
+<div class="lg:col-span-8 xl:col-span-6 bg-surface-container-lowest rounded-xl shadow-sm flex flex-col h-[780px]">
+<!-- Room Header -->
+<div class="px-space-lg py-space-md bg-surface-container-low rounded-t-xl flex items-center justify-between flex-shrink-0 shadow-xs">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="material-symbols-outlined text-primary text-[22px]">tag</span>
+<span class="font-title-lg text-title-lg text-on-surface font-bold">central-pa-all-staff</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              18 Members Active
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+            Central PA Operational updates, emergency weather alerts &amp; field safety
+          </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<a class="hidden sm:flex items-center gap-1 px-space-md py-1.5 bg-primary/10 hover:bg-primary/20 text-primary rounded-full font-label-sm text-label-sm font-bold transition-colors" href="tel:8149521964">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>(814) 952-1964</span>
+</a>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Channel Settings">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Message Feed Area -->
+<div class="flex-1 overflow-y-auto p-space-lg space-y-space-lg bg-surface">
+<!-- Pinned Announcement Card -->
+<div class="p-space-md bg-secondary-container/30 rounded-xl relative overflow-hidden shadow-xs">
+<div class="flex items-center gap-space-xs mb-space-xs text-primary font-label-sm text-label-sm uppercase tracking-wider font-bold">
+<span class="material-symbols-outlined text-[16px]">push_pin</span>
+<span>Pinned Dispatch Announcement • All Central PA Hubs</span>
+</div>
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md flex-shrink-0">
+              HQ
+            </div>
+<div class="space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Admin / Dispatch Command</span>
+<span class="font-label-sm text-label-sm text-outline">08:00 AM</span>
+<span class="px-1.5 py-0.2 bg-primary text-on-primary rounded text-[10px] font-bold uppercase">Official</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                Good morning team! Please remember all jobs require the mandatory <strong>30-minute travel buffer</strong> between houses. Do not accept back-to-back jobs without buffer. If road conditions on Route 322 or I-80 cause unexpected delays, alert dispatch hotline immediately.
+              </p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center my-space-xs">
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-sm text-label-sm text-outline">Today, June 14</span>
+</div>
+<!-- Chat Bubble: Elena Vance -->
+<div class="flex items-start gap-space-sm group">
+<div class="w-9 h-9 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center font-bold text-label-md flex-shrink-0">
+            EV
+          </div>
+<div class="flex flex-col max-w-[85%] space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md font-semibold text-on-surface">Elena Vance</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-1 rounded text-on-surface-variant">DuBois Hub</span>
+<span class="font-label-sm text-label-sm text-outline">08:24 AM</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest text-on-surface rounded-xl rounded-tl-none shadow-sm font-body-md text-body-md">
+              Noted! Finished early on Maple Ave, heading to DuBois center now. Ready for next scheduled deep-clean at 11:30 AM.
+            </div>
+</div>
+</div>
+<!-- Chat Bubble: Dispatch Admin response -->
+<div class="flex items-start gap-space-sm flex-row-reverse group">
+<div class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md flex-shrink-0">
+            HQ
+          </div>
+<div class="flex flex-col items-end max-w-[85%] space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-outline">08:26 AM</span>
+<span class="font-title-md text-title-md font-semibold text-primary">Admin / Dispatch</span>
+</div>
+<div class="p-space-md bg-primary-container text-on-primary rounded-xl rounded-tr-none shadow-sm font-body-md text-body-md">
+              @Elena Vance great job. Client confirmed satisfaction via automated SMS. Rest up during your full buffer!
+            </div>
+</div>
+</div>
+<!-- Chat Bubble: Derek Foster -->
+<div class="flex items-start gap-space-sm group">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-label-md flex-shrink-0">
+            DF
+          </div>
+<div class="flex flex-col max-w-[85%] space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md font-semibold text-on-surface">Derek Foster</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-1 rounded text-on-surface-variant">Reynoldsville</span>
+<span class="font-label-sm text-label-sm text-outline">09:12 AM</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest text-on-surface rounded-xl rounded-tl-none shadow-sm font-body-md text-body-md">
+              Team, highway 119 has some road work near Big Run, add 10 mins extra if driving from Punxsy. One lane alternating traffic currently.
+            </div>
+<div class="flex items-center gap-2 pt-0.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant cursor-pointer hover:bg-surface-variant">
+                👍 4
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded-full font-label-sm text-label-sm text-on-surface-variant cursor-pointer hover:bg-surface-variant">
+                🚗 2
+              </span>
+</div>
+</div>
+</div>
+<!-- Chat Bubble: Sarah Jenkins -->
+<div class="flex items-start gap-space-sm group">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-label-md flex-shrink-0">
+            SJ
+          </div>
+<div class="flex flex-col max-w-[85%] space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md font-semibold text-on-surface">Sarah Jenkins</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-1 rounded text-on-surface-variant">Brookville</span>
+<span class="font-label-sm text-label-sm text-outline">09:15 AM</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest text-on-surface rounded-xl rounded-tl-none shadow-sm font-body-md text-body-md">
+              Thanks for the heads up Derek! Re-routing via Route 36 instead. Will keep you updated.
+            </div>
+</div>
+</div>
+</div>
+<!-- Quick Action Pills Above Input -->
+<div class="px-space-md pt-space-xs bg-surface-container-lowest flex items-center gap-space-xs overflow-x-auto pb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex-shrink-0 mr-1">Quick Macros:</span>
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high rounded-full font-label-sm text-label-sm text-on-surface-variant transition-colors whitespace-nowrap flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">notifications_active</span>
+          Add Shift Alert
+        </button>
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high rounded-full font-label-sm text-label-sm text-on-surface-variant transition-colors whitespace-nowrap flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">cloud</span>
+          Weather Warning
+        </button>
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high rounded-full font-label-sm text-label-sm text-on-surface-variant transition-colors whitespace-nowrap flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">schedule</span>
+          30m Buffer Reminder
+        </button>
+<button class="px-2.5 py-1 bg-error-container/60 hover:bg-error-container rounded-full font-label-sm text-label-sm text-on-error-container transition-colors whitespace-nowrap flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">emergency</span>
+          Send Emergency SMS
+        </button>
+</div>
+<!-- Rich Chat Input Box -->
+<div class="p-space-md bg-surface-container-lowest rounded-b-xl shadow-xs">
+<div class="relative bg-surface-container-low rounded-xl p-space-sm flex flex-col gap-space-xs">
+<textarea class="w-full bg-transparent text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none resize-none" placeholder="Broadcast message to Central PA team or type /announce..." rows="2"></textarea>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-space-xs text-outline">
+<button class="p-1.5 hover:text-on-surface rounded hover:bg-surface-container transition-colors" title="Attach file or dispatch sheet">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+<button class="p-1.5 hover:text-on-surface rounded hover:bg-surface-container transition-colors" title="Insert checklist / template">
+<span class="material-symbols-outlined text-[20px]">checklist</span>
+</button>
+<button class="p-1.5 hover:text-on-surface rounded hover:bg-surface-container transition-colors" title="Insert Emoji">
+<span class="material-symbols-outlined text-[20px]">mood</span>
+</button>
+<span class="hidden sm:inline-block h-4 w-px bg-outline-variant mx-1"></span>
+<span class="hidden sm:flex items-center gap-1 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                Rates Hidden
+              </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs bg-primary-container hover:bg-primary text-on-primary rounded-lg font-label-lg text-label-lg flex items-center gap-1.5 transition-all shadow-sm">
+<span>Send Message</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Staff Duty & Dispatch Standby Drawer (lg:col-span-12 xl:col-span-3) -->
+<div class="lg:col-span-12 xl:col-span-3 flex flex-col gap-space-md">
+<!-- On-Duty Dispatch Standby Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm uppercase tracking-wider font-bold">
+<span class="material-symbols-outlined text-[18px]">headset_mic</span>
+<span>Standby Command</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Lead Dispatcher</span>
+<div class="font-title-md text-title-md text-on-surface font-bold flex items-center justify-between">
+<span>Marcus Vance</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-fixed-variant rounded text-label-sm font-semibold">Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central PA HQ • Shift ends 6:00 PM</p>
+</div>
+<div class="p-space-md rounded-lg bg-primary/5 space-y-1">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">24/7 Field Escalation Phone</span>
+<div class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">
+            (814) 952-1964
+          </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct ring into dispatch master console</p>
+</div>
+<!-- Quick SMS Dispatch Trigger -->
+<div class="space-y-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Rapid SMS Notice to All Active Pros</label>
+<div class="flex items-center gap-1">
+<input class="w-full px-3 py-1.5 bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g. Weather hold on Dubois shifts..." type="text"/>
+<button class="p-1.5 bg-primary text-on-primary rounded-lg hover:bg-primary-container" title="Send SMS Broadcast">
+<span class="material-symbols-outlined text-[18px]">send_to_mobile</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Territory Heatmap & Coverage -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-bold">Central PA Hub Density</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">100% Covered</span>
+</div>
+<!-- Inline SVG Visualization of 4 Hubs -->
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<svg class="w-full h-28 text-primary" fill="none" viewbox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+<!-- Central PA Network interconnect lines -->
+<path d="M50 40 L130 30 L220 50 L270 85 L130 90 L50 40" stroke="currentColor" stroke-dasharray="3 3" stroke-opacity="0.2" stroke-width="2"></path>
+<path d="M130 30 L130 90" stroke="currentColor" stroke-opacity="0.15" stroke-width="1.5"></path>
+<!-- Node 1: DuBois -->
+<circle class="fill-primary text-primary" cx="130" cy="30" r="10"></circle>
+<circle class="stroke-primary text-primary" cx="130" cy="30" r="16" stroke-opacity="0.3" stroke-width="1"></circle>
+<text class="fill-on-surface text-[10px] font-bold" text-anchor="middle" x="130" y="16">DuBois (5)</text>
+<!-- Node 2: Brookville -->
+<circle cx="50" cy="40" fill="currentColor" fill-opacity="0.8" r="8"></circle>
+<text class="fill-on-surface text-[10px] font-medium" text-anchor="middle" x="50" y="24">Brookville (3)</text>
+<!-- Node 3: Punxsutawney -->
+<circle class="fill-secondary" cx="130" cy="90" r="9"></circle>
+<text class="fill-on-surface text-[10px] font-medium" text-anchor="middle" x="130" y="110">Punxsutawney (4)</text>
+<!-- Node 4: Reynoldsville -->
+<circle cx="220" cy="50" fill="currentColor" fill-opacity="0.8" r="7"></circle>
+<text class="fill-on-surface text-[10px] font-medium" text-anchor="middle" x="220" y="38">Reynoldsville (2)</text>
+</svg>
+</div>
+<!-- Coverage Stats List -->
+<div class="space-y-space-xs text-on-surface font-body-sm text-body-sm">
+<div class="flex items-center justify-between py-1">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              DuBois Hub (I-80 &amp; 219)
+            </span>
+<span class="font-semibold text-on-surface">5 Pros</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              Punxsutawney (Rt 119)
+            </span>
+<span class="font-semibold text-on-surface">4 Pros</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+              Brookville (Jefferson Co)
+            </span>
+<span class="font-semibold text-on-surface">3 Pros</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+              Reynoldsville &amp; Sykesville
+            </span>
+<span class="font-semibold text-on-surface">2 Pros</span>
+</div>
+</div>
+</div>
+<!-- Broadcast Audit History snippet -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-bold">Recent Broadcast Log</span>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="space-y-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-0.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-primary font-bold">Shift Buffer Reminder</span>
+<span class="text-outline">08:15 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Mandatory 30m travel gap between residences</p>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[13px]">check</span>
+<span>Delivered to 14 active phones</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-0.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-bold">Weekend Schedule Open</span>
+<span class="text-outline">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">DuBois residential deep-cleans now claimable</p>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[13px]">check</span>
+<span>18 acknowledgments logged</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

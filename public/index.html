@@ -1,0 +1,1377 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="web_standard" name="shell-type">
+  <title>HousekeeperBooking.com | Pristine Living in Central PA</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      overflow-y: auto !important;
+      height: auto !important;
+      min-height: 100%;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f3f4f2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #086e5e;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #005447;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#005447",
+            "primary-container": "#086e5e",
+            "primary-fixed": "#9ff2de",
+            "primary-fixed-dim": "#83d6c2",
+            "on-primary": "#ffffff",
+            "secondary": "#43664d",
+            "secondary-container": "#c2e9c9",
+            "on-secondary-container": "#193520",
+            "surface": "#f9faf8",
+            "surface-dim": "#d9dad8",
+            "surface-bright": "#f9faf8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f3f4f2",
+            "surface-container": "#edeeec",
+            "surface-container-high": "#e7e8e6",
+            "on-surface": "#191c1b",
+            "on-surface-variant": "#3e4946",
+            "outline": "#6e7976",
+            "outline-variant": "#bec9c4",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased">
+
+  <!-- Fixed Standard Two-Row Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 shadow-[0_2px_12px_rgba(0,0,0,0.06)] bg-surface/95 backdrop-blur-md">
+    <!-- Top Utility Tier -->
+    <div class="border-b border-surface-container">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
+        <!-- Brand Logo & Slogan -->
+        <a class="flex items-center gap-2.5 group" href="index.html">
+          <img alt="HousekeeperBooking.com Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WhRS5LreSLekX-RfeDMSkUglsiGAhwr9bYlRbdl3GJfq5tdPoNpdQE4ibMqr9gKzfCtfv2w4lAFpIkHVUy4TdiKf4zYrnVW2jNRin5BBCSGIqLI-Zur0NFL0fjMRQgl4cAhrkLNOacv8c3e8g3gLGLRQem8-hsXiXjS7IOi20LQXfVaXG7C_4R4VEL4Opdoxy_T1GfUv3NgS7C9Zree9lb2077Gsf-XQ02dxGDewL_7Qhs_7Fz9CZIFFg">
+          <div class="flex flex-col">
+            <span class="text-lg font-bold text-primary tracking-tight group-hover:text-primary-container transition-colors">HousekeeperBooking.com</span>
+            <span class="text-[10px] font-bold text-secondary tracking-widest uppercase">NATURAL DOMESTIC CARE | CENTRAL PA PREMIER</span>
+          </div>
+        </a>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center gap-3"><a class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors" href="recruit.html"><span class="material-symbols-outlined text-[16px] text-secondary">work</span><span class="">Careers</span></a>
+          <a class="hidden lg:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low text-primary hover:bg-secondary-container hover:text-on-secondary-container transition-colors text-xs font-bold border border-surface-container" href="tel:8149521964">
+            <span class="material-symbols-outlined text-[16px]">call</span>
+            <span class="">(814) 952-1964</span>
+          </a>
+          <a class="px-4 py-2 rounded-xl bg-primary-container text-on-primary text-xs font-bold shadow-[0_2px_12px_rgba(8,110,94,0.22)] hover:bg-primary transition-all flex items-center gap-1.5" href="instant-quote.html">
+            <span class="">Book Online Now</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+
+          <!-- User Account Dropdown -->
+          <div class="relative group">
+            <button aria-expanded="false" aria-haspopup="true" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-surface-container transition-all cursor-pointer text-left" onclick="var menu = document.getElementById('account-dropdown-menu'); if(menu) menu.classList.toggle('hidden');" type="button">
+              <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-[16px]">person</span>
+              </div>
+              <div class="hidden sm:flex flex-col pr-0.5">
+                <span class="text-[11px] font-bold text-on-surface leading-tight">Sarah Jenkins</span>
+                <span class="text-[10px] text-secondary font-semibold leading-none">Preferred Client</span>
+              </div>
+              <span class="material-symbols-outlined text-[16px] text-on-surface-variant transition-transform group-hover:rotate-180">expand_more</span>
+            </button>
+            <div class="hidden group-hover:block absolute right-0 mt-2 w-64 bg-surface-container-lowest rounded-xl shadow-xl border border-surface-container py-1.5 z-50 transition-all" id="account-dropdown-menu">
+              <div class="px-3.5 py-2 border-b border-surface-container">
+                <p class="text-xs font-bold text-on-surface">Signed in as</p>
+                <p class="text-[11px] text-on-surface-variant truncate font-medium">sarah.jenkins@clearfield-client.net</p>
+              </div>
+              <div class="py-1">
+                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors font-medium" href="customer-account.html">
+                  <span class="material-symbols-outlined text-[18px] text-secondary">account_circle</span>Profile &amp; Settings
+                </a>
+                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors font-medium" href="customer-history.html">
+                  <span class="material-symbols-outlined text-[18px] text-secondary">history</span>Booking History
+                </a>
+                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors font-medium" href="customer-messages.html">
+                  <span class="material-symbols-outlined text-[18px] text-secondary">chat</span>Messages
+                </a>
+                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors font-medium" href="reschedule-cancel.html">
+                  <span class="material-symbols-outlined text-[18px] text-secondary">event_repeat</span>Reschedule or Cancel
+                </a>
+              </div>
+              <div class="border-t border-surface-container my-1"></div>
+              <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-error hover:bg-error-container/40 transition-colors font-medium" href="customer-login.html">
+                <span class="material-symbols-outlined text-[18px]">logout</span>Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation Tier -->
+    <div class="bg-surface-container-lowest border-b border-surface-container shadow-[0_1px_4px_rgba(0,0,0,0.03)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between">
+        <nav class="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
+          <a class="px-3 py-1 rounded-lg text-primary bg-secondary-container/40 font-bold transition-colors text-xs shrink-0 border border-primary/20" href="index.html">Home</a>
+          <a class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors text-xs shrink-0 font-medium" href="#pricing-calculator">Services &amp; Pricing</a>
+          <a class="px-3 py-1 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors text-xs shrink-0 font-medium" href="coupons.html">
+            Coupons &amp; Specials <span class="text-[11px] text-primary font-bold">(50% OFF)</span>
+          </a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3"><a class="inline-flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container-low px-2.5 py-1 rounded-full transition-colors border border-transparent hover:border-surface-container" href="recruit.html"><span class="material-symbols-outlined text-[15px] text-secondary">work</span><span class="">Careers &amp; Hiring</span></a></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body (Adjusted padding to remove gap under header) -->
+  <main class="w-full bg-surface min-h-screen pt-[88px]">
+    <div class="flex flex-col w-full">
+
+      <!-- Featured Service Locations & Dispatch Territories (Clean and flush under header) -->
+      <section class="w-full px-4 sm:px-6 lg:px-8 bg-surface-container-low border-b border-surface-container py-3" id="step-location">
+        <div class="max-w-7xl mx-auto flex flex-col gap-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="uppercase font-bold text-secondary tracking-widest text-[11px]">Central Pennsylvania Regional Hubs</span>
+              <h3 class="font-bold text-on-surface text-base md:text-lg">Featured Service Locations &amp; Dispatch Territories</h3>
+            </div>
+            <a class="text-xs font-bold text-primary hover:underline flex items-center gap-1" href="#pricing-calculator">
+              <span class="material-symbols-outlined text-[16px]">map</span>
+              <span class="">Select Corridor in Estimator Below</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            <a class="p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container hover:border-primary shadow-sm hover:shadow-md transition-all flex flex-col justify-between group" href="#pricing-calculator">
+              <div class="flex items-center justify-between pb-1.5 border-b border-surface-container">
+                <span class="text-xs font-bold text-primary px-2 py-0.5 rounded bg-primary-fixed/40">Primary Hub</span>
+                <span class="text-[11px] font-semibold text-secondary flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>4 Slots Today
+                </span>
+              </div>
+              <div class="my-2">
+                <div class="font-bold text-on-surface group-hover:text-primary transition-colors text-sm">DuBois &amp; Sandy Twp</div>
+                <div class="text-xs text-on-surface-variant">Zip 15801 • Rt 219 &amp; I-80</div>
+              </div>
+              <div class="text-[11px] font-semibold text-primary pt-1 border-t border-surface-container flex items-center justify-between">
+                <span class="">Daily Priority Route</span>
+                <span class="material-symbols-outlined text-[14px]">north_east</span>
+              </div>
+            </a>
+            <a class="p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container hover:border-primary shadow-sm hover:shadow-md transition-all flex flex-col justify-between group" href="#pricing-calculator">
+              <div class="flex items-center justify-between pb-1.5 border-b border-surface-container">
+                <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">Historic Rt 28</span>
+                <span class="text-[11px] font-semibold text-secondary flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Active
+                </span>
+              </div>
+              <div class="my-2">
+                <div class="font-bold text-on-surface group-hover:text-primary transition-colors text-sm">Brookville &amp; Jefferson</div>
+                <div class="text-xs text-on-surface-variant">Zip 15825 • Main St &amp; I-80</div>
+              </div>
+              <div class="text-[11px] font-semibold text-primary pt-1 border-t border-surface-container flex items-center justify-between">
+                <span class="">3 Slots Available</span>
+                <span class="material-symbols-outlined text-[14px]">north_east</span>
+              </div>
+            </a>
+            <a class="p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container hover:border-primary shadow-sm hover:shadow-md transition-all flex flex-col justify-between group" href="#pricing-calculator">
+              <div class="flex items-center justify-between pb-1.5 border-b border-surface-container">
+                <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">South Corridor</span>
+                <span class="text-[11px] font-semibold text-secondary flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Active
+                </span>
+              </div>
+              <div class="my-2">
+                <div class="font-bold text-on-surface group-hover:text-primary transition-colors text-sm">Punxsutawney</div>
+                <div class="text-xs text-on-surface-variant">Zip 15767 • Rt 119 &amp; Rt 36</div>
+              </div>
+              <div class="text-[11px] font-semibold text-primary pt-1 border-t border-surface-container flex items-center justify-between">
+                <span class="">Daily Route Coverage</span>
+                <span class="material-symbols-outlined text-[14px]">north_east</span>
+              </div>
+            </a>
+            <a class="p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container hover:border-primary shadow-sm hover:shadow-md transition-all flex flex-col justify-between group" href="#pricing-calculator">
+              <div class="flex items-center justify-between pb-1.5 border-b border-surface-container">
+                <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">Central Link</span>
+                <span class="text-[11px] font-semibold text-secondary flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Active
+                </span>
+              </div>
+              <div class="my-2">
+                <div class="font-bold text-on-surface group-hover:text-primary transition-colors text-sm">Reynoldsville &amp; Sykesville</div>
+                <div class="text-xs text-on-surface-variant">Zip 15851 / 15865 • Rt 322</div>
+              </div>
+              <div class="text-[11px] font-semibold text-primary pt-1 border-t border-surface-container flex items-center justify-between">
+                <span class="">Zero Travel Surcharge</span>
+                <span class="material-symbols-outlined text-[14px]">north_east</span>
+              </div>
+            </a>
+            <a class="p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container hover:border-primary shadow-sm hover:shadow-md transition-all flex flex-col justify-between group" href="#pricing-calculator">
+              <div class="flex items-center justify-between pb-1.5 border-b border-surface-container">
+                <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">North Link</span>
+                <span class="text-[11px] font-semibold text-secondary flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Active
+                </span>
+              </div>
+              <div class="my-2">
+                <div class="font-bold text-on-surface group-hover:text-primary transition-colors text-sm">Falls Creek &amp; Brockway</div>
+                <div class="text-xs text-on-surface-variant">Zip 15840 / 15824 • Rt 219</div>
+              </div>
+              <div class="text-[11px] font-semibold text-primary pt-1 border-t border-surface-container flex items-center justify-between">
+                <span class="">3 Slots Available</span>
+                <span class="material-symbols-outlined text-[14px]">north_east</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hero Section -->
+      <section class="w-full px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-surface border-b border-surface-container pt-6 pb-12">
+        <div class="max-w-7xl mx-auto flex flex-col gap-8">
+          <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div class="flex-1 max-w-3xl mx-auto flex flex-col items-center text-center gap-3">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container/60 text-on-secondary-container text-xs font-bold border border-primary/20 shadow-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shrink-0"></span>
+                <span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+                <span class="">Central PA's Leading Botanical Cleaning &amp; Seasonal Property Care</span>
+              </div>
+              <h1 class="text-3xl md:text-5xl text-on-surface font-extrabold tracking-tight leading-tight text-center">
+                HousekeeperBooking.com - Pristine Living in Central PA
+              </h1>
+              <p class="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto text-center leading-relaxed">
+                Dedicated to helping Pennsylvania families and homeowners keep their living spaces pristine, healthy, and welcoming. From routine housekeeping to seasonal deep cleans across Clearfield and Jefferson Counties, our vetted professionals take care of your home with plant-based formulations, strict 30-min buffer between appointments, and meticulous care. Zero advance deposit required.
+              </p>
+              <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <a class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary-container text-on-primary font-bold shadow-lg hover:bg-primary transition-all text-sm" href="#pricing-calculator">
+                  <span class="material-symbols-outlined text-[20px]">calculate</span>
+                  <span class="">Instant Quote &amp; Book</span>
+                </a>
+                <a class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-surface-container-high text-primary font-bold hover:bg-secondary-container hover:text-on-secondary-container transition-all border border-surface-container text-sm" href="tel:8149521964">
+                  <span class="material-symbols-outlined text-[20px]">call</span>
+                  <span class="">(814) 952-1964 Dispatch</span>
+                </a>
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-container-low text-xs font-semibold text-secondary">
+                  <span class="material-symbols-outlined text-[16px] text-primary">shield</span>
+                  <span class="">$0 Upfront Escrow • Pay After Clean</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Dispatch Status Card -->
+            <div class="w-full lg:w-auto shrink-0 bg-surface-container-lowest p-4 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-2.5">
+              <div class="flex items-center justify-between gap-4 pb-2 border-b border-surface-container">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+                  <span class="text-xs uppercase font-bold text-primary tracking-wider">Active Route Dispatch</span>
+                </div>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">Live Coverage</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-left">
+                <div class="p-2.5 rounded-xl bg-surface-container-low">
+                  <div class="text-[11px] text-on-surface-variant font-medium">Transit Buffer</div>
+                  <div class="font-bold text-primary text-base">Strict 30-Min</div>
+                  <div class="text-[10px] text-secondary font-semibold">Never Overlapped</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-surface-container-low">
+                  <div class="text-[11px] text-on-surface-variant font-medium">Formulation Standard</div>
+                  <div class="font-bold text-primary text-base">EPA Safer Choice</div>
+                  <div class="text-[10px] text-secondary font-semibold">100% Non-Toxic</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Limited Time Specials & Coupons -->
+          <div class="w-full bg-surface-container-lowest rounded-2xl border-2 border-primary/20 p-4 shadow-md flex flex-col gap-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-surface-container">
+              <div>
+                <span class="uppercase font-extrabold text-primary tracking-widest flex items-center gap-1.5 text-xs">
+                  <span class="material-symbols-outlined text-[18px]">redeem</span>Exclusive Limited-Time Specials &amp; Housekeeper Coupons
+                </span>
+                <h2 class="text-lg font-bold text-on-surface">Save On Your First Booking Across DuBois, Brookville &amp; Beyond</h2>
+              </div>
+              <span class="text-xs font-bold text-on-secondary-container bg-secondary-container px-3 py-1 rounded-full">No Prepayment • Apply Instantly</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+              <div class="relative bg-primary-fixed/20 border-2 border-dashed border-primary rounded-xl p-3.5 flex flex-col justify-between overflow-hidden">
+                <div class="flex items-start justify-between">
+                  <span class="px-2 py-0.5 rounded bg-primary text-white font-extrabold text-[11px] tracking-wide uppercase">50% OFF</span>
+                  <span class="text-[11px] font-bold text-secondary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">timer</span>Popular Voucher
+                  </span>
+                </div>
+                <div class="my-2">
+                  <h3 class="font-extrabold text-on-surface text-sm">50% Off Specialty Add-Ons</h3>
+                  <p class="text-xs text-on-surface-variant mt-0.5">Save half on oven, fridge, baseboards, or patio sweep with your first residential clean.</p>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-primary/20">
+                  <div class="flex items-center gap-1 font-mono font-bold text-xs bg-surface-container-lowest px-2 py-1 rounded border border-primary/30 text-primary">
+                    <span class="">CODE:</span><span class="font-extrabold tracking-wider">ECO50</span>
+                  </div>
+                  <a class="font-bold text-primary hover:underline flex items-center gap-0.5 text-xs" href="#pricing-calculator">
+                    <span class="">Claim</span><span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+                  </a>
+                </div>
+              </div>
+              <div class="relative bg-secondary-container/40 border-2 border-dashed border-secondary rounded-xl p-3.5 flex flex-col justify-between overflow-hidden">
+                <div class="flex items-start justify-between">
+                  <span class="px-2 py-0.5 rounded bg-secondary text-white font-extrabold text-[11px] tracking-wide uppercase">$15 OFF</span>
+                  <span class="text-[11px] font-bold text-secondary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">check_circle</span>Instant Credit
+                  </span>
+                </div>
+                <div class="my-2">
+                  <h3 class="font-extrabold text-on-surface text-sm">$15 Off First Cleaning</h3>
+                  <p class="text-xs text-on-surface-variant mt-0.5">Automatic instant credit applicable towards any routine, deep, or turnover cleaning session.</p>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-secondary/20">
+                  <div class="flex items-center gap-1 font-mono font-bold text-xs bg-surface-container-lowest px-2 py-1 rounded border border-secondary/30 text-secondary">
+                    <span class="">CODE:</span><span class="font-extrabold tracking-wider">PRISTINE15</span>
+                  </div>
+                  <a class="font-bold text-secondary hover:underline flex items-center gap-0.5 text-xs" href="#pricing-calculator">
+                    <span class="">Claim</span><span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+                  </a>
+                </div>
+              </div>
+              <div class="relative bg-primary-fixed/20 border-2 border-dashed border-primary rounded-xl p-3.5 flex flex-col justify-between overflow-hidden">
+                <div class="flex items-start justify-between">
+                  <span class="px-2 py-0.5 rounded bg-primary text-white font-extrabold text-[11px] tracking-wide uppercase">FREE $35 VALUE</span>
+                  <span class="text-[11px] font-bold text-secondary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">kitchen</span>Sparkle Clean
+                  </span>
+                </div>
+                <div class="my-2">
+                  <h3 class="font-extrabold text-on-surface text-sm">Free Refrigerator Interior Deep Clean</h3>
+                  <p class="text-xs text-on-surface-variant mt-0.5">Complimentary interior refrigerator thaw, sanitize &amp; shelf scrub included with any 2+ hour clean.</p>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-primary/20">
+                  <div class="flex items-center gap-1 font-mono font-bold text-xs bg-surface-container-lowest px-2 py-1 rounded border border-primary/30 text-primary">
+                    <span class="">CODE:</span><span class="font-extrabold tracking-wider">REFRIDGE</span>
+                  </div>
+                  <a class="font-bold text-primary hover:underline flex items-center gap-0.5 text-xs" href="#pricing-calculator">
+                    <span class="">Claim</span><span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Instant Quote & Estimator Section -->
+      <section class="w-full py-12 px-4 sm:px-6 lg:px-8 bg-surface-container-low" id="pricing-calculator">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-3xl mx-auto mb-8">
+            <span class="text-xs uppercase font-bold text-secondary tracking-widest">Central Pennsylvania Pricing Engine</span>
+            <h2 class="text-2xl md:text-4xl font-bold text-on-surface tracking-tight mt-1">Instant Quote &amp; Rate Estimator</h2>
+            <p class="text-sm md:text-base text-on-surface-variant mt-2">Transparent, real-time rates tailored to DuBois, Brookville, Punxsutawney &amp; surrounding townships. $0 charged upfront with 30-minute verified transit buffer.</p>
+            <div class="flex flex-wrap items-center justify-center gap-2 mt-4">
+              <button class="cat-tab px-4 py-2 rounded-xl text-xs font-bold transition-all bg-primary text-on-primary shadow-sm flex items-center gap-1.5" data-cat="housekeeping" type="button">
+                <span class="material-symbols-outlined text-[18px]">cleaning_services</span>
+                <span class="">Housekeeping</span>
+              </button>
+              <button class="cat-tab px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-surface-container-lowest text-on-surface-variant hover:text-primary hover:bg-surface-container flex items-center gap-1.5" data-cat="commercial" type="button">
+                <span class="material-symbols-outlined text-[18px]">store</span>
+                <span class="">Commercial Office</span>
+              </button>
+              <button class="cat-tab px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-surface-container-lowest text-on-surface-variant hover:text-primary hover:bg-surface-container flex items-center gap-1.5" data-cat="yard" type="button">
+                <span class="material-symbols-outlined text-[18px]">yard</span>
+                <span class="">Fall &amp; Seasonal Yard</span>
+              </button>
+              <button class="cat-tab px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-surface-container-lowest text-on-surface-variant hover:text-primary hover:bg-surface-container flex items-center gap-1.5" data-cat="moving" type="button">
+                <span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                <span class="">Moving &amp; Turnover</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <!-- Left Flow: 5 Steps -->
+            <div class="lg:col-span-7 flex flex-col gap-6">
+
+              <!-- Step 1: Location & Cleaner Roster -->
+              <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-container">
+                <div class="flex items-center justify-between pb-3 border-b border-surface-container mb-4">
+                  <div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Step 1 of 5</span>
+                    <h3 class="text-lg text-on-surface font-bold">Select Service Territory &amp; Cleaner Roster</h3>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-secondary-container text-on-secondary-container flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>Guaranteed On-Time
+                  </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="corridor-grid">
+                  <button class="territory-btn text-left p-3.5 rounded-xl border-2 border-primary bg-secondary-container/40 transition-all flex flex-col justify-between" data-corridor="DuBois 15801" data-territory="DuBois &amp; Sandy Twp (15801)" type="button">
+                    <div class="flex justify-between items-start">
+                      <span class="font-bold text-on-surface text-sm">DuBois &amp; Sandy Twp</span>
+                      <span class="text-xs font-bold text-primary px-2 py-0.5 rounded bg-primary-fixed/40">Primary Hub</span>
+                    </div>
+                    <div class="text-xs text-on-surface-variant mt-1.5">Zip 15801 • Rt 219 &amp; I-80</div>
+                    <div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between text-xs">
+                      <span class="text-on-surface font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] text-primary">star</span>Elena V. (5.0★), Sarah J. (4.9★)
+                      </span>
+                      <span class="text-primary font-bold">4 Slots Today</span>
+                    </div>
+                  </button>
+                  <button class="territory-btn text-left p-3.5 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between" data-corridor="Brookville 15825" data-territory="Brookville (15825)" type="button">
+                    <div class="flex justify-between items-start">
+                      <span class="font-bold text-on-surface text-sm">Brookville</span>
+                      <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">Historic Rt 28</span>
+                    </div>
+                    <div class="text-xs text-on-surface-variant mt-1.5">Zip 15825 • Main St &amp; I-80</div>
+                    <div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between text-xs">
+                      <span class="text-on-surface font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] text-primary">star</span>Marcus C. (4.9★), Chloe W. (5.0★)
+                      </span>
+                      <span class="text-primary font-bold">3 Slots</span>
+                    </div>
+                  </button>
+                  <button class="territory-btn text-left p-3.5 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between" data-corridor="Punxsutawney 15767" data-territory="Punxsutawney (15767)" type="button">
+                    <div class="flex justify-between items-start">
+                      <span class="font-bold text-on-surface text-sm">Punxsutawney</span>
+                      <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">South Corridor</span>
+                    </div>
+                    <div class="text-xs text-on-surface-variant mt-1.5">Zip 15767 • Rt 119 &amp; Rt 36</div>
+                    <div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between text-xs">
+                      <span class="text-on-surface font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] text-primary">star</span>Rachel M. (4.8★), Tyler V. (5.0★)
+                      </span>
+                      <span class="text-primary font-bold">3 Slots</span>
+                    </div>
+                  </button>
+                  <button class="territory-btn text-left p-3.5 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between" data-corridor="Reynoldsville 15851" data-territory="Reynoldsville (15851)" type="button">
+                    <div class="flex justify-between items-start">
+                      <span class="font-bold text-on-surface text-sm">Reynoldsville</span>
+                      <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">Central Link</span>
+                    </div>
+                    <div class="text-xs text-on-surface-variant mt-1.5">Zip 15851 • Rt 322 Corridor</div>
+                    <div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between text-xs">
+                      <span class="text-on-surface font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] text-primary">star</span>Elena V. (5.0★), Dave K. (4.9★)
+                      </span>
+                      <span class="text-primary font-bold">2 Slots</span>
+                    </div>
+                  </button>
+                  <button class="territory-btn text-left p-3.5 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between" data-corridor="Falls Creek 15840" data-territory="Falls Creek &amp; Brockway (15840)" type="button">
+                    <div class="flex justify-between items-start">
+                      <span class="font-bold text-on-surface text-sm">Falls Creek / Brockway</span>
+                      <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">North Link</span>
+                    </div>
+                    <div class="text-xs text-on-surface-variant mt-1.5">Zip 15840 / 15824 • Rt 219</div>
+                    <div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between text-xs">
+                      <span class="text-on-surface font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] text-primary">star</span>Sarah J. (4.9★), Megan R. (5.0★)
+                      </span>
+                      <span class="text-primary font-bold">3 Slots</span>
+                    </div>
+                  </button>
+                  <button class="territory-btn text-left p-3.5 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between" data-corridor="Sykesville 15865" data-territory="Sykesville (15865)" type="button">
+                    <div class="flex justify-between items-start">
+                      <span class="font-bold text-on-surface text-sm">Sykesville</span>
+                      <span class="text-xs font-bold text-secondary px-2 py-0.5 rounded bg-surface-container">Rt 119 Hub</span>
+                    </div>
+                    <div class="text-xs text-on-surface-variant mt-1.5">Zip 15865 • Rt 119 South</div>
+                    <div class="mt-2 pt-2 border-t border-surface-container flex items-center justify-between text-xs">
+                      <span class="text-on-surface font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px] text-primary">star</span>Rachel M. (4.8★) &amp; Crew
+                      </span>
+                      <span class="text-primary font-bold">3 Slots</span>
+                    </div>
+                  </button>
+                </div>
+                <div class="mt-3.5 p-3 rounded-xl bg-surface-container-low flex items-center justify-between text-xs text-on-surface-variant">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-[18px]">route</span>
+                    <span class="">Selected location auto-syncs nearest cleaner route (15-30 mi with 30-min buffer)</span>
+                  </div>
+                  <span class="font-bold text-primary">$0 Travel Fee</span>
+                </div>
+              </div>
+
+              <!-- Step 2: Intensity & Team -->
+              <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-container">
+                <div class="pb-3 border-b border-surface-container mb-4">
+                  <span class="text-xs font-bold text-secondary uppercase tracking-wider">Step 2 of 5</span>
+                  <h3 class="text-lg text-on-surface font-bold">Condition Intensity &amp; Team Size</h3>
+                </div>
+                <div class="space-y-4">
+                  <div>
+                    <label class="text-xs font-bold text-on-surface mb-2 block">Condition &amp; Soiling Level</label>
+                    <div class="grid grid-cols-3 gap-2">
+                      <button class="intensity-btn p-3 rounded-xl border-2 border-primary bg-secondary-container/40 text-center transition-all" data-label="Light Maintenance (1.0x)" data-multiplier="1.0" type="button">
+                        <div class="font-bold text-on-surface text-sm">Light</div>
+                        <div class="text-xs text-on-surface-variant">Routine Maintenance</div>
+                        <div class="text-xs font-semibold text-primary mt-1">1.0x Base</div>
+                      </button>
+                      <button class="intensity-btn p-3 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container text-center transition-all" data-label="Medium Regular (+25%)" data-multiplier="1.25" type="button">
+                        <div class="font-bold text-on-surface text-sm">Medium</div>
+                        <div class="text-xs text-on-surface-variant">High-Traffic / Kids</div>
+                        <div class="text-xs font-semibold text-primary mt-1">+25% Focus</div>
+                      </button>
+                      <button class="intensity-btn p-3 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container text-center transition-all" data-label="Heavy Deep (+50%)" data-multiplier="1.5" type="button">
+                        <div class="font-bold text-on-surface text-sm">Heavy</div>
+                        <div class="text-xs text-on-surface-variant">Grease &amp; Scale Detail</div>
+                        <div class="text-xs font-semibold text-primary mt-1">+50% Deep</div>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="text-xs font-bold text-on-surface mb-2 block">Crew Configuration</label>
+                    <div class="grid grid-cols-2 gap-2">
+                      <button class="crew-btn p-3 rounded-xl border-2 border-primary bg-secondary-container/40 text-left transition-all flex items-center justify-between" data-crew="1 Solo Specialist" data-multiplier="1.0" type="button">
+                        <div class="flex items-center gap-2.5">
+                          <span class="material-symbols-outlined text-primary text-2xl">person</span>
+                          <div>
+                            <div class="font-bold text-on-surface text-sm">1 Solo Specialist</div>
+                            <div class="text-xs text-on-surface-variant">Standard efficient pace</div>
+                          </div>
+                        </div>
+                        <span class="text-xs font-bold text-primary">Standard</span>
+                      </button>
+                      <button class="crew-btn p-3 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container text-left transition-all flex items-center justify-between" data-crew="2-Person Team (+70%)" data-multiplier="1.7" type="button">
+                        <div class="flex items-center gap-2.5">
+                          <span class="material-symbols-outlined text-on-surface-variant text-2xl">groups</span>
+                          <div>
+                            <div class="font-bold text-on-surface text-sm">2-Person Team</div>
+                            <div class="text-xs text-on-surface-variant">Done in half the time</div>
+                          </div>
+                        </div>
+                        <span class="text-xs font-bold text-secondary">+70% Speed</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Duration & Room Surcharges -->
+              <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-container">
+                <div class="pb-3 border-b border-surface-container mb-4">
+                  <span class="text-xs font-bold text-secondary uppercase tracking-wider">Step 3 of 5</span>
+                  <h3 class="text-lg text-on-surface font-bold">Scope &amp; Base Duration</h3>
+                </div>
+                <div class="space-y-4">
+                  <div>
+                    <label class="text-xs font-semibold text-on-surface mb-2 block">Select Clean Duration Baseline</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="duration-cards">
+                      <label class="duration-card p-3.5 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all flex flex-col justify-between">
+                        <input class="sr-only" data-price="60" name="base_clean" type="radio" value="60">
+                        <div class="flex justify-between items-center">
+                          <span class="font-bold text-on-surface text-sm">1-Hour Light</span>
+                          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Express</span>
+                        </div>
+                        <div class="text-xs text-on-surface-variant mt-1.5">Quick surface maintenance &amp; trash refresh.</div>
+                        <div class="text-xl font-bold text-primary mt-2">$60<span class="text-xs font-normal text-on-surface-variant"> / base</span></div>
+                      </label>
+                      <label class="duration-card p-3.5 rounded-xl border-2 border-primary bg-secondary-container/40 cursor-pointer transition-all flex flex-col justify-between">
+                        <input checked="" class="sr-only" data-price="95" name="base_clean" type="radio" value="120">
+                        <div class="flex justify-between items-center">
+                          <span class="font-bold text-on-surface text-sm">2-Hour Regular</span>
+                          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-primary-fixed/40 text-primary">Most Popular</span>
+                        </div>
+                        <div class="text-xs text-on-surface-variant mt-1.5">Kitchen, full baths &amp; floors vacuumed/mopped.</div>
+                        <div class="text-xl font-bold text-primary mt-2">$95<span class="text-xs font-normal text-on-surface-variant"> / base</span></div>
+                      </label>
+                      <label class="duration-card p-3.5 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all flex flex-col justify-between">
+                        <input class="sr-only" data-price="140" name="base_clean" type="radio" value="180">
+                        <div class="flex justify-between items-center">
+                          <span class="font-bold text-on-surface text-sm">3-Hour Deep</span>
+                          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Intensive</span>
+                        </div>
+                        <div class="text-xs text-on-surface-variant mt-1.5">Full architectural detail &amp; appliance interiors.</div>
+                        <div class="text-xl font-bold text-primary mt-2">$140<span class="text-xs font-normal text-on-surface-variant"> / base</span></div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                      <div class="p-3.5 rounded-xl bg-surface-container-low">
+                        <label class="text-xs font-bold text-on-surface flex justify-between items-center mb-2">
+                          <span class="">Bedrooms</span>
+                          <span class="text-primary font-bold text-xs">(Up to 2 included)</span>
+                        </label>
+                        <div class="flex items-center gap-1.5">
+                          <button class="bed-btn flex-1 py-1.5 rounded-lg border border-surface-container bg-surface-container-lowest text-xs font-bold hover:bg-primary hover:text-white transition-colors" data-beds="1" type="button">1</button>
+                          <button class="bed-btn flex-1 py-1.5 rounded-lg border-2 border-primary bg-primary text-white text-xs font-bold transition-colors" data-beds="2" type="button">2</button>
+                          <button class="bed-btn flex-1 py-1.5 rounded-lg border border-surface-container bg-surface-container-lowest text-xs font-bold hover:bg-primary hover:text-white transition-colors" data-beds="3" type="button">3</button>
+                          <button class="bed-btn flex-1 py-1.5 rounded-lg border border-surface-container bg-surface-container-lowest text-xs font-bold hover:bg-primary hover:text-white transition-colors" data-beds="4" type="button">4</button>
+                          <button class="bed-btn flex-1 py-1.5 rounded-lg border border-surface-container bg-surface-container-lowest text-xs font-bold hover:bg-primary hover:text-white transition-colors" data-beds="5" type="button">5+</button>
+                        </div>
+                      </div>
+                      <div class="p-3.5 rounded-xl bg-surface-container-low">
+                        <label class="text-xs font-bold text-on-surface flex justify-between items-center mb-2">
+                          <span class="">Bathrooms</span>
+                          <span class="text-primary font-bold text-xs">(1 included)</span>
+                        </label>
+                        <div class="flex items-center gap-1.5">
+                          <button class="bath-btn flex-1 py-1.5 rounded-lg border-2 border-primary bg-primary text-white text-xs font-bold transition-colors" data-baths="1" type="button">1</button>
+                          <button class="bath-btn flex-1 py-1.5 rounded-lg border border-surface-container bg-surface-container-lowest text-xs font-bold hover:bg-primary hover:text-white transition-colors" data-baths="2" type="button">2</button>
+                          <button class="bath-btn flex-1 py-1.5 rounded-lg border border-surface-container bg-surface-container-lowest text-xs font-bold hover:bg-primary hover:text-white transition-colors" data-baths="3" type="button">3</button>
+                          <button class="bath-btn flex-1 py-1.5 rounded-lg border border-surface-container bg-surface-container-lowest text-xs font-bold hover:bg-primary hover:text-white transition-colors" data-baths="4" type="button">4+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-[11px] text-on-surface-variant mt-2 px-1 flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[14px] text-primary">info</span>
+                      <span class="">Room Surcharge Policy: Extra bedrooms beyond 2 and bathrooms beyond 1 add +$15.00 (+15 min) each to allocate adequate attention.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 4: Specialty Botanical Add-Ons -->
+              <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-container">
+                <div class="flex items-center justify-between pb-3 border-b border-surface-container mb-4">
+                  <div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Step 4 of 5</span>
+                    <h3 class="text-lg text-on-surface font-bold">Specialty Botanical Add-Ons (12 Services)</h3>
+                  </div>
+                  <span class="text-xs text-on-surface-variant font-medium">EPA Safer Choice registered</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="35" data-name="Refrigerator Interior" data-price="35" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Refrigerator Interior</div>
+                      <div class="text-on-surface-variant text-[11px]">Thyme sanitizer &amp; shelf scrub (+35 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$35.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="45" data-name="Oven Degrease" data-price="35" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Oven Degrease</div>
+                      <div class="text-on-surface-variant text-[11px]">Citrus vapor &amp; carbon lift (+45 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$35.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="30" data-name="Window Detailing" data-price="30" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Window Detailing</div>
+                      <div class="text-on-surface-variant text-[11px]">Interior glass &amp; sills polish (+30 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$30.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="30" data-name="Baseboards &amp; Blinds" data-price="25" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Baseboards &amp; Blinds</div>
+                      <div class="text-on-surface-variant text-[11px]">Micro-wipe dust &amp; dander extraction (+30 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$25.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="30" data-name="Cabinet Interiors" data-price="30" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Cabinet Interiors</div>
+                      <div class="text-on-surface-variant text-[11px]">Crumb vacuum &amp; shelf wipe (+30 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$30.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="20" data-name="Patio &amp; Porch Sweep" data-price="20" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Patio &amp; Porch Sweep</div>
+                      <div class="text-on-surface-variant text-[11px]">Debris blow, cobweb removal (+20 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$20.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="25" data-name="Eco Pet Odor &amp; Fur" data-price="25" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Eco Pet Odor &amp; Fur</div>
+                      <div class="text-on-surface-variant text-[11px]">Enzymatic neutralizer mist (+25 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$25.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="15" data-name="Dishwasher Descale" data-price="15" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Dishwasher Descale</div>
+                      <div class="text-on-surface-variant text-[11px]">Citric flush &amp; filter clean (+15 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$15.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="35" data-name="Hardwood Floor Buff" data-price="35" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Hardwood Floor Buff</div>
+                      <div class="text-on-surface-variant text-[11px]">Botanical conditioning nourish (+35 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$35.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="20" data-name="Microwave &amp; Hood" data-price="20" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Microwave &amp; Hood</div>
+                      <div class="text-on-surface-variant text-[11px]">Degreasing steam &amp; filter rinse (+20 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$20.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="15" data-name="Linen Bed Dressing" data-price="15" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Linen Bed Dressing</div>
+                      <div class="text-on-surface-variant text-[11px]">Hotel hospital-corner tuck (+15 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$15.00</span>
+                  </label>
+                  <label class="addon-item flex items-center gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors border border-transparent">
+                    <input class="accent-primary w-4 h-4 shrink-0" data-mins="35" data-name="Grout &amp; Scale Descale" data-price="30" type="checkbox">
+                    <div class="flex-1 min-w-0 text-xs">
+                      <div class="font-semibold text-on-surface truncate">Grout &amp; Scale Descale</div>
+                      <div class="text-on-surface-variant text-[11px]">Thyme citric calcium scrub (+35 min)</div>
+                    </div>
+                    <span class="text-xs font-bold text-primary shrink-0">+$30.00</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 5: Same-Day Rush Option -->
+              <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-container">
+                <div class="flex items-center justify-between pb-3 border-b border-surface-container mb-4">
+                  <div>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Step 5 of 5</span>
+                    <h3 class="text-lg text-on-surface font-bold">Same-Day Expedited Service (Optional)</h3>
+                  </div>
+                  <span class="text-xs px-2.5 py-0.5 rounded-full bg-primary-fixed/40 text-primary font-semibold">Emergency Dispatch</span>
+                </div>
+                <label class="flex items-start gap-3 p-3.5 rounded-xl bg-primary-fixed/20 border border-primary/20 cursor-pointer">
+                  <input class="accent-primary w-4 h-4 mt-0.5 shrink-0" id="rush-addon" type="checkbox">
+                  <div class="flex-1 text-xs">
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold text-on-surface text-sm">Same-Day Rush Dispatch Guarantee</span>
+                      <span class="font-bold text-primary text-sm">+$15.00</span>
+                    </div>
+                    <p class="text-on-surface-variant mt-1">Priority crew re-routing with guaranteed arrival window within 3 hours. 100% of this fee goes directly to your dispatched cleaning professional ($0 charged if unclaimed).</p>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+
+            <!-- Right Sticky Column: Live Quotation & Open Slots -->
+            <div class="lg:col-span-5 sticky top-28 flex flex-col gap-4">
+              <!-- Live Quotation Card -->
+              <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-md border border-surface-container flex flex-col gap-4">
+                <div class="flex justify-between items-center pb-2 border-b border-surface-container">
+                  <div>
+                    <h3 class="text-lg font-bold text-on-surface">Live Quotation</h3>
+                    <div class="text-xs text-secondary font-semibold" id="summary-cat-label">Housekeeping Service</div>
+                  </div>
+                  <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">bolt</span>Real-Time Rate
+                  </span>
+                </div>
+
+                <div class="space-y-2 text-xs">
+                  <div class="flex justify-between text-on-surface-variant">
+                    <span class="">Selected Territory</span>
+                    <span class="font-bold text-on-surface" id="summary-corridor">DuBois 15801</span>
+                  </div>
+                  <div class="flex justify-between text-on-surface-variant">
+                    <span class="">Bed/Bath Scope</span>
+                    <span class="font-medium text-on-surface" id="summary-rooms">2 Bed, 1 Bath</span>
+                  </div>
+                  <div class="flex justify-between text-on-surface-variant">
+                    <span class="">Room Surcharge</span>
+                    <span class="font-medium text-on-surface" id="summary-surcharge">+$0.00</span>
+                  </div>
+                  <div class="flex justify-between text-on-surface-variant">
+                    <span class="">Intensity Configuration</span>
+                    <span class="font-medium text-on-surface" id="summary-intensity">Light Maintenance (1.0x)</span>
+                  </div>
+                  <div class="flex justify-between text-on-surface-variant">
+                    <span class="">Crew Allocation</span>
+                    <span class="font-medium text-on-surface" id="summary-crew">1 Solo Specialist</span>
+                  </div>
+                  <div class="flex justify-between text-on-surface-variant">
+                    <span class="">Estimated Job Duration</span>
+                    <span class="font-bold text-primary" id="summary-duration">2 hrs 00 mins</span>
+                  </div>
+                  <div class="flex justify-between text-on-surface-variant">
+                    <span class="">Transit Buffer</span>
+                    <span class="font-bold text-secondary">30 Min (Guaranteed)</span>
+                  </div>
+                  <div class="flex justify-between text-on-surface-variant border-t border-surface-container pt-2">
+                    <span class="">Selected Add-Ons</span>
+                    <span class="font-medium text-on-surface" id="summary-addons">None ($0.00)</span>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-surface-container">
+                  <div class="flex justify-between items-end">
+                    <div>
+                      <span class="text-xs uppercase font-bold text-on-surface-variant tracking-wider">Total Estimated Rate</span>
+                      <div class="text-3xl font-extrabold text-primary" id="total-price-display">$95.00</div>
+                    </div>
+                    <div class="text-right">
+                      <div class="text-xs text-secondary font-bold flex items-center justify-end gap-1">
+                        <span class="material-symbols-outlined text-[14px]">verified</span>Pay-After-Clean
+                      </div>
+                      <div class="text-[11px] text-on-surface-variant">$0 charged upfront</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email Requirement for Quote -->
+                <div class="mb-1">
+                  <div class="flex items-center justify-between mb-1">
+                    <label class="block text-xs font-semibold text-secondary" for="quote-email-input">
+                      Send Quote &amp; Confirmation to: <span class="text-error font-bold">*Required</span>
+                    </label>
+                    <span class="text-[10px] font-bold text-error uppercase tracking-wider bg-error-container/40 px-1.5 py-0.5 rounded">Required to Book</span>
+                  </div>
+                  <div class="relative">
+                    <input class="w-full px-3 py-2 pl-9 rounded-lg border border-surface-container bg-surface-container-lowest text-xs text-on-surface font-medium transition-colors focus:border-primary" id="quote-email-input" oninput="var err = document.getElementById('email-validation-error'); if(err) err.classList.add('hidden'); this.classList.remove('border-error');" placeholder="Enter your email address (required)" required="" type="email" value="sarah.jenkins@clearfield-client.net">
+                    <svg class="w-4 h-4 text-secondary absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                  </div>
+                  <div class="hidden mt-1.5 p-2 rounded-lg bg-error-container text-on-error-container text-[11px] font-semibold flex items-center gap-1.5" id="email-validation-error">
+                    <span class="material-symbols-outlined text-[15px] text-error shrink-0">error</span>
+                    <span class="">Please enter a valid email address to receive your confirmation and proceed with booking.</span>
+                  </div>
+                  <p class="text-[11px] text-on-surface-variant mt-1">We'll automatically email your itemized rate estimate upon booking.</p>
+                </div>
+
+                <!-- Toast Confirmation -->
+                <div class="hidden mb-2.5 p-2.5 rounded-xl bg-secondary-container text-on-secondary-container border border-primary/20 text-xs font-semibold flex items-center gap-2" id="email-quote-toast">
+                  <span class="material-symbols-outlined text-[16px] text-primary">mark_email_read</span>
+                  <span class="">Quote details sent to sarah.jenkins@clearfield-client.net!</span>
+                </div>
+
+                <!-- Book CTA -->
+                <a class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary-container text-on-primary text-sm font-bold shadow-lg hover:bg-primary transition-all cursor-pointer" href="instant-quote.html" id="book-cta-btn" onclick="event.preventDefault(); var emailInput = document.getElementById('quote-email-input'); var errBox = document.getElementById('email-validation-error'); var toast = document.getElementById('email-quote-toast'); var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; var val = (emailInput &amp;&amp; emailInput.value) ? emailInput.value.trim() : ''; if (!val || !emailPattern.test(val)) { if (errBox) errBox.classList.remove('hidden'); if (emailInput) { emailInput.classList.add('border-error'); emailInput.focus(); } return false; } if (errBox) errBox.classList.add('hidden'); if (emailInput) emailInput.classList.remove('border-error'); if (toast) { toast.innerHTML = '&lt;span class=&quot;material-symbols-outlined text-[16px] text-primary&quot;&gt;mark_email_read&lt;/span&gt;&lt;span&gt;Itemized quote and confirmation link dispatched to ' + val + '! Proceeding to booking checkout...&lt;/span&gt;'; toast.classList.remove('hidden'); } setTimeout(function(){ window.location.href = 'instant-quote.html'; }, 600); return false;">
+                  <span id="book-cta-text" class="">Book This Slot &amp; Choose Cleaner →</span>
+                  <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+
+                <div class="text-center text-xs text-on-surface-variant flex items-center justify-center gap-1">
+                  <span class="">Lock this rate by phone:</span>
+                  <a class="font-bold text-primary hover:underline" href="tel:8149521964">(814) 952-1964</a>
+                </div>
+              </div>
+
+              <!-- Recommended Dispatches / Available Openings -->
+              <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-surface-container">
+                <div class="pb-2.5 mb-2.5 border-b border-surface-container flex items-center justify-between">
+                  <span class="font-bold text-on-surface text-sm">Recommended Dispatches</span>
+                  <span class="text-xs text-primary font-semibold">DuBois Corridor</span>
+                </div>
+                <div class="space-y-2" id="open-slots-list">
+                  <a class="p-2.5 rounded-xl bg-primary-fixed/20 border border-primary/20 flex items-center justify-between text-xs hover:bg-primary-fixed/30 transition-colors" href="customer-schedule.html">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+                      <div>
+                        <div class="font-bold text-on-surface">Today @ 02:30 PM - 05:00 PM</div>
+                        <div class="text-[11px] text-on-surface-variant">Elena Vance (5.0★) • DuBois Priority</div>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded bg-primary text-white font-bold text-[10px] uppercase">Rush Slot</span>
+                  </a>
+                  <a class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container flex items-center justify-between text-xs transition-colors" href="customer-schedule.html">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-[18px]">schedule</span>
+                      <div>
+                        <div class="font-bold text-on-surface">Tomorrow Morning @ 09:00 AM</div>
+                        <div class="text-[11px] text-on-surface-variant">Sarah Jenkins (4.9★) • Sandy Twp</div>
+                      </div>
+                    </div>
+                    <span class="text-primary font-bold">Open</span>
+                  </a>
+                  <a class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container flex items-center justify-between text-xs transition-colors" href="customer-schedule.html">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-[18px]">schedule</span>
+                      <div>
+                        <div class="font-bold text-on-surface">Tomorrow Afternoon @ 01:30 PM</div>
+                        <div class="text-[11px] text-on-surface-variant">Marcus Cole &amp; Team (4.9★) • Brookville</div>
+                      </div>
+                    </div>
+                    <span class="text-primary font-bold">Open</span>
+                  </a>
+                  <a class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container flex items-center justify-between text-xs transition-colors" href="customer-schedule.html">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-[18px]">schedule</span>
+                      <div>
+                        <div class="font-bold text-on-surface">Day After Tomorrow @ 08:30 AM</div>
+                        <div class="text-[11px] text-on-surface-variant">Rachel Miller (4.8★) • Punxsutawney</div>
+                      </div>
+                    </div>
+                    <span class="text-primary font-bold">Open</span>
+                  </a>
+                  <a class="p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container flex items-center justify-between text-xs transition-colors" href="customer-schedule.html">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-secondary text-[18px]">schedule</span>
+                      <div>
+                        <div class="font-bold text-on-surface">Day After Tomorrow @ 02:00 PM</div>
+                        <div class="text-[11px] text-on-surface-variant">Dave Kelly &amp; Team (4.9★) • Reynoldsville</div>
+                      </div>
+                    </div>
+                    <span class="text-primary font-bold">Open</span>
+                  </a>
+                </div>
+                <div class="mt-3 pt-3 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
+                  <span class="">✓ 100% Reclean Guarantee</span>
+                  <span class="">✓ Bonded &amp; Insured</span>
+                  <span class="">✓ EPA Safer Standard</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var state = {
+              basePrice: 95,
+              baseMins: 120,
+              intensityMult: 1.0,
+              intensityLabel: 'Light Maintenance (1.0x)',
+              crewMult: 1.0,
+              crewLabel: '1 Solo Specialist',
+              beds: 2,
+              baths: 1,
+              corridor: 'DuBois 15801',
+              territoryLabel: 'DuBois & Sandy Twp (15801)',
+              rush: false,
+              category: 'Housekeeping'
+            };
+
+            function calculate() {
+              var roomSurcharge = Math.max(0, state.beds - 2) * 15 + Math.max(0, state.baths - 1) * 15;
+              var roomMins = Math.max(0, state.beds - 2) * 15 + Math.max(0, state.baths - 1) * 15;
+              var checkedAddons = document.querySelectorAll('.addon-item input[type="checkbox"]:checked');
+              var addonTotal = 0;
+              var addonMins = 0;
+              var addonCount = checkedAddons.length;
+
+              checkedAddons.forEach(function(el) {
+                addonTotal += parseFloat(el.getAttribute('data-price') || '0');
+                addonMins += parseInt(el.getAttribute('data-mins') || '0', 10);
+              });
+
+              var rushFee = state.rush ? 15 : 0;
+              var subtotal = (state.basePrice + roomSurcharge) * state.intensityMult * state.crewMult + addonTotal + rushFee;
+              var totalMins = state.baseMins + roomMins + addonMins;
+              if (state.crewMult > 1.2) {
+                totalMins = Math.round(totalMins * 0.65);
+              }
+
+              var displayHours = Math.floor(totalMins / 60);
+              var displayRemainderMins = totalMins % 60;
+              var durString = displayHours + ' hrs ' + (displayRemainderMins < 10 ? '0' : '') + displayRemainderMins + ' mins';
+
+              var priceEl = document.getElementById('total-price-display');
+              if (priceEl) priceEl.textContent = '$' + subtotal.toFixed(2);
+              var durEl = document.getElementById('summary-duration');
+              if (durEl) durEl.textContent = durString;
+              var surchEl = document.getElementById('summary-surcharge');
+              if (surchEl) surchEl.textContent = '+$' + roomSurcharge.toFixed(2);
+              var roomsEl = document.getElementById('summary-rooms');
+              if (roomsEl) roomsEl.textContent = state.beds + ' Bed, ' + state.baths + ' Bath';
+              var corrEl = document.getElementById('summary-corridor');
+              if (corrEl) corrEl.textContent = state.corridor;
+              var intenEl = document.getElementById('summary-intensity');
+              if (intenEl) intenEl.textContent = state.intensityLabel;
+              var crewEl = document.getElementById('summary-crew');
+              if (crewEl) crewEl.textContent = state.crewLabel;
+              var addEl = document.getElementById('summary-addons');
+              if (addEl) {
+                addEl.textContent = addonCount > 0 ? addonCount + ' selected (+$' + addonTotal.toFixed(2) + ')' : 'None ($0.00)';
+              }
+            }
+
+            document.querySelectorAll('.cat-tab').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                document.querySelectorAll('.cat-tab').forEach(function(b) {
+                  b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+                  b.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+                });
+                this.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+                this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+                state.category = this.getAttribute('data-cat');
+                var catLabel = document.getElementById('summary-cat-label');
+                if (catLabel) catLabel.textContent = this.innerText.trim() + ' Service';
+                calculate();
+              });
+            });
+
+            document.querySelectorAll('.territory-btn').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                document.querySelectorAll('.territory-btn').forEach(function(b) {
+                  b.classList.remove('border-primary', 'bg-secondary-container/40');
+                  b.classList.add('border-transparent', 'bg-surface-container-low');
+                });
+                this.classList.remove('border-transparent', 'bg-surface-container-low');
+                this.classList.add('border-primary', 'bg-secondary-container/40');
+                state.corridor = this.getAttribute('data-corridor') || 'DuBois 15801';
+                state.territoryLabel = this.getAttribute('data-territory') || '';
+                calculate();
+              });
+            });
+
+            document.querySelectorAll('.intensity-btn').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                document.querySelectorAll('.intensity-btn').forEach(function(b) {
+                  b.classList.remove('border-primary', 'bg-secondary-container/40');
+                  b.classList.add('border-transparent', 'bg-surface-container-low');
+                });
+                this.classList.remove('border-transparent', 'bg-surface-container-low');
+                this.classList.add('border-primary', 'bg-secondary-container/40');
+                state.intensityMult = parseFloat(this.getAttribute('data-multiplier') || '1.0');
+                state.intensityLabel = this.getAttribute('data-label') || '';
+                calculate();
+              });
+            });
+
+            document.querySelectorAll('.crew-btn').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                document.querySelectorAll('.crew-btn').forEach(function(b) {
+                  b.classList.remove('border-primary', 'bg-secondary-container/40');
+                  b.classList.add('border-transparent', 'bg-surface-container-low');
+                  var icon = b.querySelector('.material-symbols-outlined');
+                  if (icon) {
+                    icon.classList.remove('text-primary');
+                    icon.classList.add('text-on-surface-variant');
+                  }
+                });
+                this.classList.remove('border-transparent', 'bg-surface-container-low');
+                this.classList.add('border-primary', 'bg-secondary-container/40');
+                var icon = this.querySelector('.material-symbols-outlined');
+                if (icon) {
+                  icon.classList.remove('text-on-surface-variant');
+                  icon.classList.add('text-primary');
+                }
+                state.crewMult = parseFloat(this.getAttribute('data-multiplier') || '1.0');
+                state.crewLabel = this.getAttribute('data-crew') || '';
+                calculate();
+              });
+            });
+
+            document.querySelectorAll('.duration-card').forEach(function(card) {
+              var input = card.querySelector('input[type="radio"]');
+              card.addEventListener('click', function() {
+                document.querySelectorAll('.duration-card').forEach(function(c) {
+                  c.classList.remove('border-primary', 'bg-secondary-container/40');
+                  c.classList.add('border-transparent', 'bg-surface-container-low');
+                });
+                card.classList.remove('border-transparent', 'bg-surface-container-low');
+                card.classList.add('border-primary', 'bg-secondary-container/40');
+                if (input) {
+                  input.checked = true;
+                  state.basePrice = parseFloat(input.getAttribute('data-price') || '95');
+                  state.baseMins = parseInt(input.value, 10);
+                  calculate();
+                }
+              });
+            });
+
+            document.querySelectorAll('.bed-btn').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                document.querySelectorAll('.bed-btn').forEach(function(b) {
+                  b.classList.remove('bg-primary', 'text-white', 'border-2', 'border-primary');
+                  b.classList.add('border', 'border-surface-container', 'bg-surface-container-lowest');
+                });
+                this.classList.remove('border', 'border-surface-container', 'bg-surface-container-lowest');
+                this.classList.add('bg-primary', 'text-white', 'border-2', 'border-primary');
+                state.beds = parseInt(this.getAttribute('data-beds') || '2', 10);
+                calculate();
+              });
+            });
+
+            document.querySelectorAll('.bath-btn').forEach(function(btn) {
+              btn.addEventListener('click', function() {
+                document.querySelectorAll('.bath-btn').forEach(function(b) {
+                  b.classList.remove('bg-primary', 'text-white', 'border-2', 'border-primary');
+                  b.classList.add('border', 'border-surface-container', 'bg-surface-container-lowest');
+                });
+                this.classList.remove('border', 'border-surface-container', 'bg-surface-container-lowest');
+                this.classList.add('bg-primary', 'text-white', 'border-2', 'border-primary');
+                state.baths = parseInt(this.getAttribute('data-baths') || '1', 10);
+                calculate();
+              });
+            });
+
+            document.querySelectorAll('.addon-item input[type="checkbox"]').forEach(function(cb) {
+              cb.addEventListener('change', function() {
+                var parent = cb.closest('.addon-item');
+                if (cb.checked) {
+                  parent.classList.add('border-primary', 'bg-secondary-container/30');
+                } else {
+                  parent.classList.remove('border-primary', 'bg-secondary-container/30');
+                }
+                calculate();
+              });
+            });
+
+            var rushInput = document.getElementById('rush-addon');
+            if (rushInput) {
+              rushInput.addEventListener('change', function() {
+                state.rush = this.checked;
+                calculate();
+              });
+            }
+
+            calculate();
+          });
+        </script>
+      </section>
+
+      <!-- Before & After Transformation Gallery -->
+      <section class="w-full py-12 px-4 sm:px-6 lg:px-8 bg-surface">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-2xl mx-auto mb-8">
+            <span class="text-xs uppercase font-bold text-secondary tracking-widest">Real Proof</span>
+            <h2 class="text-2xl md:text-4xl font-bold text-on-surface tracking-tight mt-1">Before &amp; After Transformation Gallery</h2>
+            <p class="text-sm md:text-base text-on-surface-variant mt-2">Hospital-grade botanical formulations dissolving build-up across Central PA properties.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-surface-container flex flex-col">
+              <div class="relative w-full h-52 md:h-56 overflow-hidden bg-surface-container">
+                <img alt="DuBois Kitchen Restoration Before and After" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VxJXqri3geyur6igmkTcqH4Jq7njcfyZFoqncEFq7v8gIi0Nijc7ZYO98wFQMNgotnj3xHLroLBygHMIf9rY5Wl_PwF16OCFbl9dosKwcc7w_WtBZH8X1aY7lLqtIqQ71S-43gJOug_qQNHF9eVtKnJhAAGG0n4dL5QEt--5tVoSYixrk2sW3lAOHGNryxz28NHK1g4Sw9WJxcUxqjXmXC8JsshEs9GPLLXNTFjLeZZTVYLu28nhyFOCI">
+                <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-on-surface/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Before</span>
+                <span class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">After</span>
+              </div>
+              <div class="p-4 bg-surface-container-low flex justify-between items-center border-b border-surface-container">
+                <div class="font-bold text-on-surface text-sm">DuBois Kitchen Restoration</div>
+                <span class="text-xs font-semibold text-primary bg-primary-fixed/30 px-2 py-0.5 rounded-full">Deep Clean</span>
+              </div>
+              <div class="p-4 space-y-1 text-xs flex-1 flex flex-col justify-center">
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Stove Top Carbon &amp; Grease</span>
+                  <span class="font-semibold text-primary">100% Lifted</span>
+                </div>
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Hard Water Tile Scale</span>
+                  <span class="font-semibold text-primary">Zero Residue</span>
+                </div>
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Botanical Formula</span>
+                  <span class="font-semibold text-on-surface">Citric Descaler &amp; Thyme</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-surface-container flex flex-col">
+              <div class="relative w-full h-52 md:h-56 overflow-hidden bg-surface-container">
+                <img alt="Brookville Luxury Bath &amp; Trim Before and After" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XncsLy7d2hs4v5rpFzcv8ZTQlq56GlKnxAoHWcpwTgRsVoLI4OEjOi1CtrWCPBnlC9GpifGum3kM3fPjDIaUmvJ80_GuZlCMZra7ztG_ntLwYsDJforVkF7KggdBCXBLSgB3EtjOLQGiYyCJ67ANyZ2tt7q9D3VOWia7nkScoY35AWsY3gNG_D6rtUNT_o1hZW_HzAE-rmlr_0Xc7CyE4yD5BZ-_sDhr6QUJqSI2jM7Ru7Kzbj4DKtv2E">
+                <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-on-surface/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Before</span>
+                <span class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">After</span>
+              </div>
+              <div class="p-4 bg-surface-container-low flex justify-between items-center border-b border-surface-container">
+                <div class="font-bold text-on-surface text-sm">Brookville Luxury Bath &amp; Trim</div>
+                <span class="text-xs font-semibold text-primary bg-primary-fixed/30 px-2 py-0.5 rounded-full">Move-In Ready</span>
+              </div>
+              <div class="p-4 space-y-1 text-xs flex-1 flex flex-col justify-center">
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Tile, Tub &amp; Glass Descaling</span>
+                  <span class="font-semibold text-primary">Extracted</span>
+                </div>
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Chrome &amp; Grout Detailing</span>
+                  <span class="font-semibold text-primary">Streak-Free</span>
+                </div>
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Botanical Formula</span>
+                  <span class="font-semibold text-on-surface">Lemongrass Conditioning</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-surface-container flex flex-col">
+              <div class="relative w-full h-52 md:h-56 overflow-hidden bg-surface-container">
+                <img alt="Punxsutawney Fall Grounds Before and After" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WM7nl4-bcNo6Qp8vEaJTioMa5jZBTj64xR6CDbItlRVi1miX5rDVaQ2nRu4PIMFNgdB3kE5pgiC-giil446DqFcfvurTPPe8n9A1zcvZt470iK8kgYzSbOUtK99di67IqKzg2DF9EZpE0z9uMhHL3WVXRRFf7yaKPg0NCohIJ-MXmDdEZvSQCh1gg_A1UfoxgBnNtRk1CS1kLFNAG2ci3B-xiYLKErrYpmJLXPNB7rYUHhCieju5mbDQ">
+                <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-on-surface/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">Before</span>
+                <span class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">After</span>
+              </div>
+              <div class="p-4 bg-surface-container-low flex justify-between items-center border-b border-surface-container">
+                <div class="font-bold text-on-surface text-sm">Punxsutawney Fall Grounds</div>
+                <span class="text-xs font-semibold text-primary bg-primary-fixed/30 px-2 py-0.5 rounded-full">Yard Cleanup</span>
+              </div>
+              <div class="p-4 space-y-1 text-xs flex-1 flex flex-col justify-center">
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Heavy Leaf &amp; Debris Haul</span>
+                  <span class="font-semibold text-primary">Cleared</span>
+                </div>
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Perimeter Edging &amp; Walks</span>
+                  <span class="font-semibold text-primary">Blown &amp; Bagged</span>
+                </div>
+                <div class="flex items-center justify-between text-on-surface-variant">
+                  <span class="">Eco Disposal</span>
+                  <span class="font-semibold text-on-surface">Compost Recycled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Verified Client Reviews -->
+      <section class="w-full py-12 px-4 sm:px-6 lg:px-8 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center max-w-2xl mx-auto mb-8">
+            <span class="text-xs uppercase font-bold text-secondary tracking-widest">Verified Client Reviews</span>
+            <h2 class="text-2xl md:text-4xl font-bold text-on-surface tracking-tight mt-1">Loved by Central PA Homeowners</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm flex flex-col justify-between gap-4">
+              <div class="space-y-2">
+                <div class="flex text-primary">
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                </div>
+                <p class="text-sm text-on-surface-variant italic">“The botanical lemon scent was so refreshing and left zero chemical headache. The team arrived right in their 30-minute buffer window in DuBois.”</p>
+              </div>
+              <div>
+                <div class="font-bold text-on-surface text-sm">Evelyn R.</div>
+                <div class="text-xs text-on-surface-variant">DuBois, PA • Bi-weekly Maintenance</div>
+              </div>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm flex flex-col justify-between gap-4">
+              <div class="space-y-2">
+                <div class="flex text-primary">
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                </div>
+                <p class="text-sm text-on-surface-variant italic">“Zero advance deposit gave us immense confidence. They cleaned our historic house before we moved in—every corner was immaculate.”</p>
+              </div>
+              <div>
+                <div class="font-bold text-on-surface text-sm">Marcus G.</div>
+                <div class="text-xs text-on-surface-variant">Brookville, PA • Move-In Refresh</div>
+              </div>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm flex flex-col justify-between gap-4">
+              <div class="space-y-2">
+                <div class="flex text-primary">
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                  <span class="material-symbols-outlined text-[18px]">star</span>
+                </div>
+                <p class="text-sm text-on-surface-variant italic">“Booking online took 90 seconds. The crew handled both our deep bathroom detailing and cleared 3 truckloads of autumn leaves.”</p>
+              </div>
+              <div>
+                <div class="font-bold text-on-surface text-sm">Donna K.</div>
+                <div class="text-xs text-on-surface-variant">Punxsutawney, PA • Deep Clean &amp; Yard</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Master Footer -->
+  <footer class="w-full bg-surface-container-low pt-12 pb-8 text-on-surface-variant shadow-[0_-1px_12px_rgba(0,0,0,0.02)] border-t border-surface-container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10">
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+            <a class="text-lg text-primary font-bold hover:underline" href="index.html">HousekeeperBooking.com</a>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed max-w-sm">
+            Pristine domestic cleaning crafted with plant-based botanical solutions, verified background-checked domestic specialists, and absolute punctuality for Central Pennsylvania homeowners.
+          </p>
+          <div class="inline-flex items-center gap-2 bg-surface-container-lowest p-2.5 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-surface-container mt-1">
+            <span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+            <div>
+              <div class="text-xs text-on-surface font-semibold">100% Reclean Guarantee</div>
+              <div class="text-[11px] text-on-surface-variant">Flawless standard or prompt free redo within 24h</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col gap-2">
+          <span class="text-sm text-on-surface font-bold">Care Packages</span>
+          <ul class="space-y-1.5 text-xs">
+            <li class=""><a class="hover:text-primary transition-colors" href="instant-quote.html">Standard Residential Maintenance</a></li>
+            <li class=""><a class="hover:text-primary transition-colors" href="instant-quote.html">Deep Restoration Refresh</a></li>
+            <li class=""><a class="hover:text-primary transition-colors" href="instant-quote.html">Move-In &amp; Move-Out Sanitization</a></li>
+            <li class=""><a class="hover:text-primary transition-colors" href="instant-quote.html">Fall Yard &amp; Exterior Clean-up</a></li>
+            <li class=""><a class="hover:text-primary transition-colors" href="instant-quote.html">Commercial &amp; Office Detailing</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col gap-2">
+          <span class="text-sm text-on-surface font-bold">Central PA Service Areas</span>
+          <ul class="space-y-1.5 text-xs">
+            <li class=""><span class="text-on-surface font-medium">DuBois, PA</span> <span class="text-[11px] text-on-surface-variant">(Daily Priority Routes)</span></li>
+            <li class=""><span class="text-on-surface font-medium">Brookville, PA</span> <span class="text-[11px] text-on-surface-variant">(Historic &amp; Rural Centers)</span></li>
+            <li class=""><span class="text-on-surface font-medium">Punxsutawney, PA</span> <span class="text-[11px] text-on-surface-variant">(Residential Hubs)</span></li>
+            <li class=""><span class="text-on-surface font-medium">Reynoldsville &amp; Sykesville</span> <span class="text-[11px] text-on-surface-variant">(Township &amp; Rt 119)</span></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col gap-2">
+          <span class="text-sm text-on-surface font-bold">Direct Support</span>
+          <div class="flex flex-col gap-1 text-xs">
+            <span class="text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">Dispatch Hotline</span>
+            <a class="text-sm text-primary font-bold hover:underline" href="tel:8149521964">(814) 952-1964</a>
+            <span class="text-[11px] text-on-surface-variant">Mon-Sat: 7:00 AM - 7:00 PM</span>
+            <a class="mt-2 inline-flex items-center gap-1 text-xs text-primary hover:underline" href="customer-login.html">
+              <span class="material-symbols-outlined text-[15px]">lock</span>Client Portal Login
+            </a>
+            <a class="inline-flex items-center gap-1 text-xs text-secondary hover:underline" href="admin-login.html">
+              <span class="material-symbols-outlined text-[15px]">admin_panel_settings</span>Admin Staff Portal
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-surface-container flex flex-wrap items-center justify-between gap-3 text-[11px] text-on-surface-variant">
+        <div class="">© 2025 HousekeeperBooking.com. All rights reserved. Locally operated across Central Pennsylvania.</div>
+        <div class="flex items-center gap-4">
+          <a class="hover:text-primary transition-colors" href="privacy.html">Privacy Policy</a>
+          <a class="hover:text-primary transition-colors" href="terms.html">Terms of Service</a>
+          <a class="hover:text-primary transition-colors" href="standards.html">Standards &amp; Guarantee</a>
+          <a class="hover:text-primary transition-colors" href="recruit.html">Careers</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+</body></html>

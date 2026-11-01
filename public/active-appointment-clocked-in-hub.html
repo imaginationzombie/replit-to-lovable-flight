@@ -1,0 +1,549 @@
+<!DOCTYPE html><html class="h-full" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-lowest": "#ffffff", "surface-container-high": "#e7e8e6", "surface-bright": "#f9faf8", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#005144", "on-secondary-fixed": "#00210e", "on-primary": "#ffffff", "secondary-fixed-dim": "#aad0b1", "inverse-primary": "#83d6c2", "on-tertiary": "#ffffff", "on-error": "#ffffff", "inverse-surface": "#2e3130", "on-background": "#191c1b", "surface": "#f9faf8", "inverse-on-surface": "#f0f1ef", "outline-variant": "#bec9c4", "on-error-container": "#93000a", "secondary": "#43664d", "error-container": "#ffdad6", "tertiary-container": "#54646c", "on-secondary-fixed-variant": "#2c4e36", "primary-fixed": "#9ff2de", "on-surface-variant": "#3e4946", "on-surface": "#191c1b", "on-tertiary-fixed": "#0e1d25", "secondary-fixed": "#c5eccc", "primary-fixed-dim": "#83d6c2", "surface-variant": "#e1e3e1", "outline": "#6e7976", "tertiary-fixed-dim": "#b9c9d3", "tertiary-fixed": "#d5e5ef", "tertiary": "#3d4c54", "on-primary-container": "#99edd9", "surface-container-low": "#f3f4f2", "on-secondary-container": "#486a51", "surface-container": "#edeeec", "on-tertiary-container": "#d0e0ea", "error": "#ba1a1a", "surface-container-highest": "#e1e3e1", "surface-tint": "#006b5b", "background": "#f9faf8", "on-primary-fixed": "#00201a", "secondary-container": "#c2e9c9", "on-tertiary-fixed-variant": "#3a4951", "primary": "#005447", "surface-dim": "#d9dad8", "primary-container": "#086e5e" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-2xl": "4rem", "gutter-lg": "2rem", "gutter-sm": "1rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "1.25rem", "gutter": "1.5rem", "margin-lg": "4rem", "margin-md": "2.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem" }, fontFamily: { "display-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"] }, fontSize: { "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="HousekeeperBooking.com Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1V4FcpdxgEGKJp4tRhqt8iaY3i-TnDwRxTmjre-T2d0QSiNnEfcMso1Auwcq-Y-cXTZv443CFsm5YJg0lQZ201FQTXdVZrfXs2_9iZ8FuiLikOcttj4qsYEbPHx0Z0vv6yqhun5r2QipQi8nxdGp0mxcUVepoo9OMvP4CTTh7v7YMf-gD3J2ARkvUIvj4IC6b7t-5MNSjbEt1aLWsHlPYe60hdh82pe2t0by6e60yqNoyrEC-ouCcGUgDs"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate leading-tight">HousekeeperBooking</span><span class="font-label-sm text-label-sm text-primary tracking-wide leading-none">Home &amp; Portals</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><a aria-label="Call HousekeeperBooking at (814) 952-1964" class="flex items-center gap-1 h-9 px-3 rounded-full bg-secondary-container/60 text-primary hover:bg-secondary-container active:scale-95 transition-all text-decoration-none" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">call</span><span class="font-label-md text-label-md">(814) 952-1964</span></a><a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary hover:opacity-90 active:scale-95 transition-all" data-path="customer-login" href="#" title="Switch Account / Login"><span class="material-symbols-outlined text-[18px]">switch_account</span></a></div></div></header><main class="flex flex-col relative w-full pt-16 pb-32 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Sticky Live Job Execution Banner -->
+<div class="bg-primary-container text-on-primary px-margin py-3 shadow-md">
+<div class="flex items-center justify-between gap-space-sm mb-2"><div class="flex items-center gap-2 min-w-0"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary-fixed"></span></span><span class="font-label-lg text-label-lg font-bold tracking-tight text-on-primary uppercase truncate">Clocked In • On-Site</span></div><div class="flex items-center gap-1.5 bg-on-primary/10 px-2.5 py-1 rounded-full"><span class="material-symbols-outlined text-[15px] text-primary-fixed">schedule</span><span class="font-label-md text-label-md font-bold text-on-primary tracking-wide">Shift in Progress</span></div></div>
+<!-- Timer & Live Metrics Bar -->
+<div class="bg-primary/40 rounded-xl p-3 flex items-center justify-between gap-space-sm backdrop-blur-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-semibold">Shift Elapsed</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-on-primary font-bold tabular-nums" id="job-timer">01:25:24</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">/ 03:00:00</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-10 px-3.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-bold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all" id="pause-btn" onclick="togglePause()">
+<span class="material-symbols-outlined text-[18px]">pause_circle</span>
+<span id="pause-text" class="">Pause</span>
+</button>
+<button class="h-10 px-3.5 rounded-lg bg-error-container text-on-error-container font-label-md text-label-md font-bold flex items-center gap-1 shadow-sm active:scale-95 transition-all" onclick="openClockOutModal()">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span class="">Clock Out</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Scrollable Content Container -->
+<div class="px-margin py-4 flex flex-col gap-space-lg">
+<!-- Cleaner & Service Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-3">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="Elena Vance, a skilled professional housekeeper wearing an emerald apron with hair tied back, warm friendly smile, natural warm indoor daylight, soft clean aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-4vIOYsemAqwp30NU7UdvnpkS-vDu9uAsbUWPeMdoR6AYAOX1Wc5l_NVoLKH43fFHk3IcBu922QN6frZGl7g8gtIhcCMgO3tn4REuGTdM1-9Hbn4ITp5cFmfN5FWsLCRPdDhAImhUzYhDR0jlC98CEndd5YrxtsE8E9Ibw3C3SQFlxn99d9Ndchlghmzy36z4WeqinWEKcXT1kFFj6ynQj6Q_Ta4A4T8ozqiyLtvwX8LYQSD8OrZE">
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-secondary-fixed rounded-full shadow-sm"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold truncate">Elena Vance</span>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">Lead Pro</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Assigned Job #HK-8492</span>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Service Type</span>
+<span class="font-title-md text-title-md text-primary font-bold">Whole Home Refresh</span>
+</div>
+</div>
+<!-- Compensation Micro-Breakdown -->
+
+</div>
+<!-- Customer Card & Direct Reach Center -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-title-lg text-title-lg font-bold flex-shrink-0 shadow-sm">
+            SJ
+          </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-lg text-title-lg text-on-surface font-bold truncate">Sarah Jenkins</span>
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-primary font-bold">5.0</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Preferred Repeat Host • 9 Cleanings</span>
+</div>
+</div>
+<span class="bg-primary-fixed-dim/30 text-on-primary-fixed-variant px-2.5 py-1 rounded-full font-label-sm text-label-sm font-bold">VIP Host</span>
+</div>
+<!-- Fast Action Communication Buttons -->
+<div class="grid grid-cols-2 gap-space-sm">
+<a class="h-11 rounded-lg bg-secondary-container/70 hover:bg-secondary-container text-on-secondary-container flex items-center justify-center gap-2 font-label-lg text-label-lg font-bold active:scale-98 transition-all" href="tel:8145550192">
+<span class="material-symbols-outlined text-[20px]">call</span>
+<span class="">Call Sarah</span>
+</a>
+<a class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center gap-2 font-label-lg text-label-lg font-bold active:scale-98 transition-all" href="sms:8145550192">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="">Text (SMS)</span>
+</a>
+</div>
+<!-- Property Access Direct Notes Accordion -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">key</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Access &amp; House Protocols</span>
+</div>
+<span class="font-label-sm text-label-sm bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold">Verified Safe</span>
+</div>
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="flex items-start gap-2 bg-surface-container-lowest p-2.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">pin</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Lockbox Entry: <span class="text-primary font-mono font-bold text-title-md tracking-wider">#4829</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Located left side of black front storm door, turn dials clockwise.</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-surface-container-lowest p-2.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5">pets</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Indoor Pet: Mochi (Cat)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Friendly calico indoors. Do not let into hallway during door transitions.</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-surface-container-lowest p-2.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">eco</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Eco-Supplies On-Site</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hallway storage closet: Microfiber mop, Method lavender spray, &amp; Dyson vac.</span>
+</div>
+</div>
+</div>
+</div>
+</div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-3 border border-secondary-container/50"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-9 h-9 rounded-lg bg-secondary-container/70 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">loyalty</span></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><span class="font-title-md text-title-md font-bold text-on-surface truncate">Referral &amp; Client Loyalty</span><span class="bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">Active</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold truncate">Exclusive Host Referral Network</span></div></div><span class="bg-primary/10 text-primary font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-full">Partner Program</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Share your pro link or booking code with neighbors or homeowners on-site to connect new residences directly to your scheduled route.</p><div class="grid grid-cols-2 gap-2 bg-surface-container-low p-2.5 rounded-lg"><div class="flex flex-col"><span class="font-label-sm text-[11px] text-on-surface-variant font-medium">Your Cleaner Code</span><span class="font-title-md text-title-md font-mono font-bold text-primary tracking-wide">ELENA-PRO10</span></div><div class="flex flex-col text-right"><span class="font-label-sm text-[11px] text-on-surface-variant font-medium">Referral Network</span><span class="font-title-md text-title-md font-bold text-on-surface">6 <span class="text-[11px] text-secondary font-semibold">Clients Referred</span></span></div></div><div class="flex items-center gap-2"><button class="flex-1 h-11 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-2 active:scale-98 transition-all shadow-sm" onclick="navigator.clipboard ? navigator.clipboard.writeText('https://housekeeperbooking.com/book?ref=ELENA-PRO10') : null; showToast('Referral link copied! Ready to share with host.');"><span class="material-symbols-outlined text-[18px]">share</span><span class="">Share Referral Link with Homeowner</span></button><button class="w-11 h-11 bg-surface-container rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container-high active:scale-95 transition-all" onclick="navigator.clipboard ? navigator.clipboard.writeText('ELENA-PRO10') : null; showToast('Code ELENA-PRO10 copied!');" title="Copy Promo Code"><span class="material-symbols-outlined text-[18px]">content_copy</span></button></div></div>
+<!-- Interactive Route Map & Directions Module -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<span class="font-title-md text-title-md font-bold text-on-surface truncate">DuBois, PA Location</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> At Destination
+        </span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">742 Evergreen Terr, Apt 4B</span>
+<span class="font-body-md text-body-md text-on-surface-variant">DuBois, PA 15801 (Clearfield County)</span>
+</div>
+<!-- Map Display Canvas Container -->
+<div class="relative w-full h-44 rounded-xl overflow-hidden shadow-inner bg-surface-container" data-location="742 Evergreen Terrace, DuBois, PA">
+<img class="w-full h-full object-cover" data-alt="A clean bird-eye aerial GPS navigation mobile route map graphic showing streets in DuBois Pennsylvania with a bold teal route polyline leading to a pin at Evergreen Terrace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDerflrc_8bGq7I6u-dligiJtRLADBiDzBA0YpZ7G7Y0y3qF3UOmFVtaEeIqG1n9N8P1eGfDcGzUh3PoWFyJzXWQbEFCj0nCHj9cjVZsf40_odJ6wCRlXQT9FvONDle1rZE-tA6yfeyHWgj4SmqoAIt2YecMPr6dtSyZzbb2UKGZUvyhYZOKxHhg4LxYmWS2pYSE6IyyJByLS2nJjl5RajjKCnr7vAPIwBKY0Jh2fbYknPn5aC_1Muw">
+<!-- Map Overlay Badges -->
+<div class="absolute top-2 left-2 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">near_me</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Arrived On-Site</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-primary text-on-primary px-3 py-1.5 rounded-lg shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+<span class="font-label-md text-label-md font-bold">0.0 mi • Parked</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<a class="flex-1 h-11 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 active:scale-98 transition-all" href="https://maps.google.com/?q=742+Evergreen+Terrace+DuBois+PA" target="_blank">
+<span class="material-symbols-outlined text-[18px]">directions</span>
+<span class="">Open in Google / Apple Maps</span>
+</a>
+<button class="w-11 h-11 bg-surface-container rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container-high active:scale-95 transition-all" onclick="navigator.clipboard ? navigator.clipboard.writeText('742 Evergreen Terr, Apt 4B, DuBois, PA 15801') : null; showToast('Address Copied!');" title="Copy Address">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Interactive Cleaning Task Checklist ("Things to be Done") -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">Task Checklist</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Whole Home Refresh Execution</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-primary" id="progress-text">7 of 12 Done</span>
+<span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-full" id="progress-percent">58%</span>
+</div>
+</div>
+<!-- Linear Visual Progress Bar -->
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-300" id="progress-bar-fill" style="width: 58.3%;"></div>
+</div>
+<!-- Section: Kitchen (Completed) -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">kitchen</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">1. Kitchen Area</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> Complete
+          </span>
+</div>
+<div class="space-y-1.5">
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none flex-1">Degrease stovetop burners &amp; back-splash</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none flex-1">Wipe and sanitize quartz countertops</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none flex-1">Empty dishwasher and load rinse cycle</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none flex-1">Polish stainless steel sink &amp; fixtures</span>
+</label>
+</div>
+</div>
+<!-- Section: Bathrooms (In Progress) -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bathtub</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">2. Bathrooms (2 Full)</span>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed-dim/40 text-on-primary-fixed-variant px-2 py-0.5 rounded-full font-bold">Active Zone</span>
+</div>
+<div class="space-y-1.5">
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none flex-1">Scrub master shower glass &amp; porcelain tile</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none flex-1">Sanitize toilet base, rim, and flush lever</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none flex-1">Restock rolled bamboo towels</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface select-none flex-1">Mop master &amp; guest bathroom tile floors</span>
+</label>
+</div>
+</div>
+<!-- Section: Living & Bedrooms -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bed</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">3. Living &amp; Bedrooms</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Pending</span>
+</div>
+<div class="space-y-1.5">
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface select-none flex-1">Dust living ceiling fan &amp; baseboard trim</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface select-none flex-1">Vacuum high-traffic wool area rugs</span>
+</label>
+<label class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface select-none flex-1">Fresh linen swap &amp; hospital corners on primary bed</span>
+</label>
+</div>
+</div>
+<!-- Section: Paid Add-On Service Card (50% Comm) -->
+<div class="bg-secondary-container/30 rounded-xl p-3.5 flex flex-col gap-2"><div class="flex items-center justify-between pb-1 border-b border-surface-container"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[22px]">auto_awesome</span><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-label-lg text-label-lg font-bold text-on-surface">Approved Extra Service Add-ons</span><span class="bg-error-container text-on-error-container font-label-sm text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">50% Off Customer Promo</span></div><span class="font-label-sm text-label-sm text-secondary font-bold">Optional Services for Current Residence</span></div></div><span class="bg-primary text-on-primary font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-full">5 Active</span></div><div class="flex flex-col gap-2 pt-1"><div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5"><div class="flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Deep Refrigerator Clean</span><span class="font-body-sm text-[11px] text-on-surface-variant">Customer Special: <span class="line-through">$50.00</span> <strong class="font-bold text-primary">$25.00</strong> (50% Off)</span></div></div><label class="flex items-center gap-2.5 p-2 rounded bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox"><span class="font-body-sm text-body-sm text-on-surface select-none flex-1">Empty bins, degrease glass shelves, wipe gasket seal</span></label></div><div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5"><div class="flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Interior Oven Deep Scrub</span><span class="font-body-sm text-[11px] text-on-surface-variant">Customer Special: <span class="line-through">$40.00</span> <strong class="font-bold text-primary">$20.00</strong> (50% Off)</span></div></div><label class="flex items-center gap-2.5 p-2 rounded bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox"><span class="font-body-sm text-body-sm text-on-surface select-none flex-1">Degrease racks, burn-on carbon removal, door glass polish</span></label></div><div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5"><div class="flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Interior Windows &amp; Track Detailing (Up to 8 Windows)</span><span class="font-body-sm text-[11px] text-on-surface-variant">Customer Special: <span class="line-through">$50.00</span> <strong class="font-bold text-primary">$25.00</strong> (50% Off)</span></div></div><label class="flex items-center gap-2.5 p-2 rounded bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox"><span class="font-body-sm text-body-sm text-on-surface select-none flex-1">Streak-free interior pane wash, track vacuum &amp; wipe, sill wipe</span></label></div><div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5"><div class="flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Inside Kitchen Cabinets &amp; Pantry Wipe-down</span><span class="font-body-sm text-[11px] text-on-surface-variant">Customer Special: <span class="line-through">$60.00</span> <strong class="font-bold text-primary">$30.00</strong> (50% Off)</span></div></div><label class="flex items-center gap-2.5 p-2 rounded bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox"><span class="font-body-sm text-body-sm text-on-surface select-none flex-1">Empty shelves, crumb vacuum, wipe interior surfaces and liners</span></label></div><div class="bg-surface-container-lowest rounded-lg p-2.5 shadow-sm flex flex-col gap-1.5"><div class="flex items-center justify-between gap-2"><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Wall Baseboard &amp; Door Trim Detail Wash</span><span class="font-body-sm text-[11px] text-on-surface-variant">Customer Special: <span class="line-through">$35.00</span> <strong class="font-bold text-primary">$17.50</strong> (50% Off)</span></div></div><label class="flex items-center gap-2.5 p-2 rounded bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><input class="w-5 h-5 rounded text-primary focus:ring-0 accent-primary" onchange="updateTaskProgress()" type="checkbox"><span class="font-body-sm text-body-sm text-on-surface select-none flex-1">Hand scrub scuff marks, dust trim, wipe door frames</span></label></div><button class="w-full h-11 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-primary font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow-sm active:scale-98 transition-all mt-1" onclick="const customTitle=prompt('Enter extra add-on service name (e.g. Balcony Pressure Wash):'); if(customTitle){ showToast('Custom add-on item requested.'); }"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="">+ Add Custom On-Site Add-On</span></button></div></div>
+<!-- Quick Proof & Notes Action Row -->
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 h-11 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md font-bold flex items-center justify-center gap-2 active:scale-98 transition-all" onclick="triggerPhotoUpload()">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+<span class="">Upload Proof Photo</span>
+</button>
+<button class="h-11 px-4 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-bold flex items-center justify-center gap-2 active:scale-98 transition-all" onclick="triggerNoteModal()">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span class="">Add Note</span>
+</button>
+</div>
+</div>
+<!-- Live Photo Proof Gallery Feed -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Photos &amp; Evidence Log</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 Uploaded</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="relative rounded-xl overflow-hidden bg-surface-container-high aspect-square shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close up photo of gleaming clean quartz kitchen counter with freshly washed sink and modern faucet, bright crisp natural kitchen daylight, spotless perfection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6S4lOKwiHf548LI9UDf87fIASTzUspmsGiaJK1eLf3ZSyjNPsHv4n1cexKsph-1mLK85kkvtpzfQji-kwalFVz-fi11UajlZQ_9inMSp4ZHst-S15XpgGETL-5wYWhU_viUzDC1CAJxg5bnxXzCPT1zq2or-azCYrP6faZBLd7Eq1ga4K23XxMaIREzszn8fNKpucVLwrqVVbPS1a7KJuas4ikRWLnN5vK3lcU7lR8nWj9hMY_q81">
+<span class="absolute top-2 left-2 bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Kitchen Done</span>
+<span class="absolute bottom-2 left-2 bg-on-background/70 text-on-primary text-[10px] px-1.5 py-0.5 rounded backdrop-blur-sm">11:42 AM</span>
+</div>
+<div class="relative rounded-xl overflow-hidden bg-surface-container-high aspect-square shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Pristine master bathroom shower with clean glass door and sparkling chrome fixtures and neatly folded towels on a bench, soft organic spa lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQSq-bLhQ0T8ceR2HZ8vLU3hofQw3X47l2QQHLTwVN-3wUNMbFsnqzoEMcID6EJcGLGr2a7X8zIJ-XwCO_esqbHt0MhSV9tzRz7KhRuTrrGcX3WcicSLYOU4JEFnh_8vNNpq8nksv0bwKI7z-oRYO669TIQTVQIbs6hxBwuu8-OgCzY6woEVCHjhm2ICeQgz6bbsgC4eOb-l9taw51zyHfEgE2Fg54NbZx7m6M_--suI0uUymZg_On">
+<span class="absolute top-2 left-2 bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Shower Clean</span>
+<span class="absolute bottom-2 left-2 bg-on-background/70 text-on-primary text-[10px] px-1.5 py-0.5 rounded backdrop-blur-sm">12:08 PM</span>
+</div>
+</div>
+</div>
+<!-- Customer Call Reschedule & Cancel Action Center -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">contact_support</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md font-bold text-on-surface truncate">Customer Requested Change?</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Phone or In-Person Modification Hub</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0">info</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+          If Sarah calls or asks to reschedule or cancel while you are on site or in route, use the buttons below to lock in the change with zero dispatch delay.
+        </span>
+</div>
+<!-- Action Grid -->
+<div class="flex flex-col gap-2.5">
+<!-- Reschedule Trigger -->
+<button class="w-full h-12 rounded-lg bg-primary-container hover:bg-primary text-on-primary flex items-center justify-between px-4 font-label-lg text-label-lg font-bold shadow-sm active:scale-98 transition-all" onclick="openRescheduleSheet()">
+<div class="flex items-center gap-2"><div class="flex items-center gap-2 min-w-0"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary-fixed"></span></span><span class="font-label-lg text-label-lg font-bold tracking-tight text-on-primary uppercase truncate">Clocked In • On-Site</span></div><div class="flex items-center gap-1.5 bg-on-primary/10 px-2.5 py-1 rounded-full"><span class="material-symbols-outlined text-[15px] text-primary-fixed">schedule</span><span class="font-label-md text-label-md font-bold text-on-primary tracking-wide">Shift in Progress</span></div></div>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<!-- Cancel with Protected Pay Trigger -->
+<button class="w-full h-12 rounded-lg bg-surface-container hover:bg-surface-container-high text-error flex items-center justify-between px-4 font-label-lg text-label-lg font-bold shadow-sm active:scale-98 transition-all" onclick="openCancelPolicySheet()"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">event_busy</span><span class="">Cancel Appointment</span></div><span class="font-label-sm text-label-sm bg-error-container text-on-error-container px-2 py-0.5 rounded-full font-bold">Cancellation Protocol</span></button>
+<!-- Hotline to Pro Operations -->
+<a class="w-full h-11 rounded-lg bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container flex items-center justify-center gap-2 font-label-md text-label-md font-bold active:scale-98 transition-all" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span class="">Call Dispatch Assistance (814) 952-1964</span>
+</a>
+</div>
+<!-- Protected Cleaner Travel Policy Pill -->
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Late cancellation policy applies</span><span class="font-label-sm text-label-sm text-primary font-bold flex-shrink-0">Standard Policy</span></div>
+</div>
+<!-- Safety & Reclean Guarantee Footer Note -->
+<div class="flex items-center justify-center gap-2 py-2 text-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span class="font-label-sm text-label-sm">HousekeeperBooking Pro Guard • All jobs insured up to $2M</span>
+</div>
+</div>
+<!-- Micro Interaction Modals / Drawers (Toggled via JS) -->
+<!-- Reschedule Bottom Sheet Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden flex flex-col justify-end" id="reschedule-modal" onclick="if(event.target === this) closeRescheduleSheet()">
+<div class="bg-surface-container-lowest rounded-t-2xl p-space-md flex flex-col gap-space-md shadow-2xl max-w-lg mx-auto w-full max-h-[85vh] overflow-y-auto">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">calendar_clock</span>
+<span class="font-title-lg text-title-lg font-bold text-on-surface">Reschedule for Sarah</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high" onclick="closeRescheduleSheet()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Select a new date/time slot. Elena's 30-minute commute buffer in DuBois, PA will be automatically preserved.
+      </p>
+<!-- Slot Selection Options -->
+<div class="flex flex-col gap-2">
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 text-primary focus:ring-0 accent-primary" name="reschedule_slot" type="radio">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Tomorrow • 10:00 AM</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Optimal route match (0 min detour)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Recommended</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 text-primary focus:ring-0 accent-primary" name="reschedule_slot" type="radio">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Thursday • 2:00 PM</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Elena Vance available</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Open Slot</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 text-primary focus:ring-0 accent-primary" name="reschedule_slot" type="radio">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Custom Cross-Day Transfer</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Send reschedule link to Sarah's SMS</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">send_to_mobile</span>
+</label>
+</div>
+<button class="h-12 bg-primary text-on-primary rounded-xl font-label-lg text-label-lg font-bold shadow-md active:scale-98 transition-all" onclick="confirmReschedule()">
+        Confirm &amp; Send Host Confirmation SMS
+      </button>
+</div>
+</div>
+<!-- Cancellation Policy Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden flex flex-col justify-end" id="cancel-modal" onclick="if(event.target === this) closeCancelPolicySheet()">
+<div class="bg-surface-container-lowest rounded-t-2xl p-space-md flex flex-col gap-space-md shadow-2xl max-w-lg mx-auto w-full max-h-[85vh] overflow-y-auto">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[24px]">warning</span>
+<span class="font-title-lg text-title-lg font-bold text-on-surface">Cancel On-Site Booking</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high" onclick="closeCancelPolicySheet()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="bg-error-container/40 text-on-error-container p-3 rounded-xl flex flex-col gap-1">
+<span class="font-label-lg text-label-lg font-bold">Cleaner Protected Compensation Notice:</span>
+<span class="font-body-sm text-body-sm">
+          Because Elena is already clocked-in on-site, cancellation immediately triggers the guaranteed <strong class="font-bold">$25.00 Travel &amp; Buffer Stipend</strong> directly to your pro account wallet.
+        </span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Reason for Cancellation:</span>
+<select class="h-11 px-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none" id="cancel-reason">
+<option value="host_requested">Sarah requested cancellation on site</option>
+<option value="access_denied">Unable to access property / code failed</option>
+<option value="hazardous_condition">Unsafe condition or emergency</option>
+<option value="other">Other cleaner conflict</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex-1 h-12 bg-surface-container text-on-surface rounded-xl font-label-lg text-label-lg font-bold" onclick="closeCancelPolicySheet()">
+          Keep Appointment
+        </button>
+<button class="flex-1 h-12 bg-error text-on-error rounded-xl font-label-lg text-label-lg font-bold shadow-sm" onclick="confirmCancel()">
+          Process Cancel ($25)
+        </button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Pill -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-full font-label-md text-label-md shadow-lg transition-all duration-300 opacity-0 pointer-events-none flex items-center gap-2" id="toast-pill">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed" id="toast-icon">check_circle</span>
+<span id="toast-msg" class="">Updated successfully</span>
+</div>
+</div>
+<script>
+  let secondsElapsed = 4462; // 01:14:22
+  let isPaused = false;
+  let timerInterval = null;
+
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      if (!isPaused) {
+        secondsElapsed++;
+        const hrs = String(Math.floor(secondsElapsed / 3600)).padStart(2, '0');
+        const mins = String(Math.floor((secondsElapsed % 3600) / 60)).padStart(2, '0');
+        const secs = String(secondsElapsed % 60).padStart(2, '0');
+        const timerEl = document.getElementById('job-timer');
+        if (timerEl) {
+          timerEl.textContent = `${hrs}:${mins}:${secs}`;
+        }
+      }
+    }, 1000);
+  }
+  startTimer();
+
+  function togglePause() {
+    isPaused = !isPaused;
+    const btn = document.getElementById('pause-btn');
+    const txt = document.getElementById('pause-text');
+    if (isPaused) {
+      txt.textContent = 'Resume';
+      btn.classList.remove('bg-surface-container-lowest', 'text-primary');
+      btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+      showToast('Shift Timer Paused');
+    } else {
+      txt.textContent = 'Pause';
+      btn.classList.add('bg-surface-container-lowest', 'text-primary');
+      btn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+      showToast('Shift Timer Resumed');
+    }
+  }
+
+  function openClockOutModal() {
+    const confirmed = confirm('Ready to complete and clock out of Sarah Jenkins’ Whole Home Refresh? Projected payout: $79.00');
+    if (confirmed) {
+      showToast('Shift completed! Payout $79.00 submitted.');
+    }
+  }
+
+  function updateTaskProgress() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const total = checkboxes.length;
+    let checkedCount = 0;
+    checkboxes.forEach(cb => {
+      if (cb.checked) checkedCount++;
+    });
+
+    const percent = Math.round((checkedCount / total) * 100);
+    const fill = document.getElementById('progress-bar-fill');
+    const textEl = document.getElementById('progress-text');
+    const pctEl = document.getElementById('progress-percent');
+
+    if (fill) fill.style.width = percent + '%';
+    if (textEl) textEl.textContent = `${checkedCount} of ${total} Done`;
+    if (pctEl) pctEl.textContent = `${percent}%`;
+
+    showToast(`Progress: ${percent}% complete`);
+  }
+
+  function triggerPhotoUpload() {
+    showToast('Photo evidence captured & synced!');
+  }
+
+  function triggerNoteModal() {
+    const note = prompt('Add cleaner note for job log (e.g. Master bath fan repaired, extra care on oven glass):');
+    if (note) {
+      showToast('Cleaner note saved to appointment history');
+    }
+  }
+
+  function openRescheduleSheet() {
+    const modal = document.getElementById('reschedule-modal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeRescheduleSheet() {
+    const modal = document.getElementById('reschedule-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function confirmReschedule() {
+    closeRescheduleSheet();
+    showToast('Rescheduled! SMS confirmation sent to Sarah Jenkins.');
+  }
+
+  function openCancelPolicySheet() {
+    const modal = document.getElementById('cancel-modal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeCancelPolicySheet() {
+    const modal = document.getElementById('cancel-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function confirmCancel() {
+    closeCancelPolicySheet();
+    showToast('$25.00 Protected Travel Payout credited to Elena Vance.');
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast-pill');
+    const text = document.getElementById('toast-msg');
+    if (toast && text) {
+      text.textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2600);
+    }
+  }
+</script></main><aside class="fixed bottom-16 inset-x-0 z-40 px-margin pointer-events-none pb-2"><div class="max-w-md mx-auto pointer-events-auto flex items-center gap-space-sm bg-surface-container-lowest/95 backdrop-blur-xl p-2 rounded-xl shadow-[0_8px_24px_-4px_rgba(8,110,94,0.12),0_4px_12px_-2px_rgba(47,62,70,0.06)]"><a class="flex-1 flex items-center justify-center gap-1.5 h-11 px-3 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container active:scale-98 transition-all min-h-[44px]" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">phone_in_talk</span><span class="font-label-md text-label-md truncate">Call (814) 952-1964</span></a><a class="flex-1 flex items-center justify-center gap-1.5 h-11 px-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary active:scale-98 transition-all min-h-[44px]" data-path="housekeeperbooking-com-home-gallery" href="#"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span class="font-label-lg text-label-lg font-bold">Book Clean</span></a></div></aside><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(47,62,70,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="housekeeperbooking-com-home-gallery" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-sm text-[10px]">Home</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="manage-bookings-account" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span class="font-label-sm text-[10px]">Bookings</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="employee-housekeeper-panel" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="font-label-sm text-[10px]">Staff Jobs</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="admin-management-portal" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="font-label-sm text-[10px]">Admin</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="customer-login" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="font-label-sm text-[10px]">Portal Login</span></a></div></nav>
+
+</body></html>

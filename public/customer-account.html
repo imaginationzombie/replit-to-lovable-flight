@@ -1,0 +1,850 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>Customer Account &amp; Settings | HousekeeperBooking.com</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-error": "#ffffff",
+        "on-surface-variant": "#3e4946",
+        "inverse-primary": "#83d6c2",
+        "on-primary-container": "#99edd9",
+        "outline": "#6e7976",
+        "secondary-fixed": "#c5eccc",
+        "error": "#ba1a1a",
+        "primary-container": "#086e5e",
+        "surface-container-low": "#f3f4f2",
+        "on-tertiary-fixed-variant": "#3a4951",
+        "surface": "#f9faf8",
+        "surface-container-lowest": "#ffffff",
+        "on-tertiary-container": "#d0e0ea",
+        "on-primary-fixed": "#00201a",
+        "surface-container-highest": "#e1e3e1",
+        "surface-container-high": "#e7e8e6",
+        "primary-fixed": "#9ff2de",
+        "on-background": "#191c1b",
+        "on-secondary-fixed": "#00210e",
+        "primary": "#005447",
+        "surface-tint": "#006b5b",
+        "secondary-container": "#c2e9c9",
+        "tertiary-fixed": "#d5e5ef",
+        "surface-container": "#edeeec",
+        "on-error-container": "#93000a",
+        "tertiary": "#3d4c54",
+        "on-tertiary-fixed": "#0e1d25",
+        "background": "#f9faf8",
+        "on-surface": "#191c1b",
+        "surface-bright": "#f9faf8",
+        "tertiary-container": "#54646c",
+        "secondary-fixed-dim": "#aad0b1",
+        "surface-variant": "#e1e3e1",
+        "error-container": "#ffdad6",
+        "outline-variant": "#bec9c4",
+        "inverse-on-surface": "#f0f1ef",
+        "secondary": "#43664d",
+        "primary-fixed-dim": "#83d6c2",
+        "on-secondary-container": "#486a51",
+        "on-secondary": "#ffffff",
+        "on-primary": "#ffffff",
+        "on-tertiary": "#ffffff",
+        "surface-dim": "#d9dad8",
+        "on-secondary-fixed-variant": "#2c4e36",
+        "on-primary-fixed-variant": "#005144",
+        "tertiary-fixed-dim": "#b9c9d3",
+        "inverse-surface": "#2e3130"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-md": "1rem",
+        "space-2xl": "4rem",
+        "gutter-sm": "1rem",
+        "margin": "1.25rem",
+        "gutter": "1.5rem",
+        "margin-md": "2.5rem",
+        "gutter-lg": "2rem",
+        "margin-lg": "4rem",
+        "space-xs": "0.25rem",
+        "space-xl": "2.5rem",
+        "space-lg": "1.5rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "body": ["Plus Jakarta Sans", "sans-serif"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "label-md": ["Plus Jakarta Sans"],
+        "display-lg-mobile": ["Plus Jakarta Sans"],
+        "headline-sm": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "headline-lg": ["Plus Jakarta Sans"],
+        "headline-lg-mobile": ["Plus Jakarta Sans"],
+        "label-lg": ["Plus Jakarta Sans"],
+        "title-md": ["Plus Jakarta Sans"],
+        "display-lg": ["Plus Jakarta Sans"],
+        "title-lg": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"]
+      }
+    }
+  }
+}</script><style id="custom-scrollbars">
+  html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #086e5e #f3f4f2;
+  }
+  ::-webkit-scrollbar {
+    display: block !important;
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f3f4f2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #086e5e;
+    border-radius: 9999px;
+    border: 2px solid #f3f4f2;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #065548;
+  }
+</style></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+<!-- Priority Corridor Top Announcement Bar -->
+<div class="w-full bg-[#05433a] text-white py-2 px-4 text-xs relative z-50 shadow-sm border-b border-[#086e5e]/30"><div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-2 gap-x-4"><div class="flex flex-wrap items-center gap-2"><span class="inline-flex items-center gap-1.5 font-bold text-primary-fixed bg-white/10 px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-[#83d6c2] animate-pulse"></span> ⚡ CENTRAL PA PRIORITY DISPATCH</span><span class="font-medium text-white/95 hidden sm:inline">Now Accepting Central PA Same-Day, Weekend &amp; Seasonal Yard Bookings</span></div><div class="hidden lg:flex items-center gap-1.5 text-white/90 text-xs"><span class="material-symbols-outlined text-[15px] text-[#83d6c2]">timer</span><span class="">Strict 30-min buffer between appointments for flawless punctuality</span></div><div class="flex items-center gap-3 text-xs ml-auto sm:ml-0"><a class="font-bold text-primary-fixed hover:underline inline-flex items-center gap-1" href="tel:8149521964"><span class="material-symbols-outlined text-[14px]">call</span> (814) 952-1964</a><span class="text-primary-fixed/50">•</span><span class="font-semibold text-white/90">$0 Upfront Pay-After-Clean</span></div></div></div>
+<!-- Main Sticky Header -->
+<header class="w-full sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-[0_2px_12px_rgba(0,0,0,0.06)] border-b border-surface-container-high">
+<!-- Top meta strip -->
+<div class="w-full bg-surface-container-low/90 border-b border-surface-container py-1.5 px-4 sm:px-8 text-xs text-on-surface-variant font-medium">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">location_on</span>
+<span class="font-bold text-on-surface">Serving Central PA:</span>
+<span class="hidden sm:inline">DuBois, Brookville, Punxsutawney &amp; Reynoldsville</span>
+<span class="sm:hidden">Tri-County Hub</span>
+<span class="inline-flex items-center ml-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-[11px] font-bold">Free Travel Dispatch</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-1.5 text-primary font-bold hover:text-primary-container transition-colors" href="tel:8149521964">
+<span class="material-symbols-outlined text-[15px]">call</span>
+<span class="hidden md:inline">(814) 952-1964 •</span> Direct Dispatch
+        </a>
+<span class="text-outline-variant hidden sm:inline">|</span>
+<div class="hidden sm:flex items-center gap-3">
+<a class="hover:text-primary transition-colors" href="recruit.html">Careers</a>
+<a class="hover:text-primary transition-colors" href="admin-login.html">Admin HQ</a>
+<a class="text-primary font-bold hover:underline" href="customer-account.html">Client Portal</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Logo & Actions Bar -->
+<div class="w-full px-4 sm:px-8 bg-white/95 backdrop-blur-md border-b border-surface-container/60">
+<div class="max-w-7xl mx-auto h-20 flex items-center justify-between gap-4">
+<a class="flex items-center gap-3 group shrink-0" href="index.html">
+<div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+<span class="material-symbols-outlined text-[24px]">yard</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-extrabold tracking-tight text-primary flex items-center leading-tight">
+            HousekeeperBooking<span class="text-secondary">.com</span>
+</span>
+<span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant">NATURAL DOMESTIC CARE • CENTRAL PA</span>
+</div>
+</a>
+<div class="flex items-center gap-3 sm:gap-4">
+<a class="hidden lg:flex items-center gap-2 px-3.5 py-2 rounded-xl border border-primary/20 bg-primary/10 text-sm font-bold text-primary hover:bg-primary hover:text-white transition-colors" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+<span class="">(814) 952-1964</span>
+</a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold bg-[#086e5e] text-white hover:bg-[#005447] shadow-[0_2px_10px_rgba(8,110,94,0.25)] transition-all transform active:scale-95" href="instant-quote.html">
+<span class="">Book Online Now</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<!-- Sarah Jenkins Profile Avatar with Interactive Dropdown -->
+<div class="relative group" id="user-menu-container">
+<button aria-expanded="false" aria-haspopup="true" class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface transition-all border border-surface-container focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer" id="user-menu-btn">
+<img alt="Sarah Jenkins" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWtNfhLq0frR7Hlp_xthWYjX43xbhndbZ9mW9egdf46LL7jfnp_yvcokDSdnUq-0ujPGPJgLfWMEtR0J3RQtKmQ2Gk3wuuHLXAHYTi5_wKbQV4CsLr9Y_6h98H2yPIGoVTsGD67euwuSaAtfzjGo_H4GExSzhe58l-WAyDN9Otc_o1ICGdh0gR53NqQQT6lcb1gHnLaSo7UcqIvLYcgkdH0Z4zX5w99wPbukEC8WJ28aO-WbOz8Sna">
+<div class="text-left hidden md:block leading-tight">
+<span class="text-xs font-bold block text-primary">Sarah J.</span>
+<span class="text-[10px] text-on-surface-variant font-medium">Preferred Client</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+</button>
+<!-- Dropdown menu -->
+<div class="absolute right-0 top-full mt-2 w-64 rounded-xl bg-white shadow-xl border border-surface-container py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50" id="user-dropdown">
+<div class="px-4 py-3 border-b border-surface-container-low">
+<p class="text-xs font-bold text-on-surface">Sarah Jenkins</p>
+<p class="text-[11px] text-on-surface-variant truncate">sarah.jenkins@example.com</p>
+<div class="mt-1.5 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]">verified</span> Pristine Club Member
+              </div>
+</div>
+<div class="py-1">
+<a class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors" href="customer-history.html">
+<span class="material-symbols-outlined text-[17px] text-primary">calendar_month</span> My Bookings
+              </a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors" href="customer-history.html">
+<span class="material-symbols-outlined text-[17px] text-primary">history</span> Cleaning History
+              </a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-primary bg-primary/5 font-bold hover:bg-primary/10 transition-colors" href="customer-account.html">
+<span class="material-symbols-outlined text-[17px] text-primary">settings</span> Account Settings
+              </a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors" href="customer-messages.html">
+<span class="material-symbols-outlined text-[17px] text-primary">chat</span> Cleaner Chat
+                <span class="ml-auto bg-primary text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full">1 New</span>
+</a>
+</div>
+<div class="border-t border-surface-container-low pt-1">
+<a class="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-error hover:bg-error-container/20 transition-colors" href="index.html">
+<span class="material-symbols-outlined text-[17px]">logout</span> Sign Out
+              </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sub-navigation Bar (NO redundant My Account text link) -->
+<div class="hidden xl:block w-full bg-surface-container-lowest/95 backdrop-blur-md px-4 sm:px-8 py-2">
+<div class="max-w-7xl mx-auto flex flex-nowrap items-center justify-between gap-4 overflow-x-auto whitespace-nowrap">
+<nav class="flex flex-nowrap items-center gap-2 lg:gap-3 shrink-0 whitespace-nowrap">
+<a class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors shrink-0 whitespace-nowrap" href="index.html">Home</a>
+<a class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors shrink-0 whitespace-nowrap" href="index.html#pricing">Services &amp; Pricing</a>
+<a class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors shrink-0 whitespace-nowrap" href="instant-quote.html">Instant Quote &amp; Estimator</a>
+<a class="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors shrink-0 whitespace-nowrap" href="coupons.html">
+<span class="material-symbols-outlined text-[16px] text-primary">local_offer</span>
+<span class="">Coupons &amp; Specials</span>
+<span class="ml-1 px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-[10px] font-bold">50% OFF</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors shrink-0 whitespace-nowrap" href="standards.html">Why Us &amp; Standards</a>
+</nav>
+<!-- Live Status Pill -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-xs font-bold shrink-0 whitespace-nowrap">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#086e5e] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="">• Central PA Crew Dispatch Active (DuBois, Brookville, Punxsy, Reynoldsville)</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Page Body -->
+<main class="w-full flex-1 bg-surface pt-6 pb-space-2xl">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+<!-- Breadcrumb & Top Title -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+<div>
+<nav class="flex items-center gap-1.5 text-xs text-on-surface-variant mb-1 font-medium">
+<a class="hover:text-primary transition-colors" href="index.html">Home</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Customer Account &amp; Settings</span>
+</nav>
+<h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight flex items-center gap-2">
+<span class="">Client Account &amp; Preferences</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">shield</span> Verified Account
+          </span>
+</h1>
+</div>
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-lowest border border-surface-container text-xs font-bold text-on-surface hover:bg-surface-container hover:text-primary transition-all shadow-sm" href="customer-history.html">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span> My Bookings
+        </a>
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-container transition-all shadow-sm" href="instant-quote.html">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> Book New Clean
+        </a>
+</div>
+</div>
+<!-- User Overview Hero Card -->
+<div class="w-full bg-white rounded-2xl border border-surface-container p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+<!-- User identity -->
+<div class="flex items-start sm:items-center gap-4">
+<div class="relative shrink-0">
+<img alt="Sarah Jenkins" class="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl object-cover ring-4 ring-primary/10 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdNV-GPYX1eXuWaIapLuVk_GCoKnEzsHC-dDNZbYB0-_GS69InMiaYmfBc_aKEVzAQm6bwAPWlknNqK9zzOLd--0PVKiTjePAfWxyBhFMbAIiK62wzJBo8hLdNTryLJPVk3LBQarXZKFrJOVvppvGsUW2qJh9ssA0xL1TDbadpE3iVP_ZN1QMbAANbc4WsPvR6E6hlESuVjxH-7exc1FH6XrPSPF-n09V4S4O0Vi0CeQTW-11phfvS">
+<span class="absolute -bottom-1 -right-1 p-1 bg-primary text-white rounded-full flex items-center justify-center ring-2 ring-white" title="Verified Homeowner">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<h2 class="text-xl sm:text-2xl font-bold text-on-surface">Sarah Jenkins</h2>
+<span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-bold">Verified Client</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">calendar_today</span> Member since March 2023</span>
+<span class="">•</span>
+<span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">home_pin</span> DuBois, PA 15801</span>
+</p>
+</div>
+</div>
+<!-- Quick Stats Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full lg:w-auto">
+<div class="bg-surface-container-low rounded-xl p-3.5 border border-surface-container flex flex-col justify-center">
+<span class="text-[11px] uppercase tracking-wider font-bold text-on-surface-variant">Membership Status</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[18px]">workspace_premium</span>
+<span class="text-sm font-bold text-primary">Pristine Club</span>
+</div>
+<span class="text-[11px] text-secondary font-medium mt-0.5">10% Recurring Discount</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3.5 border border-surface-container flex flex-col justify-center">
+<span class="text-[11px] uppercase tracking-wider font-bold text-on-surface-variant">Loyalty Balance</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[#086e5e] text-[18px]">loyalty</span>
+<span class="text-sm font-bold text-on-surface">280 Points</span>
+</div>
+<span class="text-[11px] text-on-surface-variant font-medium mt-0.5">$28.00 credit available</span>
+</div>
+<div class="bg-secondary-container/40 rounded-xl p-3.5 border border-secondary-container flex flex-col justify-center">
+<span class="text-[11px] uppercase tracking-wider font-bold text-on-secondary-fixed-variant">Next Service</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[18px]">event_upcoming</span>
+<span class="text-sm font-bold text-on-surface">Fri, Nov 7 • 10:00 AM</span>
+</div>
+<span class="text-[11px] text-on-secondary-fixed-variant font-medium mt-0.5">Assigned Pro: Elena Vance</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fast Action Navigation Tiles -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+<a class="flex items-center gap-3.5 p-4 rounded-xl bg-white border border-surface-container hover:border-primary hover:shadow-md transition-all group" href="instant-quote.html">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">calendar_add_on</span>
+</div>
+<div>
+<span class="text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary block leading-tight">Book New Clean</span>
+<span class="text-[11px] text-on-surface-variant">Calculate instant rate</span>
+</div>
+</a>
+<a class="flex items-center gap-3.5 p-4 rounded-xl bg-white border border-surface-container hover:border-primary hover:shadow-md transition-all group" href="customer-history.html">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">history</span>
+</div>
+<div>
+<span class="text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary block leading-tight">Booking History</span>
+<span class="text-[11px] text-on-surface-variant">Past cleans &amp; re-books</span>
+</div>
+</a>
+<a class="flex items-center gap-3.5 p-4 rounded-xl bg-white border border-surface-container hover:border-primary hover:shadow-md transition-all group relative" href="customer-messages.html">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors relative">
+<span class="material-symbols-outlined text-[22px]">forum</span>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-white"></span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary leading-tight">Cleaner Chat</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary text-white text-[10px] font-bold">1 New</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Elena Vance active</span>
+</div>
+</a>
+<a class="flex items-center gap-3.5 p-4 rounded-xl bg-white border border-surface-container hover:border-primary hover:shadow-md transition-all group" href="#billing-section">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[22px]">receipt</span>
+</div>
+<div>
+<span class="text-xs sm:text-sm font-bold text-on-surface group-hover:text-primary block leading-tight">Tax &amp; Invoices</span>
+<span class="text-[11px] text-on-surface-variant">Download PDF receipts</span>
+</div>
+</a>
+</div>
+<!-- Main 2-Column Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+<!-- LEFT COLUMN: Forms, Settings & Profile (span-2) -->
+<div class="lg:col-span-2 space-y-6">
+<!-- 1. Personal & Contact Information -->
+<div class="bg-white rounded-2xl border border-surface-container p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</span>
+<div>
+<h3 class="font-bold text-on-surface text-base">Personal &amp; Contact Information</h3>
+<p class="text-xs text-on-surface-variant">Used for direct dispatch notifications, SMS arrival buffers, and receipts</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Active Client
+            </span>
+</div>
+<form class="mt-5 space-y-4" onsubmit="event.preventDefault(); alert('Profile information updated successfully!');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1">Full Legal Name</label>
+<input class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-surface-container-high bg-surface-container-low/50 text-on-surface focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="Sarah Jenkins">
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1">Email Address</label>
+<input class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-surface-container-high bg-surface-container-low/50 text-on-surface focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" type="email" value="sarah.jenkins@example.com">
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1">Direct SMS Dispatch Phone Number</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">call</span>
+</span>
+<input class="w-full text-xs sm:text-sm pl-9 pr-3.5 py-2.5 rounded-lg border border-surface-container-high bg-surface-container-low/50 text-on-surface focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" type="tel" value="(814) 590-3491">
+</div>
+<span class="text-[11px] text-on-surface-variant mt-0.5 block">Used for 30-min window SMS arrival alerts</span>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1">Preferred Contact Method</label>
+<select class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-surface-container-high bg-surface-container-low/50 text-on-surface focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all">
+<option selected="">SMS Text Message (Fastest Dispatch Response)</option>
+<option>Direct Phone Call</option>
+<option>Email Notification Only</option>
+</select>
+</div>
+</div>
+<!-- Notifications & Arrival Protocol Checkboxes -->
+<div class="pt-3 border-t border-surface-container-low space-y-2.5">
+<span class="text-xs font-bold text-on-surface block">Dispatch &amp; Arrival Protocols</span>
+<label class="flex items-start gap-2.5 cursor-pointer text-xs text-on-surface">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary" type="checkbox">
+<span class="">Receive <strong>30-minute advance en route SMS alerts</strong> with cleaner GPS live tracking.</span>
+</label>
+<label class="flex items-start gap-2.5 cursor-pointer text-xs text-on-surface">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary" type="checkbox">
+<span class="">Send post-clean inspection photos and invoice recap directly to my email.</span>
+</label>
+<label class="flex items-start gap-2.5 cursor-pointer text-xs text-on-surface">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary" type="checkbox">
+<span class="">Authorize contactless entry (garage code / lockbox) when I am away from home.</span>
+</label>
+</div>
+<div class="pt-2 flex justify-end">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-container shadow-sm transition-all active:scale-95" type="submit">
+<span class="material-symbols-outlined text-[16px]">save</span> Save Changes
+              </button>
+</div>
+</form>
+</div>
+<!-- 2. Saved Service Addresses -->
+<div class="bg-white rounded-2xl border border-surface-container p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">holiday_village</span>
+</span>
+<div>
+<h3 class="font-bold text-on-surface text-base">Saved Service Addresses</h3>
+<p class="text-xs text-on-surface-variant">Properties covered under Central PA Free Travel Dispatch Zone</p>
+</div>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/20 text-primary text-xs font-bold hover:bg-primary/5 transition-colors" onclick="alert('Open Add Address Modal');">
+<span class="material-symbols-outlined text-[16px]">add_location_alt</span> + Add New Address
+            </button>
+</div>
+<div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Primary Residence -->
+<div class="rounded-xl border-2 border-primary/30 bg-primary/[0.02] p-4 relative flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider">Primary Residence</span>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary transition-colors" title="Edit address"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+</div>
+</div>
+<h4 class="font-bold text-on-surface text-sm">422 Maple Hollow Rd</h4>
+<p class="text-xs text-on-surface-variant font-medium">DuBois, PA 15801 (Clearfield County)</p>
+<div class="mt-3 space-y-1.5 text-xs text-on-surface-variant bg-white p-2.5 rounded-lg border border-surface-container">
+<div class="flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[15px] text-primary">bed</span> 3 Bed, 2.5 Bath (Approx. 2,400 sq ft)</div>
+<div class="flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[15px] text-primary">key</span> Keyless Garage Code #7721</div>
+<div class="flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[15px] text-secondary">pets</span> Friendly Golden Retriever Cooper (crated or in sunroom)</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between text-xs">
+<span class="text-[11px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span> Free Travel Dispatch Zone
+                </span>
+<span class="text-xs font-bold text-on-surface-variant">Default Residence</span>
+</div>
+</div>
+<!-- Vacation Cabin / Turnover -->
+<div class="rounded-xl border border-surface-container bg-white p-4 relative flex flex-col justify-between hover:border-surface-container-highest transition-colors">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface text-[10px] font-bold uppercase tracking-wider">Vacation Cabin / Turnover</span>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary transition-colors" title="Edit address"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+</div>
+</div>
+<h4 class="font-bold text-on-surface text-sm">78 Pine Creek Trail</h4>
+<p class="text-xs text-on-surface-variant font-medium">Brookville, PA 15825 (Jefferson County)</p>
+<div class="mt-3 space-y-1.5 text-xs text-on-surface-variant bg-surface-container-low/60 p-2.5 rounded-lg border border-surface-container">
+<div class="flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[15px] text-primary">bed</span> 2 Bed, 1.5 Bath (Turnover standard)</div>
+<div class="flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[15px] text-primary">lock</span> Master Lockbox Code 4401 on porch rail</div>
+<div class="flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[15px] text-primary">cleaning_services</span> Linens &amp; Towel staging requested</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between text-xs">
+<span class="text-[11px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span> Free Travel Dispatch Zone
+                </span>
+<button class="text-xs font-semibold text-primary hover:underline">Set as Default</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Payment Methods & Billing Escrow -->
+<div class="bg-white rounded-2xl border border-surface-container p-6 shadow-sm" id="billing-section">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+</span>
+<div>
+<h3 class="font-bold text-on-surface text-base">Payment Methods &amp; Billing Escrow</h3>
+<p class="text-xs text-on-surface-variant">Guaranteed $0 Upfront. Funds released only after your approval.</p>
+</div>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/20 text-primary text-xs font-bold hover:bg-primary/5 transition-colors" onclick="alert('Open Add Payment Card Modal');">
+<span class="material-symbols-outlined text-[16px]">add</span> + Add Card
+            </button>
+</div>
+<div class="mt-5 space-y-3">
+<!-- Card 1 (Visa) -->
+<div class="p-4 rounded-xl border-2 border-primary/20 bg-primary/[0.01] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-8 rounded-md bg-[#1a1f71] text-white flex items-center justify-center font-extrabold text-xs italic tracking-wider">
+                  VISA
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-sm">Visa ending in 4019</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-[10px] font-bold">Default Escrow</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold">Pay-After-Clean Active</span>
+</div>
+<p class="text-xs text-on-surface-variant">Expires 09/2027 • Sarah Jenkins • Auto-clears upon clean satisfaction</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<span class="text-xs font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">verified_user</span> Verified
+                </span>
+<button class="px-2 py-1 rounded text-xs text-on-surface-variant hover:text-primary transition-colors">Edit</button>
+</div>
+</div>
+<!-- Card 2 (PayPal) -->
+<div class="p-4 rounded-xl border border-surface-container bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-8 rounded-md bg-[#003087] text-white flex items-center justify-center font-bold text-xs">
+                  PayPal
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-sm">sarah.jenkins@example.com</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[10px] font-bold">Backup Method</span>
+</div>
+<p class="text-xs text-on-surface-variant">Instant 1-Click Authorization Connected</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<button class="text-xs font-semibold text-primary hover:underline">Make Default</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error transition-colors" title="Remove"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Escrow Guarantee notice -->
+<div class="mt-4 p-3.5 rounded-xl bg-secondary-container/30 border border-secondary-container flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
+<div class="text-xs text-on-secondary-fixed-variant leading-relaxed">
+<strong class="font-bold">HousekeeperBooking Escrow Guarantee:</strong> Your card is never billed prior to service. Funds are securely pre-authorized 2 hours prior to arrival and only finalized after your assigned cleaner completes the walkthrough and you confirm satisfaction.
+            </div>
+</div>
+</div>
+<!-- 4. Security & Account Protection -->
+<div class="bg-white rounded-2xl border border-surface-container p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</span>
+<div>
+<h3 class="font-bold text-on-surface text-base">Security &amp; Account Protection</h3>
+<p class="text-xs text-on-surface-variant">Manage your credentials, 2-factor authentication, and sessions</p>
+</div>
+</div>
+</div>
+<div class="mt-5 space-y-5">
+<!-- Change password inputs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1">Current Password</label>
+<input class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-surface-container-high bg-surface-container-low/50 text-on-surface focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" placeholder="••••••••••••" type="password">
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1">New Secure Password</label>
+<input class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-lg border border-surface-container-high bg-surface-container-low/50 text-on-surface focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Minimum 8 characters" type="password">
+</div>
+</div>
+<!-- SMS 2FA Toggle -->
+<div class="p-4 rounded-xl bg-surface-container-low/70 border border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">phonelink_lock</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-xs sm:text-sm">Two-Factor SMS Verification (2FA)</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-[10px] font-bold">Enabled</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">One-time login passcodes dispatched to (814) 590-3491</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Active Sessions list -->
+<div class="space-y-2">
+<span class="text-xs font-bold text-on-surface block">Active Logged-in Devices</span>
+<div class="p-3 rounded-lg border border-surface-container bg-white flex items-center justify-between text-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">laptop_mac</span>
+<div>
+<span class="font-bold text-on-surface">MacBook Pro (Chrome) • DuBois, PA</span>
+<span class="text-[11px] text-on-surface-variant block">Current Active Session • IP 174.62.xx.xx</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-[10px] font-bold">Current</span>
+</div>
+<div class="p-3 rounded-lg border border-surface-container bg-white flex items-center justify-between text-xs">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">smartphone</span>
+<div>
+<span class="font-bold text-on-surface">iPhone 14 (Mobile Safari) • DuBois, PA</span>
+<span class="text-[11px] text-on-surface-variant block">Active 3 hours ago</span>
+</div>
+</div>
+<button class="text-xs font-semibold text-error hover:underline" onclick="alert('Device session revoked.');">Revoke</button>
+</div>
+</div>
+<div class="pt-2 flex justify-end">
+<button class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-surface-container-highest text-on-surface text-xs font-bold hover:bg-primary hover:text-white transition-all" onclick="alert('Password updated successfully!');">
+                Update Security Credentials
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Sidebar Widgets (span-1) -->
+<div class="space-y-6">
+<!-- 1. Upcoming Cleaning Widget -->
+<div class="bg-white rounded-2xl border-2 border-primary/20 p-5 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-[#086e5e] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">verified</span> Confirmed Window
+          </div>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span>
+<h3 class="font-bold text-on-surface text-sm sm:text-base">Upcoming Cleaning</h3>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3.5 border border-surface-container space-y-2">
+<div class="text-xs text-on-surface-variant">Scheduled Window:</div>
+<div class="text-base font-extrabold text-primary flex items-center gap-1.5">
+<span class="">Fri, Nov 7 @ 10:00 AM</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium">30-min buffer protected arrival window (9:45 AM - 10:15 AM)</p>
+</div>
+<!-- Service details -->
+<div class="mt-3.5 space-y-2 text-xs">
+<div class="flex items-start gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0 mt-0.5">cleaning_services</span>
+<div>
+<span class="">Deep Refresh &amp; Sanitization</span>
+<span class="text-[11px] block font-normal text-on-surface-variant">+ Interior Refrigerator Clean</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0">location_on</span>
+<span class="truncate">422 Maple Hollow Rd, DuBois, PA</span>
+</div>
+</div>
+<!-- Assigned Cleaner -->
+<div class="mt-4 pt-3.5 border-t border-surface-container-low">
+<div class="text-[11px] uppercase tracking-wider font-bold text-on-surface-variant mb-2">Assigned Housekeeper</div>
+<div class="flex items-center justify-between bg-white p-2.5 rounded-xl border border-surface-container">
+<div class="flex items-center gap-2.5">
+<img alt="Elena Vance" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6_jfRK1TgfkvcQkKazKWb5OEnhYOKq8r807Gs9QM44Asi7hv4817L1uzBsoWpZClX-NW1nMOmhbKQAtrUkjtrFXv2QV_JZTUvy5rNiF-mQkU08h9SGSMs3EC7OqqI8a-9HlkCpQwqPAkz2xP8RBJHLis4EXOUKeJ_3stJCShUUh591bzq3zMFIRc2KVJ1TTchZB7J4kU8E61YBTIE5FqCtESfp4bERL8QAc3LKsQl0MA73CIuySHE">
+<div>
+<div class="text-xs font-bold text-on-surface">Elena Vance</div>
+<div class="flex items-center gap-1 text-[11px] text-secondary font-semibold">
+<span class="material-symbols-outlined text-[13px] text-yellow-500 fill-current">star</span>
+<span class="">4.98 (142 Cleans)</span>
+</div>
+</div>
+</div>
+<a class="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" href="tel:8149521964" title="Contact Elena">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</a>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="mt-4 space-y-2">
+<a class="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-primary text-white text-xs font-bold hover:bg-primary-container transition-colors shadow-sm" href="customer-messages.html">
+<span class="material-symbols-outlined text-[16px]">chat</span> Cleaner Direct Chat
+            </a>
+<div class="grid grid-cols-2 gap-2">
+<a class="inline-flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg border border-surface-container bg-surface-container-low text-xs font-semibold text-on-surface hover:bg-surface-container transition-colors text-center" href="reschedule-cancel.html">
+<span class="material-symbols-outlined text-[15px]">event_repeat</span> Reschedule
+              </a>
+<button class="inline-flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg border border-surface-container bg-surface-container-low text-xs font-semibold text-on-surface hover:bg-surface-container transition-colors text-center" onclick="alert('Enter custom notes: gate codes, pet alerts, or priority rooms.');">
+<span class="material-symbols-outlined text-[15px]">note_add</span> + Add Notes
+              </button>
+</div>
+</div>
+</div>
+<!-- 2. Central PA Live Coordinator Card -->
+<div class="bg-surface-container-low rounded-2xl border border-surface-container p-5">
+<div class="flex items-center gap-2.5 mb-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<h4 class="font-bold text-on-surface text-xs uppercase tracking-wider">Live Central PA Dispatcher</h4>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-3">
+            Questions regarding crew assignment, same-day scheduling, or special entry instructions? Talk directly to our DuBois dispatch team.
+          </p>
+<div class="space-y-2 text-xs font-medium text-on-surface mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">schedule</span>
+<span class="">Mon - Sat: 7:00 AM – 8:00 PM EST</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">headset_mic</span>
+<span class="font-bold text-primary">(814) 952-1964 (Direct Hotline)</span>
+</div>
+</div>
+<a class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-[#086e5e] text-white text-xs font-bold hover:bg-[#005447] shadow-sm transition-all" href="tel:8149521964">
+<span class="material-symbols-outlined text-[17px]">call</span> Call Dispatcher Now
+          </a>
+<div class="mt-3 text-center">
+<a class="text-[11px] font-bold text-primary hover:underline inline-flex items-center gap-1" href="standards.html#guarantee">
+<span class="material-symbols-outlined text-[13px]">verified</span> Claim 100% Reclean Guarantee
+            </a>
+</div>
+</div>
+<!-- 3. Central PA Weather & Seasonal Dispatch Notice -->
+<div class="bg-white rounded-2xl border border-surface-container p-5 shadow-sm space-y-3">
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">ac_unit</span>
+<span class="">Central PA Seasonal Protocol</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+            During wet and snowy PA seasons, all crews arrive equipped with heavy-duty boot covers, floor-protection runners, and industrial HEPA air scrubbers.
+          </p>
+<div class="pt-2 border-t border-surface-container-low flex items-center justify-between text-[11px] text-on-surface-variant">
+<span class="">Fall Leaf &amp; Yard Care Active</span>
+<a class="font-bold text-primary hover:underline" href="instant-quote.html">Book Seasonal Yard</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Comprehensive Footer Directory matching index.html -->
+<footer class="w-full bg-surface-container-low text-on-surface-variant mt-space-2xl pt-space-2xl pb-space-xl border-t border-surface-container">
+<div class="max-w-7xl mx-auto px-4 sm:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-surface-container">
+<!-- Brand column -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[20px]">yard</span>
+</div>
+<span class="text-lg font-bold tracking-tight text-primary">HousekeeperBooking.com</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+          Central Pennsylvania’s most dependable residential, turnover, and seasonal yard care service. Pristine standards, verified local cleaners, and guaranteed 30-minute buffers.
+        </p>
+<div class="flex items-center gap-2 text-xs font-bold text-primary mt-1">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="">100% Punctuality &amp; Reclean Guarantee</span>
+</div>
+</div>
+<!-- Service Areas column -->
+<div class="flex flex-col gap-2">
+<h4 class="text-sm font-bold text-on-surface mb-2">Service Areas</h4>
+<ul class="flex flex-col gap-1.5 text-xs">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[14px]">check_circle</span> DuBois, PA (15801)</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[14px]">check_circle</span> Brookville, PA (15825)</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[14px]">check_circle</span> Punxsutawney, PA (15767)</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[14px]">check_circle</span> Reynoldsville, PA (15851)</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[14px]">check_circle</span> Clearfield &amp; Surrounding Rural Areas</li>
+</ul>
+</div>
+<!-- Cleaning & Yard Care column -->
+<div class="flex flex-col gap-2">
+<h4 class="text-sm font-bold text-on-surface mb-2">Cleaning &amp; Yard Care</h4>
+<ul class="flex flex-col gap-1.5 text-xs">
+<li class=""><a class="hover:text-primary transition-colors" href="index.html#pricing">Standard Residential Maintenance</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="index.html#pricing">Deep Refresh &amp; Sanitization</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="index.html#pricing">Move-In / Move-Out Turnover</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="index.html#pricing">Fall Leaf &amp; Yard Cleanup</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="instant-quote.html">Custom Add-Ons (Fridge, Oven, Garage)</a></li>
+</ul>
+</div>
+<!-- Trust & Portals column -->
+<div class="flex flex-col gap-2">
+<h4 class="text-sm font-bold text-on-surface mb-2">Trust &amp; Portals</h4>
+<ul class="flex flex-col gap-1.5 text-xs">
+<li class=""><a class="hover:text-primary transition-colors" href="standards.html">Our Standards &amp; Background Checks</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="customer-account.html">Customer Portal Access</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="admin-login.html">Dispatcher &amp; Admin HQ</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="recruit.html">Careers &amp; Cleaning Crew Application</a></li>
+<li class="">
+<a class="text-primary font-bold hover:underline flex items-center gap-1 mt-1 text-xs" href="tel:8149521964">
+<span class="material-symbols-outlined text-[16px]">call</span> (814) 952-1964
+            </a>
+</li>
+</ul>
+</div>
+</div>
+<!-- Bottom Copyright & Legal Links -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-outline">
+<p class="">© 2025 HousekeeperBooking.com. All rights reserved. Central Pennsylvania Premier Cleaning.</p>
+<div class="flex flex-wrap items-center gap-3">
+<a class="hover:text-on-surface transition-colors" href="standards.html">Our Standards</a>
+<span class="">•</span>
+<a class="hover:text-on-surface transition-colors" href="privacy.html">Privacy Policy</a>
+<span class="">•</span>
+<a class="hover:text-on-surface transition-colors" href="terms.html">Terms of Service</a>
+<span class="">•</span>
+<a class="hover:text-on-surface transition-colors" href="cancellation-policy.html">Cancellation Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  // Interactive account dropdown menu toggle support
+  const btn = document.getElementById('user-menu-btn');
+  const dropdown = document.getElementById('user-dropdown');
+  const container = document.getElementById('user-menu-container');
+
+  if (btn && dropdown) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !isExpanded);
+      dropdown.classList.toggle('opacity-100');
+      dropdown.classList.toggle('visible');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target)) {
+        btn.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('opacity-100', 'visible');
+      }
+    });
+  }
+</script>
+
+
+</body></html>
