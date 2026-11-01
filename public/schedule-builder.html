@@ -1,0 +1,339 @@
+<!DOCTYPE html><html class="h-full" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-lowest": "#ffffff", "surface-container-high": "#e7e8e6", "surface-bright": "#f9faf8", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#005144", "on-secondary-fixed": "#00210e", "on-primary": "#ffffff", "secondary-fixed-dim": "#aad0b1", "inverse-primary": "#83d6c2", "on-tertiary": "#ffffff", "on-error": "#ffffff", "inverse-surface": "#2e3130", "on-background": "#191c1b", "surface": "#f9faf8", "inverse-on-surface": "#f0f1ef", "outline-variant": "#bec9c4", "on-error-container": "#93000a", "secondary": "#43664d", "error-container": "#ffdad6", "tertiary-container": "#54646c", "on-secondary-fixed-variant": "#2c4e36", "primary-fixed": "#9ff2de", "on-surface-variant": "#3e4946", "on-surface": "#191c1b", "on-tertiary-fixed": "#0e1d25", "secondary-fixed": "#c5eccc", "primary-fixed-dim": "#83d6c2", "surface-variant": "#e1e3e1", "outline": "#6e7976", "tertiary-fixed-dim": "#b9c9d3", "tertiary-fixed": "#d5e5ef", "tertiary": "#3d4c54", "on-primary-container": "#99edd9", "surface-container-low": "#f3f4f2", "on-secondary-container": "#486a51", "surface-container": "#edeeec", "on-tertiary-container": "#d0e0ea", "error": "#ba1a1a", "surface-container-highest": "#e1e3e1", "surface-tint": "#006b5b", "background": "#f9faf8", "on-primary-fixed": "#00201a", "secondary-container": "#c2e9c9", "on-tertiary-fixed-variant": "#3a4951", "primary": "#005447", "surface-dim": "#d9dad8", "primary-container": "#086e5e" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-2xl": "4rem", "gutter-lg": "2rem", "gutter-sm": "1rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "1.25rem", "gutter": "1.5rem", "margin-lg": "4rem", "margin-md": "2.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem" }, fontFamily: { "display-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"] }, fontSize: { "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="HousekeeperBooking.com Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WqDzmaxTVxp_iCpia1UD2Tj7swxmVIZRY4b74kNjffvep_psqJS6-Q2rzRluwxdh-En6t78i_jdGQc0maIvsOOpWbdO5Hvioj0FtjeWKQNX091kpwlPWUK0QL1Kwu6ZKGzQA6bm6hxw3QiWjXnFOEVicmNpo1MvB59V3q_0jheoxJh72eAVp9gHRTDbMDEKD-T4z_ebfvbWYmSoyzCXnyVRIh3u7NbbLVoXqipBWAZJRp_uwi1I1Nnwq4"><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate leading-tight">HousekeeperBooking</span><span class="font-label-sm text-label-sm text-primary tracking-wide leading-none">Pro Staff Portal</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><a aria-label="Call HousekeeperBooking at (814) 952-1964" class="flex items-center gap-1 h-9 px-3 rounded-full bg-secondary-container/60 text-primary hover:bg-secondary-container active:scale-95 transition-all text-decoration-none" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">call</span><span class="font-label-md text-label-md">(814) 952-1964</span></a><a class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary hover:opacity-90 active:scale-95 transition-all" data-path="customer-login" href="#" title="Switch Account / Login"><span class="material-symbols-outlined text-[18px]">switch_account</span></a></div></div></header><main class="flex flex-col relative w-full pt-16 pb-32 bg-surface min-h-screen"><div class="flex flex-col w-full space-y-space-md px-margin py-space-sm pb-8">
+<!-- Cleaner Profile & Self-Scheduling Control Center Header -->
+<div class="space-y-space-md"><section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30"><div class="flex items-center justify-between border-b border-outline-variant/20 pb-3"><div class="flex items-center gap-space-sm"><div class="w-11 h-11 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-base flex-shrink-0">EV</div><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><h1 class="font-title-lg text-title-lg text-on-surface font-bold truncate">Elena Vance</h1><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">PRO</span></div><p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-primary">verified</span><span class="">Pro Staff ID: #84920</span></p></div></div><div class="flex flex-col items-end"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-bold" id="duty-status-badge"><span class="w-2 h-2 rounded-full bg-outline" id="duty-status-dot"></span><span class="" id="duty-status-text">Off Duty</span></span><span class="text-[11px] text-on-surface-variant mt-0.5">Shift Ready</span></div></div><div class="py-3 flex flex-col items-center justify-center bg-surface-container-low rounded-xl border border-outline-variant/20 mt-3"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Shift Active Timer</span><div class="font-display-lg-mobile text-[36px] font-bold text-on-surface tracking-wider my-1 font-mono" id="shift-timer-display">00:00:00</div><div class="flex items-center gap-1 text-xs text-primary font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded-full"><span class="material-symbols-outlined text-[15px]">gps_fixed</span><span class="">Location Verified: Within Service Zone</span></div></div><div class="mt-3 flex flex-col gap-2"><button class="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md font-bold shadow-md active:scale-98 transition-all flex items-center justify-center gap-2 min-h-[48px] cursor-pointer" id="clock-in-btn" onclick="handleClockInOut()" type="button"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" id="btn-pulse-indicator"></span><span class="" id="clock-btn-label">Clock In for Shift</span><span class="text-xs opacity-80 font-normal ml-1">(09:15 AM)</span></button><div class="flex flex-col gap-1 px-1"><div class="flex items-center justify-between text-xs text-on-surface-variant"><span class="">Target today: 6.0 hrs</span><span class="text-primary font-semibold">Auto-mileage tracker enabled</span></div><div class="flex items-center justify-between text-xs bg-secondary-container/60 text-on-secondary-container px-2.5 py-1 rounded-lg font-medium border border-secondary-container"><div class="flex items-center gap-1.5 flex-wrap"><span class="font-bold uppercase tracking-wider text-[10px] bg-primary text-on-primary px-1.5 py-0.5 rounded">Base + Comm</span><span class="font-semibold">$25.00/hr (On-Site) + $4.00 Driving Pay</span></div><div class="flex items-center gap-1 flex-wrap"><span class="font-bold text-primary bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm">+50% Add-on Comm</span><span class="font-bold text-emerald-800 bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm">+10% Referral Comm</span><span class="font-bold text-secondary bg-surface-container-lowest px-2 py-0.5 rounded shadow-sm">+$12.50 Rush Bonus</span></div></div></div></div></section><section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-3"><div class="flex items-center justify-between border-b border-outline-variant/20 pb-3"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">map</span></div><div><h2 class="font-title-lg text-title-lg text-on-surface font-bold">Working Territories &amp; Service Locations</h2><p class="font-body-sm text-body-sm text-on-surface-variant">Toggle regions where you accept cleaning jobs</p></div></div><span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-bold">2 Active Zones</span></div><div class="p-3 rounded-lg bg-secondary-container/60 border border-secondary-container text-xs space-y-1"><div class="flex items-center gap-1.5 text-primary font-bold"><span class="material-symbols-outlined text-[16px]">info</span><span class="">Automated Territory Dispatch Policy</span></div><p class="text-on-secondary-container text-body-sm leading-relaxed">Clients are automatically assigned to housekeepers active in that area. When on-demand requests occur within 48 hrs ($25 rush fee), available pros receive notifications with <strong>+$12.50 Rush Pay (50% bonus)</strong>. Accepting on-demand requests is <strong>strictly optional</strong>.</p></div><div class="grid grid-cols-2 gap-2 pt-1"><label class="flex items-center justify-between p-2.5 rounded-lg border border-primary/20 bg-primary/10 cursor-pointer transition-all"><div class="flex items-center gap-2 min-w-0"><span class="material-symbols-outlined text-[18px] text-primary">location_on</span><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md font-bold text-on-surface truncate">DuBois, PA</span><span class="text-[10px] text-primary font-semibold">Primary Hub</span></div></div><input checked="" class="rounded border-outline text-primary focus:ring-primary h-4 w-4" type="checkbox"></label><label class="flex items-center justify-between p-2.5 rounded-lg border border-primary/20 bg-primary/10 cursor-pointer transition-all"><div class="flex items-center gap-2 min-w-0"><span class="material-symbols-outlined text-[18px] text-primary">location_on</span><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md font-bold text-on-surface truncate">Punxsutawney, PA</span><span class="text-[10px] text-primary font-semibold">Active Area</span></div></div><input checked="" class="rounded border-outline text-primary focus:ring-primary h-4 w-4" type="checkbox"></label><label class="flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all"><div class="flex items-center gap-2 min-w-0"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">add_location_alt</span><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md font-bold text-on-surface truncate">Brookville, PA</span><span class="text-[10px] text-on-surface-variant">Tap to Enable</span></div></div><input class="rounded border-outline text-primary focus:ring-primary h-4 w-4" type="checkbox"></label><label class="flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all"><div class="flex items-center gap-2 min-w-0"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">add_location_alt</span><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md font-bold text-on-surface truncate">Reynoldsville, PA</span><span class="text-[10px] text-on-surface-variant">Tap to Enable</span></div></div><input class="rounded border-outline text-primary focus:ring-primary h-4 w-4" type="checkbox"></label></div><div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-start justify-between gap-3"><div class="space-y-0.5 min-w-0"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">bolt</span><span class="font-label-md text-label-md font-bold text-on-surface">Optional On-Demand Rush Cleanings</span><span class="px-1.5 py-0.5 rounded text-[10px] bg-secondary-container text-on-secondary-container font-bold">+$12.50 Bonus</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Earn +$12.50 rush pay bonus (50% share of $25 fee) on same-day bookings. Accepting on-demand jobs is completely optional.</p></div><label class="relative inline-flex items-center cursor-pointer flex-shrink-0 mt-1"><input checked="" class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox"></label></div><div class="flex items-center justify-between text-xs text-on-surface-variant px-1"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-primary">near_me</span>Radius cap: 8 miles from home</span><span class="text-primary font-semibold">Auto-routed daily</span></div></section><section class="space-y-3"><div class="flex items-center justify-between px-1"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[22px] text-primary">event_available</span><h2 class="font-title-lg text-title-lg text-on-surface font-bold">Upcoming Booked Appointments</h2></div><span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-bold">2 Confirmed</span></div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-3"><div class="flex items-start justify-between gap-2 border-b border-outline-variant/20 pb-2.5"><div class="space-y-0.5 min-w-0"><div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-bold">Today • 10:00 AM – 1:00 PM</span><span class="text-xs text-on-surface-variant">3.0 hrs</span></div><h3 class="font-title-md text-title-md text-on-surface font-bold mt-1">Sarah Jenkins • Whole Home Refresh</h3><p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span><span class="">742 Evergreen Terr, Apt 4B (1.8 miles away)</span></p></div><div class="text-right flex-shrink-0"><div class="font-title-lg text-title-lg text-primary font-bold">$79.00</div><span class="text-[11px] text-on-surface-variant block">Payout + Tip</span><span class="inline-block text-[10px] text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded font-bold mt-0.5">Includes $4 Transit Pay</span></div></div><div class="flex flex-wrap gap-1.5 text-xs"><span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold border border-secondary-container flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">location_on</span>DuBois, PA</span><span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-medium border border-outline-variant/20">3 Bed / 2 Bath</span><span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-medium border border-outline-variant/20">Eco Supplies on Site</span><span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-medium border border-primary/20">Keyless Code: #4829</span></div><div class="grid grid-cols-2 gap-2 pt-1"><a class="py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1.5 text-decoration-none min-h-[44px]" href="https://maps.google.com" target="_blank"><span class="material-symbols-outlined text-[16px] text-primary">navigation</span><span class="">Directions</span></a><a class="py-2 px-3 rounded-lg bg-secondary-container/60 hover:bg-secondary-container text-primary text-xs font-bold flex items-center justify-center gap-1.5 text-decoration-none min-h-[44px]" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">chat</span><span class="">Contact Client</span></a></div></div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-3"><div class="flex items-start justify-between gap-2 border-b border-outline-variant/20 pb-2.5"><div class="space-y-0.5 min-w-0"><div class="flex items-center gap-2"><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-bold">Tomorrow • 2:00 PM – 4:30 PM</span><span class="text-xs text-on-surface-variant">2.5 hrs</span></div><h3 class="font-title-md text-title-md text-on-surface font-bold mt-1">Marcus Brody • Kitchen &amp; Bath Deep Clean</h3><p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span><span class="">1104 Highland Ave (3.4 miles away)</span></p></div><div class="text-right flex-shrink-0"><div class="font-title-lg text-title-lg text-primary font-bold">$66.50</div><span class="text-[11px] text-on-surface-variant block">Payout + Tip</span><span class="inline-block text-[10px] text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded font-bold mt-0.5">$4 Travel Pay included</span></div></div><div class="flex flex-wrap gap-1.5 text-xs"><span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold border border-secondary-container flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">location_on</span>Punxsutawney, PA</span><span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-medium border border-outline-variant/20">2 Bed / 2 Bath</span><span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-medium border border-outline-variant/20">Pet-friendly supplies</span><span class="px-2 py-0.5 rounded bg-surface-container-low text-secondary font-medium border border-outline-variant/20">Host Meets at Door</span></div><div class="grid grid-cols-2 gap-2 pt-1"><a class="py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1.5 text-decoration-none min-h-[44px]" href="https://maps.google.com" target="_blank"><span class="material-symbols-outlined text-[16px] text-primary">navigation</span><span class="">Directions</span></a><a class="py-2 px-3 rounded-lg bg-secondary-container/60 hover:bg-secondary-container text-primary text-xs font-bold flex items-center justify-center gap-1.5 text-decoration-none min-h-[44px]" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">chat</span><span class="">Contact Client</span></a></div></div></section></div>
+<!-- SECTION 1: MY FLEXIBLE SCHEDULE BUILDER -->
+
+<!-- SECTION 2: OPEN JOB MARKETPLACE / CLAIM SHIFTS -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-space-sm"><div class="flex items-center justify-between border-b border-outline-variant/20 pb-3"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">badge</span></div><div><div class="flex items-center gap-1.5"><h2 class="font-title-lg text-title-lg text-on-surface font-bold">Personal Profile &amp; Referral Hub</h2><span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Direct Booking</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Share your dedicated link to let clients book directly on your calendar</p></div></div><span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-primary/10 text-primary font-bold flex-shrink-0">Active</span></div><div class="p-3 rounded-lg bg-secondary-container/60 border border-secondary-container text-xs space-y-1"><div class="flex items-center gap-1.5 text-primary font-bold"><span class="material-symbols-outlined text-[16px]">person_pin</span><span class="">Your Personal Profile Link</span></div><p class="text-on-secondary-container text-body-sm leading-relaxed">Clients who click this will land directly on your bio, verified customer reviews, before/after service gallery, and direct online booking calendar.</p></div><div class="grid grid-cols-3 gap-2 pt-1"><div class="p-2.5 bg-surface-container-low rounded-lg text-center border border-outline-variant/20"><span class="text-[11px] text-on-surface-variant block font-medium">Client Views</span><span class="font-title-lg text-title-lg font-bold text-on-surface">142</span><span class="text-[10px] text-primary block font-semibold">This Month</span></div><div class="p-2.5 bg-surface-container-low rounded-lg text-center border border-outline-variant/20"><span class="text-[11px] text-on-surface-variant block font-medium">Direct Bookings</span><span class="font-title-lg text-title-lg font-bold text-primary">6</span><span class="text-[10px] text-emerald-800 block font-semibold">Verified Cleanings</span></div><div class="p-2.5 bg-surface-container-low rounded-lg text-center border border-outline-variant/20"><span class="text-[11px] text-on-surface-variant block font-medium">Client Rating</span><span class="font-title-lg text-title-lg font-bold text-secondary">5.0 ★</span><span class="text-[10px] text-on-surface-variant block font-semibold">28 Reviews</span></div></div><div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 space-y-2"><div class="flex items-center justify-between text-xs"><span class="font-semibold text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-primary">link</span>Direct Profile &amp; Booking URL:</span><span class="font-mono font-bold px-2 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/30 text-primary">ELENA10</span></div><div class="p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/30 text-xs font-mono text-on-surface truncate select-all">https://housekeeperbooking.com/cleaner/elena-vance?ref=ELENA10</div><div class="grid grid-cols-2 gap-2 pt-0.5"><button type="button" onclick="navigator.clipboard ? navigator.clipboard.writeText('https://housekeeperbooking.com/cleaner/elena-vance?ref=ELENA10') : null; alert('Personal profile link copied to clipboard!');" class="py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-bold flex items-center justify-center gap-1.5 transition-all min-h-[44px]"><span class="material-symbols-outlined text-[16px] text-primary">content_copy</span><span class="">Copy My Profile Link</span></button><button type="button" onclick="if (navigator.share) { navigator.share({title: 'Book a Housekeeping Appointment with Elena Vance', url: 'https://housekeeperbooking.com/cleaner/elena-vance?ref=ELENA10'}); } else { alert('Share profile link: https://housekeeperbooking.com/cleaner/elena-vance?ref=ELENA10'); }" class="py-2 px-3 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-xs font-bold flex items-center justify-center gap-1.5 transition-all min-h-[44px] shadow-sm"><span class="material-symbols-outlined text-[16px]">share</span><span class="">Share My Booking Page</span></button></div></div></section><section class="space-y-space-sm"><div class="p-3 rounded-xl bg-secondary-container/60 border border-secondary-container text-xs flex items-center justify-between gap-2"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span><span class="text-on-secondary-container font-medium">All pricing displays your <strong>Cleaner Take-Home Earnings</strong>. On-demand shifts are marked optional with a <strong>+$12.50 bonus</strong>.</span></div></div>
+<div class="flex items-center justify-between px-1">
+<div class="space-y-0.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px] text-primary">storefront</span>
+        Open Shifts Marketplace
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live opportunities matching your custom hours &amp; 8-mile radius</p>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-bold flex-shrink-0">4 Match</span>
+</div>
+<!-- Available Shift 1: Instant Claim -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-3 relative overflow-hidden" id="shift-card-1">
+<div class="absolute top-0 right-0 bg-primary/10 text-primary text-[10px] font-bold px-2.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
+      Perfect Match (9:30 AM)
+    </div>
+<div class="flex items-start justify-between gap-space-sm pt-1">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">location_on</span>DuBois, PA</span><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">Tomorrow • 9:30 AM - 12:30 PM</span>
+<span class="text-xs text-on-surface-variant">3.0 hrs</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Deep Eco Clean • 3 Bed / 2 Bath</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+<span class="">1428 Maplewood Ave (2.4 miles from you)</span>
+</p>
+</div>
+<div class="flex flex-col items-end flex-shrink-0"><span class="font-title-lg text-title-lg text-primary font-bold">$79.00</span><span class="text-[11px] font-bold text-primary">Pro Payout</span><span class="font-label-sm text-[11px] text-on-surface-variant font-medium">$75 job + $4 drive</span></div>
+</div>
+<div class="p-2.5 bg-surface-container-low rounded-lg flex items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span class="">Eco-friendly supplies requested • No indoor pets</span>
+</div>
+<span class="font-semibold text-primary">Keyless lockbox</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2.5 px-3 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md font-semibold flex items-center justify-center gap-1 min-h-[44px]" onclick="previewShiftDetails('1428 Maplewood Ave', '$125.00', '3 hrs')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span class="">Details</span>
+</button>
+<button class="py-2.5 px-3 bg-primary-container text-on-primary hover:bg-primary rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 min-h-[44px] shadow-sm active:scale-95 transition-all" onclick="claimShift('shift-card-1', 'Deep Eco Clean at 1428 Maplewood Ave')" type="button">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span class="">Instant Claim</span>
+</button>
+</div>
+</div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-3 relative overflow-hidden" id="shift-card-quick-clean"><div class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2.5 py-0.5 rounded-bl-lg uppercase tracking-wider">⚡ OPTIONAL ON-DEMAND RUSH (+$12.50)</div><div class="flex items-start justify-between gap-space-sm pt-1"><div class="space-y-1 min-w-0"><div class="flex items-center gap-2 flex-wrap"><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">location_on</span>DuBois, PA</span><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">Today • 4:30 PM – 5:30 PM</span><span class="text-xs text-on-surface-variant">1.0 hr</span></div><h3 class="font-title-lg text-title-lg text-on-surface font-bold">1hr Quick Clean • Studio / 1 Bed</h3><p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span><span class="">782 Elmwood Ave (1.2 miles away)</span></p></div><div class="flex flex-col items-end flex-shrink-0"><span class="font-title-lg text-title-lg text-primary font-bold">$41.50</span><span class="text-[11px] font-bold text-primary">Pro Payout</span><span class="font-label-sm text-[10px] text-on-surface-variant font-medium text-right">$25 clean + $4 drive + $12.50 Rush (50% share)</span></div></div><div class="p-2.5 bg-surface-container-low rounded-lg flex items-center justify-between text-xs text-on-surface-variant"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">cleaning_services</span><span class="">Surface wipe-down, trash removal &amp; vacuum • Supplies on site</span></div><span class="font-semibold text-primary">Keyless entry</span></div><div class="grid grid-cols-2 gap-2 pt-1"><button class="py-2.5 px-3 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md font-semibold flex items-center justify-center gap-1 min-h-[44px]" onclick="previewShiftDetails('782 Elmwood Ave', '$60.00', '1.0 hr')" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span><span class="">Details</span></button><button class="py-2.5 px-3 bg-primary-container text-on-primary hover:bg-primary rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 min-h-[44px] shadow-sm active:scale-95 transition-all" onclick="claimShift('shift-card-quick-clean', '1hr Quick Clean at 782 Elmwood Ave')" type="button"><span class="material-symbols-outlined text-[18px]">add_task</span><span class="">Instant Claim</span></button></div></div>
+<!-- Available Shift 2: Afternoon Flexibility -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-3 relative overflow-hidden" id="shift-card-2">
+<div class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
+      Fits Daily Cap
+    </div>
+<div class="flex items-start justify-between gap-space-sm pt-1">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">location_on</span>Punxsutawney, PA</span><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-bold">Wed, Oct 25 • 1:00 PM - 3:30 PM</span>
+<span class="text-xs text-on-surface-variant">2.5 hrs</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Routine Kitchen &amp; Bath Refresh</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+<span class="">382 Highland Park Blvd (3.1 miles)</span>
+</p>
+</div>
+<div class="flex flex-col items-end flex-shrink-0"><span class="font-title-lg text-title-lg text-primary font-bold">$66.50</span><span class="text-[11px] font-bold text-primary">Pro Payout</span><span class="font-label-sm text-[11px] text-on-surface-variant font-medium">$62.50 + $4 drive pay</span></div>
+</div>
+<div class="p-2.5 bg-surface-container-low rounded-lg flex items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">repeat</span>
+<span class="">Client prefers Elena V. (Repeat Pro match)</span>
+</div>
+<span class="font-semibold text-secondary">Single friendly cat</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2.5 px-3 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md font-semibold flex items-center justify-center gap-1 min-h-[44px]" onclick="previewShiftDetails('382 Highland Park Blvd', '$95.00', '2.5 hrs')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span class="">Details</span>
+</button>
+<button class="py-2.5 px-3 bg-primary-container text-on-primary hover:bg-primary rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 min-h-[44px] shadow-sm active:scale-95 transition-all" onclick="claimShift('shift-card-2', 'Routine Refresh at 382 Highland Park Blvd')" type="button">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span class="">Add to My Day</span>
+</button>
+</div>
+</div>
+<!-- Available Shift 3: Weekend Premium -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-outline-variant/30 space-y-3 relative overflow-hidden" id="shift-card-3">
+<div class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] font-bold px-2.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
+      +20% Surge Rate
+    </div>
+<div class="flex items-start justify-between gap-space-sm pt-1">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">location_on</span>Brookville, PA</span><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">Thu, Oct 26 • 10:00 AM - 1:30 PM</span>
+<span class="text-xs text-on-surface-variant">3.5 hrs</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Move-Out Turnover Sanitization</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+<span class="">910 Elmhurst Terr (4.8 miles)</span>
+</p>
+</div>
+<div class="flex flex-col items-end flex-shrink-0"><span class="font-title-lg text-title-lg text-primary font-bold">$91.50</span><span class="text-[11px] font-bold text-primary">Pro Payout</span><span class="font-label-sm text-[11px] text-on-surface-variant font-medium">$87.50 + $4 drive pay</span></div>
+</div>
+<div class="p-2.5 bg-surface-container-low rounded-lg flex items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">cleaning_services</span>
+<span class="">Full vacuum, oven degrease &amp; interior glass</span>
+</div>
+<span class="font-semibold text-primary">Immediate payout</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2.5 px-3 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md font-semibold flex items-center justify-center gap-1 min-h-[44px]" onclick="previewShiftDetails('910 Elmhurst Terr', '$148.00', '3.5 hrs')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span class="">Details</span>
+</button>
+<button class="py-2.5 px-3 bg-primary-container text-on-primary hover:bg-primary rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 min-h-[44px] shadow-sm active:scale-95 transition-all" onclick="claimShift('shift-card-3', 'Move-Out Turnover at 910 Elmhurst Terr')" type="button">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span class="">Instant Claim</span>
+</button>
+</div>
+</div>
+</section>
+<!-- HOUSEKEEPER SCHEDULING DISPATCH HOTLINE & ASSISTANCE -->
+<section class="bg-surface-container-low rounded-xl p-space-md space-y-space-sm border border-outline-variant/30"><div class="p-3 rounded-xl bg-secondary-container/60 border border-secondary-container text-xs flex items-center justify-between gap-2"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span><span class="text-on-secondary-container font-medium">All pricing displays your <strong>Cleaner Take-Home Earnings</strong>. On-demand shifts are marked optional with a <strong>+$12.50 bonus</strong>.</span></div></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-primary">support_agent</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Pro Scheduling &amp; Dispatch Line</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">24/7 Dedicated</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+    Questions about client lockboxes, custom mileage compensation, or swapping a shift with a team member? Call our pro dispatch manager directly.
+  </p>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<a class="px-3 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-all flex items-center justify-center gap-1.5 min-h-[44px] text-decoration-none" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">call</span>
+      (814) 952-1964
+    </a>
+<button class="px-3 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-bold hover:bg-primary transition-all flex items-center justify-center gap-1.5 min-h-[44px]" onclick="requestShiftSwap()" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+      Request Shift Swap
+    </button>
+</div>
+</section>
+</div>
+<script>
+  let isTakingBookings = true;
+
+  function toggleAcceptingBookings() {
+    isTakingBookings = !isTakingBookings;
+    const statusChip = document.getElementById('status-chip');
+    const statusLabel = document.getElementById('status-label');
+    const statusPulseDot = document.getElementById('status-pulse-dot');
+
+    if (isTakingBookings) {
+      statusLabel.textContent = 'Taking Bookings';
+      statusChip.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-bold shadow-xs transition-all group-hover:bg-emerald-100';
+      statusPulseDot.className = 'w-2 h-2 rounded-full bg-emerald-600 animate-pulse';
+    } else {
+      statusLabel.textContent = 'Paused / Off Duty';
+      statusChip.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/40 font-label-sm text-label-sm font-bold shadow-xs transition-all';
+      statusPulseDot.className = 'w-2 h-2 rounded-full bg-outline';
+    }
+  }
+
+  function applyPreset(presetType) {
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    
+    if (presetType === 'school') {
+      days.forEach(d => {
+        const isWeekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(d);
+        const cb = document.getElementById(d.toLowerCase() + '-active');
+        const win = document.getElementById('window-' + d);
+        if (cb && win) {
+          cb.checked = isWeekday;
+          if (isWeekday) {
+            win.innerHTML = '<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">09:30 AM</span><span class="text-on-surface-variant font-bold">–</span><span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">02:30 PM</span><span class="text-[11px] text-primary font-bold ml-1">(5h)</span>';
+            win.classList.remove('opacity-50');
+          } else {
+            win.innerHTML = '<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium">Off Duty</span>';
+            win.classList.add('opacity-50');
+          }
+        }
+      });
+      document.getElementById('total-week-hours').textContent = 'Active target: 25 hrs/wk (School run)';
+    } else if (presetType === 'morning') {
+      ['Mon', 'Tue', 'Wed', 'Thu'].forEach(d => {
+        const win = document.getElementById('window-' + d);
+        if (win) {
+          win.innerHTML = '<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">08:00 AM</span><span class="text-on-surface-variant font-bold">–</span><span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">01:00 PM</span><span class="text-[11px] text-primary font-bold ml-1">(5h)</span>';
+        }
+      });
+      document.getElementById('total-week-hours').textContent = 'Active target: 20 hrs/wk (Morning focus)';
+    } else if (presetType === 'afternoon') {
+      ['Mon', 'Tue', 'Wed', 'Thu'].forEach(d => {
+        const win = document.getElementById('window-' + d);
+        if (win) {
+          win.innerHTML = '<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">01:30 PM</span><span class="text-on-surface-variant font-bold">–</span><span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">06:00 PM</span><span class="text-[11px] text-primary font-bold ml-1">(4.5h)</span>';
+        }
+      });
+      document.getElementById('total-week-hours').textContent = 'Active target: 18 hrs/wk (Afternoons)';
+    } else if (presetType === 'weekendOff') {
+      ['Sat', 'Sun'].forEach(d => {
+        const cb = document.getElementById(d.toLowerCase() + '-active');
+        const win = document.getElementById('window-' + d);
+        if (cb && win) {
+          cb.checked = false;
+          win.innerHTML = '<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium">Off Duty</span>';
+          win.classList.add('opacity-50');
+        }
+      });
+    }
+    flashNotification('Preset applied! Remember to sync.');
+  }
+
+  function toggleDayActive(checkbox, day) {
+    const win = document.getElementById('window-' + day);
+    if (!checkbox.checked) {
+      win.innerHTML = '<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium">Off Duty</span>';
+      win.classList.add('opacity-50');
+    } else {
+      win.innerHTML = '<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">09:00 AM</span><span class="text-on-surface-variant font-bold">–</span><span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">03:00 PM</span><span class="text-[11px] text-primary font-bold ml-1">(6h)</span>';
+      win.classList.remove('opacity-50');
+    }
+  }
+
+  function editDayHours(day) {
+    const newWindow = prompt(`Enter custom time window for ${day} (e.g., 08:00 AM - 01:00 PM):`, "09:00 AM - 03:00 PM");
+    if (newWindow && newWindow.trim()) {
+      const win = document.getElementById('window-' + day);
+      const cb = document.getElementById(day.toLowerCase() + '-active');
+      if (cb) cb.checked = true;
+      if (win) {
+        win.classList.remove('opacity-50');
+        const parts = newWindow.split('-');
+        if (parts.length === 2) {
+          win.innerHTML = `<span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">${parts[0].trim()}</span><span class="text-on-surface-variant font-bold">–</span><span class="px-2 py-1 rounded bg-surface-container-lowest font-medium shadow-2xs border border-outline-variant/30">${parts[1].trim()}</span>`;
+        } else {
+          win.textContent = newWindow;
+        }
+      }
+    }
+  }
+
+  function resetDefaultHours() {
+    applyPreset('school');
+  }
+
+  function updateCapVal(val) {
+    document.getElementById('daily-cap-val').textContent = `${val} Home${val > 1 ? 's' : ''} / Day`;
+  }
+
+  function updateRadiusVal(val) {
+    document.getElementById('radius-val').textContent = `${val} Miles`;
+  }
+
+  function addBlackoutDate() {
+    const dt = prompt("Enter specific date or reason to block off (e.g., Nov 23 - Thanksgiving):", "Dec 24 - Family Holiday");
+    if (dt && dt.trim()) {
+      const container = document.getElementById('blackout-chips');
+      const chip = document.createElement('div');
+      chip.className = "flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container/40 text-on-surface text-xs border border-error-container animate-fade-in";
+      chip.innerHTML = `<span class="material-symbols-outlined text-[14px] text-error">event_busy</span><span>${dt.trim()}</span><button type="button" onclick="this.parentElement.remove()" class="text-on-surface-variant hover:text-error ml-0.5"><span class="material-symbols-outlined text-[14px]">close</span></button>`;
+      container.appendChild(chip);
+    }
+  }
+
+  function saveScheduleConfirmation() {
+    const btn = document.getElementById('save-btn-text');
+    const toast = document.getElementById('save-toast');
+    btn.textContent = 'Saving Preferences...';
+    setTimeout(() => {
+      btn.textContent = '✓ Schedule Synchronized!';
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        btn.textContent = 'Sync & Save My Schedule';
+        setTimeout(() => toast.classList.add('hidden'), 4000);
+      }, 2000);
+    }, 600);
+  }
+
+  function claimShift(cardId, jobTitle) {
+    const card = document.getElementById(cardId);
+    if (confirm(`Claim this shift: "${jobTitle}"? It will be added to your verified schedule.`)) {
+      if (card) {
+        card.innerHTML = `
+          <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex items-center justify-between text-emerald-900">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-700">check_circle</span>
+              <div>
+                <strong class="font-bold block text-sm">Shift Claimed Successfully!</strong>
+                <span class="text-xs text-emerald-800">${jobTitle} added to your route.</span>
+              </div>
+            </div>
+            <a href="tel:8149521964" class="text-xs bg-emerald-700 text-white font-bold px-2.5 py-1.5 rounded-lg text-decoration-none">Client Concierge</a>
+          </div>
+        `;
+      }
+    }
+  }
+
+  function previewShiftDetails(loc, payout, duration) {
+    alert(`Shift Details:\n• Location: ${loc}\n• Estimated Payout: ${payout}\n• Duration: ${duration}\n• Client eco-cleaning kit provided on site.\n• Contact dispatch at (814) 952-1964 for special access notes.`);
+  }
+
+  function requestShiftSwap() {
+    prompt("Enter reason or date of shift you wish to post to the Pro Peer Swap board:", "Wednesday morning swap requested");
+    alert("Your shift swap request has been posted to Elena's peer network and notified to dispatch!");
+  }
+
+  function flashNotification(msg) {
+    const toast = document.getElementById('save-toast');
+    if (toast) {
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 2500);
+    }
+  }
+</script></main><aside class="fixed bottom-16 inset-x-0 z-40 px-margin pointer-events-none pb-2"><div class="max-w-md mx-auto pointer-events-auto flex items-center gap-space-sm bg-surface-container-lowest/95 backdrop-blur-xl p-2 rounded-xl shadow-[0_8px_24px_-4px_rgba(8,110,94,0.12),0_4px_12px_-2px_rgba(47,62,70,0.06)]"><a class="flex-1 flex items-center justify-center gap-1.5 h-11 px-3 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container active:scale-98 transition-all min-h-[44px]" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">phone_in_talk</span><span class="font-label-md text-label-md truncate">Dispatch (814) 952-1964</span></a><a class="flex-1 flex items-center justify-center gap-1.5 h-11 px-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary active:scale-98 transition-all min-h-[44px] cursor-pointer text-decoration-none" data-path="housekeeper-daily-drag-and-drop-schedule" href="#"><span class="material-symbols-outlined text-[18px]">view_timeline</span><span class="font-label-lg text-label-lg font-bold">Drag &amp; Drop Builder</span></a></div></aside><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_12px_rgba(47,62,70,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="housekeeperbooking-com-home-gallery" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span class="font-label-sm text-[10px]">Home</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="manage-bookings-account" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span class="font-label-sm text-[10px]">Bookings</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-primary font-bold transition-colors hover:text-on-surface" data-path="employee-housekeeper-panel" href="#"><span class="material-symbols-outlined text-[20px]">more_time</span><span class="font-label-sm text-[10px]">My Schedule</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="admin-management-portal" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span class="font-label-sm text-[10px]">Admin</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[52px] min-h-[44px] text-on-surface-variant transition-colors hover:text-on-surface" data-path="customer-login" href="#"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="font-label-sm text-[10px]">Portal Login</span></a></div></nav>
+
+
+
+
+</body></html>

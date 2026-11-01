@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#ffffff", "secondary": "#43664d", "error-container": "#ffdad6", "on-secondary-fixed": "#00210e", "on-background": "#191c1b", "on-tertiary-fixed": "#0e1d25", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#b9c9d3", "secondary-fixed-dim": "#aad0b1", "surface-tint": "#006b5b", "primary": "#005447", "on-primary-fixed-variant": "#005144", "on-tertiary-container": "#d0e0ea", "on-error": "#ffffff", "secondary-container": "#c2e9c9", "surface-dim": "#d9dad8", "surface": "#f9faf8", "on-secondary-fixed-variant": "#2c4e36", "inverse-primary": "#83d6c2", "outline-variant": "#bec9c4", "surface-bright": "#f9faf8", "primary-container": "#086e5e", "surface-variant": "#e1e3e1", "inverse-surface": "#2e3130", "tertiary-fixed": "#d5e5ef", "on-surface-variant": "#3e4946", "on-primary": "#ffffff", "on-primary-container": "#99edd9", "inverse-on-surface": "#f0f1ef", "primary-fixed-dim": "#83d6c2", "on-secondary-container": "#486a51", "surface-container-high": "#e7e8e6", "on-tertiary-fixed-variant": "#3a4951", "primary-fixed": "#9ff2de", "on-error-container": "#93000a", "on-primary-fixed": "#00201a", "error": "#ba1a1a", "surface-container-highest": "#e1e3e1", "background": "#f9faf8", "surface-container-lowest": "#ffffff", "tertiary": "#3d4c54", "tertiary-container": "#54646c", "secondary-fixed": "#c5eccc", "surface-container": "#edeeec", "outline": "#6e7976", "surface-container-low": "#f3f4f2", "on-surface": "#191c1b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter-sm": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "gutter": "1.5rem", "margin-lg": "4rem", "gutter-lg": "2rem", "margin-md": "2.5rem", "space-2xl": "4rem", "space-md": "1rem", "margin": "1.25rem", "space-sm": "0.5rem" }, "fontFamily": { "body-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}], "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-sm": ["22px", {"lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "body-sm": ["13px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400"}], "title-lg": ["18px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600"}], "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}], "body-md": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}], "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}] } } } };</script><style>@layer base{html,body{width:100vw;min-height:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1XA7p3QZvkjxTkU16vC4M8sZ8bf3lnofpON31_7LKeGoM10EFBRmxrAi53Q8Y-yTB6SM2ZBcbX3NNJh2QAkfGXngw7rSHBkX_Gy0WtGjORsyAwuXEZcVnKMsEtlGtX3B-43UXhjyPLaTfDTFTmFMMxBWgFEABxN8umpU-mAgZykQ-63s7kBBjifrrL8gkGZIJm4AmfC_4ttC6Iq3fVPsmTixRQNHoesSms4qhPKt47wCdYfm-uTfjmjxJI"/><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm uppercase text-secondary tracking-wider truncate">Ad &amp; Marketing Hub</span><span class="font-title-md text-title-md text-on-surface truncate leading-tight">Campaigns</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><a aria-label="Call Dispatch (814) 952-1964" class="flex items-center gap-1.5 h-10 px-2.5 rounded-full bg-secondary-container text-on-secondary-container hover:bg-secondary-fixed transition-colors active:scale-95" href="tel:8149521964"><span class="material-symbols-outlined text-[18px] text-primary">call</span><span class="font-label-sm text-label-sm hidden xs:inline">(814) 952-1964</span><span class="font-label-sm text-label-sm xs:hidden">Call</span></a><button aria-label="Cleaner Dispatch Mode" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">sync_alt</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-[0_2px_8px_rgba(8,110,94,0.15)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-24"><div class="flex flex-col w-full">
+<!-- Viewport Content Container -->
+<div class="px-margin space-y-space-lg pb-space-2xl">
+<!-- Section 1: View Switcher, Territory Banner & Quick Dispatch Actions -->
+<div class="space-y-space-sm pt-space-xs">
+<!-- Admin / Cleaner Pro Mode Segmented Switcher -->
+<div class="bg-surface-container-high p-1 rounded-full flex items-center shadow-inner">
+<button class="flex-1 py-2 px-3 rounded-full bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" id="btn-admin-view" type="button">
+<span class="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+<span>Admin Master</span>
+</button>
+<button class="flex-1 py-2 px-3 rounded-full text-on-surface-variant font-label-md text-label-md flex items-center justify-center gap-1.5 hover:text-primary transition-all" id="btn-pro-view" type="button">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+<span>Cleaner Pro Hub</span>
+</button>
+</div>
+<!-- Trust Badge & Privacy Guard Strip -->
+<div class="flex items-center justify-between px-1">
+<div class="inline-flex items-center gap-1.5 bg-secondary-container/60 text-on-secondary-container px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm">100% Reclean Seal Included</span>
+</div>
+<div class="inline-flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span class="font-label-sm text-label-sm">Wage Privacy Guard</span>
+</div>
+</div>
+<!-- Territory & Quick Dispatch Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Designated Marketing Territory</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">Central PA Primary Hub</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">DuBois • Brookville • Punxsutawney • Reynoldsville</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm flex-shrink-0">Live Hub</span>
+</div>
+<!-- Action Row -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<button class="h-10 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 active:scale-95 transition-all" id="btn-download-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">folder_zip</span>
+<span class="truncate">Download Assets (.zip)</span>
+</button>
+<a class="h-10 px-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md flex items-center justify-center gap-1.5 active:scale-95 transition-all" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span class="truncate">Dispatch (814) 952-1964</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Section 2: Marketing KPI Metrics Grid (2x2) -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-title-lg text-title-lg text-on-surface">Marketing Velocity</h2>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-0.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Live Inbound Feeds
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- KPI Card 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-secondary-container/60 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">ad_units</span>
+</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold">+3 this wk</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface leading-none">14</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Active Ad Sets</p>
+</div>
+</div>
+<!-- KPI Card 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-secondary-container/60 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">ring_volume</span>
+</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold">+18.4%</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface leading-none">284</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Monthly Quotes &amp; Calls</p>
+</div>
+</div>
+<!-- KPI Card 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Top ROI</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary leading-none">24.8%</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1 truncate">Kitchen Grime-to-Gleam</p>
+</div>
+</div>
+<!-- KPI Card 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-secondary-container/60 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">9 Active Pros</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface leading-none">1,420</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">QR Referral Visits</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Ready-to-Deploy Digital Ad Asset Cards -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-title-lg text-title-lg text-on-surface">Digital Ad Assets</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Assets Ready</span>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 -mx-margin px-margin no-scrollbar">
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md flex-shrink-0" type="button">All Assets</button>
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high" type="button">Before / Afters</button>
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high" type="button">Moving Crew</button>
+<button class="filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high" type="button">Flash 50% Off</button>
+</div>
+<!-- Ad Card 1: Instagram / Meta (1:1) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm space-y-space-sm pb-space-md">
+<!-- Media Container -->
+<div class="relative w-full aspect-square bg-surface-container">
+<img alt="High-contrast split photograph of a kitchen counter and stainless steel stove before and after a deep degreasing clean, displaying spotless polished marble and gleaming burners" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UsVB19PFfzMap-DaJ969Q2tQ9CTrSWjRK0dl7B9hbvm8g9NFxK_fSekrWF49zSMh7nUqwfq66bkqJHaMZT-QvOqOddcMu3XQGVgVrzGPz7htm4CcOnwnhNtVgkoTUV-AdiW8UkHs9oAqUVAi41sCsAgW7WfUd0OJcuxtDlAinqGv_0VfJu_0iNqOxRUxgwb-sfxZicMciu0NfOpnOEzkMu6Dz7DJE_KdM8cbreSQ-Q48J3sm29xN2f9lk"/>
+<!-- Floating Badge -->
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface">Instagram / Meta Feed (1:1) • Top Performer 24.8% Conv</span>
+</div>
+</div>
+<div class="px-space-md space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-on-surface">Kitchen Deep Degrease &amp; Sanitization</h3>
+<!-- Caption Prompt Box -->
+<div class="p-3 bg-surface-container-low rounded-lg space-y-2">
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3" id="caption-kitchen">From grease &amp; heavy grime to sparkling clean in 2 hours! ✨ Central PA's trusted home cleaners. Book online at HousekeeperBooking.com or call dispatcher at (814) 952-1964 #DuBoisPA #BrookvilleCleaners</p>
+<button class="w-full py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1 active:scale-95 transition-all" onclick="copyCaption('caption-kitchen', this)" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copy Caption</span>
+</button>
+</div>
+<!-- Card CTAs -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2.5 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">download</span>
+<span>Download Image</span>
+</button>
+<button class="py-2.5 px-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+<span>Boost Campaign</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Ad Card 2: Stories, Reels & TikTok (9:16) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm space-y-space-sm pb-space-md">
+<!-- Media Container (Aspect 9:16 formatted) -->
+<div class="relative w-full h-80 bg-surface-container overflow-hidden">
+<img alt="Before and after split photograph of a master bathroom glass shower and freestanding bathtub restored from heavy water scale to pristine bright sparkling porcelain" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WBWhtRfpzjTHh7DXZeKTCIZ-yWX5mH9TUOjw4VCwP7v4r9EheFf7JlwV4UdIYljQqhKYd64zrdQOAqDSE5Zmodfq3wcdSDD5bESsuyx6mwRrS_q1wu9IBMPP0ars93__oxd2GxI0JaQs0-zYIg00EEtmYKEtoGgcfVWs6Oipa4_IHYTcwgGfVF1SIHCAyawbzMDm8KumJ3P9aHemHpcaA9ln0H-rbRohHBWRR0blOquuPNiXvgTViYuSs"/>
+<!-- Floating Badge -->
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-sm text-label-sm text-on-surface">Stories &amp; Reels (9:16) • Eco Bio Shield</span>
+</div>
+</div>
+<div class="px-space-md space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-on-surface">Master Bathroom Spa Restoration</h3>
+<div class="p-3 bg-surface-container-low rounded-lg space-y-2">
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3" id="caption-bathroom">Relax in a sanitized, crystal-clean retreat. Non-toxic, botanical degreasing that removes soap scum instantly. Claim your seasonal deep clean before slots fill! 🌿 Call (814) 952-1964</p>
+<button class="w-full py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-1 active:scale-95 transition-all" onclick="copyCaption('caption-bathroom', this)" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copy Caption</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2.5 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">file_download</span>
+<span>Download 9:16</span>
+</button>
+<button class="py-2.5 px-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span>Share to Story</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Ad Card 3: Residential Moving & Heavy Lifting Ad -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="space-y-1">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Specialty Turnover Service • Multi-Pro Crew</span>
+<h3 class="font-title-lg text-title-lg text-on-surface leading-tight">Residential Moving &amp; Heavy Lifting Ad Creative</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-[28px]">local_shipping</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Designed for Facebook Marketplace &amp; local tenant turnover groups across Clearfield &amp; Jefferson County.</p>
+<!-- Pricing Chips -->
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2.5 rounded-lg bg-surface-container-low text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Solo Mover Helper</p>
+<p class="font-title-md text-title-md text-primary mt-0.5">$150 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">/ 2 hrs</span></p>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">2-Person Heavy Crew</p>
+<p class="font-title-md text-title-md text-primary mt-0.5">$200 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">/ 3 hrs</span></p>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-high/60 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary flex-shrink-0">info</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">All moving ad leads auto-route into Central Dispatch for direct truck &amp; crew assignment.</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span>Download Flyer</span>
+</button>
+<button class="py-2 px-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copy Ad Copy</span>
+</button>
+</div>
+</div>
+<!-- Ad Card 4: 50% Off Add-On Flash Promo Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between">
+<div>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">High-Velocity Promo Flash</span>
+<h3 class="font-title-lg text-title-lg text-on-surface mt-1">50% Off Specialty Add-Ons</h3>
+</div>
+<span class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center font-title-md text-title-md font-bold">50%</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">microwave</span>
+              Oven Deep Steam Degrease
+            </span>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm line-through text-on-surface-variant">$30</span>
+<span class="font-title-md text-title-md text-primary font-bold">$15 promo</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">kitchen</span>
+              Refrigerator Scrub &amp; Sanitize
+            </span>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm line-through text-on-surface-variant">$25</span>
+<span class="font-title-md text-title-md text-primary font-bold">$12.50 promo</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">window</span>
+              Interior Windows &amp; Tracks
+            </span>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm line-through text-on-surface-variant">$35</span>
+<span class="font-title-md text-title-md text-primary font-bold">$17.50 promo</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">view_carousel</span>
+<span>Download Carousel</span>
+</button>
+<button class="py-2 px-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Deploy Campaign</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section 4: Personalized Neighborhood Referral Generator -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">Pro Referral Generator</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Equip local cleaners with custom Nextdoor &amp; QR cards</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<!-- Form Controls -->
+<div class="space-y-3">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface" for="pro-name-input">Housekeeper Full Name</label>
+<div class="h-12 bg-surface-container-low rounded-lg px-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">person</span>
+<input class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none" id="pro-name-input" placeholder="Enter Pro Name" type="text" value="Sarah Jenkins"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface" for="pro-territory-select">Assigned Neighborhood Territory</label>
+<div class="h-12 bg-surface-container-low rounded-lg px-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">map</span>
+<select class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none" id="pro-territory-select">
+<option value="DuBois &amp; Sandy Township, PA">DuBois &amp; Sandy Township, PA</option>
+<option value="Brookville &amp; Jefferson County, PA">Brookville &amp; Jefferson County, PA</option>
+<option value="Punxsutawney &amp; Mahoning, PA">Punxsutawney &amp; Mahoning, PA</option>
+<option value="Reynoldsville &amp; Surrounds, PA">Reynoldsville &amp; Surrounds, PA</option>
+</select>
+</div>
+</div>
+<div class="space-y-1.5">
+<span class="font-label-md text-label-md text-on-surface">Specialty Badges for Referral Card</span>
+<div class="flex flex-wrap gap-2">
+<button class="tag-toggle px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">star</span>
+<span>Top Rated Pro</span>
+</button>
+<button class="tag-toggle px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">pets</span>
+<span>Pet Safe Pro</span>
+</button>
+<button class="tag-toggle px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">cleaning_services</span>
+<span>Deep Clean Spec</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Card Preview -->
+<div class="p-space-md bg-surface-container-low rounded-xl space-y-3 shadow-inner">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Live Nextdoor &amp; Social Preview</span>
+<span class="material-symbols-outlined text-primary text-[18px]">visibility</span>
+</div>
+<!-- The Rendered Referral Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary font-title-lg text-title-lg font-bold flex-shrink-0">
+                SJ
+              </div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate" id="preview-name">Sarah Jenkins</span>
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate" id="preview-territory">DuBois &amp; Sandy Township, PA</p>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">5.0 Star Professional</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(42 local cleans)</span>
+</div>
+</div>
+</div>
+<!-- Referral Card Badges -->
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Top Rated Pro</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Pet Friendly Certified</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Instant Online Booking &amp; Dispatch</span>
+<p class="font-label-md text-label-md text-primary font-bold">housekeeperbooking.com/pro/s-jenkins</p>
+</div>
+<div class="w-10 h-10 rounded bg-surface-container-lowest p-1 flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[28px] text-primary">qr_code_2</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 1-Click Distribution Grid -->
+<div class="space-y-2">
+<span class="font-label-md text-label-md text-on-surface">1-Click Pro Distribution</span>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1.5 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">home_work</span>
+<span>Post to Nextdoor</span>
+</button>
+<button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1.5 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">groups</span>
+<span>Facebook Group</span>
+</button>
+<button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1.5 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">chat</span>
+<span>WhatsApp Pro</span>
+</button>
+<button class="py-2 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1.5 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">sms</span>
+<span>SMS Direct Link</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 5: Printable Local Field Collateral -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">Print Collateral Suite</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">CMYK 300 DPI high-resolution press files</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[24px]">print</span>
+</div>
+<div class="space-y-2">
+<!-- Item 1: Door Hanger -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/60 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">door_front</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Neighborhood Door Hangers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Standard knob-hole die-cut spec • 3.5x8.5"</p>
+</div>
+</div>
+<button class="py-1.5 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex-shrink-0 active:scale-95 transition-all" type="button">
+            Get PDF
+          </button>
+</div>
+<!-- Item 2: Yard Signs & Magnets -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/60 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">directions_car</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Vehicle Magnets &amp; Yard Signs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">High-visibility corrugated coroplast vector</p>
+</div>
+</div>
+<button class="py-1.5 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex-shrink-0 active:scale-95 transition-all" type="button">
+            Get Vectors
+          </button>
+</div>
+<!-- Item 3: Business Cards -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/60 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">contact_page</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Pro QR Business Cards</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Standard 2x3.5" with cleaner auto-route</p>
+</div>
+</div>
+<button class="py-1.5 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md flex-shrink-0 active:scale-95 transition-all" type="button">
+            Generate
+          </button>
+</div>
+</div>
+</div>
+<!-- Section 6: Direct Meta & Google Local Ad Launcher (Admin Quick Presets) -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">Direct Ad Launcher</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instant campaign deployment with verified local radius</p>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Meta &amp; Google</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<!-- Targeting Specs -->
+<div class="space-y-2">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<span class="font-label-md text-label-md text-on-surface">Target Territory</span>
+<span class="font-label-md text-label-md text-primary font-bold">DuBois 25-mi Radius</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low">
+<span class="font-label-md text-label-md text-on-surface">Audience Demographic</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Homeowners &amp; New Move-Ins</span>
+</div>
+</div>
+<!-- Budget Radio Selectors -->
+<div class="space-y-1.5">
+<span class="font-label-md text-label-md text-on-surface">Choose Daily Ad Spend</span>
+<div class="grid grid-cols-3 gap-2" id="budget-selector">
+<button class="budget-btn p-2 rounded-lg bg-surface-container text-center active:scale-95 transition-all" type="button">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Tester</span>
+<span class="font-title-md text-title-md text-on-surface font-bold mt-0.5">$10/day</span>
+</button>
+<button class="budget-btn p-2 rounded-lg bg-primary text-center active:scale-95 transition-all" type="button">
+<span class="font-label-sm text-label-sm text-on-primary-container block">Recommended</span>
+<span class="font-title-md text-title-md text-on-primary font-bold mt-0.5">$25/day</span>
+</button>
+<button class="budget-btn p-2 rounded-lg bg-surface-container text-center active:scale-95 transition-all" type="button">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Aggressive</span>
+<span class="font-title-md text-title-md text-on-surface font-bold mt-0.5">$50/day</span>
+</button>
+</div>
+</div>
+<!-- Launch Button -->
+<button class="w-full py-3.5 px-4 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container active:scale-95 transition-all" id="btn-launch-ad" type="button">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span>Authorize &amp; Launch Meta Ad Set</span>
+</button>
+<p class="font-label-sm text-label-sm text-center text-on-surface-variant">Central dispatch guarantees 100% reclean on all inbound booked leads.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Copy Caption Micro-interaction
+  function copyCaption(id, btnElement) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const originalHtml = btnElement.innerHTML;
+      btnElement.innerHTML = `<span class="material-symbols-outlined text-[16px] text-primary">done</span><span class="text-primary font-bold">Copied to Clipboard!</span>`;
+      setTimeout(() => {
+        btnElement.innerHTML = originalHtml;
+      }, 2000);
+    }).catch(() => {
+      alert('Copied to clipboard');
+    });
+  }
+
+  // Interactive Live Preview Updater
+  const proNameInput = document.getElementById('pro-name-input');
+  const proTerritorySelect = document.getElementById('pro-territory-select');
+  const previewName = document.getElementById('preview-name');
+  const previewTerritory = document.getElementById('preview-territory');
+
+  if (proNameInput && previewName) {
+    proNameInput.addEventListener('input', (e) => {
+      previewName.textContent = e.target.value.trim() || 'Cleaner Pro';
+    });
+  }
+
+  if (proTerritorySelect && previewTerritory) {
+    proTerritorySelect.addEventListener('change', (e) => {
+      previewTerritory.textContent = e.target.value;
+    });
+  }
+
+  // Segmented View Toggle Micro-interaction
+  const btnAdmin = document.getElementById('btn-admin-view');
+  const btnPro = document.getElementById('btn-pro-view');
+
+  if (btnAdmin && btnPro) {
+    btnAdmin.addEventListener('click', () => {
+      btnAdmin.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnAdmin.classList.remove('text-on-surface-variant');
+      btnPro.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnPro.classList.add('text-on-surface-variant');
+    });
+
+    btnPro.addEventListener('click', () => {
+      btnPro.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnPro.classList.remove('text-on-surface-variant');
+      btnAdmin.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+      btnAdmin.classList.add('text-on-surface-variant');
+    });
+  }
+
+  // Daily Budget Selector Toggle
+  const budgetBtns = document.querySelectorAll('.budget-btn');
+  budgetBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      budgetBtns.forEach(b => {
+        b.className = 'budget-btn p-2 rounded-lg bg-surface-container text-center active:scale-95 transition-all';
+        const label = b.querySelector('span:first-child');
+        const price = b.querySelector('span:last-child');
+        if (label) label.className = 'font-label-sm text-label-sm text-on-surface-variant block';
+        if (price) price.className = 'font-title-md text-title-md text-on-surface font-bold mt-0.5';
+      });
+      btn.className = 'budget-btn p-2 rounded-lg bg-primary text-center active:scale-95 transition-all';
+      const activeLabel = btn.querySelector('span:first-child');
+      const activePrice = btn.querySelector('span:last-child');
+      if (activeLabel) activeLabel.className = 'font-label-sm text-label-sm text-on-primary-container block';
+      if (activePrice) activePrice.className = 'font-title-md text-title-md text-on-primary font-bold mt-0.5';
+    });
+  });
+
+  // Filter Chips Toggle
+  const filterChips = document.querySelectorAll('.filter-chip');
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => {
+        c.className = 'filter-chip px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high';
+      });
+      chip.className = 'filter-chip px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md flex-shrink-0';
+    });
+  });
+
+  // Launch CTA Feedback
+  const launchBtn = document.getElementById('btn-launch-ad');
+  if (launchBtn) {
+    launchBtn.addEventListener('click', () => {
+      const orig = launchBtn.innerHTML;
+      launchBtn.innerHTML = `<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span><span>Connecting to Meta API...</span>`;
+      setTimeout(() => {
+        launchBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">task_alt</span><span>Campaign Deployed to DuBois Hub</span>`;
+        setTimeout(() => { launchBtn.innerHTML = orig; }, 3000);
+      }, 1200);
+    });
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"><div class="flex items-center justify-around h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 transition-all active:scale-95 text-primary font-bold" data-path="campaigns" href="#"><span class="material-symbols-outlined text-[22px]">campaign</span><span class="font-label-sm text-label-sm mt-0.5">Campaigns</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-primary transition-all active:scale-95" data-path="referrals" href="#"><span class="material-symbols-outlined text-[22px]">share</span><span class="font-label-sm text-label-sm mt-0.5">Referrals</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-primary transition-all active:scale-95" data-path="collateral" href="#"><span class="material-symbols-outlined text-[22px]">folder_special</span><span class="font-label-sm text-label-sm mt-0.5">Collateral</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-primary transition-all active:scale-95" data-path="social-ads" href="#"><span class="material-symbols-outlined text-[22px]">public</span><span class="font-label-sm text-label-sm mt-0.5">Social Ads</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-primary transition-all active:scale-95" data-path="menu-profile" href="#"><span class="material-symbols-outlined text-[22px]">account_circle</span><span class="font-label-sm text-label-sm mt-0.5">Menu</span></a></div></nav></body></html>

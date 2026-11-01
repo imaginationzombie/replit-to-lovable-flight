@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"inverse-on-surface":"#f0f1ef","primary":"#005447","surface-container":"#edeeec","surface-container-high":"#e7e8e6","error-container":"#ffdad6","on-primary-container":"#99edd9","primary-fixed":"#9ff2de","surface-container-low":"#f3f4f2","error":"#ba1a1a","secondary":"#43664d","on-tertiary-fixed":"#0e1d25","inverse-primary":"#83d6c2","surface-container-lowest":"#ffffff","surface-bright":"#f9faf8","outline-variant":"#bec9c4","tertiary-fixed":"#d5e5ef","primary-container":"#086e5e","secondary-container":"#c2e9c9","on-error-container":"#93000a","on-tertiary":"#ffffff","surface-tint":"#006b5b","surface-variant":"#e1e3e1","on-tertiary-fixed-variant":"#3a4951","surface":"#f9faf8","on-primary-fixed":"#00201a","tertiary-fixed-dim":"#b9c9d3","secondary-fixed-dim":"#aad0b1","background":"#f9faf8","on-primary-fixed-variant":"#005144","on-primary":"#ffffff","primary-fixed-dim":"#83d6c2","on-background":"#191c1b","secondary-fixed":"#c5eccc","on-surface-variant":"#3e4946","on-secondary-fixed":"#00210e","on-secondary-container":"#486a51","tertiary-container":"#54646c","outline":"#6e7976","on-surface":"#191c1b","tertiary":"#3d4c54","on-tertiary-container":"#d0e0ea","surface-container-highest":"#e1e3e1","surface-dim":"#d9dad8","on-error":"#ffffff","on-secondary-fixed-variant":"#2c4e36","inverse-surface":"#2e3130","on-secondary":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1.25rem","space-2xl":"4rem","gutter-sm":"1rem","gutter-lg":"2rem","space-sm":"0.5rem","space-xl":"2.5rem","margin-lg":"4rem","gutter":"1.5rem","space-xs":"0.25rem","space-lg":"1.5rem","space-md":"1rem","margin-md":"2.5rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"title-lg":["18px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"600"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center gap-space-sm bg-surface-container-lowest"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XA7p3QZvkjxTkU16vC4M8sZ8bf3lnofpON31_7LKeGoM10EFBRmxrAi53Q8Y-yTB6SM2ZBcbX3NNJh2QAkfGXngw7rSHBkX_Gy0WtGjORsyAwuXEZcVnKMsEtlGtX3B-43UXhjyPLaTfDTFTmFMMxBWgFEABxN8umpU-mAgZykQ-63s7kBBjifrrL8gkGZIJm4AmfC_4ttC6Iq3fVPsmTixRQNHoesSms4qhPKt47wCdYfm-uTfjmjxJI"/><span class="font-title-md text-title-md text-primary font-bold tracking-tight truncate">HousekeeperBooking</span></div><div class="px-space-md py-space-sm"><div class="bg-surface-container-low px-space-md py-space-sm rounded-lg flex items-center justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Dispatch Portal</span><span class="font-label-md text-label-md font-semibold text-on-surface">North America Ops</span></div><span class="w-2.5 h-2.5 rounded-full bg-primary-container ring-4 ring-secondary-container"></span></div></div><nav class="flex-1 px-space-md py-space-sm space-y-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-title-md"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="bookings" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Bookings</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="schedule" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span>Schedule</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="multi-pro-dispatch" href="#"><span class="material-symbols-outlined text-[20px]">local_shipping</span><span>Multi-Pro Dispatch</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="marketing-and-ads" href="#"><span class="material-symbols-outlined text-[20px]">campaign</span><span>Marketing &amp; Ads</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="campaigns-and-twilio" href="#"><span class="material-symbols-outlined text-[20px]">send_to_mobile</span><span>Campaigns &amp; Twilio</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="customer-directory" href="#"><span class="material-symbols-outlined text-[20px]">contacts</span><span>Customer Directory</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="staff-comms" href="#"><span class="material-symbols-outlined text-[20px]">forum</span><span>Staff Comms</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded-lg text-on-surface-variant font-title-md text-title-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span>Settings</span></a></nav><div class="p-space-md bg-surface-container-lowest mt-auto"><div class="bg-surface-container-low p-space-md rounded-xl flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[20px]">verified</span><div><p class="font-label-sm text-label-sm font-semibold text-on-surface">100% Reclean Guarantee</p><p class="font-body-sm text-body-sm text-outline">Operational Safety Certified</p></div></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XA7p3QZvkjxTkU16vC4M8sZ8bf3lnofpON31_7LKeGoM10EFBRmxrAi53Q8Y-yTB6SM2ZBcbX3NNJh2QAkfGXngw7rSHBkX_Gy0WtGjORsyAwuXEZcVnKMsEtlGtX3B-43UXhjyPLaTfDTFTmFMMxBWgFEABxN8umpU-mAgZykQ-63s7kBBjifrrL8gkGZIJm4AmfC_4ttC6Iq3fVPsmTixRQNHoesSms4qhPKt47wCdYfm-uTfjmjxJI"/><span class="font-title-lg text-title-lg text-on-surface font-semibold tracking-tight">Creative &amp; Ad Hub</span><div class="hidden xl:flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded-full ml-space-md"><span class="material-symbols-outlined text-primary text-[16px]">bolt</span><span class="font-label-md text-label-md text-on-surface-variant">Twilio Real-Time Ready</span></div></div><div class="flex items-center gap-space-md"><a class="hidden sm:flex items-center gap-space-xs bg-secondary-container text-on-secondary-container px-space-md py-space-xs rounded-full font-label-lg text-label-lg transition-colors hover:bg-primary hover:text-on-primary" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">call</span><span>(814) 952-1964</span></a><div class="flex items-center gap-space-sm"><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">add_circle</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow Decor (Contained) -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 right-12 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-20 -left-20 w-80 h-80 bg-secondary/5 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Hub Header & Persona Switcher -->
+<div class="max-w-7xl mx-auto px-gutter-lg pt-space-xl pb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              Central PA Creative Suite
+            </span>
+<span class="text-outline text-label-sm font-label-sm font-medium">/ DuBois • Brookville • Punxsutawney</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Marketing &amp; Creative Ad Center
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Pre-approved high-conversion promotional kits, viral before/after photography ads, digital flyers, and personalized localized campaigns for cleaner pros and administrative dispatch.
+          </p>
+</div>
+<!-- Quick Actions & Direct Line -->
+<div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm shrink-0">
+<a class="px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-lg text-label-lg flex items-center gap-space-xs shadow-sm transition-all" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+<span>(814) 952-1964</span>
+</a>
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-lg text-label-lg shadow-sm flex items-center gap-space-xs transition-all" onclick="alert('Preparing verified media package (ZIP, 142MB)...')" type="button">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+<span>Download Kit (ZIP)</span>
+</button>
+<button class="px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary-container hover:shadow-lg flex items-center gap-space-xs transition-all" onclick="document.getElementById('meta-launcher').scrollIntoView({behavior:'smooth'})" type="button">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+<span>Deploy Meta Ad</span>
+</button>
+</div>
+</div>
+<!-- View Persona Toggle Bar -->
+<div class="mt-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pt-space-md">
+<div class="inline-flex p-1 bg-surface-container-high rounded-xl">
+<button class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-space-xs" id="tab-admin" onclick="switchPersona('admin')" type="button">
+<span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+<span>Admin Master View</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-lg text-label-lg font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-space-xs" id="tab-pro" onclick="switchPersona('pro')" type="button">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+<span>Employee &amp; Cleaner Pro View</span>
+</button>
+</div>
+<div class="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary"></span> 100% Reclean Seal Included</span>
+<span class="hidden md:inline text-outline-variant">•</span>
+<span class="hidden md:flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">verified_user</span> Wage Neutral Client Facing</span>
+</div>
+</div>
+</div>
+</div>
+<!-- KPI Overview Strip -->
+<section class="max-w-7xl mx-auto px-gutter-lg w-full mb-space-xl">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Active Ad Sets</span>
+<span class="p-2 rounded-lg bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">ads_click</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">14</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center">+3 this week</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Meta Ads • Google Local • Nextdoor</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full w-[78%] rounded-full"></div>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Monthly Inbound Leads</span>
+<span class="p-2 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px]">ring_volume</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">284</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center">+18.4% MoM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct calls &amp; instant booking quotes</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full w-[64%] rounded-full"></div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Top Converting Creative</span>
+<span class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">24.8%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Conv. Rate</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium mt-1 truncate">Kitchen Grime-to-Gleam 1:1</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary-container h-full w-[92%] rounded-full"></div>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Pro Referral Visits</span>
+<span class="p-2 rounded-lg bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">1,420</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">9 Cleaner Reps</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Generated via personal localized QR tags</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-secondary h-full w-[54%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Creative Ad Showcase Gallery -->
+<section class="max-w-7xl mx-auto px-gutter-lg w-full mb-space-2xl">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Campaign Library</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Ready-to-Deploy Ad Assets</h2>
+</div>
+<!-- Filter Pills -->
+<div class="flex flex-wrap items-center gap-space-xs" id="filter-container">
+<button class="filter-pill active px-space-md py-1.5 rounded-full text-label-md font-label-md font-semibold bg-primary text-on-primary shadow-sm transition-all" onclick="filterGallery('all', this)" type="button">All Formats</button>
+<button class="filter-pill px-space-md py-1.5 rounded-full text-label-md font-label-md font-semibold bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all" onclick="filterGallery('transformation', this)" type="button">Before &amp; Afters</button>
+<button class="filter-pill px-space-md py-1.5 rounded-full text-label-md font-label-md font-semibold bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all" onclick="filterGallery('moving', this)" type="button">Moving &amp; Heavy Lifting</button>
+<button class="filter-pill px-space-md py-1.5 rounded-full text-label-md font-label-md font-semibold bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all" onclick="filterGallery('promo', this)" type="button">Flash Add-Ons</button>
+<button class="filter-pill px-space-md py-1.5 rounded-full text-label-md font-label-md font-semibold bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-all" onclick="filterGallery('pro', this)" type="button">Cleaner Branded</button>
+</div>
+</div>
+<!-- Gallery Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl">
+<!-- Ad Card 1: Kitchen Transformation (Square 1:1) -->
+<article class="ad-card bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-cat="transformation">
+<!-- Media Preview Area -->
+<div class="relative bg-surface-dim aspect-square sm:aspect-[4/3] w-full overflow-hidden group">
+<img alt="Before and after split photograph of a heavily grease-stained kitchen stove transformed into a gleaming stainless steel culinary counter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AEtjO1UsVB19PFfzMap-DaJ969Q2tQ9CTrSWjRK0dl7B9hbvm8g9NFxK_fSekrWF49zSMh7nUqwfq66bkqJHaMZT-QvOqOddcMu3XQGVgVrzGPz7htm4CcOnwnhNtVgkoTUV-AdiW8UkHs9oAqUVAi41sCsAgW7WfUd0OJcuxtDlAinqGv_0VfJu_0iNqOxRUxgwb-sfxZicMciu0NfOpnOEzkMu6Dz7DJE_KdM8cbreSQ-Q48J3sm29xN2f9lk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/20 to-transparent flex flex-col justify-between p-space-md pointer-events-none">
+<div class="flex items-center justify-between w-full">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm font-bold shadow-sm">
+                Instagram / Meta Feed (1:1 • 1080x1080)
+              </span>
+<span class="px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow">
+                Top Performer • 24.8% Conv
+              </span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span> Guaranteed Sparkle or Free Reclean
+              </div>
+<p class="font-headline-sm text-headline-sm text-on-primary drop-shadow font-bold">Kitchen Deep Degrease &amp; Sanitization</p>
+</div>
+</div>
+</div>
+<!-- Ad Details & Copy Copying -->
+<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Social Copy Prompt</span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm font-bold flex items-center gap-1" onclick="copyText('copy-kitchen-ad', this)" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Copy Caption
+              </button>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface font-mono select-all" id="copy-kitchen-ad">
+              From grease &amp; heavy grime to sparkling clean in 2 hours! ✨ Central PA's trusted home cleaners. Book online at HousekeeperBooking.com or call dispatcher at (814) 952-1964. #DuBoisPA #BrookvilleCleaners #DeepCleaning
+            </div>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">aspect_ratio</span>
+<span>1080 × 1080px (PNG / WebP)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1 transition-colors" onclick="alert('Downloading high-res Kitchen Transformation PNG (3.2MB)...')" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> Download Image
+              </button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 shadow-sm transition-all" onclick="launchAdModal('Kitchen Transformation 1:1')" type="button">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span> Boost Campaign
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Ad Card 2: Bathroom Spa Restoration (Story / Reel 9:16) -->
+<article class="ad-card bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden" data-cat="transformation">
+<!-- Media Preview Area -->
+<div class="relative bg-surface-dim aspect-square sm:aspect-[4/3] w-full overflow-hidden group">
+<img alt="Before and after split view of a muddy dirty master bathroom bath and glass shower brought to pristine resort standard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AEtjO1WBWhtRfpzjTHh7DXZeKTCIZ-yWX5mH9TUOjw4VCwP7v4r9EheFf7JlwV4UdIYljQqhKYd64zrdQOAqDSE5Zmodfq3wcdSDD5bESsuyx6mwRrS_q1wu9IBMPP0ars93__oxd2GxI0JaQs0-zYIg00EEtmYKEtoGgcfVWs6Oipa4_IHYTcwgGfVF1SIHCAyawbzMDm8KumJ3P9aHemHpcaA9ln0H-rbRohHBWRR0blOquuPNiXvgTViYuSs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/20 to-transparent flex flex-col justify-between p-space-md pointer-events-none">
+<div class="flex items-center justify-between w-full">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm text-label-sm font-bold shadow-sm">
+                Stories, Reels &amp; TikTok (9:16 • 1080x1920)
+              </span>
+<span class="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold shadow">
+                Eco-Friendly Bio Shield
+              </span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">eco</span> Child &amp; Pet Safe Botanicals
+              </div>
+<p class="font-headline-sm text-headline-sm text-on-primary drop-shadow font-bold">Master Bathroom Spa Restoration</p>
+</div>
+</div>
+</div>
+<!-- Ad Details & Copy Copying -->
+<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Social Copy Prompt</span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm font-bold flex items-center gap-1" onclick="copyText('copy-bath-ad', this)" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Copy Caption
+              </button>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface font-mono select-all" id="copy-bath-ad">
+              Soap scum erased, luxury restored. 🌿 100% Eco-Friendly non-toxic products safe for pets &amp; kids! Servicing DuBois, Brookville, Punxsutawney &amp; Reynoldsville. Direct booking: (814) 952-1964 or visit housekeeperbooking.com
+            </div>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">phone_iphone</span>
+<span>1080 × 1920px (9:16 Vertical Story)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1 transition-colors" onclick="alert('Downloading Master Bath Spa 9:16 Asset...')" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> Download 9:16
+              </button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 shadow-sm transition-all" onclick="shareToStory()" type="button">
+<span class="material-symbols-outlined text-[16px]">send_to_mobile</span> Share to Story
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Ad Card 3: Moving & Heavy Lifting Service Tier -->
+<article class="ad-card bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between p-space-lg" data-cat="moving">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold uppercase tracking-wider">
+              Specialty Turnover Service
+            </span>
+<span class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span> Multi-Pro Crew
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">
+            Residential Moving &amp; Heavy Lifting Ad Creative
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+            Targeting homeowners, lease turnovers, and realtors across Jefferson &amp; Clearfield counties needing move-out muscle coupled with white-glove final sanitizing.
+          </p>
+<!-- Visual Tier Badge Component -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mb-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Solo Mover Helper</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Boxes, stairs, staging &amp; spot-clean</p>
+</div>
+<div class="mt-space-md flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">$150</span>
+<span class="font-label-sm text-label-sm text-outline">/ 2 Hours Base</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-secondary-container/40 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-20 h-20 bg-secondary/10 rounded-full"></div>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">2-Person Heavy Crew</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Full appliances, furniture &amp; deep scrub</p>
+</div>
+<div class="mt-space-md flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">$200</span>
+<span class="font-label-sm text-label-sm text-outline">/ 3 Hours Base</span>
+</div>
+</div>
+</div>
+<!-- Dispatch Guard Note -->
+<div class="p-space-sm rounded-lg bg-surface-container-high flex items-center gap-space-sm mb-space-md text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">info</span>
+<span>All moving ad leads auto-route into Central Dispatch for direct truck &amp; cleaner crew assignment.</span>
+</div>
+</div>
+<div class="pt-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span> DuBois • Punxsutawney • Brookville
+          </div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1" onclick="alert('Downloading Moving &amp; Lifting Digital Flyer (PDF &amp; PNG)...')" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> Download Flyer
+            </button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 shadow-sm" onclick="copyText('copy-moving-ad', this)" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Copy Ad Copy
+            </button>
+<div class="hidden" id="copy-moving-ad">
+              Moving into a new home? Let our vetted pros handle the heavy lifting and deep clean turnover! Solo and 2-person crews available in DuBois, PA. Call (814) 952-1964 or book at housekeeperbooking.com
+            </div>
+</div>
+</div>
+</article>
+<!-- Ad Card 4: 50% Off Add-On Flash Promo -->
+<article class="ad-card bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between p-space-lg" data-cat="promo">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase tracking-wider">
+              High-Velocity Promo Flash
+            </span>
+<span class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">bolt</span> Flash Boost Ready
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-xs">
+            50% Off Specialty Add-On Flash Campaign
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+            Incentivize homeowners booking Medium or Heavy deep cleans with a half-price add-on special. Proven 3.2x lift in average booking order value.
+          </p>
+<!-- Interactive Add-on Highlights -->
+<div class="space-y-space-xs mb-space-md">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">microwave</span>
+</span>
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Oven Deep Steam Degrease</p>
+<p class="font-body-sm text-body-sm text-outline">Removes baked-on carbon &amp; smoke residue</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm line-through text-outline">$30</span>
+<span class="font-title-md text-title-md font-bold text-primary ml-1">$15 Promo</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">kitchen</span>
+</span>
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Refrigerator &amp; Freezer Scrub</p>
+<p class="font-body-sm text-body-sm text-outline">Full rack removal &amp; antibacterial wash</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm line-through text-outline">$25</span>
+<span class="font-title-md text-title-md font-bold text-primary ml-1">$12.50 Promo</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">window</span>
+</span>
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Interior Window Panes &amp; Tracks</p>
+<p class="font-body-sm text-body-sm text-outline">Streak-free pure botanical glass shine</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm line-through text-outline">$35</span>
+<span class="font-title-md text-title-md font-bold text-primary ml-1">$17.50 Promo</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<span class="font-label-sm text-label-sm text-outline">Pre-formatted for Facebook Carousel</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1" onclick="alert('Downloading Flash Add-On Social Carousel Pack (5 PNGs)...')" type="button">
+<span class="material-symbols-outlined text-[16px]">collections</span> Download Carousel
+            </button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 shadow-sm" onclick="launchAdModal('50% Off Add-On Flash Promo')" type="button">
+<span class="material-symbols-outlined text-[16px]">publish</span> Deploy Campaign
+            </button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Interactive Employee Personal Brand Kit Generator -->
+<section class="max-w-7xl mx-auto px-gutter-lg w-full mb-space-2xl">
+<div class="bg-surface-container-low rounded-2xl p-space-lg lg:p-space-xl relative overflow-hidden">
+<!-- Accent Top Banner -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-xl">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">stars</span> Cleaner Rep Success Center
+          </div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Personalized Ad &amp; Neighborhood Referral Generator</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Housekeepers can instantly generate co-branded Nextdoor posts, Facebook group banners, and personal booking cards with zero pay transparency leak. Share your personalized link and get dispatched to your hometown neighborhood.
+          </p>
+</div>
+<div class="shrink-0 p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[28px]">lock</span>
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Client Privacy Assured</p>
+<p class="font-body-sm text-body-sm text-outline">Hourly pay &amp; margins strictly withheld</p>
+</div>
+</div>
+</div>
+<!-- Generator Workspace: 2-Column Desktop Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Configuration Form (5 Columns) -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm space-y-space-md">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Housekeeper Full Name</label>
+<input class="w-full h-12 px-space-md rounded-lg bg-surface-container-lowest text-on-surface border-0 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm font-title-md text-title-md" id="pro-name-input" oninput="updateLiveAdPreview()" placeholder="Enter your name" type="text" value="Sarah Jenkins"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Assigned Service Territory</label>
+<select class="w-full h-12 px-space-md rounded-lg bg-surface-container-lowest text-on-surface border-0 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm font-title-md text-title-md" id="pro-territory-select" onchange="updateLiveAdPreview()">
+<option value="DuBois &amp; Sandy Township">DuBois &amp; Sandy Township, PA</option>
+<option value="Brookville &amp; Jefferson County">Brookville &amp; Jefferson County, PA</option>
+<option value="Punxsutawney &amp; Surrounds">Punxsutawney &amp; Surrounds, PA</option>
+<option value="Reynoldsville &amp; Sykesville">Reynoldsville &amp; Sykesville, PA</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Cleaner Badge Accent</label>
+<div class="grid grid-cols-3 gap-space-xs">
+<button class="badge-btn px-2 py-2 rounded-lg bg-secondary-container text-on-secondary-container text-center font-label-sm text-label-sm font-semibold active-badge" onclick="setBadgeStyle('Top Rated')" type="button">
+                Top Rated Pro
+              </button>
+<button class="badge-btn px-2 py-2 rounded-lg bg-surface-container text-on-surface-variant text-center font-label-sm text-label-sm font-semibold" onclick="setBadgeStyle('Pet Friendly')" type="button">
+                Pet Safe Pro
+              </button>
+<button class="badge-btn px-2 py-2 rounded-lg bg-surface-container text-on-surface-variant text-center font-label-sm text-label-sm font-semibold" onclick="setBadgeStyle('Deep Clean')" type="button">
+                Deep Clean Spec
+              </button>
+</div>
+</div>
+<!-- Instant Share Links -->
+<div class="pt-space-sm space-y-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">1-Click Local Neighborhood Outreach</label>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors" onclick="shareNeighborhood('Nextdoor')" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#00B050]">home_pin</span> Share Nextdoor
+              </button>
+<button class="h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors" onclick="shareNeighborhood('Facebook')" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#1877F2]">share</span> Facebook Group
+              </button>
+<button class="h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors" onclick="shareNeighborhood('WhatsApp')" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">chat</span> WhatsApp Client
+              </button>
+<button class="h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors" onclick="shareNeighborhood('SMS')" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">sms</span> Direct SMS
+              </button>
+</div>
+</div>
+</div>
+<!-- Live Ad Preview Render (7 Columns) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-xl shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Generated Nextdoor &amp; Social Card Preview</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">1200 × 630 Web Card</span>
+</div>
+<!-- Dynamic Live Card Graphic Mockup -->
+<div class="relative rounded-2xl bg-surface p-space-lg shadow-sm border border-transparent hover:border-surface-variant transition-all">
+<div class="flex flex-col sm:flex-row items-center gap-space-lg">
+<!-- Cleaner Avatar / Pro Placeholder -->
+<div class="relative shrink-0">
+<div class="w-28 h-28 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center shadow-lg relative overflow-hidden">
+<span class="material-symbols-outlined text-[48px]">person</span>
+<div class="absolute bottom-0 inset-x-0 bg-primary/80 py-0.5 text-center font-label-sm text-label-sm font-bold text-on-primary">
+                    VERIFIED
+                  </div>
+</div>
+<div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<!-- Live Card Text Binding -->
+<div class="flex-1 text-center sm:text-left space-y-1">
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-space-xs">
+<span class="px-space-sm py-0.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold" id="preview-badge">
+                    Top Rated Pro
+                  </span>
+<span class="text-primary font-label-sm text-label-sm font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">star</span> 5.0 (48 local cleans)
+                  </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="preview-name">Sarah Jenkins</h4>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium" id="preview-territory">Your Dedicated Housekeeper in DuBois &amp; Sandy Township, PA</p>
+<p class="font-body-sm text-body-sm text-outline mt-1">
+                  “Book my team through HousekeeperBooking.com with 100% Reclean Guarantee! Direct line: (814) 952-1964”
+                </p>
+</div>
+<!-- Static QR Placeholder for referral scanning -->
+<div class="shrink-0 flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="w-20 h-20 bg-surface-container flex items-center justify-center rounded-lg">
+<!-- Clean Inline SVG QR Representation -->
+<svg class="w-16 h-16 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14-2h4v2h-4v-2zm-4 0h2v4h-2v-4zm2 4h2v2h-2v-2zm-2 2h2v2h-2v-2zm4 0h2v2h-2v-2zm0-4h2v2h-2v-2zm-4-8h2v2h-2V6zm2 2h2v2h-2V8zm-2 2h2v2h-2v-2z"></path>
+</svg>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-1 font-mono">SCAN TO BOOK</span>
+</div>
+</div>
+<!-- Bottom Assurance Ribbon -->
+<div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">shield_with_heart</span> Background Checked &amp; Insured</span>
+<span class="font-bold text-primary">housekeeperbooking.com/pro/s-jenkins</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1" onclick="alert('Generated Personal Ad Image saved to Downloads (1200x630 PNG)...')" type="button">
+<span class="material-symbols-outlined text-[16px]">image</span> Download Shareable PNG
+            </button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 shadow-sm" onclick="copyPersonalLink()" type="button">
+<span class="material-symbols-outlined text-[16px]">link</span> Copy Referral URL
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Printable Marketing Collateral & Field Materials -->
+<section class="max-w-7xl mx-auto px-gutter-lg w-full mb-space-2xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Offline &amp; Direct Field Outreach</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Printable Local Collateral</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Commercial print-ready files (CMYK, 300 DPI, full-bleed with crop marks) for physical territory building.</p>
+</div>
+<div class="flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">print</span> Pre-sized for VistaPrint &amp; Local DuBois Print Shops
+      </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Item 1: Door Hangers -->
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">meeting_room</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Neighborhood Door Hangers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Die-cut door tags featuring the "Pardon our friendly sparkles" headline, 100% Reclean Guarantee seal, and direct QR code for neighbor bookings.
+          </p>
+<div class="space-y-1 pt-space-xs font-label-sm text-label-sm text-outline">
+<p>• Size: 4.25″ × 11″ with die-cut knob hole</p>
+<p>• Target: Neighbors adjacent to active cleanings</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-primary">PDF (300 DPI Bleed)</span>
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1" onclick="alert('Downloading Door Hanger Print PDF (14.2MB)...')" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> Get PDF
+          </button>
+</div>
+</div>
+<!-- Item 2: Magnetic Vehicle Signs & Yard Signs -->
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">directions_car</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Vehicle Magnets &amp; Yard Signs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Heavy-duty vehicle door magnets and corrugated plastic lawn signs with high-contrast numerals: <strong class="text-primary font-semibold">(814) 952-1964</strong>.
+          </p>
+<div class="space-y-1 pt-space-xs font-label-sm text-label-sm text-outline">
+<p>• Magnet: 24″ × 12″ reflective finish</p>
+<p>• Yard Sign: 18″ × 24″ with H-frame stake spec</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Vector Vector PDF/EPS</span>
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1" onclick="alert('Downloading Sign Templates Pack (28.4MB)...')" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> Get Vectors
+          </button>
+</div>
+</div>
+<!-- Item 3: Pro Business Cards with QR -->
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">contact_mail</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Pro Referral Business Cards</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Matte velvet finish cards customized with your personalized cleaner booking link and instant SMS quote number for repeat residential customers.
+          </p>
+<div class="space-y-1 pt-space-xs font-label-sm text-label-sm text-outline">
+<p>• Size: Standard 3.5″ × 2.0″</p>
+<p>• Double-sided with Reclean Guarantee badge</p>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Print Print Pack</span>
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1" onclick="alert('Generating customized cleaner card layout...')" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span> Generate Card
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Meta & Local Ad Campaign Launcher (Admin Persona Panel) -->
+<section class="max-w-7xl mx-auto px-gutter-lg w-full mb-space-2xl" id="meta-launcher">
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg lg:p-space-xl shadow-md border-l-4 border-primary">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold uppercase tracking-wider">Admin Exclusive</span>
+<span class="font-label-md text-label-md font-semibold text-outline">Meta Ads Marketing API v19.0 Connected</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold mt-1">Direct Meta &amp; Google Local Ad Launcher</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Quick-deploy geo-fenced ad presets to increase client call volume in target dispatch areas.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-outline">Meta Ad Account: #940-281-9941 (Connected)</span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-secondary-container"></span>
+</div>
+</div>
+<!-- Campaign Setup Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Step 1: Target Geo Radius -->
+<div class="space-y-space-sm bg-surface p-space-md rounded-xl">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[20px]">pin_drop</span> 1. Select Geo Territory
+          </div>
+<div class="space-y-space-xs">
+<label class="flex items-center gap-space-sm p-2 rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors">
+<input checked="" class="text-primary focus:ring-primary" name="geo-preset" type="radio"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">DuBois, PA (25-Mile Radius)</span>
+<span class="font-body-sm text-body-sm text-outline">Sandy Twp, Reynoldsville, Falls Creek</span>
+</div>
+</label>
+<label class="flex items-center gap-space-sm p-2 rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="text-primary focus:ring-primary" name="geo-preset" type="radio"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Brookville &amp; Jefferson County</span>
+<span class="font-body-sm text-body-sm text-outline">Corsica, Summerville, Sigel corridor</span>
+</div>
+</label>
+<label class="flex items-center gap-space-sm p-2 rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="text-primary focus:ring-primary" name="geo-preset" type="radio"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Punxsutawney &amp; South Zone</span>
+<span class="font-body-sm text-body-sm text-outline">Big Run, Rossiter, Walston</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Step 2: Target Audience -->
+<div class="space-y-space-sm bg-surface p-space-md rounded-xl">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[20px]">groups</span> 2. Demographics &amp; Buyer Intent
+          </div>
+<div class="space-y-space-xs">
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest cursor-pointer">
+<span class="font-label-md text-label-md text-on-surface">Homeowners (Ages 30-65+)</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">High Intent</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest cursor-pointer">
+<span class="font-label-md text-label-md text-on-surface">Realtors &amp; Property Managers</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Turnovers</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest cursor-pointer">
+<span class="font-label-md text-label-md text-on-surface">Dual-Income Busy Families</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Bi-Weekly</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest cursor-pointer">
+<span class="font-label-md text-label-md text-on-surface">New Move-Ins &amp; Homebuyers</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Heavy Clean</span>
+</label>
+</div>
+</div>
+<!-- Step 3: Daily Budget Preset & Launch -->
+<div class="space-y-space-sm bg-surface p-space-md rounded-xl flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[20px]">payments</span> 3. Daily Test Budget
+            </div>
+<div class="grid grid-cols-3 gap-space-xs">
+<button class="budget-pill p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container font-label-md text-label-md font-bold text-center" onclick="setBudget(10, this)" type="button">
+                $10/day
+              </button>
+<button class="budget-pill p-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold text-center shadow-sm" onclick="setBudget(25, this)" type="button">
+                $25/day
+              </button>
+<button class="budget-pill p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container font-label-md text-label-md font-bold text-center" onclick="setBudget(50, this)" type="button">
+                $50/day
+              </button>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+              Est. Monthly Calls: <strong class="text-on-surface font-semibold">45 - 85 calls</strong><br/>
+              Est. Reach: <strong class="text-on-surface font-semibold">18,500 local impressions</strong>
+</p>
+</div>
+<button class="w-full py-space-sm rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-space-xs transition-all" onclick="deployCampaignNow()" type="button">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Authorize &amp; Launch Meta Ad</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Clean Guarantee Reassurance Footer Strip -->
+<footer class="max-w-7xl mx-auto px-gutter-lg w-full pb-space-2xl text-center">
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm text-left">
+<span class="p-2.5 rounded-full bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</span>
+<div>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">100% Reclean Guarantee Embedded</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">All creatives enforce Central PA's #1 customer satisfaction policy. Inbound dispatch lines monitored 7 days a week.</p>
+</div>
+</div>
+<a class="px-space-lg py-space-sm rounded-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-on-primary font-label-lg text-label-lg font-bold flex items-center gap-space-xs transition-colors shrink-0" href="tel:8149521964">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>Direct Dispatch: (814) 952-1964</span>
+</a>
+</div>
+</footer>
+<!-- Boost Modal Overlay (Vanilla JS driven) -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-gutter" id="boost-modal">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-2xl p-space-xl shadow-2xl space-y-space-md relative">
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant" onclick="closeAdModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span> One-Click Ad Dispatch
+      </div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold" id="modal-ad-title">Boost Ad Creative</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        This asset will be packaged with your pre-configured Facebook Meta ad account and geotargeted to a 25-mile radius around DuBois, PA.
+      </p>
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-2 font-body-sm text-body-sm">
+<div class="flex justify-between">
+<span class="text-outline">Destination URL:</span>
+<span class="font-semibold text-primary">housekeeperbooking.com/book</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Call Trigger:</span>
+<span class="font-semibold text-on-surface">(814) 952-1964</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Campaign Duration:</span>
+<span class="font-semibold text-on-surface">7 Days ($175 Total)</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md font-semibold" onclick="closeAdModal()" type="button">Cancel</button>
+<button class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-bold shadow-md" onclick="confirmBoost()" type="button">Confirm &amp; Launch Meta Ad</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Filter Gallery by Category
+  function filterGallery(category, buttonEl) {
+    const pills = document.querySelectorAll('.filter-pill');
+    pills.forEach(p => {
+      p.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+      p.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+    });
+    buttonEl.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+    buttonEl.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+
+    const cards = document.querySelectorAll('.ad-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-cat') === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Switch between Admin and Cleaner Pro Personas
+  function switchPersona(persona) {
+    const btnAdmin = document.getElementById('tab-admin');
+    const btnPro = document.getElementById('tab-pro');
+    const launcher = document.getElementById('meta-launcher');
+
+    if (persona === 'admin') {
+      btnAdmin.className = 'px-space-md py-space-xs rounded-lg font-label-lg text-label-lg font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-space-xs';
+      btnPro.className = 'px-space-md py-space-xs rounded-lg font-label-lg text-label-lg font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-space-xs';
+      launcher.style.display = 'block';
+    } else {
+      btnPro.className = 'px-space-md py-space-xs rounded-lg font-label-lg text-label-lg font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-space-xs';
+      btnAdmin.className = 'px-space-md py-space-xs rounded-lg font-label-lg text-label-lg font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-space-xs';
+      launcher.style.display = 'none';
+      alert('Switched to Cleaner Pro view: Wage data hidden, personal referral tools prioritized.');
+    }
+  }
+
+  // Dynamic Live Ad Preview updates
+  function updateLiveAdPreview() {
+    const name = document.getElementById('pro-name-input').value.trim() || 'Cleaner Pro';
+    const territory = document.getElementById('pro-territory-select').value;
+    
+    document.getElementById('preview-name').textContent = name;
+    document.getElementById('preview-territory').textContent = 'Your Dedicated Housekeeper in ' + territory;
+  }
+
+  function setBadgeStyle(badgeText) {
+    document.getElementById('preview-badge').textContent = badgeText;
+    const buttons = document.querySelectorAll('.badge-btn');
+    buttons.forEach(b => {
+      b.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+      b.classList.add('bg-surface-container', 'text-on-surface-variant');
+    });
+    event.currentTarget.classList.add('bg-secondary-container', 'text-on-secondary-container');
+    event.currentTarget.classList.remove('bg-surface-container', 'text-on-surface-variant');
+  }
+
+  // Copy helpers
+  function copyText(elementId, btn) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span> Copied!';
+      setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+    });
+  }
+
+  function copyPersonalLink() {
+    const name = document.getElementById('pro-name-input').value.trim().toLowerCase().replace(/\s+/g, '-');
+    const url = 'https://housekeeperbooking.com/pro/' + (name || 'referral') + '?ref=direct-ad';
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Referral URL copied to clipboard:\n' + url);
+    });
+  }
+
+  function shareNeighborhood(platform) {
+    const name = document.getElementById('pro-name-input').value.trim();
+    alert('Opening pre-approved ' + platform + ' template for ' + name + ' in DuBois, PA area...');
+  }
+
+  function shareToStory() {
+    alert('Transferred 9:16 video creative to connected mobile app / story queue.');
+  }
+
+  // Budget preset selection
+  function setBudget(amount, btn) {
+    const buttons = document.querySelectorAll('.budget-pill');
+    buttons.forEach(b => {
+      b.className = 'budget-pill p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container font-label-md text-label-md font-bold text-center';
+    });
+    btn.className = 'budget-pill p-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold text-center shadow-sm';
+  }
+
+  function deployCampaignNow() {
+    alert('Success! Meta Ad campaign configured and submitted for review. Live dispatch updates will trigger via Twilio.');
+  }
+
+  // Boost Modal Control
+  function launchAdModal(adName) {
+    document.getElementById('modal-ad-title').textContent = 'Boost ' + adName;
+    document.getElementById('boost-modal').classList.remove('hidden');
+  }
+
+  function closeAdModal() {
+    document.getElementById('boost-modal').classList.add('hidden');
+  }
+
+  function confirmBoost() {
+    closeAdModal();
+    alert('Campaign boosted successfully! Tracking metrics updated.');
+  }
+</script></main></div></body></html>

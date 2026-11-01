@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-bright":"#f9faf8","inverse-primary":"#83d6c2","primary":"#005447","on-tertiary":"#ffffff","error-container":"#ffdad6","secondary-container":"#c2e9c9","inverse-on-surface":"#f0f1ef","outline-variant":"#bec9c4","surface-container-lowest":"#ffffff","surface-tint":"#006b5b","outline":"#6e7976","on-secondary":"#ffffff","surface-container":"#edeeec","on-secondary-container":"#486a51","on-error-container":"#93000a","surface":"#f9faf8","surface-dim":"#d9dad8","primary-container":"#086e5e","secondary":"#43664d","tertiary-fixed":"#d5e5ef","on-surface-variant":"#3e4946","error":"#ba1a1a","on-primary-container":"#99edd9","secondary-fixed":"#c5eccc","on-secondary-fixed-variant":"#2c4e36","on-tertiary-container":"#d0e0ea","on-secondary-fixed":"#00210e","on-tertiary-fixed":"#0e1d25","on-primary":"#ffffff","inverse-surface":"#2e3130","surface-container-low":"#f3f4f2","surface-container-high":"#e7e8e6","surface-variant":"#e1e3e1","on-error":"#ffffff","on-primary-fixed":"#00201a","on-tertiary-fixed-variant":"#3a4951","tertiary-container":"#54646c","surface-container-highest":"#e1e3e1","on-surface":"#191c1b","primary-fixed":"#9ff2de","tertiary-fixed-dim":"#b9c9d3","background":"#f9faf8","secondary-fixed-dim":"#aad0b1","on-background":"#191c1b","tertiary":"#3d4c54","primary-fixed-dim":"#83d6c2","on-primary-fixed-variant":"#005144"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-lg":"2rem","margin-md":"2.5rem","margin":"1.25rem","gutter-sm":"1rem","space-lg":"1.5rem","space-xl":"2.5rem","space-md":"1rem","gutter":"1.5rem","space-xs":"0.25rem","space-2xl":"4rem","space-sm":"0.5rem","margin-lg":"4rem"},fontFamily:{"headline-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"]},fontSize:{"headline-sm":["22px",{lineHeight:"30px",letterSpacing:"0em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-md":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-lg":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"display-lg":["56px",{lineHeight:"64px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.05em",fontWeight:"700"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"400"}],"title-lg":["18px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"600"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="p-space-lg flex flex-col gap-space-md"><div class="flex items-center gap-space-sm pb-space-sm"><div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[24px]">cleaning_services</span></div><div><h1 class="font-title-lg text-title-lg text-primary tracking-tight font-bold leading-none">HKB ADMIN HQ</h1><p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-space-xs">Tri-County Dispatch</p></div></div><nav class="flex flex-col gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider px-space-sm">Core Dispatch &amp; Ops</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="operations-command" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">Operations Command</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="schedule-and-dispatch-hub" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="font-label-lg text-label-lg">Schedule &amp; Dispatch Hub</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multi-pro-and-crew-dispatch" href="#"><span class="material-symbols-outlined text-[20px]">groups_2</span><span class="font-label-lg text-label-lg">Multi-Pro &amp; Crew Dispatch</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="master-schedule" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span class="font-label-lg text-label-lg">Master Schedule</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="cleaner-roster" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-lg text-label-lg">Cleaner Roster</span></a></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider px-space-sm">Clients &amp; Bookings</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="customer-directory" href="#"><span class="material-symbols-outlined text-[20px]">contacts</span><span class="font-label-lg text-label-lg">Customer Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bookings-and-inbound-leads" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="font-label-lg text-label-lg">Bookings &amp; Inbound Leads</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="services-and-territory-config" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-lg text-label-lg">Services &amp; Territory Config</span></a></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider px-space-sm">Staff &amp; Recruiting</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="recruit-and-onboarding" href="#"><span class="material-symbols-outlined text-[20px]">how_to_reg</span><span class="font-label-lg text-label-lg">Recruit &amp; Onboarding</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="applicant-tracker" href="#"><span class="material-symbols-outlined text-[20px]">person_search</span><span class="font-label-lg text-label-lg">Applicant Tracker</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="staff-communications-hub" href="#"><span class="material-symbols-outlined text-[20px]">forum</span><span class="font-label-lg text-label-lg">Staff Communications Hub</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="message-monitoring-and-audit" href="#"><span class="material-symbols-outlined text-[20px]">policy</span><span class="font-label-lg text-label-lg">Message Monitoring &amp; Audit</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="staff-lottery-and-rewards" href="#"><span class="material-symbols-outlined text-[20px]">military_tech</span><span class="font-label-lg text-label-lg">Staff Lottery &amp; Rewards</span></a></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider px-space-sm">Finance &amp; Growth</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="payments-and-gateway" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-label-lg text-label-lg">Payments &amp; Gateway</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="tax-and-withholding-tracker" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-label-lg text-label-lg">Tax &amp; Withholding Tracker</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="marketing-and-ad-creatives" href="#"><span class="material-symbols-outlined text-[20px]">campaign</span><span class="font-label-lg text-label-lg">Marketing &amp; Ad Creatives</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="sms-and-twilio-campaigns" href="#"><span class="material-symbols-outlined text-[20px]">sms</span><span class="font-label-lg text-label-lg">SMS &amp; Twilio Campaigns</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="web-traffic-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="font-label-lg text-label-lg">Web Traffic &amp; Analytics</span></a></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider px-space-sm">System</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="navigation-directory" href="#"><span class="material-symbols-outlined text-[20px]">alt_route</span><span class="font-label-lg text-label-lg">Navigation Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="sign-out-lock" href="#"><span class="material-symbols-outlined text-[20px]">lock</span><span class="font-label-lg text-label-lg">Sign Out / Lock</span></a></div></nav></div><div class="p-space-md m-space-md bg-surface-container-low rounded-xl flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Dispatch Core Online</span><span class="font-label-sm text-label-sm text-primary font-bold">v3.4.1</span></div><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-on-secondary-container bg-secondary-container px-space-xs py-0.5 rounded-full font-medium">99.98% uptime</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-gutter flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg flex-1"><div class="hidden xl:block"><div><span class="font-title-md text-title-md text-on-surface font-bold">HousekeeperBooking.com</span></div><p class="font-label-sm text-label-sm text-secondary font-medium">DuBois • Punxsy • Brookville • Reynoldsville</p></div><div class="relative flex-1 max-w-lg"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full pl-10 pr-space-md py-2 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search analytics, traffic, rewards, logs..." type="text"/></div></div><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs px-space-md py-2 bg-surface-container-low text-primary hover:bg-secondary-container hover:text-on-secondary-container rounded-full font-label-lg text-label-lg font-semibold transition-colors" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">call</span><span>(814) 952-1964</span></a><div class="flex items-center gap-space-xs"><button class="relative p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[22px]">chat</span><span class="absolute top-1 right-1 px-1.5 py-0.2 bg-primary-container text-on-primary-container font-label-sm text-label-sm rounded-full font-bold leading-tight">4</span></button><button class="relative p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 px-1.5 py-0.2 bg-error text-on-error font-label-sm text-label-sm rounded-full font-bold leading-tight">3</span></button></div><div class="flex items-center gap-space-sm pl-space-sm"><div class="text-right hidden sm:block"><div class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">HQ Admin</div><div class="flex items-center justify-end gap-space-xs mt-0.5"><span class="font-label-sm text-label-sm text-on-surface-variant">Tri-County HQ</span><span class="font-label-sm text-label-sm text-primary-container bg-surface-container px-1.5 py-0.5 rounded-full font-medium">Dispatch Ops • Active</span></div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 px-gutter pb-space-2xl bg-surface"><div class="flex flex-col w-full">
+<!-- Top Viewport Control & Context Bar -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<!-- Breadcrumb & System Badges -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary transition-colors cursor-pointer">HQ Console</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Finance &amp; Growth</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Web Traffic &amp; Analytics</span>
+</nav>
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm font-semibold tracking-wide">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          REALTIME TELEMETRY LIVE
+        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary">share_location</span>
+          PA DISTRICT 09 GEO-FENCE
+        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+          GA4 &amp; 10DLC SYNCED
+        </span>
+</div>
+</div>
+<!-- Title & Action Command Area -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="max-w-2xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Web Traffic &amp; Campaign Analytics</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Real-time visitor telemetry, inbound conversion funnels, regional traffic source attribution across DuBois, Punxsutawney, Brookville, and Reynoldsville, and ad campaign attribution.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm shrink-0">
+<!-- Date Range Filter -->
+<button class="inline-flex items-center gap-2 px-space-md py-2.5 bg-surface-container-lowest text-on-surface rounded-lg font-label-lg text-label-lg font-medium shadow-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span>
+<span>Last 30 Days: Oct 1 - Oct 30</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant ml-1">expand_more</span>
+</button>
+<!-- Export Action -->
+<button class="inline-flex items-center gap-2 px-space-md py-2.5 bg-surface-container-lowest text-on-surface rounded-lg font-label-lg text-label-lg font-medium shadow-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">ios_share</span>
+<span>Export CSV / PDF</span>
+</button>
+<!-- New Campaign Action -->
+<button class="inline-flex items-center gap-2 px-space-lg py-2.5 bg-primary-container text-on-primary-container hover:bg-primary rounded-lg font-label-lg text-label-lg font-semibold shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Add UTM Campaign</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Top 4 KPI Metric Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter mb-space-xl">
+<!-- Card 1: Unique Visitors -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Unique Visitors (30D)</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">14,820</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-bold bg-secondary-container px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+            +18.4%
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">9,410 Organic • 5,410 Paid / Referral</p>
+</div>
+</div>
+<!-- Card 2: Conversion Rate -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Booking Conversion</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">touch_app</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">6.84%</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-bold bg-secondary-container px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+            +1.2% benchmark
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">1,014 bookings initiated from 14.8k visits</p>
+</div>
+</div>
+<!-- Card 3: Phone Inbound -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Phone Dial Clicks</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">phone_in_talk</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">382 Calls</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-primary font-bold bg-secondary-container px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+            +14.6% vel.
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Avg 12.7 calls / day via (814) 952-1964</p>
+</div>
+</div>
+<!-- Card 4: Top Territory -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between transition-transform hover:-translate-y-0.5">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Top Converting Territory</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">distance</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md font-bold text-on-surface truncate">DuBois (15801)</span>
+<span class="inline-flex items-center font-label-sm text-label-sm text-on-secondary-container font-semibold bg-secondary-container px-2 py-0.5 rounded-full">
+            42.8%
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs truncate">Punxsy 28.4% • Brookville 16.2% • Reyn. 12.6%</p>
+</div>
+</div>
+</div>
+<!-- Main Content Mosaic: 2/3 Main Column + 1/3 Intelligence Column -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT / MAIN COLUMN (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- 1. Interactive Traffic Velocity Chart Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h2 class="font-title-lg text-title-lg font-bold text-on-surface">Traffic &amp; Visitor Velocity</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">30-Day continuous telemetry across all digital ingress nodes</p>
+</div>
+<!-- Chart Segmented Controls -->
+<div class="inline-flex p-1 bg-surface-container-low rounded-lg gap-1">
+<button class="px-3 py-1.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-sm transition-all" id="btn-daily-visitors">Daily Visitors</button>
+<button class="px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-all" id="btn-conversion-rate">Conversion Rate</button>
+<button class="px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-all" id="btn-phone-clicks">Phone Click-to-Calls</button>
+</div>
+</div>
+<!-- Custom SVG Chart Canvas -->
+<div class="relative w-full h-72">
+<!-- Background Target Horizontal Ticks -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-40">
+<div class="flex items-center justify-between w-full border-b border-surface-container border-dashed"><span class="font-label-sm text-label-sm text-on-surface-variant">900</span></div>
+<div class="flex items-center justify-between w-full border-b border-surface-container border-dashed"><span class="font-label-sm text-label-sm text-on-surface-variant">675</span></div>
+<div class="flex items-center justify-between w-full border-b border-surface-container border-dashed"><span class="font-label-sm text-label-sm text-on-surface-variant">450</span></div>
+<div class="flex items-center justify-between w-full border-b border-surface-container border-dashed"><span class="font-label-sm text-label-sm text-on-surface-variant">225</span></div>
+<div class="flex items-center justify-between w-full"><span class="font-label-sm text-label-sm text-on-surface-variant">0</span></div>
+</div>
+<!-- Scaled Vector Path -->
+<svg class="w-full h-full relative z-10 overflow-visible" preserveaspectratio="none" viewbox="0 0 900 240">
+<defs>
+<lineargradient id="primaryGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#086e5e" stop-opacity="0.32"></stop>
+<stop offset="60%" stop-color="#086e5e" stop-opacity="0.08"></stop>
+<stop offset="100%" stop-color="#086e5e" stop-opacity="0.00"></stop>
+</lineargradient>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="4" flood-color="#086e5e" flood-opacity="0.15" stddeviation="4"></fedropshadow>
+</filter>
+</defs>
+<!-- Gradient Area Fill -->
+<path d="M 0,175 
+                     C 30,170 50,150 90,140 
+                     C 130,130 160,165 210,130 
+                     C 250,105 280,75 320,110 
+                     C 370,150 410,120 460,95 
+                     C 510,70 540,115 590,85 
+                     C 630,60 670,45 720,25 
+                     C 760,10 790,65 840,40 
+                     C 870,25 890,30 900,35
+                     L 900,240 L 0,240 Z" fill="url(#primaryGradient)"></path>
+<!-- Highlight Stroke -->
+<path d="M 0,175 
+                     C 30,170 50,150 90,140 
+                     C 130,130 160,165 210,130 
+                     C 250,105 280,75 320,110 
+                     C 370,150 410,120 460,95 
+                     C 510,70 540,115 590,85 
+                     C 630,60 670,45 720,25 
+                     C 760,10 790,65 840,40 
+                     C 870,25 890,30 900,35" fill="none" filter="url(#glow)" stroke="#086e5e" stroke-linecap="round" stroke-width="3"></path>
+<!-- High Point Annotation Marker (Peak Day: Oct 24) -->
+<g transform="translate(720, 25)">
+<circle fill="#ffffff" r="6" stroke="#086e5e" stroke-width="3"></circle>
+<circle class="animate-ping" fill="#086e5e" opacity="0.18" r="12"></circle>
+</g>
+</svg>
+<!-- Floating Marker Overlay -->
+<div class="absolute top-2 left-[75%] -translate-x-1/2 bg-on-surface text-surface-bright px-3 py-1.5 rounded-md font-label-sm text-label-sm shadow-lg pointer-events-none z-20 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span>Oct 24 Peak: <strong>842 visits</strong></span>
+</div>
+</div>
+<!-- Horizontal Dates Marker -->
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm pt-space-sm border-t border-surface-container">
+<span>Oct 1</span>
+<span>Oct 6</span>
+<span>Oct 11</span>
+<span>Oct 16</span>
+<span>Oct 21</span>
+<span class="text-primary font-bold">Oct 24 (Campaign Spike)</span>
+<span>Oct 30</span>
+</div>
+<!-- Summary Stat Badges Under Chart -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mt-space-lg pt-space-md bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">wb_sunny</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Weekday Flow</p>
+<p class="font-title-md text-title-md font-bold text-on-surface">412 visits/day</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary">trending_up</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Weekend Surge</p>
+<p class="font-title-md text-title-md font-bold text-on-surface">685 visits/day</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary-container">campaign</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Top Ad Blast Peak</p>
+<p class="font-title-md text-title-md font-bold text-on-surface">842 visits <span class="font-label-sm text-label-sm text-primary font-medium">(Oct 24)</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Top Traffic Acquisition Channels & Source Breakdown -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="font-title-lg text-title-lg font-bold text-on-surface">Acquisition Channels &amp; Source Attribution</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">First-touch UTM tracking cross-referenced with Twilio incoming calls</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container px-2.5 py-1 rounded-full font-semibold">100% Attribution Coverage</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider border-b border-surface-container">
+<th class="pb-3 font-semibold">Ingress Channel &amp; Source</th>
+<th class="pb-3 font-semibold text-right">Visitors</th>
+<th class="pb-3 font-semibold text-right">Traffic Share</th>
+<th class="pb-3 font-semibold text-right">Bookings</th>
+<th class="pb-3 font-semibold text-right">Conv. Rate</th>
+<th class="pb-3 font-semibold text-center">Velocity</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-sm font-body-sm">
+<!-- Channel 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 pr-4">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Google Local Organic</p>
+<p class="text-on-surface-variant text-label-sm">DuBois / Punxsy house cleaning search intent</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-right font-semibold text-on-surface">5,240</td>
+<td class="py-3.5 text-right text-on-surface-variant">35.4%</td>
+<td class="py-3.5 text-right font-semibold text-primary">248</td>
+<td class="py-3.5 text-right font-bold text-on-surface">4.73%</td>
+<td class="py-3.5 text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full text-label-sm font-semibold bg-surface-container text-on-surface-variant">+4.2%</span>
+</td>
+</tr>
+<!-- Channel 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 pr-4">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">ads_click</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Google Search Ads (PPC)</p>
+<p class="text-on-surface-variant text-label-sm">PA-09 Targeted Keywords &amp; Geo-Intent</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-right font-semibold text-on-surface">3,820</td>
+<td class="py-3.5 text-right text-on-surface-variant">25.8%</td>
+<td class="py-3.5 text-right font-semibold text-primary">312</td>
+<td class="py-3.5 text-right font-bold text-on-surface">8.17%</td>
+<td class="py-3.5 text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full text-label-sm font-semibold bg-secondary-container text-on-secondary-container">+12.8%</span>
+</td>
+</tr>
+<!-- Channel 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors bg-secondary-container/20">
+<td class="py-3.5 pr-4">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="font-label-lg text-label-lg font-bold text-primary">Direct Mail &amp; Pro QR Leave-Behinds</p>
+<span class="px-1.5 py-0.2 text-[10px] uppercase font-bold tracking-wider bg-primary text-on-primary rounded">Top Conv</span>
+</div>
+<p class="text-on-surface-variant text-label-sm">Elena Vance &amp; Pro Staff Doorhangers</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-right font-semibold text-on-surface">2,150</td>
+<td class="py-3.5 text-right text-on-surface-variant">14.5%</td>
+<td class="py-3.5 text-right font-semibold text-primary">224</td>
+<td class="py-3.5 text-right font-bold text-primary text-title-md">10.42%</td>
+<td class="py-3.5 text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full text-label-sm font-bold bg-secondary-container text-on-secondary-container">+22.1%</span>
+</td>
+</tr>
+<!-- Channel 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 pr-4">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Facebook &amp; IG Sponsored</p>
+<p class="text-on-surface-variant text-label-sm">Local Residential Before/After Carousels</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-right font-semibold text-on-surface">1,890</td>
+<td class="py-3.5 text-right text-on-surface-variant">12.8%</td>
+<td class="py-3.5 text-right font-semibold text-primary">118</td>
+<td class="py-3.5 text-right font-bold text-on-surface">6.24%</td>
+<td class="py-3.5 text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full text-label-sm font-semibold bg-surface-container text-on-surface-variant">+1.8%</span>
+</td>
+</tr>
+<!-- Channel 5 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 pr-4">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Direct &amp; Phone Inbound Word-of-Mouth</p>
+<p class="text-on-surface-variant text-label-sm">Returning Clients &amp; Direct hotline visits</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 text-right font-semibold text-on-surface">1,720</td>
+<td class="py-3.5 text-right text-on-surface-variant">11.5%</td>
+<td class="py-3.5 text-right font-semibold text-primary">112</td>
+<td class="py-3.5 text-right font-bold text-on-surface">6.51%</td>
+<td class="py-3.5 text-center">
+<span class="inline-flex px-2 py-0.5 rounded-full text-label-sm font-semibold bg-surface-container text-on-surface-variant">+6.4%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 3. Top Landing Pages & Funnel Drop-off -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="font-title-lg text-title-lg font-bold text-on-surface">Top Landing Pages &amp; Performance</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Page experience tracking, instant calculator completions, and applicant intake</p>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold hover:underline flex items-center gap-1">
+<span>View Full Path Analysis</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Page 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center font-label-md font-bold text-primary">/</span>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg font-bold text-on-surface truncate">Home &amp; Instant Bed/Bath Estimator</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Primary booking wizard entry point</p>
+</div>
+</div>
+<div class="flex items-center gap-6 shrink-0 text-right">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface">7,420</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">48.0% visits</span>
+</div>
+<div class="w-24">
+<span class="font-label-lg text-label-lg font-bold text-primary">7.2%</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Conversion</span>
+</div>
+</div>
+</div>
+<!-- Page 2 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center font-label-md font-bold text-primary">/c</span>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg font-bold text-on-surface truncate">/cleaner/elena-vance (Pro Profile &amp; QR Direct)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Dedicated Pro bio, testimonials &amp; direct schedule</p>
+</div>
+</div>
+<div class="flex items-center gap-6 shrink-0 text-right">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface">2,110</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">14.2% visits</span>
+</div>
+<div class="w-24">
+<span class="font-label-lg text-label-lg font-bold text-secondary">11.8%</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Conversion</span>
+</div>
+</div>
+</div>
+<!-- Page 3 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center font-label-md font-bold text-primary">/q</span>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg font-bold text-on-surface truncate">/instant-quote (Bed &amp; Bath Estimator Hub)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Multi-step quote calculator for PA-09</p>
+</div>
+</div>
+<div class="flex items-center gap-6 shrink-0 text-right">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface">2,480</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">16.7% visits</span>
+</div>
+<div class="w-24">
+<span class="font-label-lg text-label-lg font-bold text-primary">8.4%</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Conversion</span>
+</div>
+</div>
+</div>
+<!-- Page 4 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center font-label-md font-bold text-primary">%</span>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg font-bold text-on-surface truncate">/coupons.html (Fall Specials &amp; Promos)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Digital discount vouchers &amp; first-clean codes</p>
+</div>
+</div>
+<div class="flex items-center gap-6 shrink-0 text-right">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface">1,640</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">11.1% visits</span>
+</div>
+<div class="w-24">
+<span class="font-label-lg text-label-lg font-bold text-primary">9.1%</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Conversion</span>
+</div>
+</div>
+</div>
+<!-- Page 5 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-8 h-8 rounded bg-surface-container-lowest flex items-center justify-center font-label-md font-bold text-primary">/r</span>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg font-bold text-on-surface truncate">/recruit.html (Housekeeper Careers &amp; Apply)</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Recruitment landing page for local cleaner applicants</p>
+</div>
+</div>
+<div class="flex items-center gap-6 shrink-0 text-right">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface">1,170</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">7.9% visits</span>
+</div>
+<div class="w-24">
+<span class="font-label-lg text-label-lg font-bold text-secondary">14.5%</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Apply Rate</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT / INTELLIGENCE COLUMN (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- 1. Real-Time Activity Pulse (Live Stream) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<h3 class="font-title-md text-title-md font-bold text-on-surface">Live Visitors Now</h3>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">18 Active</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/60 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">visibility</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-bold text-on-surface truncate">DuBois (15801)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Viewing Elena Vance Cleaner Profile</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium">2m ago • Referral QR</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/60 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary-container mt-0.5">calculate</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-bold text-on-surface truncate">Punxsutawney (15767)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calculating 3 Bed / 2 Bath Instant Quote</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium">4m ago • Google Organic</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/60 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5">call</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-bold text-on-surface truncate">Brookville (15825)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clicked Call Hotline (814) 952-1964</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium">7m ago • Mobile Header CTA</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/60 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5">shopping_cart_checkout</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-bold text-on-surface truncate">Reynoldsville (15851)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Applied Coupon <span class="font-bold text-primary">CLEAN15</span> on checkout</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium">12m ago • Facebook Sponsored</span>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-low/60 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5">badge</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-bold text-on-surface truncate">DuBois (15801)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Submitted Pro Application with resume</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium">18m ago • Careers Intake</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Regional Geofence Breakdown (Tri-County PA) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-md text-title-md font-bold text-on-surface">Regional Territory Reach</h3>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">map</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Traffic density cross-verified with PA District 09 postal nodes</p>
+<div class="space-y-4">
+<!-- DuBois -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="font-bold text-on-surface">DuBois &amp; Sandy Twp (15801)</span>
+<span class="text-primary font-bold">42.8% (6,343)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42.8%"></div>
+</div>
+</div>
+<!-- Punxsy -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="font-bold text-on-surface">Punxsutawney &amp; Young (15767)</span>
+<span class="text-primary font-bold">28.4% (4,208)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 28.4%"></div>
+</div>
+</div>
+<!-- Brookville -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="font-bold text-on-surface">Brookville &amp; Rose Twp (15825)</span>
+<span class="text-primary font-bold">16.2% (2,400)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 16.2%"></div>
+</div>
+</div>
+<!-- Reynoldsville -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="font-bold text-on-surface">Reynoldsville &amp; Winslow (15851)</span>
+<span class="text-primary font-bold">12.6% (1,869)</span>
+</div>
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 12.6%"></div>
+</div>
+</div>
+</div>
+<div class="mt-space-md p-2.5 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">100% PA District 09 Verified IP Range</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+</div>
+<!-- 3. Marketing ROI & CAC Summary Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-md text-title-md font-bold text-on-surface">Marketing ROI &amp; CAC</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">
+            9.1x ROAS
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Blended metrics across paid Google PPC &amp; Meta local ad campaigns</p>
+<div class="grid grid-cols-2 gap-space-sm mb-space-md">
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Monthly Ad Spend</span>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface mt-0.5">$380.00</p>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Under Budget ($400)</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Generated Bookings</span>
+<p class="font-headline-sm text-headline-sm font-bold text-primary mt-0.5">$3,450.00</p>
+<span class="font-label-sm text-label-sm text-primary font-medium">+26% MoM</span>
+</div>
+</div>
+<div class="p-3 bg-secondary-container/40 rounded-lg flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Blended CAC (Cost / Acquired Client)</span>
+<p class="font-title-lg text-title-lg font-bold text-primary mt-0.5">$7.14 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">/ client</span></p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-surface-container-lowest px-2 py-1 rounded">Industry: $24.50</span>
+</div>
+</div>
+<!-- Micro Illustration Badge -->
+<div class="mt-space-md flex items-center gap-space-sm pt-space-sm border-t border-surface-container">
+<span class="material-symbols-outlined text-[20px] text-primary">auto_graph</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tri-County organic rank maintains #1 position for 14 regional cleaning queries</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple tab toggle visual for the Traffic Velocity Chart
+  const buttons = [
+    document.getElementById('btn-daily-visitors'),
+    document.getElementById('btn-conversion-rate'),
+    document.getElementById('btn-phone-clicks')
+  ];
+
+  buttons.forEach(btn => {
+    if(!btn) return;
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.className = 'px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium transition-all';
+      });
+      btn.className = 'px-3 py-1.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold shadow-sm transition-all';
+    });
+  });
+</script></main></div></body></html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#3e4946", "surface-container-low": "#f3f4f2", "tertiary-fixed-dim": "#b9c9d3", "on-tertiary": "#ffffff", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#3a4951", "surface-variant": "#e1e3e1", "primary": "#005447", "on-background": "#191c1b", "secondary": "#43664d", "tertiary": "#3d4c54", "tertiary-container": "#54646c", "on-primary-fixed-variant": "#005144", "on-primary-container": "#99edd9", "secondary-fixed-dim": "#aad0b1", "surface-container-lowest": "#ffffff", "inverse-surface": "#2e3130", "surface-tint": "#006b5b", "primary-fixed": "#9ff2de", "secondary-container": "#c2e9c9", "surface-bright": "#f9faf8", "on-secondary-container": "#486a51", "secondary-fixed": "#c5eccc", "on-tertiary-fixed": "#0e1d25", "outline": "#6e7976", "background": "#f9faf8", "primary-container": "#086e5e", "surface-dim": "#d9dad8", "on-tertiary-container": "#d0e0ea", "surface": "#f9faf8", "on-surface": "#191c1b", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#2c4e36", "on-primary": "#ffffff", "tertiary-fixed": "#d5e5ef", "surface-container": "#edeeec", "surface-container-highest": "#e1e3e1", "primary-fixed-dim": "#83d6c2", "inverse-on-surface": "#f0f1ef", "surface-container-high": "#e7e8e6", "on-secondary-fixed": "#00210e", "on-primary-fixed": "#00201a", "outline-variant": "#bec9c4", "on-secondary": "#ffffff", "inverse-primary": "#83d6c2", "error-container": "#ffdad6", "error": "#ba1a1a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "margin-md": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "1rem", "margin-lg": "4rem", "margin": "1.25rem", "space-2xl": "4rem", "gutter-lg": "2rem", "gutter": "1.5rem", "gutter-sm": "1rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(47,62,70,0.04)]"><div class="h-16 w-full px-gutter-lg flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md min-w-[280px]"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vl-dDGHfGp7ZnzJSlGlP2iF1Mep2ECV2lgVsmvlaGwyCrX04rAfUWeDnZ9ljhjGFCvrxkRORACSv1LvuDR2rk2RfIMtVew8CQr8P1WMp0FHHbv1-IHqRCEF593IIO0bk-UeoY76-xn3gZca46uwfWzSsBrhrWh-M_eXsNQnS2TUZl_YY9hrQFo6Fz_zD_8BGHA4iIvFh_mGW84sbcofu5CYuLl1lxZXDzWXh4gwo73AHCrFEM0AgOxNpc"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-title-md text-title-md text-on-surface tracking-tight font-bold">HousekeeperBooking.com</span><span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">HQ</span></div><span class="font-label-md text-label-md text-on-surface-variant">DuBois • Punxsy • Brookville • Reynoldsville</span></div></div><div class="flex-1 max-w-lg hidden md:block"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">search</span><input class="w-full pl-10 pr-4 py-2 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#086e5e] transition-all" placeholder="Quick search clients, bookings, pros, or addresses..." type="search"/></div></div><div class="flex items-center gap-space-md"><a class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/40 text-primary-container font-label-lg text-label-lg hover:bg-secondary-container transition-colors" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">phone_in_talk</span><span class="font-semibold">(814) 952-1964</span><span class="font-label-sm text-label-sm bg-primary-container text-on-primary px-1.5 py-0.2 rounded-full uppercase">Dispatch</span></a><button aria-label="Messages" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">chat</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-primary-container text-on-primary font-label-sm text-[10px] rounded-full font-bold">4</span></button><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-error text-on-error font-label-sm text-[10px] rounded-full font-bold">3</span></button><div class="flex items-center gap-space-sm pl-2"><div class="hidden sm:flex flex-col text-right"><span class="font-title-md text-title-md text-on-surface leading-tight font-bold">Tri-County HQ</span><div class="flex items-center justify-end gap-1.5"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-primary-container font-semibold">Dispatch Ops • Active</span></div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-72 bg-surface-container-lowest z-40 overflow-y-auto shadow-[0_1px_8px_rgba(47,62,70,0.03)] py-space-md flex flex-col justify-between"><nav class="px-space-md space-y-space-md flex-1" data-active-classes="bg-primary-container text-on-primary font-bold shadow-[0_2px_8px_rgba(8,110,94,0.18)]"><div class="space-y-1"><div class="px-3 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold">Core Dispatch &amp; Ops</div><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="operations-command" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span>Operations Command</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="schedule-dispatch-hub" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span>Schedule &amp; Dispatch Hub</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="multi-pro-crew-dispatch" href="#"><span class="material-symbols-outlined text-[20px]">group_work</span><span>Multi-Pro &amp; Crew Dispatch</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="master-schedule" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Master Schedule</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="cleaner-roster" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Cleaner Roster</span></a></div><div class="space-y-1"><div class="px-3 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold">Clients &amp; Bookings</div><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="customer-directory" href="#"><span class="material-symbols-outlined text-[20px]">contacts</span><span>Customer Directory</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bookings-inbound-leads" href="#"><span class="material-symbols-outlined text-[20px]">book_online</span><span>Bookings &amp; Inbound Leads</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="services-territory-config" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span>Services &amp; Territory Config</span></a></div><div class="space-y-1"><div class="px-3 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold">Staff &amp; Recruiting</div><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="recruit-onboarding" href="#"><span class="material-symbols-outlined text-[20px]">person_add</span><span>Recruit &amp; Onboarding</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="applicant-tracker" href="#"><span class="material-symbols-outlined text-[20px]">assignment_ind</span><span>Applicant Tracker</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="staff-communications-hub" href="#"><span class="material-symbols-outlined text-[20px]">forum</span><span>Staff Communications Hub</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="message-monitoring-audit" href="#"><span class="material-symbols-outlined text-[20px]">policy</span><span>Message Monitoring &amp; Audit</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="staff-lottery-rewards" href="#"><span class="material-symbols-outlined text-[20px]">military_tech</span><span>Staff Lottery &amp; Rewards</span></a></div><div class="space-y-1"><div class="px-3 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold">Finance &amp; Growth</div><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="payments-gateway" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span>Payments &amp; Gateway</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="tax-withholding-tracker" href="#"><span class="material-symbols-outlined text-[20px]">account_balance</span><span>Tax &amp; Withholding Tracker</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="marketing-ad-creatives" href="#"><span class="material-symbols-outlined text-[20px]">campaign</span><span>Marketing &amp; Ad Creatives</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="sms-twilio-campaigns" href="#"><span class="material-symbols-outlined text-[20px]">sms</span><span>SMS &amp; Twilio Campaigns</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="web-traffic-analytics" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Web Traffic &amp; Analytics</span></a></div><div class="space-y-1 pt-2"><div class="px-3 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold">System</div><a aria-current="page" class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors bg-primary-container text-on-primary font-bold shadow-[0_2px_8px_rgba(8,110,94,0.18)]" data-path="navigation-directory" href="#"><span class="material-symbols-outlined text-[20px]">apps</span><span>Navigation Directory</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg font-body-sm text-body-sm text-error hover:bg-error-container hover:text-on-error-container transition-colors" data-path="admin-lock-screen" href="#"><span class="material-symbols-outlined text-[20px]">lock</span><span>Sign Out / Lock</span></a></div></nav><div class="px-space-md pt-space-md"><div class="p-3 rounded-lg bg-surface-container-low text-center"><div class="font-label-sm text-label-sm text-on-surface-variant">HOUSEKEEPER BOOKING HQ</div><div class="font-label-md text-label-md text-outline">Tri-County Dispatch v4.2</div></div></div></aside><div class="pl-72"><main class="relative pt-16 min-h-screen bg-background w-full px-gutter-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Meta & Title Breadcrumb Cluster -->
+<div class="flex flex-col gap-space-md mb-space-xl">
+<!-- Breadcrumb + Live Status Flag -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">HQ Console</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-outline">System</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="font-bold text-primary">Master Navigation Directory</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider">SYSTEM DIRECTORY V3.2</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/60">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-secondary-container">SYNCHRONIZED REAL-TIME MAPPING</span>
+</div>
+</div>
+</div>
+<!-- Main Title & Operational Actions -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+          Master Navigation Directory
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+          Complete structural registry of 38 operational hubs, field pro workflows, customer touchpoints, and mobile application routes across DuBois, Punxsutawney, Brookville, and Reynoldsville.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container hover:text-primary transition-all" id="exportMapBtn">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export Route Map</span>
+<span class="font-label-sm text-label-sm text-outline px-1.5 py-0.5 rounded bg-surface-container">JSON/CSV</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary transition-all" id="registerRouteBtn">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Register New Route</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Telemetry Overview Bento Banner -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md mb-space-xl">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">terminal</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface leading-none">38</div>
+<div class="font-label-md text-label-md text-outline mt-1">Total System Slugs</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[26px]">hub</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface leading-none">18</div>
+<div class="font-label-md text-label-md text-outline mt-1">Admin Ops Screens</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[26px]">smartphone</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface leading-none">8</div>
+<div class="font-label-md text-label-md text-outline mt-1">Field Pro Apps</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">public</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface leading-none">12</div>
+<div class="font-label-md text-label-md text-outline mt-1">Public &amp; Portal Nodes</div>
+</div>
+</div>
+</div>
+<!-- Interactive Directory Command Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm mb-space-xl flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search Input -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[22px] pointer-events-none">search</span>
+<input class="w-full pl-11 pr-4 py-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#086e5e] transition-all" id="routeSearchInput" placeholder="Search 38 active screens, HTML endpoints, roles, or URL slugs..." type="search"/>
+</div>
+<!-- Sorting -->
+<div class="flex items-center gap-space-sm self-end lg:self-auto">
+<span class="font-label-md text-label-md text-outline whitespace-nowrap">Sort:</span>
+<div class="relative">
+<select class="appearance-none pl-3 pr-8 py-2.5 rounded-lg bg-surface-container-low font-label-lg text-label-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest cursor-pointer font-semibold" id="routeSortSelect">
+<option value="hierarchy">Hierarchy (Default)</option>
+<option value="name">Alphabetical (A-Z)</option>
+<option value="slug">URL Slug</option>
+<option value="access">Access Tier</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Filter Chips Cluster -->
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<button class="filter-chip active flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold transition-all shadow-sm" data-filter="all">
+<span>All Routes</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-lowest/20 text-[10px]">38</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold transition-all" data-filter="admin">
+<span>Admin Operations</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-[10px]">18</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold transition-all" data-filter="pro">
+<span>Field Pro Apps</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-[10px]">8</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold transition-all" data-filter="customer">
+<span>Customer Portals</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-[10px]">7</span>
+</button>
+<button class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold transition-all" data-filter="public">
+<span>Public &amp; Careers</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-[10px]">5</span>
+</button>
+<div class="ml-auto hidden md:flex items-center gap-2 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Click any card to copy slug or open workspace view</span>
+</div>
+</div>
+</div>
+<!-- SECTION 1: CORE DISPATCH & OPS -->
+<section class="directory-section flex flex-col gap-space-md mb-space-xl" data-category="admin">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">1. Core Dispatch &amp; Operations</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central high-velocity operations, multi-cleaner grids, and dispatch matrix control</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant">5 Endpoints</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- Card 1 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold uppercase tracking-wider">Mission Critical</span>
+<span class="font-label-sm text-label-sm text-outline">operations-command-center.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Operations Command Center</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time live call board, dispatch velocity, priority queues, and tri-county territory status monitor.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/operations</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wider">Daily Grid</span>
+<span class="font-label-sm text-label-sm text-outline">schedule-dispatch-hub.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Schedule &amp; Dispatch Hub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Daily job grid, drag-and-drop slots, automated 30-min buffer rules, and road route travel estimators.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/schedule-hub</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Multi-Pro Crew</span>
+<span class="font-label-sm text-label-sm text-outline">multi-pro-dispatch.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Multi-Pro &amp; Crew Dispatch</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2–3 cleaner team assignments for heavy move-in/out transformations and commercial office jobsites.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/crew-dispatch</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Timeline Matrix</span>
+<span class="font-label-sm text-label-sm text-outline">master-schedule.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Master Schedule</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Multi-cleaner parallel timeline matrix across Brookville, DuBois, Punxsutawney, and Reynoldsville.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/master-schedule</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Staff Records</span>
+<span class="font-label-sm text-label-sm text-outline">cleaner-roster.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Cleaner Roster &amp; Field Profiles</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Verified background checks, skill tier badges, reliability rankings, insured vehicle logs, and equipment notes.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/cleaner-roster</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: CLIENTS & BOOKINGS -->
+<section class="directory-section flex flex-col gap-space-md mb-space-xl" data-category="admin">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">contacts</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">2. Clients &amp; Bookings</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Account management, inbound lead qualification, service tier matrix, and regional hub pricing</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant">3 Endpoints</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- Card 1 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">CRM Dossiers</span>
+<span class="font-label-sm text-label-sm text-outline">customers-directory.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Customer Directory &amp; Accounts</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Client dossiers, access codes, pet warnings, preferred cleaner locks, and recurring billing histories.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/customers</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wider">Triage Queue</span>
+<span class="font-label-sm text-label-sm text-outline">bookings-leads.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Bookings &amp; Inbound Leads</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unassigned lead triage, pending instant quotes, phone call leads, and calendar slot confirmations.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/bookings</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Rate Engine</span>
+<span class="font-label-sm text-label-sm text-outline">services-territory.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Services &amp; Territory Configuration</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Labor rates ($25/hr on-job, $4 transit), Light/Medium/Deep scope settings, and 4 PA municipal hub radiuses.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/services-territory</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: STAFF & RECRUITING -->
+<section class="directory-section flex flex-col gap-space-md mb-space-xl" data-category="admin">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">3. Staff &amp; Recruiting Hub</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Applicant funnels, interview automation, audit guards, staff chat, and cleaner gamification</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant">5 Endpoints</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- Card 1 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Intake Funnel</span>
+<span class="font-label-sm text-label-sm text-outline">recruit-onboarding.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Recruit &amp; Onboarding Center</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Candidate intake pipeline, background checks, valid DL driver review, orientation checklists.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/recruit-onboarding</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Kanban Pipeline</span>
+<span class="font-label-sm text-label-sm text-outline">applicant-tracker.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Applicant Tracker Pipeline</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Visual drag-drop candidate kanban board, instant resume viewer, SMS interview confirmation dispatch.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/applicant-tracker</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Internal Comms</span>
+<span class="font-label-sm text-label-sm text-outline">staff-communications.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Staff Communications Hub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1-on-1 direct messaging, team broadcasts, weather delay alerts, wage privacy filter guards.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/staff-comms</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-bold uppercase tracking-wider">Compliance</span>
+<span class="font-label-sm text-label-sm text-outline">message-audit.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Message Monitoring &amp; Audit Center</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Customer-to-cleaner thread inspection, off-platform cash attempt flags, policy violation alerts.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/message-audit</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wider">Gamification</span>
+<span class="font-label-sm text-label-sm text-outline">lottery-admin.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Staff Lottery &amp; Rewards Center</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">5 cleans = 1 ticket reward engine, live monthly sweepstakes, instant PayPal cashout verification.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/lottery-rewards</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: FINANCE & GROWTH -->
+<section class="directory-section flex flex-col gap-space-md mb-space-xl" data-category="admin">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">4. Finance &amp; Growth</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Stripe/PayPal ledger, IRS mileage logs, localized ad campaigns, and Twilio lifecycle SMS</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant">5 Endpoints</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- Card 1 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Merchant Rails</span>
+<span class="font-label-sm text-label-sm text-outline">payments-gateway.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Payments &amp; Gateway</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Stripe pre-authorizations, tip escrow distribution, offline check capture, and automated refunds.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/payments-gateway</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">IRS Compliance</span>
+<span class="font-label-sm text-label-sm text-outline">tax-tracker.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Tax &amp; Withholding Tracker</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1099 contractor document vault, official IRS mileage logs, quarterly local withholding estimations.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/tax-tracker</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wider">Hyper-Local</span>
+<span class="font-label-sm text-label-sm text-outline">marketing-admin.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Marketing &amp; Ad Creative Center</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Print-ready door hangers, localized social creatives, custom pro QR discount cards (10% off).</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/marketing-creatives</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Automations</span>
+<span class="font-label-sm text-label-sm text-outline">twilio-campaigns.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">SMS &amp; Twilio Campaigns</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">10DLC verified lifecycle SMS sequences, transit notification pings, review request triggers.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/sms-twilio</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="route-card p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-bold uppercase tracking-wider">Telemetry</span>
+<span class="font-label-sm text-label-sm text-outline">traffic-analytics.html</span>
+</div>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors">Web Traffic &amp; Analytics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Daily visitor telemetry, postal conversion funnels, heatmaps, live tri-county IP geofencing.</p>
+</div>
+<div class="pt-space-md mt-space-md border-t-0 flex items-center justify-between bg-surface-container-low/50 p-2.5 rounded-lg">
+<code class="font-label-sm text-label-sm text-primary font-mono font-bold">/admin/web-analytics</code>
+<a class="flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:text-primary-container transition-colors" href="#">
+<span>Open Screen</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: FIELD PRO & CUSTOMER PORTALS (Interactive Overview Cards) -->
+<section class="flex flex-col gap-space-md mb-space-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">devices</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">5. Field Pro Workflows &amp; Public Portals</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Decentralized cleaner companion screens and public consumer customer journeys</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container">15 Sub-Routes</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Field Pro Suite Card -->
+<div class="route-card p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden" data-category="pro">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/5 rounded-full pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-lg bg-primary-fixed text-primary font-bold">
+<span class="material-symbols-outlined text-[20px]">engineering</span>
+</span>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-bold">Field Specialist UI</span>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Mobile Field Pro App Suite</h3>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-bold">8 Native Endpoints</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+            Dedicated lightweight progressive mobile web interfaces designed for field cleaners on Route 219, Route 322, and I-80 corridors.
+          </p>
+<!-- Pro App Sub-Routes Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mb-space-md">
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Clock-In Hub</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">/pro/clock-in</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">GPS geofence radius validator</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Daily Schedule</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">/pro/day-grid</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Interactive job sequence checklist</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Customer Lookup</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">/pro/lookup</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Entry codes &amp; pet warning logs</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Quote Generator</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">/pro/quick-quote</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">On-site add-on calculation tool</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1 sm:col-span-2">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Payout Ledger &amp; PayPal Connect</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">/pro/wallet-payout</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Immediate same-day tip dispersal and 1099 balance vault</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3">
+<div class="flex items-center gap-2 text-outline font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>Touch-optimized for Android &amp; iOS</span>
+</div>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-md text-label-md font-bold text-on-surface transition-colors">
+            Launch Simulator
+          </button>
+</div>
+</div>
+<!-- Customer Portal & Public Web Suite Card -->
+<div class="route-card p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden" data-category="customer public">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-secondary/5 rounded-full pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-lg bg-secondary-container text-on-secondary font-bold">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</span>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-bold">Public Web &amp; Client UI</span>
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface">Customer Portal &amp; Public Web Suite</h3>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-bold">7 Client Touchpoints</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+            Customer booking engine, real-time residential quote matrix, promotional voucher hub, and applicant portal.
+          </p>
+<!-- Customer Sub-Routes Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mb-space-md">
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Customer Landing</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">index.html</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">High-converting consumer booking page</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Quote Calculator</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">/book/quote</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Square footage &amp; room matrix</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Coupons &amp; Promos</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">coupons.html</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Active local marketing code manager</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Careers &amp; Hiring</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">recruit.html</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">1-page cleaner intake submission</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1 sm:col-span-2">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">Applicant Login &amp; Status Tracker</span>
+<code class="font-label-sm text-label-sm text-primary font-mono">applicant-login.html</code>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Candidate self-service background verification portal</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3">
+<div class="flex items-center gap-2 text-outline font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">shield_lock</span>
+<span>SSL Secured • Stripe Checkout</span>
+</div>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant font-label-md text-label-md font-bold text-on-surface transition-colors">
+            Preview Public Site
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- High Reliability Platform Infrastructure Status Footer Card -->
+<footer class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[24px]">dns</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md font-bold text-on-surface">System Reliability Health</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold">99.98% Uptime</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          All 38 routes online and synced • PA District 09 Central Dispatch Node • Edge cached across regional CDNs
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<a class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors text-on-surface font-label-lg text-label-lg font-semibold" href="tel:8149521964">
+<span class="material-symbols-outlined text-primary text-[20px]">phone_in_talk</span>
+<span>(814) 952-1964</span>
+<span class="font-label-sm text-label-sm text-outline">Hotline Reminders</span>
+</a>
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface-variant transition-colors" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to Top">
+<span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+</button>
+</div>
+</footer>
+</div>
+<script>
+  // Simple interactive client filter & search logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('routeSearchInput');
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const routeCards = document.querySelectorAll('.route-card');
+    const exportBtn = document.getElementById('exportMapBtn');
+
+    // Search filter
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        routeCards.forEach(card => {
+          const cardText = card.textContent.toLowerCase();
+          if (cardText.includes(query)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Category chips
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm', 'font-bold');
+          c.classList.add('bg-surface-container-low', 'text-on-surface-variant', 'font-semibold');
+        });
+        chip.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm', 'font-bold');
+        chip.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+
+        const filter = chip.getAttribute('data-filter');
+        routeCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = '';
+            return;
+          }
+          const parentSection = card.closest('section');
+          const category = card.getAttribute('data-category') || (parentSection ? parentSection.getAttribute('data-category') : '');
+          if (category && category.includes(filter)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Simple export mock notification
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const alertBox = document.createElement('div');
+        alertBox.className = 'fixed bottom-6 right-6 z-50 bg-primary text-on-primary px-4 py-3 rounded-lg shadow-xl font-body-sm text-body-sm flex items-center gap-2';
+        alertBox.innerHTML = '<span class="material-symbols-outlined text-[20px]">cloud_done</span><span>Route map bundle exported (38 active endpoints).</span>';
+        document.body.appendChild(alertBox);
+        setTimeout(() => alertBox.remove(), 3200);
+      });
+    }
+  });
+</script></main></div></body></html>

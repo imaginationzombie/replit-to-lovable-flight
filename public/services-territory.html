@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#c2e9c9","on-background":"#191c1b","on-primary-container":"#99edd9","background":"#f9faf8","on-secondary-fixed-variant":"#2c4e36","secondary":"#43664d","on-secondary-fixed":"#00210e","outline-variant":"#bec9c4","tertiary-fixed":"#d5e5ef","surface-bright":"#f9faf8","secondary-fixed":"#c5eccc","on-secondary-container":"#486a51","surface-container-high":"#e7e8e6","surface-container-lowest":"#ffffff","primary-fixed-dim":"#83d6c2","on-primary":"#ffffff","tertiary-container":"#54646c","on-secondary":"#ffffff","surface":"#f9faf8","on-tertiary-fixed-variant":"#3a4951","on-tertiary-container":"#d0e0ea","inverse-primary":"#83d6c2","outline":"#6e7976","on-error":"#ffffff","on-tertiary-fixed":"#0e1d25","surface-dim":"#d9dad8","surface-container-low":"#f3f4f2","inverse-on-surface":"#f0f1ef","on-error-container":"#93000a","surface-tint":"#006b5b","tertiary-fixed-dim":"#b9c9d3","error":"#ba1a1a","on-surface":"#191c1b","surface-container-highest":"#e1e3e1","on-tertiary":"#ffffff","tertiary":"#3d4c54","on-primary-fixed":"#00201a","surface-variant":"#e1e3e1","primary-container":"#086e5e","error-container":"#ffdad6","secondary-fixed-dim":"#aad0b1","primary":"#005447","on-surface-variant":"#3e4946","on-primary-fixed-variant":"#005144","inverse-surface":"#2e3130","primary-fixed":"#9ff2de","surface-container":"#edeeec"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"1.5rem","margin":"1.25rem","space-md":"1rem","margin-lg":"4rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter-lg":"2rem","space-xl":"2.5rem","gutter-sm":"1rem","space-lg":"1.5rem","margin-md":"2.5rem","space-2xl":"4rem"},fontFamily:{"headline-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"]},fontSize:{"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"title-lg":["18px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-low"><img alt="HousekeeperBooking logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XA7p3QZvkjxTkU16vC4M8sZ8bf3lnofpON31_7LKeGoM10EFBRmxrAi53Q8Y-yTB6SM2ZBcbX3NNJh2QAkfGXngw7rSHBkX_Gy0WtGjORsyAwuXEZcVnKMsEtlGtX3B-43UXhjyPLaTfDTFTmFMMxBWgFEABxN8umpU-mAgZykQ-63s7kBBjifrrL8gkGZIJm4AmfC_4ttC6Iq3fVPsmTixRQNHoesSms4qhPKt47wCdYfm-uTfjmjxJI"/><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface tracking-tight leading-tight">HousekeeperBooking</span><span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Admin Operations</span></div></div><div class="px-space-md py-space-sm flex flex-col gap-space-md"><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider px-space-xs pt-space-xs">1. Core Dispatch &amp; Ops</span><nav class="flex flex-col gap-0.5"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="operations-command-center" href="#"><span class="material-symbols-outlined text-[18px]">space_dashboard</span><span>Operations Command</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="schedule-dispatch-hub" href="#"><span class="material-symbols-outlined text-[18px]">calendar_clock</span><span>Schedule &amp; Dispatch Hub</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="multi-pro-crew-dispatch" href="#"><span class="material-symbols-outlined text-[18px]">groups_2</span><span>Multi-Pro &amp; Crew Dispatch</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="master-schedule" href="#"><span class="material-symbols-outlined text-[18px]">event_available</span><span>Master Schedule</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="cleaner-roster-profiles" href="#"><span class="material-symbols-outlined text-[18px]">badge</span><span>Cleaner Roster &amp; Profiles</span></a></nav></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider px-space-xs pt-space-xs">2. Clients &amp; Bookings</span><nav class="flex flex-col gap-0.5"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="customer-directory" href="#"><span class="material-symbols-outlined text-[18px]">person_pin</span><span>Customer Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="booking-management-leads" href="#"><span class="material-symbols-outlined text-[18px]">assignment</span><span>Bookings &amp; Inbound Leads</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg bg-primary-container text-on-primary-container font-bold shadow-sm transition-all font-body-sm text-body-sm" data-path="services-territory-config" href="#"><span class="material-symbols-outlined text-[18px]">map</span><span>Services &amp; Territories</span></a></nav></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider px-space-xs pt-space-xs">3. Staff &amp; Recruiting</span><nav class="flex flex-col gap-0.5"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="recruit-onboarding-center" href="#"><span class="material-symbols-outlined text-[18px]">how_to_reg</span><span>Recruit &amp; Onboarding</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="applicant-tracker" href="#"><span class="material-symbols-outlined text-[18px]">person_search</span><span>Applicant Tracker</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="communications-messages" href="#"><span class="material-symbols-outlined text-[18px]">forum</span><span>Staff Communications</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="message-audit-safety" href="#"><span class="material-symbols-outlined text-[18px]">security</span><span>Message Audit &amp; Safety</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="staff-lottery-rewards" href="#"><span class="material-symbols-outlined text-[18px]">military_tech</span><span>Staff Lottery &amp; Rewards</span></a></nav></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider px-space-xs pt-space-xs">4. Finance &amp; Growth</span><nav class="flex flex-col gap-0.5"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="payment-gateway-paypal" href="#"><span class="material-symbols-outlined text-[18px]">payments</span><span>Payments &amp; Gateway</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="tax-withholding-tracker" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span>Tax &amp; Withholding Tracker</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="marketing-ad-creatives" href="#"><span class="material-symbols-outlined text-[18px]">campaign</span><span>Marketing &amp; Ad Creatives</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sms-twilio-campaigns" href="#"><span class="material-symbols-outlined text-[18px]">sms</span><span>SMS &amp; Twilio Campaigns</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="web-traffic-analytics" href="#"><span class="material-symbols-outlined text-[18px]">monitoring</span><span>Web Traffic &amp; Analytics</span></a></nav></div><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider px-space-xs pt-space-xs">5. System</span><nav class="flex flex-col gap-0.5"><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="master-navigation-directory" href="#"><span class="material-symbols-outlined text-[18px]">folder_supervised</span><span>Navigation Directory</span></a><a class="flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="admin-login-lock" href="#"><span class="material-symbols-outlined text-[18px]">lock</span><span>Admin Lock / Login</span></a></nav></div></div></div><div class="p-space-md border-t border-outline-variant/30 bg-surface-container-low/70 flex flex-col gap-space-xs"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm uppercase font-bold text-secondary">24/7 Dispatch Hotline</span><span class="font-label-sm text-label-sm text-outline">v2.6</span></div><a class="flex items-center gap-space-xs font-title-md text-title-md text-primary font-bold hover:underline" href="tel:8149521964"><span class="material-symbols-outlined text-[18px]">call</span><span>(814) 952-1964</span></a><span class="font-label-sm text-label-sm text-on-surface-variant">PA Certified Clean Operations</span></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><span class="font-title-md text-title-md text-on-surface font-semibold">HKB Admin HQ</span><div class="relative hidden lg:block w-72"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span><input class="w-full bg-surface-container-low rounded-lg pl-9 pr-3 py-1.5 text-body-sm text-on-surface placeholder:text-outline border-none focus:ring-2 focus:ring-primary/40 focus:outline-none" placeholder="Search services, territories, rates..." type="text"/></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md"><span class="material-symbols-outlined text-primary text-[16px]">pin_drop</span><span>Central PA (DuBois, Punxsutawney, Brookville, Reynoldsville)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-md text-label-md"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span>Live Operations • Dispatch Active</span></div><a class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-primary font-title-md text-body-sm hover:bg-surface-container-high transition-colors font-semibold" href="tel:8149521964"><span class="material-symbols-outlined text-[16px]">phone_in_talk</span><span>(814) 952-1964</span></a><div class="flex items-center gap-1"><a class="relative p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center" data-path="communications-messages" href="#" title="Staff Communications"><span class="material-symbols-outlined text-[20px]">chat</span><span class="absolute top-1 right-1 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-primary text-white text-[11px] font-bold leading-none shadow-sm">4</span></a><button class="relative p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center" title="Notifications &amp; Alerts"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-error text-white text-[11px] font-bold leading-none shadow-sm">3</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-label-md cursor-pointer hover:bg-primary-container transition-colors" title="Admin User Profile">AD</div></div></header><main class="w-full pt-16 px-space-lg pb-space-2xl bg-background min-h-screen"><div class="flex flex-col w-full gap-space-lg">
+<!-- Header & Quick Controls -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pt-2">
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider font-semibold">Central PA Active Territory</span>
+<span class="text-outline text-label-sm font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">sync</span> Last Sync: Today at 09:12 AM EST</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">Services &amp; Territory Configuration</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Central PA 4-Hub Service Clusters, Turnaround Buffers, Core Labor Packages, and Specialty Add-On Commission Governance.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-highest hover:text-on-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>Discard</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary-container transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+<!-- KPI Metric Summary Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm relative overflow-hidden border border-outline-variant/20">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Active Service Zones</span>
+<span class="material-symbols-outlined text-primary text-[20px]">explore</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">4 PA Hubs</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">DuBois, Brookville, Punxsy, Reynoldsville</div>
+</div>
+<div class="flex items-center gap-1.5 pt-1 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>$0.00 Transit Fee Across Core Hubs</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm relative overflow-hidden border border-outline-variant/20">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-secondary/10 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Transit Buffer Guard</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">timelapse</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">30 Mins</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Mandatory dispatch travel slot</div>
+</div>
+<div class="flex items-center gap-1.5 pt-1 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">lock</span>
+<span>Enforced Lock Between Bookings</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm relative overflow-hidden border border-outline-variant/20">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-tertiary/10 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Specialty Pro Commission</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">percent</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">50.0% Payout</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Fixed cleaner split on all 12 add-ons</div>
+</div>
+<div class="flex items-center gap-1.5 pt-1 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">account_balance_wallet</span>
+<span>Direct to Cleaner Payout Ledger</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm relative overflow-hidden border border-outline-variant/20">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-semibold">Advance Window Policy</span>
+<span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">48-Hr Rule</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Under 48h triggers on-demand rush</div>
+</div>
+<div class="flex items-center gap-1.5 pt-1 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">electric_bolt</span>
+<span>+50% Rush Upcharge (50/50 Split)</span>
+</div>
+</div>
+</div>
+<!-- Main 12-Column Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Left Column: Core Pricing, Coverage, and Add-ons Catalog (8 of 12) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Core Service Packages & Labor Allocations -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md border border-outline-variant/20">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">cleaning_services</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Core Service Offerings &amp; Pricing Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Baseline billable durations, client pricing, and cleaner labor allocations</p>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-outline self-start sm:self-auto bg-surface-container px-2.5 py-1 rounded-full font-semibold">6 Core Packages</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- 1-Hour Light Cleaning -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-sm border border-outline-variant/10 hover:border-primary/30 transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">1 Hr Light Clean</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Single cleaner studio refresh / express tidy</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-title-md text-title-md font-bold shadow-xs">$60.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-2 border-t border-outline-variant/20">
+<span class="text-on-surface-variant">Client Rate:</span>
+<span class="text-on-surface font-semibold">$60.00 / session</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Pro Wage: <span class="text-primary font-bold">$25.00</span></span>
+<span class="text-secondary font-semibold">1.0h Billable</span>
+</div>
+</div>
+<!-- 2-Hour Medium Clean -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-sm border border-outline-variant/10 hover:border-primary/30 transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">2 Hr Medium Clean</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Standard maintenance clean (2-3 bed residential)</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-title-md text-title-md font-bold shadow-xs">$120.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-2 border-t border-outline-variant/20">
+<span class="text-on-surface-variant">Client Rate:</span>
+<span class="text-on-surface font-semibold">$120.00 / session</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Pro Wage: <span class="text-primary font-bold">$50.00 ($25/hr)</span></span>
+<span class="text-secondary font-semibold">2.0h Billable</span>
+</div>
+</div>
+<!-- 3-Hour Deep Cleaning -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-sm border border-outline-variant/10 hover:border-primary/30 transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">3 Hr Deep Clean</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Intensive deep sanitation, scrubbing &amp; detailing</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-title-md text-title-md font-bold shadow-xs">$240.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-2 border-t border-outline-variant/20">
+<span class="text-on-surface-variant">Client Rate:</span>
+<span class="text-on-surface font-semibold">$240.00 / session</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Pro Wage: <span class="text-primary font-bold">$75.00 ($25/hr)</span></span>
+<span class="text-secondary font-semibold">3.0h Billable</span>
+</div>
+</div>
+<!-- Move-In / Move-Out Turnover -->
+<div class="bg-primary/5 p-space-md rounded-xl flex flex-col justify-between gap-space-sm border border-primary/20 relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-primary">Move-In / Move-Out Turnover</span>
+<span class="px-1.5 py-0.5 rounded bg-primary text-white font-label-sm text-[10px] font-bold">CREW</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3.0 Hrs mandatory, 2 to 3 Person Crew assigned</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-primary font-title-md text-title-md font-bold shadow-xs">$360.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm pt-2 border-t border-primary/10">
+<span class="text-on-surface-variant">Client Rate:</span>
+<span class="text-primary font-bold">$360.00 Client Total</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-primary font-semibold">Auto-routes to Multi-Pro Hub</span>
+<span class="text-primary font-semibold">2-3 Cleaners Required</span>
+</div>
+</div>
+<!-- Moving Help -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-sm border border-outline-variant/10 hover:border-primary/30 transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Moving Help (Labor Only)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Loading, unboxing, lifting &amp; physical staging</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-title-md text-title-md font-bold shadow-xs">$150 - $200</span>
+</div>
+<div class="flex flex-col gap-1 text-body-sm font-body-sm pt-2 border-t border-outline-variant/20">
+<div class="flex justify-between text-on-surface">
+<span>Solo Pro (2 Hours):</span>
+<span class="font-bold text-primary">$150.00 Client</span>
+</div>
+<div class="flex justify-between text-on-surface">
+<span>Crew Support (3 Hours):</span>
+<span class="font-bold text-primary">$200.00 Client</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-secondary font-semibold">Manual Dispatch Routing</span>
+<span>Physical Labor Tier</span>
+</div>
+</div>
+<!-- Fall Yard Work -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-sm border border-outline-variant/10 hover:border-primary/30 transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Fall Yard Work &amp; Grounds</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Leaf clearing, porch sweep &amp; outdoor winterizing</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-title-md text-title-md font-bold shadow-xs">Seasonal</span>
+</div>
+<div class="grid grid-cols-3 gap-2 text-center text-body-sm font-body-sm pt-2 border-t border-outline-variant/20">
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/20">
+<span class="block text-label-sm text-on-surface-variant font-semibold">1 Hour</span>
+<span class="font-bold text-on-surface">$50.00</span>
+</div>
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/20">
+<span class="block text-label-sm text-on-surface-variant font-semibold">2 Hours</span>
+<span class="font-bold text-on-surface">$95.00</span>
+</div>
+<div class="bg-surface-container-lowest p-1.5 rounded border border-outline-variant/20">
+<span class="block text-label-sm text-on-surface-variant font-semibold">3 Hours</span>
+<span class="font-bold text-on-surface">$140.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Standard $25/hr cleaner wage</span>
+<span class="text-secondary font-semibold">Weather Permitted</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Territory & Municipal Coverage Configuration -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md border border-outline-variant/20">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">pin_drop</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Territory &amp; Municipal Coverage Configuration</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central PA 4 Primary Hubs with enforced $0.00 transit fees and 30-minute travel buffers</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>$0.00 Transit Fee Enforced</span>
+</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant uppercase font-label-sm text-label-sm">
+<th class="px-space-md py-3 rounded-l-lg">Hub Region &amp; ZIPs</th>
+<th class="px-space-md py-3">Transit Fee</th>
+<th class="px-space-md py-3">Travel Buffer</th>
+<th class="px-space-md py-3">Base Pro Wage</th>
+<th class="px-space-md py-3">Rush Dispatch Option</th>
+<th class="px-space-md py-3 text-right rounded-r-lg">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-space-md py-3.5">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">DuBois, PA Hub</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ZIP: 15801 • Operations Command Core</span>
+</div>
+</td>
+<td class="px-space-md py-3.5 font-bold text-primary">$0.00 Fee</td>
+<td class="px-space-md py-3.5"><span class="px-2.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">30m Buffer Lock</span></td>
+<td class="px-space-md py-3.5 text-on-surface font-semibold">$25.00/hr</td>
+<td class="px-space-md py-3.5"><span class="text-primary font-label-sm text-label-sm font-bold">+50% Surge (50/50 Split)</span></td>
+<td class="px-space-md py-3.5 text-right"><span class="inline-block px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Active</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-space-md py-3.5">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Brookville, PA Hub</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ZIP: 15825 • Route 322 West Corridor</span>
+</div>
+</td>
+<td class="px-space-md py-3.5 font-bold text-primary">$0.00 Fee</td>
+<td class="px-space-md py-3.5"><span class="px-2.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">30m Buffer Lock</span></td>
+<td class="px-space-md py-3.5 text-on-surface font-semibold">$25.00/hr</td>
+<td class="px-space-md py-3.5"><span class="text-primary font-label-sm text-label-sm font-bold">+50% Surge (50/50 Split)</span></td>
+<td class="px-space-md py-3.5 text-right"><span class="inline-block px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Active</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-space-md py-3.5">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Punxsutawney, PA Hub</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ZIP: 15767 • South Sector Corridor</span>
+</div>
+</td>
+<td class="px-space-md py-3.5 font-bold text-primary">$0.00 Fee</td>
+<td class="px-space-md py-3.5"><span class="px-2.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">30m Buffer Lock</span></td>
+<td class="px-space-md py-3.5 text-on-surface font-semibold">$25.00/hr</td>
+<td class="px-space-md py-3.5"><span class="text-primary font-label-sm text-label-sm font-bold">+50% Surge (50/50 Split)</span></td>
+<td class="px-space-md py-3.5 text-right"><span class="inline-block px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Active</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-space-md py-3.5">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Reynoldsville, PA Hub</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ZIP: 15851 • Central Transit Core</span>
+</div>
+</td>
+<td class="px-space-md py-3.5 font-bold text-primary">$0.00 Fee</td>
+<td class="px-space-md py-3.5"><span class="px-2.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">30m Buffer Lock</span></td>
+<td class="px-space-md py-3.5 text-on-surface font-semibold">$25.00/hr</td>
+<td class="px-space-md py-3.5"><span class="text-primary font-label-sm text-label-sm font-bold">+50% Surge (50/50 Split)</span></td>
+<td class="px-space-md py-3.5 text-right"><span class="inline-block px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Active</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Comprehensive 12 Specialty Add-Ons Catalog & Commission Rule -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md border border-outline-variant/20">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm">
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Comprehensive 12 Specialty Add-Ons Catalog</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Administrative controls: retail price, 50% promo price, and mandatory 50% pro payout split</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>12 Active Add-Ons</span>
+</span>
+</div>
+</div>
+<!-- Commission Policy Banner -->
+<div class="p-space-md rounded-xl bg-secondary-container/40 border border-secondary/20 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">lock</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-secondary-container">Cleaner Commission Lock</span>
+<p class="font-body-sm text-body-sm text-on-secondary-container/90">Cleaners receive 50% of all specialty add-on billings directly in their payout ledger.</p>
+</div>
+</div>
+<!-- Add-ons Administrative Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant uppercase font-label-sm text-label-sm">
+<th class="px-3 py-3 rounded-l-lg">Add-On Service Item</th>
+<th class="px-3 py-3">Standard Retail</th>
+<th class="px-3 py-3">Promo (50% Off)</th>
+<th class="px-3 py-3">Enforced Pro Payout (50%)</th>
+<th class="px-3 py-3 text-right rounded-r-lg">Active Toggle</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- 1. Inside Oven Carbon Clean -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">microwave</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">1. Inside Oven Carbon Clean</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Degreasing interior racks, heating elements, and door glass</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$60.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$30.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$15.00</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 2. Inside Refrigerator Sanitization -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">kitchen</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">2. Inside Refrigerator Sanitization</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Shelving wash, crisper bin disinfection, and odor purge</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$50.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$25.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$12.50</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 3. Interior Window Tracks & Sills Steam -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">window</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">3. Interior Window Tracks &amp; Sills Steam</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Steam injection blast on track grime, corners &amp; sills</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$70.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$35.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$17.50</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 4. Hand-Wiped Detailed Baseboards -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">cleaning_services</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">4. Hand-Wiped Detailed Baseboards</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Perimeter microfiber scrub, scuff buffing, corner dust erase</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$80.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$40.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$20.00</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 5. Interior Kitchen Cabinet Detailing -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">shelves</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">5. Interior Kitchen Cabinet Detailing</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Empty cupboard vacuuming, crumb clearing, handle polish</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$60.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$30.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$15.00</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 6. Deep Microwave & Range Hood Degreasing -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">airwave</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">6. Deep Microwave &amp; Range Hood Degreasing</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Mesh filter steam degreasing, grease shield &amp; turntable flush</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$40.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$20.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$10.00</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 7. Under-Furniture & Mattress Vacuuming -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">bed</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">7. Under-Furniture &amp; Mattress Vacuuming</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">HEPA extraction under beds, heavy couches &amp; tufted mattress seams</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$50.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$25.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$12.50</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 8. Eco-Botanical Pet Odor Neutralizer Treatment -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">pets</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">8. Eco-Botanical Pet Odor Neutralizer Treatment</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Enzymatic odor breakdown fog, dander neutralizer &amp; rug refresh</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$30.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$15.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$7.50</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 9. Wall Spot Washing & Door Jamb Scuff Removal -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">format_paint</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">9. Wall Spot Washing &amp; Door Jamb Scuff Removal</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Finger marks, light switch surround cleaning &amp; trim buff</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$60.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$30.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$15.00</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 10. Dishwasher Sanitization & Filter Purge -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">local_laundry_service</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">10. Dishwasher Sanitization &amp; Filter Purge</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Filter screen removal, basin purge &amp; high-temp hygiene flush</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$35.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$17.50</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$8.75</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 11. Bed Linen Stripping & Hospital-Fold Fresh Change -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">hotel</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">11. Bed Linen Stripping &amp; Hospital-Fold Fresh Change</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Linen strip, crisp hospital corners fold &amp; pillowcase alignment</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$30.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$15.00</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$7.50</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- 12. Patio / Porch Sweep & Outdoor Furniture Wipe -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-3 py-3">
+<div class="flex items-center gap-2.5">
+<span class="p-1.5 rounded-lg bg-surface-container text-primary shrink-0"><span class="material-symbols-outlined text-[18px]">deck</span></span>
+<div>
+<div class="font-title-md text-title-md font-bold text-on-surface">12. Patio / Porch Sweep &amp; Outdoor Furniture Wipe</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Deck sweeping, outdoor table wipe-down &amp; patio chair dusting</div>
+</div>
+</div>
+</td>
+<td class="px-3 py-3 font-semibold text-on-surface-variant line-through">$45.00</td>
+<td class="px-3 py-3"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-title-md text-title-md font-bold">$22.50</span></td>
+<td class="px-3 py-3"><span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-title-md text-title-md font-bold">$11.25</span></td>
+<td class="px-3 py-3 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column: Business Rules Engine & Visual Ops (4 of 12) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Dispatch Business Rules Engine -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md border border-outline-variant/20">
+<div class="flex items-center gap-space-sm">
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Dispatch Business Rules</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automated scheduling constraints &amp; logic locks</p>
+</div>
+</div>
+<div class="flex flex-col gap-space-md pt-1">
+<!-- Rule 1: 48-Hour Advance Requirement -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">48-Hour Advance Rule</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary text-white font-label-sm text-label-sm font-bold">REQUIRED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standard bookings mandate 48 hours notice. Bookings under 48 hours activate On-Demand Rush surge controls automatically.</p>
+</div>
+<!-- Rule 2: On-Demand Rush Switch -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">On-Demand Rush Toggle</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant"><span class="text-primary font-bold">+50% Rush Upcharge</span> enforced. Assigned cleaner receives a 50% split of all surge earnings. Acceptance remains voluntary for pros.</p>
+</div>
+<!-- Rule 3: Enforced Transit Buffer -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">commute</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Transit Buffer Lock</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface text-on-surface font-label-sm text-label-sm font-bold">30 MINS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mandatory 30-minute transit buffer lock between consecutive appointments across DuBois, Brookville, Punxsy, and Reynoldsville to prevent route collisions.</p>
+</div>
+<!-- Rule 4: $0.00 Transit Enforcement -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs border border-outline-variant/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">location_on</span>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Transit Fee Shield</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">$0.00 ENFORCED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">No client travel surcharge permitted within the 4 Central PA hub radius. All inter-hub dispatch costs are absorbed platform-side.</p>
+</div>
+</div>
+</div>
+<!-- Central PA Municipal Geofence Visualizer -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md border border-outline-variant/20">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">map</span>
+</span>
+<span class="font-title-lg text-title-lg text-on-surface font-bold">Central PA Hub Geofence</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">4 Hub Matrix</span>
+</div>
+<div class="w-full h-44 rounded-xl bg-surface-container-high relative overflow-hidden flex items-end p-space-sm border border-outline-variant/20">
+<!-- Visual Simulated Map Grid -->
+<div class="absolute inset-0 bg-[radial-gradient(#086e5e_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/30 to-transparent"></div>
+<!-- Geofence Pin Badges -->
+<div class="absolute top-4 left-6 flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary/90 text-white font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+<span>DuBois 15801</span>
+</div>
+<div class="absolute top-10 right-6 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-xs">
+<span>Brookville 15825</span>
+</div>
+<div class="absolute bottom-14 left-8 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-xs">
+<span>Punxsutawney 15767</span>
+</div>
+<div class="absolute bottom-14 right-10 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-xs">
+<span>Reynoldsville 15851</span>
+</div>
+<div class="relative z-10 flex items-center justify-between w-full text-white">
+<div>
+<div class="font-label-md text-label-md font-bold">Central PA Core Dispatch Grid</div>
+<div class="font-label-sm text-label-sm text-white/80">30-Min Enforced Transit Buffer Across All Corridors</div>
+</div>
+<span class="px-2 py-1 rounded bg-secondary text-white font-label-sm text-label-sm font-bold">Active Geofence</span>
+</div>
+</div>
+<!-- Direct Dispatch Support Contact Card -->
+<div class="p-space-md rounded-xl bg-primary text-on-primary flex flex-col gap-space-xs shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container font-bold">Direct Dispatch Support</span>
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div class="font-title-md text-title-md font-bold mt-1">24/7 Central PA Operations Helpline</div>
+<a class="font-headline-sm text-headline-sm text-white font-bold tracking-tight hover:underline flex items-center gap-2 py-1" href="tel:8149521964">
+<span class="material-symbols-outlined text-[24px]">phone_in_talk</span>
+<span>(814) 952-1964</span>
+</a>
+<p class="font-body-sm text-body-sm text-white/85">Direct phone patch to Senior Dispatch Controller on duty for territory boundary exceptions, pro reassignments, and emergency overrides.</p>
+</div>
+<!-- Quick Audit Status Card -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant border border-outline-variant/10">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-semibold text-on-surface">Configuration Integrity: Validated</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Build v2.6.4</span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

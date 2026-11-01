@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-track{background:#f3f4f2;}::-webkit-scrollbar-thumb{background:#83d6c2;border-radius:9999px;}::-webkit-scrollbar-thumb:hover{background:#086e5e;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#3d4c54","surface-dim":"#d9dad8","tertiary-fixed-dim":"#b9c9d3","error-container":"#ffdad6","on-primary-fixed-variant":"#005144","on-primary":"#ffffff","secondary-container":"#c2e9c9","on-error":"#ffffff","error":"#ba1a1a","inverse-primary":"#83d6c2","surface-variant":"#e1e3e1","surface":"#f9faf8","secondary-fixed-dim":"#aad0b1","on-secondary":"#ffffff","on-surface":"#191c1b","surface-container-lowest":"#ffffff","on-primary-fixed":"#00201a","surface-container":"#edeeec","on-background":"#191c1b","outline":"#6e7976","surface-container-highest":"#e1e3e1","background":"#f9faf8","on-primary-container":"#99edd9","on-secondary-container":"#486a51","surface-container-low":"#f3f4f2","inverse-surface":"#2e3130","on-tertiary":"#ffffff","primary-fixed":"#9ff2de","outline-variant":"#bec9c4","surface-tint":"#006b5b","on-tertiary-fixed":"#0e1d25","primary":"#005447","primary-fixed-dim":"#83d6c2","tertiary-container":"#54646c","on-tertiary-fixed-variant":"#3a4951","primary-container":"#086e5e","on-error-container":"#93000a","secondary-fixed":"#c5eccc","on-tertiary-container":"#d0e0ea","on-secondary-fixed":"#00210e","secondary":"#43664d","inverse-on-surface":"#f0f1ef","tertiary-fixed":"#d5e5ef","on-surface-variant":"#3e4946","surface-container-high":"#e7e8e6","surface-bright":"#f9faf8","on-secondary-fixed-variant":"#2c4e36"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-2xl":"4rem","margin-md":"2.5rem","margin":"1.25rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter":"1.5rem","space-sm":"0.5rem","space-xl":"2.5rem","margin-lg":"4rem","gutter-sm":"1rem","space-md":"1rem","gutter-lg":"2rem"},fontFamily:{"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"]},fontSize:{"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"title-lg":["18px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"600"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_2px_12px_rgba(0,0,0,0.04)]"><div class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg py-3 flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-md group" href="index.html"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AEtjO1Vl-dDGHfGp7ZnzJSlGlP2iF1Mep2ECV2lgVsmvlaGwyCrX04rAfUWeDnZ9ljhjGFCvrxkRORACSv1LvuDR2rk2RfIMtVew8CQr8P1WMp0FHHbv1-IHqRCEF593IIO0bk-UeoY76-xn3gZca46uwfWzSsBrhrWh-M_eXsNQnS2TUZl_YY9hrQFo6Fz_zD_8BGHA4iIvFh_mGW84sbcofu5CYuLl1lxZXDzWXh4gwo73AHCrFEM0AgOxNpc"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">HousekeeperBooking.com</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Central PA Professional Cleaning &amp; Care</span></div></a><div class="flex items-center gap-space-md"><a class="hidden md:flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="recruit.html"><span class="material-symbols-outlined text-[18px]">work</span><span>Careers</span></a><a class="hidden sm:flex items-center gap-space-xs bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-space-md py-2 rounded-full transition-colors font-label-md text-label-md" href="tel:8149521964"><span class="material-symbols-outlined text-[18px] text-primary">phone_in_talk</span><span class="font-bold">(814) 952-1964</span></a><a class="inline-flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary px-space-lg py-2.5 rounded-lg shadow-sm font-label-lg text-label-lg transition-all hover:shadow" href="instant-quote.html"><span class="font-semibold">Book Online Now</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></a><div class="relative" id="userMenuDropdown"><button class="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors border border-outline-variant/40" id="userDropdownBtn" type="button"><div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md shadow-xs">SJ</div><div class="hidden lg:flex flex-col text-left"><span class="font-label-md text-label-md font-bold text-on-surface leading-tight">Sarah Jenkins</span><span class="font-label-sm text-[10px] text-secondary leading-none">Preferred Client</span></div><span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-transform" id="userMenuChevron">expand_more</span></button><div class="hidden absolute right-0 mt-2 w-60 bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/30 py-2 z-50 text-left transition-all" id="userDropdownContent"><div class="px-4 py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-sm text-label-sm text-on-surface-variant">Signed in as</p><p class="font-label-md text-label-md font-bold text-on-surface truncate">sarah.j@example.com</p></div><a class="flex items-center gap-2.5 px-4 py-2 text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" href="customer-account.html"><span class="material-symbols-outlined text-[18px]">account_circle</span><span>Profile &amp; Settings</span></a><a class="flex items-center gap-2.5 px-4 py-2 text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" href="customer-history.html"><span class="material-symbols-outlined text-[18px]">history</span><span>My Bookings &amp; History</span></a><a class="flex items-center gap-2.5 px-4 py-2 text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" href="customer-messages.html"><span class="material-symbols-outlined text-[18px]">chat</span><span>In-App Messages</span></a><a class="flex items-center gap-2.5 px-4 py-2 text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" href="reschedule-cancel.html"><span class="material-symbols-outlined text-[18px]">event_repeat</span><span>Reschedule or Cancel</span></a><div class="border-t border-outline-variant/20 my-1"></div><a class="flex items-center gap-2.5 px-4 py-2 text-label-md text-error hover:bg-error-container/30 transition-colors" href="customer-login.html"><span class="material-symbols-outlined text-[18px]">logout</span><span>Sign Out</span></a></div></div></div></div><div class="bg-surface-container-low/90 border-t border-outline-variant/20"><div class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg py-2 flex items-center justify-between"><nav class="flex items-center gap-space-sm overflow-x-auto py-0.5"><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="index.html">Home</a><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="index.html#pricing-calculator">Services &amp; Pricing</a><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="instant-quote.html">Instant Quote &amp; Estimator</a><div class="flex items-center gap-1.5"><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="coupons.html">Coupons &amp; Specials</a><span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">50% OFF</span></div></nav><div class="hidden lg:flex items-center gap-space-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="recruit.html"><span class="material-symbols-outlined text-[16px]">group_add</span><span>Careers &amp; Hiring</span></a><div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary bg-surface-container-lowest px-space-md py-1.5 rounded-full shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span><span class="font-semibold">Central PA Crew Dispatch Active</span></div></div></div></div></header><main class="w-full pt-28 bg-surface min-h-[calc(100vh-112px)]"><div class="flex flex-col w-full">
+<!-- Top Confetti / Ambient Aura Container -->
+<div class="relative w-full max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-2xl">
+<!-- Decorative Ambient Soft Glow Behind Header -->
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-3/4 max-w-3xl h-64 bg-gradient-to-r from-primary-fixed-dim/20 via-secondary-container/30 to-primary-fixed/20 blur-3xl rounded-full pointer-events-none -z-10"></div>
+<!-- Celebration & Order Confirmation Banner -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl mb-space-xl relative overflow-hidden">
+<!-- Top Subtle Status Accent Bar -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-primary-container to-secondary"></div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<!-- Animated Checkmark Badge -->
+<div class="relative flex-shrink-0">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[34px] animate-pulse" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[15px]">arrow_back_ios_new</span>
+</div>
+</div>
+<!-- Headline & Contact Confirmation Meta -->
+<div class="space-y-space-xs">
+<div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+<span class="">Central PA Dispatch Hub Confirmed</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+              You're All Set, Sarah! Your Booking is Confirmed.
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+              A comprehensive confirmation receipt and appointment calendar hold have been sent to 
+              <span class="text-on-surface font-semibold">sarah.j@example.com</span> and SMS alerts enabled for 
+              <span class="text-on-surface font-semibold">(814) 952-4821</span>.
+            </p>
+</div>
+</div>
+<!-- Quick Actions & Ref Pill -->
+<div class="flex flex-col items-start lg:items-end gap-space-sm w-full lg:w-auto">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-md py-2 rounded-lg">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Booking ID:</span>
+<span class="font-title-md text-title-md font-bold text-primary" id="bookingIdText">#HKB-2026-8942</span>
+<button class="ml-1 text-on-surface-variant hover:text-primary transition-colors p-1 rounded hover:bg-surface-container-highest" id="copyIdBtn" title="Copy to clipboard" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<span class="hidden text-secondary font-label-sm text-label-sm" id="copiedToast">Copied!</span>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-xs px-space-md py-2 bg-surface hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-label-md text-label-md shadow-sm transition-all" id="downloadPdfBtn" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">description</span>
+<span class="">Download PDF Receipt</span>
+</button>
+<button class="inline-flex items-center justify-center p-2 bg-surface hover:bg-surface-container text-on-surface-variant rounded-lg shadow-sm transition-colors" id="printBtn" title="Print receipt" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+<!-- Payment Security Pill -->
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary bg-secondary-container/40 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+<span class="">Reserved &amp; Authorized • $0 Charged Now (Pay Post-Walkthrough)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Dual Column Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+<!-- ================= LEFT COLUMN: Core Appointment & Itemized Receipt (7 Cols) ================= -->
+<div class="lg:col-span-7 space-y-space-xl">
+<!-- Service Appointment Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl space-y-space-lg">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">calendar_clock</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-primary font-bold">Appointment Schedule</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central PA Guaranteed Arrival Window</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+              Confirmed Slot
+            </span>
+</div>
+<!-- Schedule & Duration Detail Box -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md p-space-md rounded-xl bg-surface-container-low">
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Scheduled Window</span>
+<p class="font-title-md text-title-md text-on-surface font-semibold">Tuesday, October 28, 2025</p>
+<p class="font-body-md text-body-md text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">alarm</span>
+                09:00 AM – 12:30 PM EST
+              </p>
+</div>
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Estimated Duration</span>
+<p class="font-title-md text-title-md text-on-surface font-semibold">3.5 Hours On-Site Care</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">local_shipping</span>
+                Includes 30-min travel transit lock (DuBois Hub)
+              </p>
+</div>
+</div>
+<!-- Service Type & Address Specifications -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div class="space-y-space-xs p-space-md rounded-lg bg-surface">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Clean Tier &amp; Scope</span>
+<p class="font-title-md text-title-md text-primary font-semibold">Deep Clean Turnover &amp; Care</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                3 Bedrooms • 2 Bathrooms • High Intensity Sanitization
+              </p>
+</div>
+<div class="space-y-space-xs p-space-md rounded-lg bg-surface">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Dispatch Location</span>
+<p class="font-title-md text-title-md text-on-surface font-semibold">412 N Highlands Blvd</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+                DuBois, PA 15801 (Clearfield County)
+              </p>
+</div>
+</div>
+<!-- Assigned Cleaner Spotlight -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm" data-alt="Warm and professional portrait of Elena Vance, a top-rated professional housekeeper wearing a neat forest green apron against a softly lit modern residential living room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD17VYaHLbfrkETj7lA1XAblEvAwsRlPKG2Y6R92sTh0AE5r0o9tHi0Gc_2Ilay_Tp5zwNVrioYvWN4BEhmvjiI4x5f2LvnzyPbvuvOnXQqdIr-qaZpFHRwRMI_1PGSzoS0jLsmFTUuTlB6OS0t1T6UxnHQm9eDZN8aiHm45bsBGEKndQRqGWnt2BdIoevZwfik8wh1Lm1FmMGF3Qc-NxHfzPe1ownpJv87Nkrj0BK-ZkkeHop3nMbE"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[10px]" title="Background Checked &amp; Verified">
+<span class="material-symbols-outlined text-[10px]">shield</span>
+</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Elena Vance</h3>
+<span class="inline-flex items-center gap-0.5 text-label-sm font-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-bold">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+                    4.98
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Senior Clean Lead • 142 Jobs • Background Checked, Bonded &amp; Insured
+                </p>
+</div>
+</div>
+<a class="inline-flex items-center gap-space-xs bg-surface-container-lowest hover:bg-surface text-primary font-label-md text-label-md px-space-md py-2 rounded-lg shadow-sm transition-all hover:shadow" href="customer-messages.html">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span class="">Message Elena</span>
+</a>
+</div>
+</div>
+<!-- Itemized Service & Add-On Receipt Breakdown -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl space-y-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-primary font-bold">Itemized Financial Summary</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Transparent local pricing • No surprise extras</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/40 px-2.5 py-1 rounded-full font-semibold">
+              Pre-Authorization Only
+            </span>
+</div>
+<!-- Line items -->
+<div class="space-y-space-sm pt-space-xs">
+<div class="flex items-center justify-between py-1 font-body-md text-body-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+<span class="">Base Deep Clean (1 Bed / 1 Bath included)</span>
+</div>
+<span class="font-semibold text-on-surface">$140.00</span>
+</div>
+<div class="flex items-center justify-between py-1 font-body-md text-body-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs pl-space-lg">
+<span class="">Additional Bedrooms (2 extra @ $25.00/ea)</span>
+</div>
+<span class="font-medium text-on-surface">+$50.00</span>
+</div>
+<div class="flex items-center justify-between py-1 font-body-md text-body-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs pl-space-lg">
+<span class="">Additional Bathrooms (1 extra @ $35.00/ea)</span>
+</div>
+<span class="font-medium text-on-surface">+$35.00</span>
+</div>
+<div class="flex items-center justify-between py-1 font-body-md text-body-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">local_laundry_service</span>
+<span class="">Inside Oven Scrub &amp; Degrease</span>
+<span class="bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-1.5 py-0.5 rounded font-bold">50% PROMO</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="line-through text-on-surface-variant font-body-sm text-body-sm">$30.00</span>
+<span class="font-medium text-on-surface">+$15.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-1 font-body-md text-body-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">kitchen</span>
+<span class="">Refrigerator Interior Deep Wash</span>
+<span class="bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-1.5 py-0.5 rounded font-bold">50% PROMO</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="line-through text-on-surface-variant font-body-sm text-body-sm">$30.00</span>
+<span class="font-medium text-on-surface">+$15.00</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-1 font-body-md text-body-md text-primary font-semibold bg-secondary-fixed/20 p-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">sell</span>
+<span class="">Promo Voucher Applied: PRISTINE15</span>
+</div>
+<span class="">-$15.00</span>
+</div>
+</div>
+<!-- Financial Calculation Block -->
+<div class="pt-space-md space-y-space-xs bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface-variant">
+<span class="">Subtotal</span>
+<span class="font-semibold text-on-surface">$240.00</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="">PA State Sales Tax (6.0%)</span>
+<span class="material-symbols-outlined text-[16px] text-outline" title="Clearfield County PA Standard Sales Tax">help_outline</span>
+</div>
+<span class="font-semibold text-on-surface">$14.40</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface-variant">
+<span class="">Cleaner Gratuity</span>
+<span class="font-semibold text-secondary" id="receiptTipStatus">Deferred (Post-Inspection)</span>
+</div>
+<div class="pt-space-sm mt-space-sm flex items-baseline justify-between bg-surface-container-lowest p-space-md rounded-lg">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Total Authorized Hold</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Card will not be billed until service complete</p>
+</div>
+<div class="text-right">
+<span class="font-headline-md text-headline-md font-bold text-primary" id="receiptTotalAuthorized">$254.40</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hold on Visa •••• 4242</p>
+</div>
+</div>
+</div>
+<!-- Peace of Mind Sub-footer -->
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm pt-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">health_and_safety</span>
+<span class="">$0 Cancelation Fee up to 24 hours prior. 100% Secure PCI-DSS encrypted token.</span>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: Gratuity, Property Access & Actions (5 Cols) ================= -->
+<div class="lg:col-span-5 space-y-space-xl">
+<!-- Interactive Gratuity / Tip Preference Widget -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl space-y-space-md">
+<div class="flex items-center gap-space-sm pb-space-xs">
+<span class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-primary font-bold">Cleaner Gratuity Choice</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">100% directly delivered to Elena Vance</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Gratuity is always optional. You may authorize an appreciation tip now, or simply decide after your walkthrough inspection on Tuesday.
+          </p>
+<!-- Tip Selector Radios / Buttons -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs" id="tipSelectorGroup">
+<button class="tip-option p-3 rounded-lg text-left transition-all bg-surface-container hover:bg-surface-container-high focus:outline-none flex flex-col" data-pct="15%" data-tip="36.00" type="button">
+<span class="font-title-md text-title-md font-bold text-on-surface">15%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$36.00</span>
+</button>
+<button class="tip-option p-3 rounded-lg text-left transition-all bg-surface-container hover:bg-surface-container-high focus:outline-none flex flex-col" data-pct="18%" data-tip="43.20" type="button">
+<span class="font-title-md text-title-md font-bold text-on-surface">18%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$43.20</span>
+</button>
+<button class="tip-option p-3 rounded-lg text-left transition-all bg-surface-container hover:bg-surface-container-high focus:outline-none flex flex-col" data-pct="20%" data-tip="48.00" type="button">
+<span class="font-title-md text-title-md font-bold text-on-surface">20%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">$48.00</span>
+</button>
+<button class="tip-option p-3 rounded-lg text-left transition-all bg-surface-container hover:bg-surface-container-high focus:outline-none flex flex-col" id="customTipBtn" type="button">
+<span class="font-title-md text-title-md font-bold text-on-surface">Custom</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Enter amount</span>
+</button>
+</div>
+<!-- Settle Later Option (Default Active) -->
+<div class="p-space-md rounded-xl bg-secondary-container/40 flex items-center justify-between cursor-pointer transition-all" id="settleLaterContainer">
+<div class="flex items-center gap-space-sm">
+<div class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary text-[12px]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<div class="space-y-0.5">
+<span class="font-title-md text-title-md font-bold text-primary">Settle After Clean Inspection</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tip in cash or tap SMS link when satisfied</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Selected</span>
+</div>
+<!-- Custom Tip Input Drawer (Hidden by default) -->
+<div class="hidden p-space-md rounded-xl bg-surface-container-low space-y-space-sm" id="customTipInputDrawer">
+<label class="block font-label-md text-label-md font-semibold text-on-surface" for="customTipAmount">Custom Gratuity Amount ($)</label>
+<div class="flex items-center gap-space-sm">
+<input class="flex-1 px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface font-title-md text-title-md focus:outline-none" id="customTipAmount" max="250" min="1" placeholder="e.g. 50" type="number"/>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors" id="applyCustomTipBtn" type="button">
+                Apply
+              </button>
+</div>
+</div>
+<div class="pt-space-xs">
+<button class="w-full py-2.5 px-space-md rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-lg text-label-lg font-semibold transition-colors flex items-center justify-center gap-2" id="confirmTipSelectionBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="">Confirm Gratuity Preference</span>
+</button>
+</div>
+</div>
+<!-- Home Entry & Preparation Instructions Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">door_front</span>
+</span>
+<div>
+<h2 class="font-title-lg text-title-lg text-primary font-bold">Access &amp; Entry Logistics</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Arrival notes for Elena Vance</p>
+</div>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:text-on-primary-fixed-variant font-bold hover:underline" id="editNotesBtn" type="button">
+              Edit Notes
+            </button>
+</div>
+<div class="space-y-space-sm text-on-surface">
+<!-- Access Item 1 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">key</span>
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md font-bold">Entry Method</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Customer will be home to greet cleaner at front entryway.</p>
+</div>
+</div>
+<!-- Access Item 2 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">pets</span>
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md font-bold">Pet Precautions</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 Friendly Golden Retriever will be comfortably secured in home office.</p>
+</div>
+</div>
+<!-- Access Item 3 -->
+<div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">local_parking</span>
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md font-bold">Cleaner Parking</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Driveway designated spot #2 on the left side of garage.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action Tools & Shortcuts -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl space-y-space-md">
+<h2 class="font-title-lg text-title-lg text-primary font-bold">Self-Service Clean Tools</h2>
+<div class="space-y-space-xs">
+<!-- Add to Calendar -->
+<button class="w-full flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" id="addToCalBtn" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">event</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Add to Google / Apple Calendar</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">add</span>
+</button>
+<!-- Reschedule -->
+<a class="w-full flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" href="reschedule-cancel.html">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">edit_calendar</span>
+<div class="text-left">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface block">Reschedule Window</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Free flexible changes up to 24 hrs prior</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_forward</span>
+</a>
+<!-- Customer Portal -->
+<a class="w-full flex items-center justify-between p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" href="customer-account.html">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">manage_accounts</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Manage in Customer Dashboard</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust & Protection Guarantee Banner -->
+<div class="mt-space-2xl rounded-2xl bg-gradient-to-br from-primary via-primary-container to-secondary text-on-primary p-space-xl shadow-md">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-center">
+<!-- Reclean Guarantee -->
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[28px] text-primary-fixed">verified</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-lg text-title-lg font-bold text-on-primary">100% Reclean Promise</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed">
+              If any space or surface does not meet your exacting standards, notify us within 24 hours. We return free of charge.
+            </p>
+</div>
+</div>
+<!-- Emergency Hotline -->
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[28px] text-primary-fixed">support_agent</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-lg text-title-lg font-bold text-on-primary">Direct Dispatch Support</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed">
+              Need immediate access modification or timing shifts? Reach your PA operations desk directly at 
+              <a class="text-on-primary font-bold hover:underline" href="tel:8149521964">(814) 952-1964</a>.
+            </p>
+</div>
+</div>
+<!-- Non-Toxic Guaranteed -->
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[28px] text-primary-fixed">eco</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-lg text-title-lg font-bold text-on-primary">Eco &amp; Pet-Safe Supplies</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed">
+              Hospital-grade HEPA filtration and non-toxic botanical cleaning solutions safe for your children and beloved pets.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Micro-interactions Script -->
+<script>
+    (function initConfirmationFlow() {
+      // 0. Header User Dropdown Toggle
+      const userBtn = document.getElementById('userDropdownBtn');
+      const userMenu = document.getElementById('userDropdownContent');
+      const userChevron = document.getElementById('userMenuChevron');
+
+      if (userBtn && userMenu) {
+        userBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const isExpanded = !userMenu.classList.contains('hidden');
+          if (isExpanded) {
+            userMenu.classList.add('hidden');
+            if (userChevron) userChevron.style.transform = 'rotate(0deg)';
+          } else {
+            userMenu.classList.remove('hidden');
+            if (userChevron) userChevron.style.transform = 'rotate(180deg)';
+          }
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!userMenu.contains(e.target) && !userBtn.contains(e.target)) {
+            userMenu.classList.add('hidden');
+            if (userChevron) userChevron.style.transform = 'rotate(0deg)';
+          }
+        });
+      }
+
+      // 1. Copy Booking ID to Clipboard
+      const copyBtn = document.getElementById('copyIdBtn');
+      const copyToast = document.getElementById('copiedToast');
+      const bookingIdText = document.getElementById('bookingIdText');
+
+      if (copyBtn && bookingIdText) {
+        copyBtn.addEventListener('click', function () {
+          navigator.clipboard.writeText(bookingIdText.textContent.trim()).then(function () {
+            if (copyToast) {
+              copyToast.classList.remove('hidden');
+              setTimeout(function () {
+                copyToast.classList.add('hidden');
+              }, 2000);
+            }
+          }).catch(function () {
+            alert('Booking ID: ' + bookingIdText.textContent.trim());
+          });
+        });
+      }
+
+      // 2. Gratuity Widget Calculations
+      const tipOptions = document.querySelectorAll('.tip-option');
+      const settleLaterBox = document.getElementById('settleLaterContainer');
+      const customTipBtn = document.getElementById('customTipBtn');
+      const customDrawer = document.getElementById('customTipInputDrawer');
+      const customTipInput = document.getElementById('customTipAmount');
+      const applyCustomTipBtn = document.getElementById('applyCustomTipBtn');
+      const receiptTipStatus = document.getElementById('receiptTipStatus');
+      const receiptTotalAuth = document.getElementById('receiptTotalAuthorized');
+      const confirmTipBtn = document.getElementById('confirmTipSelectionBtn');
+
+      let currentTip = 0.00;
+      const baseSubtotalAndTax = 254.40;
+
+      function updateReceiptTotals(tipAmount, label) {
+        currentTip = parseFloat(tipAmount) || 0.00;
+        const total = baseSubtotalAndTax + currentTip;
+        if (receiptTotalAuth) {
+          receiptTotalAuth.textContent = '$' + total.toFixed(2);
+        }
+        if (receiptTipStatus) {
+          if (currentTip > 0) {
+            receiptTipStatus.textContent = '+$' + currentTip.toFixed(2) + ' (' + label + ')';
+            receiptTipStatus.className = 'font-semibold text-primary';
+          } else {
+            receiptTipStatus.textContent = 'Deferred (Post-Inspection)';
+            receiptTipStatus.className = 'font-semibold text-secondary';
+          }
+        }
+      }
+
+      function resetSelectionHighlights() {
+        tipOptions.forEach(function (btn) {
+          btn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'shadow-xs');
+          btn.classList.add('bg-surface-container');
+        });
+        if (settleLaterBox) {
+          settleLaterBox.classList.remove('bg-secondary-container', 'shadow-xs');
+          settleLaterBox.classList.add('bg-secondary-container/40');
+        }
+      }
+
+      tipOptions.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (btn.id === 'customTipBtn') {
+            resetSelectionHighlights();
+            btn.classList.add('bg-secondary-container');
+            if (customDrawer) customDrawer.classList.remove('hidden');
+            return;
+          }
+
+          if (customDrawer) customDrawer.classList.add('hidden');
+          resetSelectionHighlights();
+          btn.classList.add('bg-secondary-container');
+
+          const tipVal = btn.getAttribute('data-tip');
+          const pct = btn.getAttribute('data-pct');
+          updateReceiptTotals(tipVal, pct);
+        });
+      });
+
+      if (applyCustomTipBtn && customTipInput) {
+        applyCustomTipBtn.addEventListener('click', function () {
+          const val = parseFloat(customTipInput.value);
+          if (val && val > 0) {
+            updateReceiptTotals(val, 'Custom');
+            alert('Custom gratuity of $' + val.toFixed(2) + ' added to post-clean authorization.');
+          }
+        });
+      }
+
+      if (settleLaterBox) {
+        settleLaterBox.addEventListener('click', function () {
+          if (customDrawer) customDrawer.classList.add('hidden');
+          resetSelectionHighlights();
+          settleLaterBox.classList.remove('bg-secondary-container/40');
+          settleLaterBox.classList.add('bg-secondary-container');
+          updateReceiptTotals(0, 'Deferred');
+        });
+      }
+
+      if (confirmTipBtn) {
+        confirmTipBtn.addEventListener('click', function () {
+          const orig = confirmTipBtn.innerHTML;
+          confirmTipBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span><span>Preference Saved!</span>';
+          confirmTipBtn.classList.remove('bg-primary');
+          confirmTipBtn.classList.add('bg-secondary');
+          setTimeout(function () {
+            confirmTipBtn.innerHTML = orig;
+            confirmTipBtn.classList.add('bg-primary');
+            confirmTipBtn.classList.remove('bg-secondary');
+          }, 2400);
+        });
+      }
+
+      // 3. Add to Calendar dummy trigger
+      const calBtn = document.getElementById('addToCalBtn');
+      if (calBtn) {
+        calBtn.addEventListener('click', function () {
+          alert('iCal/Google Calendar link generated for Tuesday, Oct 28, 2025 (9:00 AM - 12:30 PM EST). Calendar sync initiated!');
+        });
+      }
+
+      // 4. Download PDF Receipt trigger
+      const downloadBtn = document.getElementById('downloadPdfBtn');
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function () {
+          alert('Generating authenticated PDF Receipt for #HKB-2026-8942...');
+        });
+      }
+
+      // 5. Print trigger
+      const printBtn = document.getElementById('printBtn');
+      if (printBtn) {
+        printBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+
+      // 6. Edit notes prompt
+      const editNotesBtn = document.getElementById('editNotesBtn');
+      if (editNotesBtn) {
+        editNotesBtn.addEventListener('click', function () {
+          prompt('Enter updated property access / pet instructions for Elena Vance:', 'Customer will be home to greet Elena');
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface mt-space-2xl pt-space-2xl pb-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg pb-space-2xl"><div class="space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #086e5e
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vl-dDGHfGp7ZnzJSlGlP2iF1Mep2ECV2lgVsmvlaGwyCrX04rAfUWeDnZ9ljhjGFCvrxkRORACSv1LvuDR2rk2RfIMtVew8CQr8P1WMp0FHHbv1-IHqRCEF593IIO0bk-UeoY76-xn3gZca46uwfWzSsBrhrWh-M_eXsNQnS2TUZl_YY9hrQFo6Fz_zD_8BGHA4iIvFh_mGW84sbcofu5CYuLl1lxZXDzWXh4gwo73AHCrFEM0AgOxNpc"/><span class="font-title-md text-title-md text-primary font-bold">HousekeeperBooking</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Central Pennsylvania's trusted residential and turnover cleaning specialist. Providing transparent rates, background-checked staff, and tranquil living spaces.</p><div class="space-y-space-xs pt-space-xs"><div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-[18px]">verified</span><span class="">100% Reclean Guarantee</span></div><div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-[18px]">shield</span><span class="">Bonded &amp; Comprehensive Insured</span></div><div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-primary text-[18px]">lock</span><span class="">256-bit Encrypted PCI-DSS Security</span></div></div></div><div class="space-y-space-md"><h4 class="font-title-md text-title-md text-primary font-semibold">Service Areas</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Zero travel surcharge across four primary county hub branches:</p><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="">DuBois, PA (15801)</span></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="">Brookville, PA (15825)</span></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="">Punxsutawney, PA (15767)</span></li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="">Reynoldsville, PA (15851)</span></li></ul></div><div class="space-y-space-md"><h4 class="font-title-md text-title-md text-primary font-semibold">Quick Navigation</h4><ul class="grid grid-cols-2 gap-y-space-xs gap-x-space-md font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a class="" href="index.html">Home</a></li><li class="hover:text-primary transition-colors"><a class="" href="instant-quote.html">Instant Quote</a></li><li class="hover:text-primary transition-colors"><a class="" href="index.html#pricing-calculator">Schedule</a></li><li class="hover:text-primary transition-colors"><a class="" href="customer-history.html">Clean History</a></li><li class="hover:text-primary transition-colors"><a class="" href="customer-account.html">My Account</a></li><li class="hover:text-primary transition-colors"><a class="" href="customer-messages.html">Messages</a></li><li class="hover:text-primary transition-colors"><a class="" href="coupons.html">Coupons &amp; Deals</a></li><li class="hover:text-primary transition-colors"><a class="" href="recruit.html">Careers</a></li></ul></div><div class="space-y-space-md"><h4 class="font-title-md text-title-md text-primary font-semibold">24/7 Dispatch Desk</h4><div class="p-space-md rounded-xl bg-surface-container-lowest space-y-space-sm shadow-[0_1px_4px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-xs text-primary font-title-lg text-title-lg font-bold"><span class="material-symbols-outlined text-[20px]">support_agent</span><a class="hover:underline" href="tel:8149521964">(814) 952-1964</a></div><p class="font-label-sm text-label-sm text-on-surface-variant">Central Operations Desk Hours:<br/>Mon – Sun: 7:00 AM – 9:00 PM EST</p><div class="pt-space-xs"><a class="block text-center bg-primary hover:bg-on-primary-fixed-variant text-on-primary py-2 px-space-md rounded-lg font-label-md text-label-md font-semibold transition-colors" href="instant-quote.html">Book Clean In 60 Sec</a></div></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><p class="">© 2025 HousekeeperBooking.com LLC. All rights reserved. Locally owned &amp; dispatched in Central Pennsylvania.</p><div class="flex items-center gap-space-lg font-label-sm text-label-sm"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a><a class="hover:text-on-surface transition-colors" href="#">Satisfaction Guarantee</a></div></div></div></footer>
+</body></html>
