@@ -17,12 +17,14 @@ import { Route as BookingAssistantRouteImport } from './routes/booking-assistant
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedApplyRouteImport } from './routes/_authenticated/apply'
 import { Route as AuthenticatedAvailabilityRouteImport } from './routes/_authenticated/availability'
 import { Route as AuthenticatedBookingHistoryRouteImport } from './routes/_authenticated/booking-history'
 import { Route as AuthenticatedBookingStatusRouteImport } from './routes/_authenticated/booking-status'
 import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticated/cleaner'
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
+import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
 import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authenticated/timesheets'
 import { Route as AuthenticatedWaitingListRouteImport } from './routes/_authenticated/waiting-list'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
@@ -67,6 +69,11 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedApplyRoute = AuthenticatedApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedAvailabilityRoute =
   AuthenticatedAvailabilityRouteImport.update({
     id: '/availability',
@@ -102,6 +109,11 @@ const AuthenticatedCleanerScheduleRoute =
     path: '/cleaner-schedule',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedTimesheetsRoute = AuthenticatedTimesheetsRouteImport.update({
   id: '/timesheets',
   path: '/timesheets',
@@ -133,12 +145,14 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/apply': typeof AuthenticatedApplyRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
   '/booking-history': typeof AuthenticatedBookingHistoryRoute
   '/booking-status': typeof AuthenticatedBookingStatusRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/messages': typeof AuthenticatedMessagesRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
@@ -152,12 +166,14 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/apply': typeof AuthenticatedApplyRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
   '/booking-history': typeof AuthenticatedBookingHistoryRoute
   '/booking-status': typeof AuthenticatedBookingStatusRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/messages': typeof AuthenticatedMessagesRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
@@ -173,12 +189,14 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/apply': typeof AuthenticatedApplyRoute
   '/_authenticated/availability': typeof AuthenticatedAvailabilityRoute
   '/_authenticated/booking-history': typeof AuthenticatedBookingHistoryRoute
   '/_authenticated/booking-status': typeof AuthenticatedBookingStatusRoute
   '/_authenticated/cleaner': typeof AuthenticatedCleanerRoute
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/_authenticated/messages': typeof AuthenticatedMessagesRoute
   '/_authenticated/timesheets': typeof AuthenticatedTimesheetsRoute
   '/_authenticated/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
@@ -194,12 +212,14 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/account'
     | '/admin'
+    | '/apply'
     | '/availability'
     | '/booking-history'
     | '/booking-status'
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
+    | '/messages'
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
@@ -213,12 +233,14 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/account'
     | '/admin'
+    | '/apply'
     | '/availability'
     | '/booking-history'
     | '/booking-status'
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
+    | '/messages'
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
@@ -233,12 +255,14 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/_authenticated/account'
     | '/_authenticated/admin'
+    | '/_authenticated/apply'
     | '/_authenticated/availability'
     | '/_authenticated/booking-history'
     | '/_authenticated/booking-status'
     | '/_authenticated/cleaner'
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
+    | '/_authenticated/messages'
     | '/_authenticated/timesheets'
     | '/_authenticated/waiting-list'
     | '/booking/$id'
@@ -314,6 +338,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/apply': {
+      id: '/_authenticated/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof AuthenticatedApplyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/availability': {
       id: '/_authenticated/availability'
       path: '/availability'
@@ -356,6 +387,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCleanerScheduleRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/messages': {
+      id: '/_authenticated/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof AuthenticatedMessagesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/timesheets': {
       id: '/_authenticated/timesheets'
       path: '/timesheets'
@@ -390,12 +428,14 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedApplyRoute: typeof AuthenticatedApplyRoute
   AuthenticatedAvailabilityRoute: typeof AuthenticatedAvailabilityRoute
   AuthenticatedBookingHistoryRoute: typeof AuthenticatedBookingHistoryRoute
   AuthenticatedBookingStatusRoute: typeof AuthenticatedBookingStatusRoute
   AuthenticatedCleanerRoute: typeof AuthenticatedCleanerRoute
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
   AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
+  AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
   AuthenticatedTimesheetsRoute: typeof AuthenticatedTimesheetsRoute
   AuthenticatedWaitingListRoute: typeof AuthenticatedWaitingListRoute
 }
@@ -403,12 +443,14 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAccountRoute: AuthenticatedAccountRoute,
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedApplyRoute: AuthenticatedApplyRoute,
   AuthenticatedAvailabilityRoute: AuthenticatedAvailabilityRoute,
   AuthenticatedBookingHistoryRoute: AuthenticatedBookingHistoryRoute,
   AuthenticatedBookingStatusRoute: AuthenticatedBookingStatusRoute,
   AuthenticatedCleanerRoute: AuthenticatedCleanerRoute,
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
   AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,
+  AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
   AuthenticatedTimesheetsRoute: AuthenticatedTimesheetsRoute,
   AuthenticatedWaitingListRoute: AuthenticatedWaitingListRoute,
 }
