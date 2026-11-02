@@ -98,6 +98,47 @@ export type Database = {
         }
         Relationships: []
       }
+      cleaner_settings: {
+        Row: {
+          accepting_jobs: boolean
+          bio: string
+          hourly_rate_cents: number
+          service_areas: string
+          unavailable_dates: string[]
+          updated_at: string
+          user_id: string
+          weekly_hours: Json
+        }
+        Insert: {
+          accepting_jobs?: boolean
+          bio?: string
+          hourly_rate_cents?: number
+          service_areas?: string
+          unavailable_dates?: string[]
+          updated_at?: string
+          user_id: string
+          weekly_hours?: Json
+        }
+        Update: {
+          accepting_jobs?: boolean
+          bio?: string
+          hourly_rate_cents?: number
+          service_areas?: string
+          unavailable_dates?: string[]
+          updated_at?: string
+          user_id?: string
+          weekly_hours?: Json
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cleaner_settings_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           address: string
