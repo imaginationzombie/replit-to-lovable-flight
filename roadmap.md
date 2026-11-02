@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Admin PayPal dashboard with approved earnings, pending transfers, settled payments and manual payout controls
+- [x] Admin PayPal dashboard with approved earnings, pending transfers, settled payments and manual payout controls; confirmation verified without sending money
 
 - [x] Admin cleaner month calendar with booked arrival windows and drag-and-drop rescheduling
 - [x] Customer booking history with payment and tip settlement status
