@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Approved SEO foundations: homepage description, shared-link tags, favicon and public-page sitemap
+- [x] Approved SEO foundations: homepage description, shared-link tags, favicon and nine-page public sitemap; served pages verified, scanner recheck pending
 
 - [x] Customer unpaid/uncleaned booking disputes and admin resolution status; signed-in report and customer resolution readback verified
 - [x] Invite customer reviews for completed cleanings and display them on public housekeeper pages; submission and signed-out public review verified, temporary data removed
