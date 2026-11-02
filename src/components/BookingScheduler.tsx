@@ -11,6 +11,7 @@ import { TIME_WINDOWS } from "@/lib/pricing";
 import { canMoveJob, dateKey, weekDates } from "@/lib/scheduling";
 import type { BookingRow } from "@/components/BookingCard";
 import { refreshBookingViews } from "@/lib/booking-sync";
+import { CleanerDateBlocks } from "@/components/CleanerDateBlocks";
 
 type Target = { date: string; cleanerId: string | null; preserveCleaner?: boolean };
 type Move = Target & { booking: BookingRow; time: string };
@@ -87,6 +88,7 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
     beginMove(booking, { ...target, cleanerId: assignment });
   }
   return <section className="mt-6 min-w-0">
+    {canAdmin && view === "month" && <CleanerDateBlocks />}
     <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
       <div className="flex flex-wrap items-center gap-2"><Button variant="outline" size="icon" aria-label={`Previous ${view}`} title={`Previous ${view}`} onClick={() => setWeek(view === "month" ? addMonths(week, -1) : addDays(week, -7))}><ChevronLeft /></Button><h2 className="text-sm font-bold text-foreground">{view === "month" ? format(week, "MMMM yyyy") : `${format(days[0] ?? week, "MMM d")} – ${format(days[6] ?? week, "MMM d, yyyy")}`}</h2><Button variant="outline" size="icon" aria-label={`Next ${view}`} title={`Next ${view}`} onClick={() => setWeek(view === "month" ? addMonths(week, 1) : addDays(week, 7))}><ChevronRight /></Button><Button variant="ghost" onClick={() => setWeek(new Date())}>Today</Button></div>
       <div className="flex items-center gap-2">{canAdmin && <select aria-label="Filter employee" value={filter} onChange={e => setFilter(e.target.value)} className="max-w-48 rounded-md border border-input bg-background p-2 text-sm text-foreground"><option value="all">All employees</option>{allGroups.map(g => <option key={g.id ?? "unassigned"} value={g.id ?? "unassigned"}>{g.label}</option>)}</select>}<Button variant="outline" size="icon" aria-label="Refresh schedule" title="Refresh schedule" onClick={() => qc.invalidateQueries({ queryKey: ["scheduler-bookings"] })}><RefreshCw /></Button></div>
