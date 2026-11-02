@@ -11,10 +11,10 @@ describe("booking price", () => {
   it("adds $15 per bedroom over 2 and per bathroom over 1", () => {
     expect(quote({ service: "Standard Housekeeping", bedrooms: 3, bathrooms: 2, addOns: [], rush: false }).total).toBe(125);
   });
-  it("adds add-on prices and $15 rush fee, counting each add-on once", () => {
+  it("charges add-ons at 50% off, plus $15 rush fee, counting each add-on once", () => {
     const q = quote({ service: "Standard Housekeeping", bedrooms: 2, bathrooms: 1, addOns: ["Refrigerator Interior", "Refrigerator Interior", "Eco Pet Odor & Fur"], rush: true });
-    expect(q.total).toBe(95 + 35 + 25 + 15);
-    expect(q.totalCents).toBe(17000);
+    expect(q.total).toBe(95 + 17.5 + 12.5 + 15);
+    expect(q.totalCents).toBe(14000);
   });
   it("ignores unknown add-ons", () => {
     expect(quote({ service: "Standard Housekeeping", bedrooms: 2, bathrooms: 1, addOns: ["Free Gold"], rush: false }).total).toBe(95);

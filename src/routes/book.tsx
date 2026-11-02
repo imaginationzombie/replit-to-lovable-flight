@@ -4,7 +4,7 @@ import { AppHeader } from "@/components/AppHeader";
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { authorizeOrder, createOrder, getPaypalConfig } from "@/lib/booking.functions";
-import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchAddOns, quote } from "@/lib/pricing";
+import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchAddOns, quote, addOnPrice } from "@/lib/pricing";
 
 export const Route = createFileRoute("/book")({
   head: () => ({
@@ -184,7 +184,7 @@ function BookPage() {
                     <span className="flex items-center gap-2">
                       <input type="checkbox" checked={form.addOns.includes(a)} onChange={(e) => set("addOns", e.target.checked ? [...form.addOns, a] : form.addOns.filter((x) => x !== a))} />
                       {a}</span>
-                    <span className="text-muted-foreground">+${p}</span>
+                    <span className="text-muted-foreground"><s className="mr-1 opacity-60">${p}</s><b className="text-primary">+${addOnPrice(a).toFixed(2)}</b></span>
                   </label>
                 ))}
               </div>
@@ -209,6 +209,7 @@ function BookPage() {
               <Row k={form.service} v={q.base} />
               {q.rooms > 0 && <Row k="Extra rooms" v={q.rooms} />}
               {q.addOns > 0 && <Row k={`Add-ons (${form.addOns.length})`} v={q.addOns} />}
+              {q.addOns > 0 && <p className="text-xs font-semibold text-primary">Add-ons 50% off applied</p>}
               {q.rush > 0 && <Row k="Rush dispatch" v={q.rush} />}
             </dl>
             <div className="mt-4 flex items-baseline justify-between border-t border-border pt-4">
