@@ -17,3 +17,6 @@
 - [x] Housekeeper appointment availability creator and signed-in save verification
 - [x] Customer booking status page with scheduled arrival windows and own-booking verification
 - [x] Automatically refresh admin bookings after scheduler assignments and moves
+- [x] Housekeepers claim confirmed unassigned visits from a waiting list; signed-in claim verified
+- [x] Customer portal connects existing account creation, cleaning requests and booking tracking
+- [x] Cleaner appointment checklists, hours, submitted timesheets and payment tracking; approval and payment readback verified

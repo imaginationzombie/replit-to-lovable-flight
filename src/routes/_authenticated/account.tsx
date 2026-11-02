@@ -28,7 +28,8 @@ function Account() {
     queryKey: ["my-profile"],
     queryFn: async () => {
       const { data: u } = await supabase.auth.getUser();
-      const { data, error } = await supabase.from("profiles").select("*").eq("id", u.user!.id).single();
+      if (!u.user) throw new Error("Sign in to view your profile.");
+      const { data, error } = await supabase.from("profiles").select("*").eq("id", u.user.id).single();
       if (error) throw error;
       return data;
     },
@@ -43,7 +44,8 @@ function Account() {
   const save = useMutation({
     mutationFn: async () => {
       const clean = { full_name: form.full_name.trim().slice(0, 100), phone: form.phone.trim().slice(0, 30), address: form.address.trim().slice(0, 300) };
-      const { error } = await supabase.from("profiles").update(clean).eq("id", profile.data!.id);
+      if (!profile.data) throw new Error("Your profile is still loading.");
+      const { error } = await supabase.from("profiles").update(clean).eq("id", profile.data.id);
       if (error) throw error;
     },
     onSuccess: () => { setSaved(true); setTimeout(() => setSaved(false), 2000); qc.invalidateQueries({ queryKey: ["my-profile"] }); },
@@ -60,8 +62,8 @@ function Account() {
       <main className="mx-auto grid max-w-5xl gap-8 px-6 py-10 lg:grid-cols-[1.5fr_1fr]">
         <section>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h1 className="text-3xl font-extrabold text-foreground">My bookings</h1>
-            <div className="flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/booking-status">Booking status</Link></Button><Button asChild><Link to="/book">Book a cleaning</Link></Button></div>
+            <h1 className="text-3xl font-extrabold text-foreground">Customer portal</h1>
+            <div className="flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/booking-status">Track my bookings</Link></Button><Button asChild><Link to="/book">Request a cleaning</Link></Button></div>
           </div>
           {bookings.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
           {bookings.error && <p className="mt-6 text-destructive">Couldn't load your bookings.</p>}
@@ -82,9 +84,9 @@ function Account() {
             <label className="block text-sm font-semibold text-foreground">Phone<input type="tel" maxLength={30} className={field} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} /></label>
             <label className="block text-sm font-semibold text-foreground">Home address<input maxLength={300} className={field} value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} /></label>
             {save.error && <p className="text-sm text-destructive">Couldn't save. Please try again.</p>}
-            <button disabled={save.isPending || !profile.data} className="w-full rounded-xl bg-primary px-4 py-2.5 font-bold text-primary-foreground disabled:opacity-60">
+            <Button disabled={save.isPending || !profile.data} className="w-full" type="submit">
               {saved ? "Saved!" : save.isPending ? "Saving…" : "Save profile"}
-            </button>
+            </Button>
           </form>
         </aside>
       </main>
