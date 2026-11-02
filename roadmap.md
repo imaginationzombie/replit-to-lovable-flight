@@ -15,3 +15,5 @@
 - [x] Drag-and-drop scheduler for admin and employees
 - [x] Dedicated cleaner drag-and-drop schedule page with links from jobs, profile and navigation
 - [x] Housekeeper appointment availability creator and signed-in save verification
+- [x] Customer booking status page with scheduled arrival windows and own-booking verification
+- [x] Automatically refresh admin bookings after scheduler assignments and moves

@@ -18,6 +18,7 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAvailabilityRouteImport } from './routes/_authenticated/availability'
+import { Route as AuthenticatedBookingStatusRouteImport } from './routes/_authenticated/booking-status'
 import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticated/cleaner'
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
@@ -68,6 +69,12 @@ const AuthenticatedAvailabilityRoute =
     path: '/availability',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedBookingStatusRoute =
+  AuthenticatedBookingStatusRouteImport.update({
+    id: '/booking-status',
+    path: '/booking-status',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedCleanerRoute = AuthenticatedCleanerRouteImport.update({
   id: '/cleaner',
   path: '/cleaner',
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
+  '/booking-status': typeof AuthenticatedBookingStatusRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
@@ -114,6 +122,7 @@ export interface FileRoutesByTo {
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
+  '/booking-status': typeof AuthenticatedBookingStatusRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
@@ -130,6 +139,7 @@ export interface FileRoutesById {
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/availability': typeof AuthenticatedAvailabilityRoute
+  '/_authenticated/booking-status': typeof AuthenticatedBookingStatusRoute
   '/_authenticated/cleaner': typeof AuthenticatedCleanerRoute
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/admin'
     | '/availability'
+    | '/booking-status'
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
@@ -160,6 +171,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/admin'
     | '/availability'
+    | '/booking-status'
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
@@ -175,6 +187,7 @@ export interface FileRouteTypes {
     | '/_authenticated/account'
     | '/_authenticated/admin'
     | '/_authenticated/availability'
+    | '/_authenticated/booking-status'
     | '/_authenticated/cleaner'
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
@@ -256,6 +269,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAvailabilityRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/booking-status': {
+      id: '/_authenticated/booking-status'
+      path: '/booking-status'
+      fullPath: '/booking-status'
+      preLoaderRoute: typeof AuthenticatedBookingStatusRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/cleaner': {
       id: '/_authenticated/cleaner'
       path: '/cleaner'
@@ -291,6 +311,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedAvailabilityRoute: typeof AuthenticatedAvailabilityRoute
+  AuthenticatedBookingStatusRoute: typeof AuthenticatedBookingStatusRoute
   AuthenticatedCleanerRoute: typeof AuthenticatedCleanerRoute
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
   AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
@@ -300,6 +321,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAccountRoute: AuthenticatedAccountRoute,
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedAvailabilityRoute: AuthenticatedAvailabilityRoute,
+  AuthenticatedBookingStatusRoute: AuthenticatedBookingStatusRoute,
   AuthenticatedCleanerRoute: AuthenticatedCleanerRoute,
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
   AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,

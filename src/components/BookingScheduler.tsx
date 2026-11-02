@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { TIME_WINDOWS } from "@/lib/pricing";
 import { canMoveJob, dateKey, weekDates } from "@/lib/scheduling";
 import type { BookingRow } from "@/components/BookingCard";
+import { refreshBookingViews } from "@/lib/booking-sync";
 
 type Target = { date: string; cleanerId: string | null };
 type Move = Target & { booking: BookingRow; time: string };
@@ -62,7 +63,7 @@ export function BookingScheduler({ admin = false }: { admin?: boolean }) {
     if (error) throw error;
   }, onSuccess: async () => {
     setMessage("Booking rescheduled."); setMove(null);
-    await Promise.all(["scheduler-bookings", "admin-bookings", "cleaner-jobs", "my-bookings"].map(key => qc.invalidateQueries({ queryKey: [key] })));
+    await refreshBookingViews(qc);
   }});
   const days = weekDates(week);
   const allGroups = canAdmin ? [{ id: null, label: "Unassigned" }, ...(cleaners.data ?? []).map(c => ({ id: c.id as string | null, label: c.full_name || c.email }))] : [{ id: user?.id ?? null, label: "My schedule" }];

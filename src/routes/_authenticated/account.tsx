@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { AppHeader } from "@/components/AppHeader";
 import { BookingCard, type BookingRow } from "@/components/BookingCard";
+import { customerBookingsOptions } from "@/lib/customer-bookings";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/account")({
   head: () => ({
@@ -21,16 +23,7 @@ export const Route = createFileRoute("/_authenticated/account")({
 
 function Account() {
   const qc = useQueryClient();
-  const bookings = useQuery({
-    queryKey: ["my-bookings"],
-    queryFn: async () => {
-      const { data: u } = await supabase.auth.getUser();
-      const { data, error } = await supabase.from("bookings").select("*").or(`user_id.eq.${u.user!.id},email.ilike.${u.user!.email}`)
-        .order("preferred_date", { ascending: false });
-      if (error) throw error;
-      return data as BookingRow[];
-    },
-  });
+  const bookings = useQuery(customerBookingsOptions);
   const profile = useQuery({
     queryKey: ["my-profile"],
     queryFn: async () => {
@@ -66,9 +59,9 @@ function Account() {
       <AppHeader />
       <main className="mx-auto grid max-w-5xl gap-8 px-6 py-10 lg:grid-cols-[1.5fr_1fr]">
         <section>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <h1 className="text-3xl font-extrabold text-foreground">My bookings</h1>
-            <Link to="/book" className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">Book a cleaning</Link>
+            <div className="flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/booking-status">Booking status</Link></Button><Button asChild><Link to="/book">Book a cleaning</Link></Button></div>
           </div>
           {bookings.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
           {bookings.error && <p className="mt-6 text-destructive">Couldn't load your bookings.</p>}
