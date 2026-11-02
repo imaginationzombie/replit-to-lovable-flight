@@ -14,7 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          access_token: string
+          add_ons: string[]
+          address: string
+          amount_cents: number
+          bathrooms: number
+          bedrooms: number
+          created_at: string
+          currency: string
+          customer_name: string
+          email: string
+          frequency: string
+          id: string
+          notes: string
+          paid_at: string | null
+          paypal_capture_id: string | null
+          paypal_order_id: string | null
+          phone: string
+          preferred_date: string
+          rush: boolean
+          service: string
+          service_area: string
+          status: string
+          time_window: string
+        }
+        Insert: {
+          access_token?: string
+          add_ons?: string[]
+          address: string
+          amount_cents: number
+          bathrooms: number
+          bedrooms: number
+          created_at?: string
+          currency?: string
+          customer_name: string
+          email: string
+          frequency: string
+          id?: string
+          notes?: string
+          paid_at?: string | null
+          paypal_capture_id?: string | null
+          paypal_order_id?: string | null
+          phone: string
+          preferred_date: string
+          rush?: boolean
+          service: string
+          service_area: string
+          status?: string
+          time_window: string
+        }
+        Update: {
+          access_token?: string
+          add_ons?: string[]
+          address?: string
+          amount_cents?: number
+          bathrooms?: number
+          bedrooms?: number
+          created_at?: string
+          currency?: string
+          customer_name?: string
+          email?: string
+          frequency?: string
+          id?: string
+          notes?: string
+          paid_at?: string | null
+          paypal_capture_id?: string | null
+          paypal_order_id?: string | null
+          phone?: string
+          preferred_date?: string
+          rush?: boolean
+          service?: string
+          service_area?: string
+          status?: string
+          time_window?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
