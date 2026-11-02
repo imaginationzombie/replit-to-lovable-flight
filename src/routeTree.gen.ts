@@ -23,6 +23,7 @@ import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -97,6 +98,12 @@ const BookingIdRoute = BookingIdRouteImport.update({
   path: '/booking/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/booking/$id': typeof BookingIdRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -127,6 +135,7 @@ export interface FileRoutesByTo {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/booking/$id': typeof BookingIdRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -144,6 +153,7 @@ export interface FileRoutesById {
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/booking/$id': typeof BookingIdRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/booking/$id'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/booking/$id'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -192,6 +204,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
     | '/booking/$id'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -202,6 +215,7 @@ export interface RootRouteChildren {
   BookingAssistantRoute: typeof BookingAssistantRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   BookingIdRoute: typeof BookingIdRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -304,6 +318,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -338,6 +359,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookingAssistantRoute: BookingAssistantRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   BookingIdRoute: BookingIdRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
