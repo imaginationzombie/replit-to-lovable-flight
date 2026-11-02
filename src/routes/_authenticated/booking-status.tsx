@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { fmtDate, type BookingRow } from "@/components/BookingCard";
 import { customerBookingsOptions, visitSchedule } from "@/lib/customer-bookings";
 import { dateKey } from "@/lib/scheduling";
+import { CleanerLocation } from "@/components/CleanerLocation";
 
 export const Route = createFileRoute("/_authenticated/booking-status")({
   loader: ({ context }) => context.queryClient.ensureQueryData(customerBookingsOptions),
@@ -36,6 +37,7 @@ function Visit({ booking }: { booking: BookingRow }) {
       <div className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" /><div><p className="text-sm text-muted-foreground">Cleaner appointment</p><p className="font-semibold text-foreground">{visitSchedule(booking)}</p></div></div>
       <div className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" /><div className="min-w-0"><p className="text-sm text-muted-foreground">Address</p><p className="break-words font-semibold text-foreground">{booking.address}</p></div></div>
     </div>
+    {booking.status === "confirmed" && booking.cleaner_id && <CleanerLocation bookingId={booking.id} />}
     <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
       <p className="text-sm text-muted-foreground">{booking.paid_at ? "Paid" : booking.status === "completed" ? "Payment due" : booking.status === "confirmed" ? "Charged after cleaning" : ""}</p>
       {booking.access_token && <Button asChild variant="outline" size="sm"><Link to="/booking/$id" params={{ id: booking.id }} search={{ t: booking.access_token }}>Booking details</Link></Button>}
