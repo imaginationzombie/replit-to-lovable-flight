@@ -5,6 +5,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { AppHeader } from "@/components/AppHeader";
 import { useAuth } from "@/hooks/use-auth";
 import type { Json } from "@/integrations/supabase/types";
+import { validateWeeklyHours } from "@/lib/availability";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/cleaner-profile")({
   head: () => ({
@@ -61,6 +63,7 @@ function CleanerPortal() {
 
   const save = useMutation({
     mutationFn: async () => {
+      validateWeeklyHours(hours);
       const rate = Math.round(Number(f.rate || 0) * 100);
       if (!Number.isFinite(rate) || rate < 0 || rate > 100000) throw new Error("Enter an hourly rate between $0 and $1,000.");
       const p = await supabase.from("profiles").update({ full_name: f.full_name.trim().slice(0, 120), phone: f.phone.trim().slice(0, 40), address: f.address.trim().slice(0, 300) }).eq("id", user!.id);
@@ -90,7 +93,7 @@ function CleanerPortal() {
       <main className="mx-auto max-w-3xl px-6 py-10">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-3xl font-extrabold text-foreground">Cleaner portal</h1>
-          <Link to="/cleaner-schedule" className="text-sm font-bold text-primary">View my schedule →</Link>
+          <div className="flex flex-wrap items-center gap-3"><Button asChild variant="outline"><Link to="/availability">Schedule creator</Link></Button><Link to="/cleaner-schedule" className="text-sm font-bold text-primary">View my schedule →</Link></div>
         </div>
         {!loading && !isCleaner && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">This page is for cleaners. Ask an admin to give your account cleaner access.</p>}
         {isCleaner && data.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
