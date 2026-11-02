@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { AppHeader } from "@/components/AppHeader";
 import { BookingCard, STATUS_LABEL, type BookingRow } from "@/components/BookingCard";
 import { useAuth, type Role } from "@/hooks/use-auth";
+import { hoursSummary } from "@/lib/cleaner-hours";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -233,7 +234,7 @@ function Schedules() {
   const settings = useQuery({
     queryKey: ["admin-cleaner-settings"],
     queryFn: async () => {
-      const { data, error } = await supabase.from("cleaner_settings").select("user_id, hourly_rate_cents, accepting_jobs, service_areas, unavailable_dates");
+      const { data, error } = await supabase.from("cleaner_settings").select("user_id, hourly_rate_cents, accepting_jobs, service_areas, unavailable_dates, weekly_hours");
       if (error) throw error;
       return data;
     },
@@ -252,8 +253,8 @@ function Schedules() {
           <div key={g.id ?? "none"} className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-center justify-between"><h3 className="font-bold text-foreground">{g.label}</h3><span className="text-xs text-muted-foreground">{jobs.length} upcoming</span></div>
             {(() => { const st = settings.data?.find((x) => x.user_id === g.id); return st ? (
-              <p className="mt-1 text-xs text-muted-foreground">${(st.hourly_rate_cents / 100).toFixed(2)}/hr · {st.accepting_jobs ? "Accepting jobs" : "Not accepting jobs"}{st.service_areas ? ` · ${st.service_areas}` : ""}{st.unavailable_dates.filter((d) => d >= today).length ? ` · Off: ${st.unavailable_dates.filter((d) => d >= today).join(", ")}` : ""}</p>
-            ) : null; })()}
+              <p className="mt-1 text-xs text-muted-foreground">${(st.hourly_rate_cents / 100).toFixed(2)}/hr · {st.accepting_jobs ? "Accepting jobs" : "Not accepting jobs"}{st.service_areas ? ` · ${st.service_areas}` : ""}{st.unavailable_dates.filter((d) => d >= today).length ? ` · Off: ${st.unavailable_dates.filter((d) => d >= today).join(", ")}` : ""}<br />Hours: {hoursSummary(st.weekly_hours)}</p>
+            ) : g.id ? <p className="mt-1 text-xs text-muted-foreground">No rate or hours set yet.</p> : null; })()}
             <ul className="mt-3 space-y-2">
               {jobs.length === 0 && <li className="text-sm text-muted-foreground">Nothing scheduled.</li>}
               {jobs.map((b) => (
