@@ -14,6 +14,7 @@ import { SendConfirmation } from "@/components/SendConfirmation";
 import { TimesheetList } from "@/components/TimesheetList";
 import { HiringPanel } from "@/components/HiringPanel";
 import { Button } from "@/components/ui/button";
+import { DisputePanel } from "@/components/DisputePanel";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -31,7 +32,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
 
 function Admin() {
   const { isAdmin, loading } = useAuth();
-  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people" | "timesheets" | "hiring">("scheduler");
+  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people" | "timesheets" | "hiring" | "disputes">("scheduler");
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
@@ -42,13 +43,13 @@ function Admin() {
           <>
             <div className="mt-6 flex flex-wrap gap-2">
               <Button asChild variant="outline"><Link to="/admin-paypal" search={{ view: "all" }}>PayPal dashboard</Link></Button>
-              {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets", "hiring"] as const).map((t) => (
+              {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets", "hiring", "disputes"] as const).map((t) => (
                 <Button key={t} onClick={() => setTab(t)} variant={tab === t ? "default" : "secondary"}>
                   {TAB_LABEL[t]}
                 </Button>
               ))}
             </div>
-            {tab === "scheduler" ? <BookingScheduler admin /> : tab === "bookings" ? <Bookings /> : tab === "calendar" ? <BookingScheduler admin view="month" /> : tab === "schedules" ? <Schedules /> : tab === "hiring" ? <Suspense fallback={<p className="mt-6">Loading applications…</p>}><HiringPanel /></Suspense> : tab === "timesheets" ? <TimesheetList admin /> : <People />}
+            {tab === "scheduler" ? <BookingScheduler admin /> : tab === "bookings" ? <Bookings /> : tab === "calendar" ? <BookingScheduler admin view="month" /> : tab === "schedules" ? <Schedules /> : tab === "hiring" ? <Suspense fallback={<p className="mt-6">Loading applications…</p>}><HiringPanel /></Suspense> : tab === "timesheets" ? <TimesheetList admin /> : tab === "disputes" ? <DisputePanel admin /> : <People />}
           </>
         )}
       </main>
@@ -189,7 +190,7 @@ function People() {
   );
 }
 
-const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles", timesheets: "Timesheets & payments", hiring: "Hiring" } as const;
+const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles", timesheets: "Timesheets & payments", hiring: "Hiring", disputes: "Disputes" } as const;
 
 function useAdminBookings() {
   return useQuery({

@@ -25,6 +25,7 @@ import { Route as AuthenticatedBookingStatusRouteImport } from './routes/_authen
 import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticated/cleaner'
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
+import { Route as AuthenticatedDisputesRouteImport } from './routes/_authenticated/disputes'
 import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
 import { Route as AuthenticatedMyPageRouteImport } from './routes/_authenticated/my-page'
 import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authenticated/timesheets'
@@ -118,6 +119,11 @@ const AuthenticatedCleanerScheduleRoute =
     path: '/cleaner-schedule',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedDisputesRoute = AuthenticatedDisputesRouteImport.update({
+  id: '/disputes',
+  path: '/disputes',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
   id: '/messages',
   path: '/messages',
@@ -172,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/disputes': typeof AuthenticatedDisputesRoute
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
@@ -196,6 +203,7 @@ export interface FileRoutesByTo {
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/disputes': typeof AuthenticatedDisputesRoute
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/_authenticated/cleaner': typeof AuthenticatedCleanerRoute
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/_authenticated/disputes': typeof AuthenticatedDisputesRoute
   '/_authenticated/messages': typeof AuthenticatedMessagesRoute
   '/_authenticated/my-page': typeof AuthenticatedMyPageRoute
   '/_authenticated/timesheets': typeof AuthenticatedTimesheetsRoute
@@ -248,6 +257,7 @@ export interface FileRouteTypes {
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
+    | '/disputes'
     | '/messages'
     | '/my-page'
     | '/timesheets'
@@ -272,6 +282,7 @@ export interface FileRouteTypes {
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
+    | '/disputes'
     | '/messages'
     | '/my-page'
     | '/timesheets'
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cleaner'
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
+    | '/_authenticated/disputes'
     | '/_authenticated/messages'
     | '/_authenticated/my-page'
     | '/_authenticated/timesheets'
@@ -432,6 +444,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCleanerScheduleRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/disputes': {
+      id: '/_authenticated/disputes'
+      path: '/disputes'
+      fullPath: '/disputes'
+      preLoaderRoute: typeof AuthenticatedDisputesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/messages': {
       id: '/_authenticated/messages'
       path: '/messages'
@@ -495,6 +514,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCleanerRoute: typeof AuthenticatedCleanerRoute
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
   AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
+  AuthenticatedDisputesRoute: typeof AuthenticatedDisputesRoute
   AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
   AuthenticatedMyPageRoute: typeof AuthenticatedMyPageRoute
   AuthenticatedTimesheetsRoute: typeof AuthenticatedTimesheetsRoute
@@ -512,6 +532,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCleanerRoute: AuthenticatedCleanerRoute,
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
   AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,
+  AuthenticatedDisputesRoute: AuthenticatedDisputesRoute,
   AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
   AuthenticatedMyPageRoute: AuthenticatedMyPageRoute,
   AuthenticatedTimesheetsRoute: AuthenticatedTimesheetsRoute,

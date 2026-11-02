@@ -30,6 +30,7 @@ export function AppHeader() {
               <Link to="/account" className={link}>My account</Link>
               <Link to="/booking-status" className={link}>Booking status</Link>
               <Link to="/booking-history" className={link}>Payments & history</Link>
+              <Link to="/disputes" className={link}>Disputes</Link>
               <Link to="/messages" className={link}>Messages</Link>
               {isCleaner && <Link to="/my-page" className={link}>My public page</Link>}
               {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
