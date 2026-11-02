@@ -7,7 +7,7 @@ export function readWeeklyHours(value: unknown): WeeklyHours {
   return Object.fromEntries(WEEK_DAYS.map(day => {
     const raw = source[day];
     const slot = raw && typeof raw === "object" ? raw as Record<string, unknown> : {};
-    return [day, { on: slot.on === true, start: typeof slot.start === "string" ? slot.start : "08:00", end: typeof slot.end === "string" ? slot.end : "17:00" }];
+    return [day, { on: slot["on"] === true, start: typeof slot["start"] === "string" ? slot["start"] : "08:00", end: typeof slot["end"] === "string" ? slot["end"] : "17:00" }];
   })) as WeeklyHours;
 }
 
