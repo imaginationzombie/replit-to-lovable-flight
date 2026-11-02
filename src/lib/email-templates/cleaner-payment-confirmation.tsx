@@ -21,7 +21,7 @@ const brand = { fontWeight: "bold", color: "#00594c" };
 const button = { backgroundColor: "#00594c", color: "#ffffff", padding: "12px 20px", borderRadius: "6px" };
 export const template = {
   component: CleanerPaymentConfirmation,
-  subject: (data) => `${data.test ? "Test customer payment" : "Customer payment received"} | HousekeepingBooking.com`,
+  subject: (data) => `${data['test'] ? "Test customer payment" : "Customer payment received"} | HousekeepingBooking.com`,
   displayName: "Cleaner customer-payment confirmation",
   previewData: { name: "Housekeeper", service: "Standard Housekeeping", date: "Monday, November 9, 2026", amount: "$95.00", reference: "Payment receipt" },
 } satisfies TemplateEntry;
