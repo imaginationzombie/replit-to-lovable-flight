@@ -10,6 +10,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { collectPayment, completeBooking } from "@/lib/booking.functions";
 import { BookingScheduler } from "@/components/BookingScheduler";
 import { refreshBookingViews } from "@/lib/booking-sync";
+import { SendConfirmation } from "@/components/SendConfirmation";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -110,6 +111,7 @@ function Bookings() {
         {rows.map((b) => (
           <BookingCard key={b.id} b={b} showCustomer>
             <div className="flex flex-wrap gap-2">
+              <SendConfirmation bookingId={b.id} status={b.status} />
               <select aria-label="Assign cleaner" className={select} value={b.cleaner_id ?? ""}
                 onChange={(e) => update.mutate({ id: b.id, patch: { cleaner_id: e.target.value || null } })}>
                 <option value="">Unassigned</option>
@@ -249,7 +251,7 @@ function CalendarView() {
       <div className="mt-3 space-y-3">
         {(byDay.get(day) ?? []).length === 0 && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">No cleanings this day.</p>}
         {(byDay.get(day) ?? []).map((b) => (
-          <BookingCard key={b.id} b={b} showCustomer><p className="text-sm text-muted-foreground">Cleaner: <b className="text-foreground">{name(b.cleaner_id)}</b></p></BookingCard>
+          <BookingCard key={b.id} b={b} showCustomer><p className="text-sm text-muted-foreground">Cleaner: <b className="text-foreground">{name(b.cleaner_id)}</b></p><SendConfirmation bookingId={b.id} status={b.status} /></BookingCard>
         ))}
       </div>
     </section>
