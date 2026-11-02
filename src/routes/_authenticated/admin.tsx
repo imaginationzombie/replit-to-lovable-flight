@@ -12,9 +12,9 @@ import { collectPayment, completeBooking } from "@/lib/booking.functions";
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
     meta: [
-      { title: "Admin | HousekeeperBooking.com" },
+      { title: "Admin | HousekeepingBooking.com" },
       { name: "description", content: "Manage bookings, cleaners and accounts." },
-      { property: "og:title", content: "Admin | HousekeeperBooking.com" },
+      { property: "og:title", content: "Admin | HousekeepingBooking.com" },
       { property: "og:description", content: "Manage bookings, cleaners and accounts." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

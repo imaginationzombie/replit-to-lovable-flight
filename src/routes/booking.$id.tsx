@@ -14,10 +14,10 @@ export const Route = createFileRoute("/booking/$id")({
   },
   head: () => ({
     meta: [
-      { title: "Booking Confirmed | HousekeeperBooking.com" },
+      { title: "Booking Confirmed | HousekeepingBooking.com" },
       { name: "description", content: "Your cleaning booking details." },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Booking Confirmed | HousekeeperBooking.com" },
+      { property: "og:title", content: "Booking Confirmed | HousekeepingBooking.com" },
       { property: "og:description", content: "Your cleaning booking details." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

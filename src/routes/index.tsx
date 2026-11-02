@@ -7,9 +7,9 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "HousekeeperBooking.com | Pristine Living in Central PA" },
+      { title: "HousekeepingBooking.com | Pristine Living in Central PA" },
       { name: "description", content: "Book trusted house cleaners in Central PA." },
-      { property: "og:title", content: "HousekeeperBooking.com" },
+      { property: "og:title", content: "HousekeepingBooking.com" },
       { property: "og:description", content: "Book trusted house cleaners in Central PA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

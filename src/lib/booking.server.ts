@@ -86,7 +86,7 @@ async function paypalOrder(intent: "AUTHORIZE" | "CAPTURE", bookingId: string, s
       intent,
       purchase_units: [{
         reference_id: bookingId,
-        description: `${service} – HousekeeperBooking.com`,
+        description: `${service} – HousekeepingBooking.com`,
         amount: { currency_code: "USD", value: (cents / 100).toFixed(2) },
       }],
       ...(paymentSource ? { payment_source: paymentSource } : {}),
@@ -140,7 +140,7 @@ async function chargeVault(b: { id: string; service: string; amount_cents: numbe
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": `vault-${b.id}` },
     body: JSON.stringify({
       intent: "CAPTURE",
-      purchase_units: [{ reference_id: b.id, description: `${b.service} – HousekeeperBooking.com`, amount: { currency_code: "USD", value: (b.amount_cents / 100).toFixed(2) } }],
+      purchase_units: [{ reference_id: b.id, description: `${b.service} – HousekeepingBooking.com`, amount: { currency_code: "USD", value: (b.amount_cents / 100).toFixed(2) } }],
       payment_source: { paypal: { vault_id: b.paypal_vault_id } },
     }),
   });
