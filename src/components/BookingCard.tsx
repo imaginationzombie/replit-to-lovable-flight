@@ -39,6 +39,7 @@ export function BookingCard({ b, showCustomer, children }: { b: BookingRow; show
           {b.status === "completed" && !b.paid_at && b.access_token && !showCustomer && (
             <a href={`/booking/${b.id}?t=${b.access_token}`} className="ml-3 rounded-lg bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Pay now</a>
           )}
+          {b.status === "completed" && b.paid_at && b.cleaner_id && b.access_token && !showCustomer && <a href={`/booking/${b.id}?t=${b.access_token}`} className="ml-3 text-xs font-bold text-primary underline">Leave a tip</a>}
         </span>
         {children}
       </div>

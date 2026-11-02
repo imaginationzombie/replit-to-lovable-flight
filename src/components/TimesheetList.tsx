@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { canReviewTimesheet } from "@/lib/cleaner-work";
 import { Check, RotateCcw, Banknote } from "lucide-react";
 import { PayoutTransfer } from "@/components/PayoutTransfer";
+import { TipPayments } from "@/components/TipPayments";
 
 export function TimesheetList({ admin = false, userId }: { admin?: boolean; userId?: string }) {
   const qc = useQueryClient();
@@ -41,5 +42,6 @@ export function TimesheetList({ admin = false, userId }: { admin?: boolean; user
       {admin && row.status === "submitted" && <div className="mt-4 flex flex-wrap gap-2"><Button disabled={review.isPending} onClick={() => review.mutate({ id: row.id, action: "approve" })}><Check />Approve</Button><Button variant="outline" disabled={review.isPending} onClick={() => review.mutate({ id: row.id, action: "return" })}><RotateCcw />Return for edits</Button></div>}
       {admin && row.status === "approved" && <div className="mt-4 flex flex-wrap gap-2"><Input aria-label="Payment reference" placeholder="Payment reference" maxLength={200} className="max-w-xs" value={references[row.id] ?? ""} onChange={e => setReferences(old => ({ ...old, [row.id]: e.target.value }))} /><Button disabled={review.isPending || !canReviewTimesheet(row.status, "paid", references[row.id])} onClick={() => review.mutate({ id: row.id, action: "paid" })}><Banknote />Record payment</Button></div>}
     </article>)}</div>
+    <TipPayments admin={admin} userId={userId} />
   </section>;
 }

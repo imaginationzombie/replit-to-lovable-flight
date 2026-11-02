@@ -2,6 +2,8 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { z } from "zod";
 import { fetchBooking } from "@/lib/booking.functions";
 import { PayBalance } from "@/components/PayBalance";
+import { LeaveTip } from "@/components/LeaveTip";
+import { canTip } from "@/lib/tips";
 
 export const Route = createFileRoute("/booking/$id")({
   validateSearch: z.object({ t: z.string().catch("") }),
@@ -47,7 +49,7 @@ function Confirmation() {
           {due ? "Your cleaning is done!" : confirmed ? `You're booked, ${b.customer_name.split(" ")[0]}!` : "Booking not finished"}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          {due ? "Please pay for your visit below." : confirmed ? `Nothing has been charged. Your first visit is charged through PayPal only after the cleaning. Save this page link to view your booking anytime.` : "Checkout wasn't completed."}
+          {b.paid_at ? "Your visit payment is complete. Thank you!" : due ? "Please pay for your visit below." : confirmed ? "Nothing has been charged. Your visit is charged through PayPal only after the cleaning." : "Checkout wasn't completed."}
         </p>
         <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
           <Item k="Service" v={b.service} />
@@ -60,6 +62,7 @@ function Confirmation() {
           <Item k={b.paid_at ? "Paid" : "Charged after cleaning"} v={`$${(b.amount_cents / 100).toFixed(2)}`} />
         </dl>
         {due && <PayBalance id={b.id} token={t} />}
+        {canTip(b) && <LeaveTip id={b.id} token={t} />}
         {b.add_ons.length > 0 && <p className="mt-4 text-sm text-foreground"><strong>Add-ons:</strong> {b.add_ons.join(", ")}{b.rush ? ", Rush dispatch" : ""}</p>}
         {b.notes && <p className="mt-2 whitespace-pre-line text-sm text-foreground"><strong>Notes:</strong> {b.notes}</p>}
         <p className="mt-6 text-xs text-muted-foreground">Booking #{b.id.slice(0, 8).toUpperCase()} • Questions? Call (814) 952-1964</p>
