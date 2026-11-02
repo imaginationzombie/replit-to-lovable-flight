@@ -9,7 +9,7 @@ export type RecommendResult =
   | { ok: false; error: string };
 
 export const getRecommendation = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => input.parse(data))
+  .validator((data: unknown) => input.parse(data))
   .handler(async ({ data }): Promise<RecommendResult> => {
     const { recommendService, RecommendError } = await import("./recommend.server");
     try {
