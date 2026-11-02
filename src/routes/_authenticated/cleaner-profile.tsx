@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { AppHeader } from "@/components/AppHeader";
 import { useAuth } from "@/hooks/use-auth";
+import type { Json } from "@/integrations/supabase/types";
 
 export const Route = createFileRoute("/_authenticated/cleaner-profile")({
   head: () => ({
@@ -21,8 +22,8 @@ export const Route = createFileRoute("/_authenticated/cleaner-profile")({
 
 const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 const DAY_LABEL: Record<string, string> = { mon: "Monday", tue: "Tuesday", wed: "Wednesday", thu: "Thursday", fri: "Friday", sat: "Saturday", sun: "Sunday" };
-type Hours = Record<string, { on: boolean; start: string; end: string }>;
-const defaultHours = (): Hours => Object.fromEntries(DAYS.map((d) => [d, { on: d !== "sun", start: "08:00", end: "17:00" }]));
+type Hours = Record<(typeof DAYS)[number], { on: boolean; start: string; end: string }>;
+const defaultHours = (): Hours => Object.fromEntries(DAYS.map((d) => [d, { on: d !== "sun", start: "08:00", end: "17:00" }])) as Hours;
 
 function CleanerPortal() {
   const { user, isCleaner, loading } = useAuth();
@@ -53,7 +54,7 @@ function CleanerPortal() {
       bio: settings?.bio ?? "", rate: settings ? String(settings.hourly_rate_cents / 100) : "",
       service_areas: settings?.service_areas ?? "", accepting_jobs: settings?.accepting_jobs ?? true,
     });
-    const wh = settings?.weekly_hours as Hours | undefined;
+    const wh = settings?.weekly_hours as unknown as Partial<Hours> | undefined;
     setHours({ ...defaultHours(), ...(wh ?? {}) });
     setOff(settings?.unavailable_dates ?? []);
   }, [data.data]);
@@ -66,7 +67,7 @@ function CleanerPortal() {
       if (p.error) throw p.error;
       const s = await supabase.from("cleaner_settings").upsert({
         user_id: user!.id, bio: f.bio.slice(0, 1000), hourly_rate_cents: rate, service_areas: f.service_areas.slice(0, 300),
-        accepting_jobs: f.accepting_jobs, weekly_hours: hours, unavailable_dates: off, updated_at: new Date().toISOString(),
+        accepting_jobs: f.accepting_jobs, weekly_hours: hours as unknown as Json, unavailable_dates: off, updated_at: new Date().toISOString(),
       });
       if (s.error) throw s.error;
     },
