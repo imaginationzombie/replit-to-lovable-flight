@@ -19,6 +19,7 @@ import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticated/cleaner'
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
+import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -71,6 +72,12 @@ const AuthenticatedCleanerProfileRoute =
     path: '/cleaner-profile',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedCleanerScheduleRoute =
+  AuthenticatedCleanerScheduleRouteImport.update({
+    id: '/cleaner-schedule',
+    path: '/cleaner-schedule',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const BookingIdRoute = BookingIdRouteImport.update({
   id: '/booking/$id',
   path: '/booking/$id',
@@ -87,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AuthenticatedAdminRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
+  '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/booking/$id': typeof BookingIdRoute
 }
 export interface FileRoutesByTo {
@@ -99,6 +107,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AuthenticatedAdminRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
+  '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/booking/$id': typeof BookingIdRoute
 }
 export interface FileRoutesById {
@@ -113,6 +122,7 @@ export interface FileRoutesById {
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/cleaner': typeof AuthenticatedCleanerRoute
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
+  '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/booking/$id': typeof BookingIdRoute
 }
 export interface FileRouteTypes {
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/cleaner'
     | '/cleaner-profile'
+    | '/cleaner-schedule'
     | '/booking/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/cleaner'
     | '/cleaner-profile'
+    | '/cleaner-schedule'
     | '/booking/$id'
   id:
     | '__root__'
@@ -152,6 +164,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin'
     | '/_authenticated/cleaner'
     | '/_authenticated/cleaner-profile'
+    | '/_authenticated/cleaner-schedule'
     | '/booking/$id'
   fileRoutesById: FileRoutesById
 }
@@ -237,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCleanerProfileRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/cleaner-schedule': {
+      id: '/_authenticated/cleaner-schedule'
+      path: '/cleaner-schedule'
+      fullPath: '/cleaner-schedule'
+      preLoaderRoute: typeof AuthenticatedCleanerScheduleRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/booking/$id': {
       id: '/booking/$id'
       path: '/booking/$id'
@@ -252,6 +272,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedCleanerRoute: typeof AuthenticatedCleanerRoute
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
+  AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -259,6 +280,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedCleanerRoute: AuthenticatedCleanerRoute,
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
+  AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
