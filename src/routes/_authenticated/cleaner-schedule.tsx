@@ -29,7 +29,7 @@ function CleanerSchedule() {
           <h1 className="flex items-center gap-3 text-3xl font-extrabold text-foreground"><CalendarDays className="h-7 w-7 text-primary" />My schedule</h1>
           {isCleaner && <div className="flex flex-wrap gap-2">
             <Button asChild variant="outline"><Link to="/cleaner"><ClipboardList />My jobs</Link></Button>
-            <Button asChild variant="outline"><Link to="/cleaner-profile"><Settings />Hours & availability</Link></Button>
+            <Button asChild variant="outline"><Link to="/availability"><Settings />Create availability</Link></Button>
           </div>}
         </div>
         {loading ? <p role="status" className="mt-6 text-muted-foreground">Loading schedule…</p> : isCleaner ? <BookingScheduler /> : <p role="alert" className="mt-6 text-muted-foreground">Cleaner access is required to view this schedule.</p>}
