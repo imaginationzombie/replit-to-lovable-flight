@@ -29,6 +29,13 @@
       "when": 1793580008221,
       "tag": "0003_booking_authorization",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793580625186,
+      "tag": "0004_recurring_visits",
+      "breakpoints": true
     }
   ]
 }
