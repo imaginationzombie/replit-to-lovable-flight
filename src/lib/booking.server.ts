@@ -268,7 +268,7 @@ export async function getBooking(id: string, token: string) {
   const db = await admin();
   const { data } = await db
     .from("bookings")
-    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, preferred_date, time_window, notes, amount_cents, paid_at, authorized_at")
+    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, preferred_date, time_window, notes, amount_cents, paid_at, authorized_at, cleaner_id")
     .eq("id", id).eq("access_token", token).maybeSingle();
   return data;
 }
