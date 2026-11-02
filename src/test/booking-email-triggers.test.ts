@@ -1,5 +1,6 @@
 import { beforeEach, afterEach, expect, it, vi } from "vitest";
-const mocks = vi.hoisted(() => ({ notice: vi.fn().mockResolvedValue({ sent: true }), row: {} as Record<string, unknown>, writes: [] as Record<string, unknown>[] }));
+type RecordRow = Record<string, unknown> & { status?: string; paypal_capture_id?: string; paid_at?: string | null };
+const mocks = vi.hoisted(() => ({ notice: vi.fn().mockResolvedValue({ sent: true }), row: {} as RecordRow, writes: [] as RecordRow[] }));
 vi.mock("../lib/booking-notices.server", () => ({ notifyBookingEvent: mocks.notice }));
 vi.mock("@/integrations/supabase/client.server", () => ({ supabaseAdmin: {
   from: () => {
