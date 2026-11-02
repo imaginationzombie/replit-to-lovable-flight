@@ -19,7 +19,7 @@ export function AppHeader() {
   return (
     <header className="border-b border-border bg-card">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-4">
-        <a href="/index.html" aria-label="HousekeeperBooking.com home"><img src="/logo.png" alt="HousekeeperBooking.com" className="h-10 w-auto" width={384} height={160} /></a>
+        <a href="/index.html" aria-label="HousekeeperBooking.com home"><img src="/logo.png" alt="HousekeeperBooking.com" className="h-10 w-auto" width={628} height={160} /></a>
         <nav className="flex flex-wrap items-center gap-4">
           <Link to="/booking-assistant" className={link}>AI Assistant</Link>
           <Link to="/book" className={link}>Book</Link>
