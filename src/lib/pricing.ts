@@ -26,6 +26,24 @@ export const ADD_ONS: Record<string, number> = {
 export const ADD_ON_DISCOUNT = 0.5;
 export const addOnPrice = (name: string) => (ADD_ONS[name] ?? 0) * (1 - ADD_ON_DISCOUNT);
 
+/** Base cleaning minutes per service (matches the home calculator's 2-hr / 3-hr packages). */
+export const SERVICE_MINUTES: Record<string, number> = {
+  "Standard Housekeeping": 120,
+  "Deep Clean": 180,
+  "Move-In / Move-Out Turnover": 180,
+  "Commercial Office": 120,
+  "Fall & Seasonal Property Care": 120,
+};
+export const ROOM_MINUTES = 15;
+
+/** One add-on is included free for every full hour of base cleaning time (add-on time not counted). Most expensive ones are free first. */
+export function includedAddOns(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[] }) {
+  const mins = (SERVICE_MINUTES[input.service] ?? 0) + (Math.max(0, input.bedrooms - 2) + Math.max(0, input.bathrooms - 1)) * ROOM_MINUTES;
+  const hours = Math.floor(mins / 60);
+  const picked = [...new Set(input.addOns)].filter((a) => a in ADD_ONS).sort((a, b) => ADD_ONS[b]! - ADD_ONS[a]! || a.localeCompare(b));
+  return { hours, free: picked.slice(0, hours), paid: picked.slice(hours) };
+}
+
 export const RUSH_FEE = 15;
 export const ROOM_SURCHARGE = 15;
 
@@ -44,10 +62,11 @@ export const FREQUENCIES = ["One-time", "Weekly", "Bi-weekly", "Monthly"];
 export function quote(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[]; rush: boolean }) {
   const base = SERVICE_BASE[input.service] ?? 0;
   const rooms = Math.max(0, input.bedrooms - 2) * ROOM_SURCHARGE + Math.max(0, input.bathrooms - 1) * ROOM_SURCHARGE;
-  const addOns = [...new Set(input.addOns)].reduce((s, a) => s + addOnPrice(a), 0);
+  const inc = includedAddOns(input);
+  const addOns = inc.paid.reduce((s, a) => s + addOnPrice(a), 0);
   const rush = input.rush ? RUSH_FEE : 0;
   const total = base + rooms + addOns + rush;
-  return { base, rooms, addOns, rush, total, totalCents: Math.round(total * 100) };
+  return { base, rooms, addOns, rush, total, totalCents: Math.round(total * 100), includedHours: inc.hours, freeAddOns: inc.free };
 }
 
 // Map loosely-worded AI add-on suggestions onto real add-on names.
