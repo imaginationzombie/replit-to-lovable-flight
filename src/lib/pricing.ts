@@ -38,7 +38,7 @@ export const ROOM_MINUTES = 15;
 
 /** One add-on is included free for every full hour of base cleaning time (add-on time not counted). Most expensive ones are free first. */
 export function includedAddOns(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[] }) {
-  const mins = (SERVICE_MINUTES[input.service] ?? 0) + (Math.max(0, input.bedrooms - 2) + Math.max(0, input.bathrooms - 1)) * ROOM_MINUTES;
+  const mins = SERVICE_MINUTES[input.service] ?? 0; // extra rooms are charged, they do not add free add-ons
   const hours = Math.floor(mins / 60);
   const picked = [...new Set(input.addOns)].filter((a) => a in ADD_ONS).sort((a, b) => ADD_ONS[b]! - ADD_ONS[a]! || a.localeCompare(b));
   return { hours, free: picked.slice(0, hours), paid: picked.slice(hours) };

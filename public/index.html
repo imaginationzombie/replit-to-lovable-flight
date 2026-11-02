@@ -980,7 +980,7 @@
               var addonCount = checkedAddons.length;
 
               // 1 free add-on per full hour of base cleaning time; most expensive free first, the rest 50% off.
-              var includedCount = Math.floor((state.baseMins + roomMins) / 60);
+              var includedCount = Math.floor(state.baseMins / 60);
               var prices = [];
               checkedAddons.forEach(function(el) {
                 prices.push(parseFloat(el.getAttribute('data-price') || '0'));
