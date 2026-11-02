@@ -8,9 +8,9 @@ import type { Recommendation } from "@/lib/recommend.server";
 export const Route = createFileRoute("/booking-assistant")({
   head: () => ({
     meta: [
-      { title: "AI Booking Assistant | HousekeeperBooking.com" },
+      { title: "AI Booking Assistant | HousekeepingBooking.com" },
       { name: "description", content: "Describe your home and schedule and get a recommended cleaning service with booking details ready." },
-      { property: "og:title", content: "AI Booking Assistant | HousekeeperBooking.com" },
+      { property: "og:title", content: "AI Booking Assistant | HousekeepingBooking.com" },
       { property: "og:description", content: "Get a recommended cleaning service and ready-to-book details in seconds." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

@@ -12,10 +12,10 @@ export const Route = createFileRoute("/auth")({
   validateSearch: z.object({ next: z.string().optional() }),
   head: () => ({
     meta: [
-      { title: "Sign in | HousekeeperBooking.com" },
-      { name: "description", content: "Sign in or create your HousekeeperBooking.com account." },
-      { property: "og:title", content: "Sign in | HousekeeperBooking.com" },
-      { property: "og:description", content: "Sign in or create your HousekeeperBooking.com account." },
+      { title: "Sign in | HousekeepingBooking.com" },
+      { name: "description", content: "Sign in or create your HousekeepingBooking.com account." },
+      { property: "og:title", content: "Sign in | HousekeepingBooking.com" },
+      { property: "og:description", content: "Sign in or create your HousekeepingBooking.com account." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

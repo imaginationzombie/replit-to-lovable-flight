@@ -11,9 +11,9 @@ import { completeBooking } from "@/lib/booking.functions";
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
     meta: [
-      { title: "My Jobs | HousekeeperBooking.com" },
+      { title: "My Jobs | HousekeepingBooking.com" },
       { name: "description", content: "Cleaning jobs assigned to you." },
-      { property: "og:title", content: "My Jobs | HousekeeperBooking.com" },
+      { property: "og:title", content: "My Jobs | HousekeepingBooking.com" },
       { property: "og:description", content: "Cleaning jobs assigned to you." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

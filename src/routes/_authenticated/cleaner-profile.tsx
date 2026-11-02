@@ -9,9 +9,9 @@ import type { Json } from "@/integrations/supabase/types";
 export const Route = createFileRoute("/_authenticated/cleaner-profile")({
   head: () => ({
     meta: [
-      { title: "Cleaner Portal | HousekeeperBooking.com" },
+      { title: "Cleaner Portal | HousekeepingBooking.com" },
       { name: "description", content: "Set your schedule, rates, availability and profile." },
-      { property: "og:title", content: "Cleaner Portal | HousekeeperBooking.com" },
+      { property: "og:title", content: "Cleaner Portal | HousekeepingBooking.com" },
       { property: "og:description", content: "Set your schedule, rates, availability and profile." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

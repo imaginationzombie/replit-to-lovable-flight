@@ -8,9 +8,9 @@ import { BookingCard, type BookingRow } from "@/components/BookingCard";
 export const Route = createFileRoute("/_authenticated/account")({
   head: () => ({
     meta: [
-      { title: "My Account | HousekeeperBooking.com" },
+      { title: "My Account | HousekeepingBooking.com" },
       { name: "description", content: "Your bookings and profile." },
-      { property: "og:title", content: "My Account | HousekeeperBooking.com" },
+      { property: "og:title", content: "My Account | HousekeepingBooking.com" },
       { property: "og:description", content: "Your bookings and profile." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

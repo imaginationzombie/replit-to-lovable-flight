@@ -9,9 +9,9 @@ import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchA
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
-      { title: "Book Your Cleaning | HousekeeperBooking.com" },
+      { title: "Book Your Cleaning | HousekeepingBooking.com" },
       { name: "description", content: "Confirm your cleaning details and reserve with PayPal — $0 charged until after your cleaning." },
-      { property: "og:title", content: "Book Your Cleaning | HousekeeperBooking.com" },
+      { property: "og:title", content: "Book Your Cleaning | HousekeepingBooking.com" },
       { property: "og:description", content: "Confirm your cleaning details and reserve with PayPal — $0 charged until after your cleaning." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
