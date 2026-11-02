@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Automatic customer booking confirmations and assigned-cleaner customer-payment notices
+- [x] Automatic customer booking confirmations and assigned-cleaner customer-payment notices; triggers and rendered emails tested, real inbox delivery unverified
 
 - [x] Customer portal direct PayPal balance payment and cleaner-visible customer payment amount; checkout verified without charging
 - [x] Admin cleaner date blocking and calendar showing booked appointment slots; blocking and reschedule rejection verified
