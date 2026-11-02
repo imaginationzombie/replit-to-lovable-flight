@@ -22,7 +22,7 @@ export function PayBalance({ id, token }: { id: string; token: string }) {
       if (!w.paypal || !document.querySelector("script[data-pp-capture]")) {
         await new Promise<void>((resolve, reject) => {
           const s = document.createElement("script");
-          s.dataset.ppCapture = "1";
+          s.dataset["ppCapture"] = "1";
           s.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(cfg.data.clientId)}&currency=USD&intent=capture`;
           s.onload = () => resolve(); s.onerror = () => reject();
           document.body.appendChild(s);
