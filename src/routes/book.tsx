@@ -18,7 +18,7 @@ export const Route = createFileRoute("/book")({
   component: BookPage,
 });
 
-export const DRAFT_KEY = "hkb-booking-draft";
+const DRAFT_KEY = "hkb-booking-draft";
 
 type Form = {
   customerName: string; email: string; phone: string; address: string; serviceArea: string;
