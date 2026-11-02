@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Admin cleaner month calendar with booked arrival windows and drag-and-drop rescheduling
+- [ ] Customer booking history with payment and tip settlement status
+
 - [x] Booking form prefilled from AI assistant suggestions
 - [x] Save bookings in Lovable Cloud
 - [x] PayPal checkout (user chose PayPal over Stripe) — needs PayPal API credentials
