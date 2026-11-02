@@ -1,6 +1,32 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { approveAndTransfer } from "./approve-payout";
+
+export const approveTimesheetAndPay = createServerFn({ method: "POST" }).middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) => z.object({ workId: z.string().uuid() }).parse(input))
+  .handler(async ({ data, context }) => {
+    const { data: allowed, error } = await context.supabase.rpc("has_role", { _user_id: context.userId, _role: "admin" });
+    if (error || !allowed) throw new Error("Only admins can approve and pay timesheets.");
+    const { data: work } = await context.supabase.from("appointment_work").select("cleaner_id,status,amount_cents").eq("id", data.workId).single();
+    if (!work || work.status !== "submitted") throw new Error("This timesheet is no longer awaiting approval. Refresh to check its payment.");
+    const { data: account } = await context.supabase.from("cleaner_payout_accounts").select("paypal_email").eq("user_id", work.cleaner_id).maybeSingle();
+    if (!account?.paypal_email) throw new Error("The cleaner must save their PayPal receiving email before approval and payment.");
+    if (work.amount_cents <= 0) throw new Error("Payable earnings must be greater than zero.");
+    const { payoutEnvironment, payoutsConfigured, transferPayout } = await import("./payouts.server");
+    if (!payoutsConfigured()) throw new Error("PayPal is not configured. No earnings were approved or transferred.");
+    return approveAndTransfer({
+      approve: async () => {
+        const { error } = await context.supabase.rpc("review_timesheet", { _id: data.workId, _action: "approve", _reference: "" });
+        if (error) throw error;
+      },
+      transfer: async () => {
+        const { data: payout, error } = await context.supabase.rpc("reserve_cleaner_payout", { _work_id: data.workId, _environment: payoutEnvironment() });
+        if (error || !payout) throw new Error(error?.message ?? "Could not reserve payment.");
+        return transferPayout(payout, true);
+      },
+    });
+  });
 
 export const payoutConfig = createServerFn({ method: "GET" }).middleware([requireSupabaseAuth]).handler(async () => {
   const { payoutEnvironment, payoutsConfigured } = await import("./payouts.server");
