@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { canSendConfirmation } from "./confirmation";
 
 export const sendBookingConfirmation = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
@@ -10,7 +11,7 @@ export const sendBookingConfirmation = createServerFn({ method: "POST" })
     if (roleError || !admin) return { sent: false, message: "Only admins can send booking confirmations." };
     const { data: booking, error } = await context.supabase.from("bookings").select("id, email, customer_name, status, service, preferred_date, time_window, address, frequency, cleaner_id, access_token").eq("id", data.bookingId).single();
     if (error || !booking) return { sent: false, message: "Booking not found." };
-    if (booking.status !== "confirmed") return { sent: false, message: "Only confirmed visits can receive a confirmation." };
+    if (!canSendConfirmation(admin, booking.status)) return { sent: false, message: "Only confirmed visits can receive a confirmation." };
     let cleaner = "Assignment pending";
     if (booking.cleaner_id) {
       const { data: profile } = await context.supabase.from("profiles").select("full_name").eq("id", booking.cleaner_id).maybeSingle();
