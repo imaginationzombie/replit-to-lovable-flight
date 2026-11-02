@@ -5,7 +5,7 @@ export type BookingRow = {
   service_area: string; service: string; frequency: string; bedrooms: number; bathrooms: number;
   add_ons: string[]; rush: boolean; preferred_date: string; time_window: string; notes: string;
   amount_cents: number; cleaner_id: string | null; created_at: string;
-  paid_at?: string | null; access_token?: string;
+  paid_at?: string | null; access_token?: string; visit_number?: number;
 };
 
 export const STATUS_LABEL: Record<string, string> = {
@@ -24,7 +24,7 @@ export function BookingCard({ b, showCustomer, children }: { b: BookingRow; show
     <div className="rounded-2xl border border-border bg-card p-5">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          <p className="font-bold text-foreground">{b.service} <span className="font-normal text-muted-foreground">• {b.frequency}</span></p>
+          <p className="font-bold text-foreground">{b.service} <span className="font-normal text-muted-foreground">• {b.frequency}{b.frequency !== "One-time" && b.visit_number ? ` · Visit ${b.visit_number}` : ""}</span></p>
           <p className="text-sm text-muted-foreground">{fmtDate(b.preferred_date)} • {b.time_window}</p>
         </div>
         <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">{STATUS_LABEL[b.status] ?? b.status}</span>
