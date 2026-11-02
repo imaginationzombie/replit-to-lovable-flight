@@ -77,6 +77,81 @@ export type Database = {
           },
         ]
       }
+      booking_tips: {
+        Row: {
+          amount_cents: number
+          booking_id: string
+          cleaner_id: string
+          created_at: string
+          currency: string
+          environment: string
+          id: string
+          paid_at: string | null
+          payout_error: string
+          payout_paid_at: string | null
+          payout_status: string
+          paypal_batch_id: string | null
+          paypal_capture_id: string | null
+          paypal_item_id: string | null
+          paypal_order_id: string | null
+          recipient_email: string | null
+          status: string
+        }
+        Insert: {
+          amount_cents: number
+          booking_id: string
+          cleaner_id: string
+          created_at?: string
+          currency?: string
+          environment: string
+          id?: string
+          paid_at?: string | null
+          payout_error?: string
+          payout_paid_at?: string | null
+          payout_status?: string
+          paypal_batch_id?: string | null
+          paypal_capture_id?: string | null
+          paypal_item_id?: string | null
+          paypal_order_id?: string | null
+          recipient_email?: string | null
+          status?: string
+        }
+        Update: {
+          amount_cents?: number
+          booking_id?: string
+          cleaner_id?: string
+          created_at?: string
+          currency?: string
+          environment?: string
+          id?: string
+          paid_at?: string | null
+          payout_error?: string
+          payout_paid_at?: string | null
+          payout_status?: string
+          paypal_batch_id?: string | null
+          paypal_capture_id?: string | null
+          paypal_item_id?: string | null
+          paypal_order_id?: string | null
+          recipient_email?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "booking_tips_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: true
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "booking_tips_cleaner_id_fkey"
+            columns: ["cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       bookings: {
         Row: {
           access_token: string

@@ -1,0 +1,8 @@
+CREATE TABLE public.booking_tips (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(), booking_id uuid NOT NULL UNIQUE REFERENCES public.bookings(id), cleaner_id uuid NOT NULL REFERENCES public.profiles(id), amount_cents integer NOT NULL CHECK(amount_cents BETWEEN 100 AND 50000), currency text NOT NULL DEFAULT 'USD' CHECK(currency='USD'), environment text NOT NULL CHECK(environment IN ('live','sandbox')), status text NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','paid')), paypal_order_id text UNIQUE, paypal_capture_id text UNIQUE, paid_at timestamptz, created_at timestamptz NOT NULL DEFAULT now(), payout_status text NOT NULL DEFAULT 'unpaid' CHECK(payout_status IN ('unpaid','sending','pending','paid','failed','needs_review')), recipient_email text, paypal_batch_id text, paypal_item_id text, payout_error text NOT NULL DEFAULT '', payout_paid_at timestamptz
+);
+GRANT SELECT ON public.booking_tips TO authenticated;
+GRANT ALL ON public.booking_tips TO service_role;
+ALTER TABLE public.booking_tips ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Cleaners read own tips and admins read all" ON public.booking_tips FOR SELECT TO authenticated USING ((cleaner_id=auth.uid() AND public.has_role(auth.uid(),'cleaner')) OR public.has_role(auth.uid(),'admin'));
+COMMENT ON TABLE public.booking_tips IS 'Optional one-time post-cleaning tips. Only service role records verified PayPal receipts. Tip payout is separate from frozen timesheet wages.';
