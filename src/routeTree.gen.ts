@@ -18,6 +18,7 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticated/cleaner'
+import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -64,6 +65,12 @@ const AuthenticatedCleanerRoute = AuthenticatedCleanerRouteImport.update({
   path: '/cleaner',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedCleanerProfileRoute =
+  AuthenticatedCleanerProfileRouteImport.update({
+    id: '/cleaner-profile',
+    path: '/cleaner-profile',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const BookingIdRoute = BookingIdRouteImport.update({
   id: '/booking/$id',
   path: '/booking/$id',
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
+  '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/booking/$id': typeof BookingIdRoute
 }
 export interface FileRoutesByTo {
@@ -90,6 +98,7 @@ export interface FileRoutesByTo {
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/cleaner': typeof AuthenticatedCleanerRoute
+  '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/booking/$id': typeof BookingIdRoute
 }
 export interface FileRoutesById {
@@ -103,6 +112,7 @@ export interface FileRoutesById {
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/cleaner': typeof AuthenticatedCleanerRoute
+  '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/booking/$id': typeof BookingIdRoute
 }
 export interface FileRouteTypes {
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/admin'
     | '/cleaner'
+    | '/cleaner-profile'
     | '/booking/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/admin'
     | '/cleaner'
+    | '/cleaner-profile'
     | '/booking/$id'
   id:
     | '__root__'
@@ -139,6 +151,7 @@ export interface FileRouteTypes {
     | '/_authenticated/account'
     | '/_authenticated/admin'
     | '/_authenticated/cleaner'
+    | '/_authenticated/cleaner-profile'
     | '/booking/$id'
   fileRoutesById: FileRoutesById
 }
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCleanerRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/cleaner-profile': {
+      id: '/_authenticated/cleaner-profile'
+      path: '/cleaner-profile'
+      fullPath: '/cleaner-profile'
+      preLoaderRoute: typeof AuthenticatedCleanerProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/booking/$id': {
       id: '/booking/$id'
       path: '/booking/$id'
@@ -231,12 +251,14 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedCleanerRoute: typeof AuthenticatedCleanerRoute
+  AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAccountRoute: AuthenticatedAccountRoute,
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedCleanerRoute: AuthenticatedCleanerRoute,
+  AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
