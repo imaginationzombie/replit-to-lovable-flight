@@ -658,6 +658,7 @@
                   <div>
                     <span class="text-xs font-bold text-secondary uppercase tracking-wider">Step 4 of 5</span>
                     <h3 class="text-lg text-on-surface font-bold">Specialty Botanical Add-Ons (12 Services)</h3>
+                    <p class="text-xs font-semibold text-primary">1 add-on free for every hour of cleaning · extras 50% off</p>
                   </div>
                   <span class="text-xs text-on-surface-variant font-medium">EPA Safer Choice registered</span>
                 </div>
@@ -978,10 +979,16 @@
               var addonMins = 0;
               var addonCount = checkedAddons.length;
 
+              // 1 free add-on per full hour of base cleaning time; most expensive free first, the rest 50% off.
+              var includedCount = Math.floor((state.baseMins + roomMins) / 60);
+              var prices = [];
               checkedAddons.forEach(function(el) {
-                addonTotal += parseFloat(el.getAttribute('data-price') || '0') * 0.5; // 50% off add-ons
+                prices.push(parseFloat(el.getAttribute('data-price') || '0'));
                 addonMins += parseInt(el.getAttribute('data-mins') || '0', 10);
               });
+              prices.sort(function(a, b) { return b - a; });
+              prices.forEach(function(p, i) { if (i >= includedCount) addonTotal += p * 0.5; });
+              var freeUsed = Math.min(includedCount, prices.length);
 
               var rushFee = state.rush ? 15 : 0;
               var subtotal = (state.basePrice + roomSurcharge) * state.intensityMult * state.crewMult + addonTotal + rushFee;
@@ -1010,7 +1017,7 @@
               if (crewEl) crewEl.textContent = state.crewLabel;
               var addEl = document.getElementById('summary-addons');
               if (addEl) {
-                addEl.textContent = addonCount > 0 ? addonCount + ' selected (+$' + addonTotal.toFixed(2) + ')' : 'None ($0.00)';
+                addEl.textContent = addonCount > 0 ? addonCount + ' selected (' + freeUsed + ' free, +$' + addonTotal.toFixed(2) + ')' : includedCount + ' free included';
               }
             }
 

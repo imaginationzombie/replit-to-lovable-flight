@@ -177,7 +177,7 @@ function BookPage() {
             </section>
 
             <section>
-              <p className={label}>Add-ons</p>
+              <p className={label}>Add-ons <span className="font-normal text-muted-foreground">— 1 free per hour of cleaning ({q.includedHours} included), most expensive first</span></p>
               <div className="mt-2 grid gap-2 sm:grid-cols-2">
                 {Object.entries(ADD_ONS).map(([a, p]) => (
                   <label key={a} className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm">
