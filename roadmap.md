@@ -2,6 +2,8 @@
 
 - [ ] Admin cleaner month calendar with booked arrival windows and drag-and-drop rescheduling
 - [ ] Customer booking history with payment and tip settlement status
+- [ ] Hiring applications and admin review panel
+- [ ] Private admin–housekeeper and assigned housekeeper–customer messages
 
 - [x] Booking form prefilled from AI assistant suggestions
 - [x] Save bookings in Lovable Cloud
