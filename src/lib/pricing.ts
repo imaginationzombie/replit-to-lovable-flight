@@ -54,6 +54,7 @@ export const SERVICE_AREAS = [
   "Reynoldsville",
   "Sykesville",
   "Falls Creek / Brockway",
+  "Lewistown, PA",
 ];
 
 export const TIME_WINDOWS = ["Morning (8am–12pm)", "Afternoon (12pm–4pm)", "Evening (4pm–7pm)"];
