@@ -17,9 +17,11 @@ type Move = Target & { booking: BookingRow; time: string };
 function Job({ booking, movable, open }: { booking: BookingRow; movable: boolean; open: () => void }) {
   const { setNodeRef, listeners, attributes, isDragging } = useDraggable({ id: booking.id, disabled: !movable });
   return <article ref={setNodeRef} className={`rounded-md border border-border bg-accent p-2 text-accent-foreground ${isDragging ? "opacity-30" : ""}`}>
-    <div className="flex items-start gap-1">
+    <p className="truncate text-xs font-bold" title={booking.customer_name}>{booking.customer_name}</p>
+    <p className="mt-1 truncate text-xs text-muted-foreground" title={booking.service}>{booking.service}</p>
+    <div className="mt-1 flex items-center gap-1">
       {movable && <Button variant="ghost" size="icon" className="h-7 w-6 shrink-0 touch-none cursor-grab" aria-label={`Move ${booking.customer_name}`} title="Move booking" {...listeners} {...attributes}><GripVertical /></Button>}
-      <div className="min-w-0 flex-1"><p className="break-words text-xs font-bold">{booking.customer_name}</p><p className="mt-1 text-xs">{booking.time_window.split(" (")[0]}</p><p className="mt-1 break-words text-xs text-muted-foreground">{booking.service}</p></div>
+      <p className="min-w-0 flex-1 truncate text-xs">{booking.time_window.split(" (")[0]}</p>
       {movable && <Button variant="ghost" size="icon" className="h-7 w-6 shrink-0" onClick={open} aria-label={`Reschedule ${booking.customer_name}`} title="Reschedule"><CalendarClock /></Button>}
     </div>
   </article>;
