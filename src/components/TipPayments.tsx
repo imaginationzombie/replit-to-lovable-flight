@@ -6,7 +6,7 @@ import { payoutTip } from "@/lib/tips.functions";
 import { Button } from "@/components/ui/button";
 import { Banknote, RefreshCw } from "lucide-react";
 
-export function TipPayments({ admin = false, userId }: { admin?: boolean; userId?: string }) {
+export function TipPayments({ admin = false, userId }: { admin?: boolean; userId?: string | undefined }) {
   const [confirm, setConfirm] = useState<string | null>(null);
   const qc = useQueryClient();
   const pay = useServerFn(payoutTip);

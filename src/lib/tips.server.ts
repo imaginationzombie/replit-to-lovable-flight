@@ -85,7 +85,7 @@ export async function transferTip(tipId: string, send: boolean) {
   const item = body.items?.find(i => i.payout_item?.sender_item_id === tip.id);
   if (!item || item.payout_item?.receiver?.toLowerCase() !== recipient?.toLowerCase() || item.payout_item?.amount?.value !== payoutValue(tip.amount_cents) || item.payout_item.amount.currency !== "USD") throw new Error("Transfer receipt does not match this tip. Review required.");
   const status = payoutOutcome(item.transaction_status);
-  const { error } = await db.from("booking_tips").update({ payout_status: status, paypal_item_id: item.payout_item_id, payout_paid_at: status === "paid" ? new Date().toISOString() : null }).eq("id", tip.id);
+  const { error } = await db.from("booking_tips").update({ payout_status: status, paypal_item_id: item.payout_item_id ?? null, payout_paid_at: status === "paid" ? new Date().toISOString() : null }).eq("id", tip.id);
   if (error) throw new Error("Could not save transfer receipt. Check again; no new payment will be sent.");
   return { message: status === "paid" ? (tip.environment === "live" ? "Tip delivered through PayPal." : "Test tip transfer completed. No real money moved.") : `Tip transfer: ${status}.` };
 }
