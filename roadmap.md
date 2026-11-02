@@ -4,6 +4,7 @@
 - [ ] Customer booking history with payment and tip settlement status
 - [ ] Hiring applications and admin review panel
 - [ ] Private admin–housekeeper and assigned housekeeper–customer messages
+- [ ] Public housekeeper pages with their own uploaded portrait and before-and-after galleries
 
 - [x] Booking form prefilled from AI assistant suggestions
 - [x] Save bookings in Lovable Cloud
