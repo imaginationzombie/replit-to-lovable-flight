@@ -11,6 +11,7 @@ import { BookingScheduler } from "@/components/BookingScheduler";
 import { Button } from "@/components/ui/button";
 import { CalendarDays } from "lucide-react";
 import { refreshBookingViews } from "@/lib/booking-sync";
+import { AppointmentWork } from "@/components/AppointmentWork";
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
@@ -34,7 +35,8 @@ function CleanerJobs() {
     refetchInterval: 15000,
     enabled: !!user && isCleaner,
     queryFn: async () => {
-      const { data, error } = await supabase.from("bookings").select("*").eq("cleaner_id", user!.id).order("preferred_date");
+      if (!user) throw new Error("Sign in to view jobs.");
+      const { data, error } = await supabase.from("bookings").select("*").eq("cleaner_id", user.id).order("preferred_date");
       if (error) throw error;
       return data as BookingRow[];
     },
@@ -43,7 +45,8 @@ function CleanerJobs() {
     queryKey: ["cleaner-portal-settings", user?.id],
     enabled: !!user && isCleaner,
     queryFn: async () => {
-      const { data, error } = await supabase.from("cleaner_settings").select("hourly_rate_cents, accepting_jobs, service_areas, weekly_hours, unavailable_dates").eq("user_id", user!.id).maybeSingle();
+      if (!user) throw new Error("Sign in to view availability.");
+      const { data, error } = await supabase.from("cleaner_settings").select("hourly_rate_cents, accepting_jobs, service_areas, weekly_hours, unavailable_dates").eq("user_id", user.id).maybeSingle();
       if (error) throw error;
       return data;
     },
@@ -73,15 +76,20 @@ function CleanerJobs() {
           </div>
         )}
         {isCleaner && <BookingScheduler />}
+        {isCleaner && <div className="mt-6 flex flex-wrap gap-2"><Button asChild><Link to="/waiting-list">Choose from waiting list</Link></Button><Button asChild variant="outline"><Link to="/timesheets">Timesheets & payments</Link></Button></div>}
         {jobs.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
+        {(jobs.error || complete.error) && <p role="alert" className="mt-4 text-destructive">{(jobs.error ?? complete.error)?.message}</p>}
         {jobs.data?.length === 0 && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">No jobs assigned yet.</p>}
         <div className="mt-6 space-y-3">
           {jobs.data?.map((b) => (
-            <BookingCard key={b.id} b={b} showCustomer>
+            <article key={b.id}>
+            <BookingCard b={b} showCustomer>
               {b.status === "confirmed" && (
-                <button onClick={() => complete.mutate(b.id)} disabled={complete.isPending} className="rounded-lg bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground">Mark completed</button>
+                <Button onClick={() => complete.mutate(b.id)} disabled={complete.isPending}>Mark completed</Button>
               )}
             </BookingCard>
+            {user && (b.status === "confirmed" || b.status === "completed") && <AppointmentWork booking={b} userId={user.id} rate={settings.data?.hourly_rate_cents ?? 0} />}
+            </article>
           ))}
         </div>
       </main>

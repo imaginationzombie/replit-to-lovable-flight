@@ -29,6 +29,7 @@ function CleanerSchedule() {
           <h1 className="flex items-center gap-3 text-3xl font-extrabold text-foreground"><CalendarDays className="h-7 w-7 text-primary" />My schedule</h1>
           {isCleaner && <div className="flex flex-wrap gap-2">
             <Button asChild variant="outline"><Link to="/cleaner"><ClipboardList />My jobs</Link></Button>
+            <Button asChild><Link to="/waiting-list">Waiting list</Link></Button>
             <Button asChild variant="outline"><Link to="/availability"><Settings />Create availability</Link></Button>
           </div>}
         </div>

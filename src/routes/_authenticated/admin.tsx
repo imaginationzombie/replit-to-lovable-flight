@@ -11,6 +11,8 @@ import { collectPayment, completeBooking } from "@/lib/booking.functions";
 import { BookingScheduler } from "@/components/BookingScheduler";
 import { refreshBookingViews } from "@/lib/booking-sync";
 import { SendConfirmation } from "@/components/SendConfirmation";
+import { TimesheetList } from "@/components/TimesheetList";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -28,7 +30,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
 
 function Admin() {
   const { isAdmin, loading } = useAuth();
-  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people">("scheduler");
+  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people" | "timesheets">("scheduler");
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
@@ -38,14 +40,13 @@ function Admin() {
         {isAdmin && (
           <>
             <div className="mt-6 flex flex-wrap gap-2">
-              {(["scheduler", "calendar", "schedules", "bookings", "people"] as const).map((t) => (
-                <button key={t} onClick={() => setTab(t)}
-                  className={`rounded-lg px-4 py-2 text-sm font-bold ${tab === t ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
+              {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets"] as const).map((t) => (
+                <Button key={t} onClick={() => setTab(t)} variant={tab === t ? "default" : "secondary"}>
                   {TAB_LABEL[t]}
-                </button>
+                </Button>
               ))}
             </div>
-            {tab === "scheduler" ? <BookingScheduler admin /> : tab === "bookings" ? <Bookings /> : tab === "calendar" ? <CalendarView /> : tab === "schedules" ? <Schedules /> : <People />}
+            {tab === "scheduler" ? <BookingScheduler admin /> : tab === "bookings" ? <Bookings /> : tab === "calendar" ? <CalendarView /> : tab === "schedules" ? <Schedules /> : tab === "timesheets" ? <TimesheetList admin /> : <People />}
           </>
         )}
       </main>
@@ -186,7 +187,7 @@ function People() {
   );
 }
 
-const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles" } as const;
+const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles", timesheets: "Timesheets & payments" } as const;
 
 function useAdminBookings() {
   return useQuery({

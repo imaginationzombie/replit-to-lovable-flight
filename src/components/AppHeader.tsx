@@ -2,6 +2,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
+import { Button } from "@/components/ui/button";
 
 export function AppHeader() {
   const { user, isAdmin, isCleaner, loading } = useAuth();
@@ -29,8 +30,10 @@ export function AppHeader() {
               <Link to="/booking-status" className={link}>Booking status</Link>
               {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
               {isCleaner && <Link to="/cleaner-schedule" className={link}>My schedule</Link>}
+              {isCleaner && <Link to="/waiting-list" className={link}>Waiting list</Link>}
+              {isCleaner && <Link to="/timesheets" className={link}>Timesheets & payments</Link>}
               {isAdmin && <Link to="/admin" className={link}>Admin</Link>}
-              <button onClick={signOut} className="rounded-lg border border-border px-3 py-1.5 text-sm font-semibold text-foreground hover:bg-muted">Sign out</button>
+              <Button onClick={signOut} variant="outline" size="sm">Sign out</Button>
             </>
           )}
           {!loading && !user && (

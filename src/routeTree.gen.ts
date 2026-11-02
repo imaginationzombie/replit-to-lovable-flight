@@ -22,6 +22,8 @@ import { Route as AuthenticatedBookingStatusRouteImport } from './routes/_authen
 import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticated/cleaner'
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
+import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authenticated/timesheets'
+import { Route as AuthenticatedWaitingListRouteImport } from './routes/_authenticated/waiting-list'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -93,6 +95,17 @@ const AuthenticatedCleanerScheduleRoute =
     path: '/cleaner-schedule',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedTimesheetsRoute = AuthenticatedTimesheetsRouteImport.update({
+  id: '/timesheets',
+  path: '/timesheets',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedWaitingListRoute =
+  AuthenticatedWaitingListRouteImport.update({
+    id: '/waiting-list',
+    path: '/waiting-list',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const BookingIdRoute = BookingIdRouteImport.update({
   id: '/booking/$id',
   path: '/booking/$id',
@@ -118,6 +131,8 @@ export interface FileRoutesByFullPath {
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/timesheets': typeof AuthenticatedTimesheetsRoute
+  '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -134,6 +149,8 @@ export interface FileRoutesByTo {
   '/cleaner': typeof AuthenticatedCleanerRoute
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/timesheets': typeof AuthenticatedTimesheetsRoute
+  '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -152,6 +169,8 @@ export interface FileRoutesById {
   '/_authenticated/cleaner': typeof AuthenticatedCleanerRoute
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
+  '/_authenticated/timesheets': typeof AuthenticatedTimesheetsRoute
+  '/_authenticated/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -170,6 +189,8 @@ export interface FileRouteTypes {
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
+    | '/timesheets'
+    | '/waiting-list'
     | '/booking/$id'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
@@ -186,6 +207,8 @@ export interface FileRouteTypes {
     | '/cleaner'
     | '/cleaner-profile'
     | '/cleaner-schedule'
+    | '/timesheets'
+    | '/waiting-list'
     | '/booking/$id'
     | '/lovable/email/transactional/preview'
   id:
@@ -203,6 +226,8 @@ export interface FileRouteTypes {
     | '/_authenticated/cleaner'
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
+    | '/_authenticated/timesheets'
+    | '/_authenticated/waiting-list'
     | '/booking/$id'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
@@ -311,6 +336,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCleanerScheduleRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/timesheets': {
+      id: '/_authenticated/timesheets'
+      path: '/timesheets'
+      fullPath: '/timesheets'
+      preLoaderRoute: typeof AuthenticatedTimesheetsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/waiting-list': {
+      id: '/_authenticated/waiting-list'
+      path: '/waiting-list'
+      fullPath: '/waiting-list'
+      preLoaderRoute: typeof AuthenticatedWaitingListRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/booking/$id': {
       id: '/booking/$id'
       path: '/booking/$id'
@@ -336,6 +375,8 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCleanerRoute: typeof AuthenticatedCleanerRoute
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
   AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
+  AuthenticatedTimesheetsRoute: typeof AuthenticatedTimesheetsRoute
+  AuthenticatedWaitingListRoute: typeof AuthenticatedWaitingListRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -346,6 +387,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCleanerRoute: AuthenticatedCleanerRoute,
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
   AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,
+  AuthenticatedTimesheetsRoute: AuthenticatedTimesheetsRoute,
+  AuthenticatedWaitingListRoute: AuthenticatedWaitingListRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
