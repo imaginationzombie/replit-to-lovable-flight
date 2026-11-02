@@ -1,7 +1,8 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { MapPin, UserRound } from "lucide-react";
-import { portfolioOptions } from "@/lib/people-portals";
+import { publicPortfolio } from "@/lib/portfolio.functions";
+const portfolioOptions = (id: string) => queryOptions({ queryKey: ["public-housekeeper", id], queryFn: () => publicPortfolio({ data: { id } }), staleTime: 300000 });
 import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
 export const Route=createFileRoute("/housekeepers/$id")({loader:({context,params})=>context.queryClient.ensureQueryData(portfolioOptions(params.id)),head:({loaderData})=>{const name=loaderData?.display_name??"Housekeeper";const description=loaderData?.headline||"Meet your local housekeeper and see their before-and-after cleaning work.";const image=loaderData?.published&&loaderData.portrait?.startsWith("https://")?loaderData.portrait:null;return{meta:[{title:`${name} | HousekeepingBooking.com`},{name:"description",content:description},{property:"og:title",content:`${name} | HousekeepingBooking.com`},{property:"og:description",content:description},{property:"og:type",content:"profile"},{name:"twitter:card",content:"summary_large_image"},...(image?[{property:"og:image",content:image},{name:"twitter:image",content:image}]:[])]};},errorComponent:PageError,notFoundComponent:()=> <p>Housekeeper page not found.</p>,component:HousekeeperPage});
