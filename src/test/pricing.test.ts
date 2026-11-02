@@ -27,8 +27,8 @@ describe("booking price", () => {
   it("a 3-hour deep clean includes 3 add-ons", () => {
     expect(quote({ service: "Deep Clean", bedrooms: 1, bathrooms: 1, addOns: ["Oven Degrease", "Window Detailing", "Cabinet Interiors"], rush: false }).total).toBe(140);
   });
-  it("extra rooms add 15 min each toward the next free add-on", () => {
-    // 120 + 4 rooms × 15 = 180 min → 3 free
-    expect(quote({ service: "Standard Housekeeping", bedrooms: 4, bathrooms: 3, addOns: ["Oven Degrease", "Window Detailing", "Cabinet Interiors"], rush: false }).freeAddOns.length).toBe(3);
+  it("extra rooms do not add free add-ons, they are charged", () => {
+    // 4 extra rooms: still 2 free (2-hr Standard), rooms add +$60
+    expect(quote({ service: "Standard Housekeeping", bedrooms: 4, bathrooms: 3, addOns: ["Oven Degrease", "Window Detailing", "Cabinet Interiors"], rush: false }).freeAddOns.length).toBe(2);
   });
 });
