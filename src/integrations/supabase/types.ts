@@ -402,6 +402,207 @@ export type Database = {
           },
         ]
       }
+      hiring_applications: {
+        Row: {
+          availability: string
+          created_at: string
+          experience: string
+          full_name: string
+          id: string
+          phone: string
+          service_areas: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          availability: string
+          created_at?: string
+          experience: string
+          full_name: string
+          id?: string
+          phone?: string
+          service_areas: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          availability?: string
+          created_at?: string
+          experience?: string
+          full_name?: string
+          id?: string
+          phone?: string
+          service_areas?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hiring_applications_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      housekeeper_gallery: {
+        Row: {
+          after_path: string
+          before_path: string
+          caption: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          after_path: string
+          before_path: string
+          caption?: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          after_path?: string
+          before_path?: string
+          caption?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "housekeeper_gallery_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "housekeeper_portfolios"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      housekeeper_portfolios: {
+        Row: {
+          bio: string
+          display_name: string
+          headline: string
+          portrait_path: string
+          published: boolean
+          service_areas: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          bio?: string
+          display_name: string
+          headline?: string
+          portrait_path?: string
+          published?: boolean
+          service_areas?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          bio?: string
+          display_name?: string
+          headline?: string
+          portrait_path?: string
+          published?: boolean
+          service_areas?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "housekeeper_portfolios_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      message_threads: {
+        Row: {
+          booking_id: string | null
+          cleaner_id: string
+          created_at: string
+          id: string
+          kind: string
+        }
+        Insert: {
+          booking_id?: string | null
+          cleaner_id: string
+          created_at?: string
+          id?: string
+          kind: string
+        }
+        Update: {
+          booking_id?: string | null
+          cleaner_id?: string
+          created_at?: string
+          id?: string
+          kind?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "message_threads_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "message_threads_cleaner_id_fkey"
+            columns: ["cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      messages: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          sender_id: string
+          sender_name: string
+          thread_id: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          sender_id: string
+          sender_name: string
+          thread_id: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          sender_id?: string
+          sender_name?: string
+          thread_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_sender_id_fkey"
+            columns: ["sender_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_thread_id_fkey"
+            columns: ["thread_id"]
+            isOneToOne: false
+            referencedRelation: "message_threads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           address: string
@@ -455,6 +656,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      can_read_thread: { Args: { _thread: string }; Returns: boolean }
       claim_cleaning: { Args: { _booking_id: string }; Returns: undefined }
       cleaner_complete_booking: {
         Args: { _booking_id: string }
@@ -474,6 +676,10 @@ export type Database = {
           full_name: string
           id: string
         }[]
+      }
+      open_message_thread: {
+        Args: { _booking?: string; _cleaner?: string }
+        Returns: string
       }
       reschedule_booking: {
         Args: {
@@ -511,6 +717,10 @@ export type Database = {
           isSetofReturn: false
         }
       }
+      review_application: {
+        Args: { _id: string; _status: string }
+        Returns: undefined
+      }
       review_timesheet: {
         Args: { _action: string; _id: string; _reference?: string }
         Returns: undefined
@@ -535,6 +745,10 @@ export type Database = {
           _expected_time_window: string
           _time_window: string
         }
+        Returns: undefined
+      }
+      send_thread_message: {
+        Args: { _body: string; _thread: string }
         Returns: undefined
       }
       waiting_cleanings: {
