@@ -10,6 +10,7 @@ import { completeBooking } from "@/lib/booking.functions";
 import { BookingScheduler } from "@/components/BookingScheduler";
 import { Button } from "@/components/ui/button";
 import { CalendarDays } from "lucide-react";
+import { refreshBookingViews } from "@/lib/booking-sync";
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
@@ -30,6 +31,7 @@ function CleanerJobs() {
   const qc = useQueryClient();
   const jobs = useQuery({
     queryKey: ["cleaner-jobs", user?.id],
+    refetchInterval: 15000,
     enabled: !!user && isCleaner,
     queryFn: async () => {
       const { data, error } = await supabase.from("bookings").select("*").eq("cleaner_id", user!.id).order("preferred_date");
@@ -52,7 +54,7 @@ function CleanerJobs() {
       const r = await completeFn({ data: { bookingId: id } });
       if (!r.ok) throw new Error(r.error);
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["cleaner-jobs"] }),
+    onSuccess: () => refreshBookingViews(qc),
   });
 
   return (

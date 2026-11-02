@@ -9,6 +9,7 @@ import { hoursSummary } from "@/lib/cleaner-hours";
 import { useServerFn } from "@tanstack/react-start";
 import { collectPayment, completeBooking } from "@/lib/booking.functions";
 import { BookingScheduler } from "@/components/BookingScheduler";
+import { refreshBookingViews } from "@/lib/booking-sync";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -54,14 +55,7 @@ function Admin() {
 function Bookings() {
   const qc = useQueryClient();
   const [filter, setFilter] = useState("all");
-  const bookings = useQuery({
-    queryKey: ["admin-bookings"],
-    queryFn: async () => {
-      const { data, error } = await supabase.from("bookings").select("*").order("preferred_date", { ascending: false }).limit(500);
-      if (error) throw error;
-      return data as BookingRow[];
-    },
-  });
+  const bookings = useAdminBookings();
   const cleaners = useQuery({
     queryKey: ["cleaners"],
     queryFn: async () => {
@@ -75,7 +69,7 @@ function Bookings() {
       const { error } = await supabase.from("bookings").update(v.patch).eq("id", v.id);
       if (error) throw error;
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["admin-bookings"] }),
+    onSuccess: () => refreshBookingViews(qc),
   });
 
   const collect = useServerFn(collectPayment);
@@ -87,7 +81,7 @@ function Bookings() {
       setPayMsg((m) => ({ ...m, [id]: r.data.paid ? "Charged." : "The PayPal hold expired — the customer can pay from their booking page or account." }));
     },
     onError: (e, id) => setPayMsg((m) => ({ ...m, [id]: e.message })),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["admin-bookings"] }),
+    onSuccess: () => refreshBookingViews(qc),
   });
   const completeFn = useServerFn(completeBooking);
   const complete = useMutation({
@@ -98,7 +92,7 @@ function Bookings() {
       setPayMsg((m) => ({ ...m, [id]: `${d.paid ? "Completed & charged." : "Completed — customer needs to pay from their booking page."}${d.nextDate ? ` Next visit scheduled ${d.nextDate}.` : ""}` }));
     },
     onError: (e, id) => setPayMsg((m) => ({ ...m, [id]: e.message })),
-    onSettled: () => qc.invalidateQueries({ queryKey: ["admin-bookings"] }),
+    onSettled: () => refreshBookingViews(qc),
   });
   const rows = (bookings.data ?? []).filter((b) => filter === "all" || b.status === filter);
   const select = "rounded-lg border border-input bg-background px-2 py-1.5 text-sm text-foreground";
@@ -108,6 +102,8 @@ function Bookings() {
         <option value="all">All statuses</option>
         {Object.entries(STATUS_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
       </select>
+      {bookings.error && <p role="alert" className="mt-4 text-destructive">Couldn’t refresh bookings.</p>}
+      {update.error && <p role="alert" className="mt-4 text-destructive">Couldn’t update this booking.</p>}
       {bookings.isLoading && <p className="mt-4 text-muted-foreground">Loading…</p>}
       {rows.length === 0 && !bookings.isLoading && <p className="mt-4 rounded-xl bg-muted p-6 text-muted-foreground">No bookings.</p>}
       <div className="mt-4 space-y-3">
@@ -193,6 +189,7 @@ const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cl
 function useAdminBookings() {
   return useQuery({
     queryKey: ["admin-bookings"],
+    refetchInterval: 15000,
     queryFn: async () => {
       const { data, error } = await supabase.from("bookings").select("*").order("preferred_date", { ascending: false }).limit(500);
       if (error) throw error;
