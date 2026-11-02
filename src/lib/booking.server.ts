@@ -37,7 +37,7 @@ export type BookingInput = {
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
 };
 
-export async function createBookingOrder(input: BookingInput) {
+export async function createBookingOrder(input: BookingInput, userId: string | null) {
   const q = quote(input);
   if (q.totalCents <= 0) throw new Error("Please choose a service.");
   const db = await admin();
@@ -48,7 +48,7 @@ export async function createBookingOrder(input: BookingInput) {
       service_area: input.serviceArea, service: input.service, frequency: input.frequency,
       bedrooms: input.bedrooms, bathrooms: input.bathrooms, add_ons: input.addOns, rush: input.rush,
       preferred_date: input.preferredDate, time_window: input.timeWindow, notes: input.notes,
-      amount_cents: q.totalCents,
+      amount_cents: q.totalCents, user_id: userId,
     })
     .select("id")
     .single();
@@ -117,4 +117,12 @@ export async function getBooking(id: string, token: string) {
     .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, preferred_date, time_window, notes, amount_cents, paid_at")
     .eq("id", id).eq("access_token", token).maybeSingle();
   return data;
+}
+
+export async function userIdFromBearer(authHeader: string | undefined) {
+  const token = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  if (!token) return null;
+  const db = await admin();
+  const { data } = await db.auth.getUser(token);
+  return data.user?.id ?? null;
 }

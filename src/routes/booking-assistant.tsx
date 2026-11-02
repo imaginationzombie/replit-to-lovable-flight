@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
+import { AppHeader } from "@/components/AppHeader";
 import { useState } from "react";
 import { getRecommendation } from "@/lib/recommend.functions";
 import type { Recommendation } from "@/lib/recommend.server";
@@ -65,12 +66,7 @@ function BookingAssistant() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <a href="/index.html" className="text-lg font-extrabold text-primary">HousekeeperBooking.com</a>
-          <a href="tel:8149521964" className="text-sm font-semibold text-muted-foreground hover:text-primary">(814) 952-1964</a>
-        </div>
-      </header>
+      <AppHeader />
 
       <main className="mx-auto max-w-5xl px-6 py-12">
         <p className="text-xs font-bold uppercase tracking-widest text-primary">AI-powered booking assistant</p>
