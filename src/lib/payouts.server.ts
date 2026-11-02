@@ -49,7 +49,7 @@ export async function transferPayout(payout: Payout, send: boolean) {
   if (!item) throw new Error("PayPal has not returned this transfer item yet. Check again shortly.");
   if (item.payout_item?.amount?.value !== payoutValue(payout.amount_cents) || item.payout_item.amount.currency !== payout.currency || item.payout_item.receiver?.toLowerCase() !== payout.recipient_email.toLowerCase()) throw new Error("PayPal receipt does not match the approved payment. Review required.");
   const outcome = payoutOutcome(item.transaction_status);
-  const { error: saveError } = await db.from("cleaner_payouts").update({ status: outcome, provider_status: item.transaction_status, paypal_item_id: item.payout_item_id, updated_at: new Date().toISOString() }).eq("id", payout.id);
+  const { error: saveError } = await db.from("cleaner_payouts").update({ status: outcome, provider_status: item.transaction_status ?? null, paypal_item_id: item.payout_item_id ?? null, updated_at: new Date().toISOString() }).eq("id", payout.id);
   if (saveError) throw new Error("Could not save transfer status. Check again; no additional payment will be sent.");
   // Test transfers never settle real cleaner earnings.
   if (outcome === "paid" && payout.environment === "live") {
