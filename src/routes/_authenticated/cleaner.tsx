@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { AppHeader } from "@/components/AppHeader";
 import { BookingCard, type BookingRow } from "@/components/BookingCard";
 import { useAuth } from "@/hooks/use-auth";
+import { hoursSummary } from "@/lib/cleaner-hours";
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
@@ -31,6 +32,15 @@ function CleanerJobs() {
       return data as BookingRow[];
     },
   });
+  const settings = useQuery({
+    queryKey: ["cleaner-portal-settings", user?.id],
+    enabled: !!user && isCleaner,
+    queryFn: async () => {
+      const { data, error } = await supabase.from("cleaner_settings").select("hourly_rate_cents, accepting_jobs, service_areas, weekly_hours, unavailable_dates").eq("user_id", user!.id).maybeSingle();
+      if (error) throw error;
+      return data;
+    },
+  });
   const complete = useMutation({
     mutationFn: async (id: string) => {
       const { error } = await supabase.rpc("cleaner_complete_booking", { _booking_id: id });
@@ -45,6 +55,15 @@ function CleanerJobs() {
       <main className="mx-auto max-w-3xl px-6 py-10">
         <div className="flex flex-wrap items-center justify-between gap-3"><h1 className="text-3xl font-extrabold text-foreground">My jobs</h1>{isCleaner && <Link to="/cleaner-profile" className="text-sm font-bold text-primary">Schedule, rates & profile →</Link>}</div>
         {!loading && !isCleaner && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">This page is for cleaners. Ask an admin to give your account cleaner access.</p>}
+        {isCleaner && settings.isSuccess && (
+          <div className="mt-6 rounded-2xl border border-border bg-card p-4 text-sm">
+            {settings.data ? (<>
+              <p className="font-bold text-foreground">${(settings.data.hourly_rate_cents / 100).toFixed(2)}/hr · {settings.data.accepting_jobs ? "Accepting new jobs" : "Not accepting new jobs"}{settings.data.service_areas ? ` · ${settings.data.service_areas}` : ""}</p>
+              <p className="mt-1 text-muted-foreground">Hours: {hoursSummary(settings.data.weekly_hours)}</p>
+              {settings.data.unavailable_dates.length > 0 && <p className="mt-1 text-muted-foreground">Days off: {settings.data.unavailable_dates.join(", ")}</p>}
+            </>) : <p className="text-muted-foreground">You haven't set your rate or hours yet.</p>}
+          </div>
+        )}
         {jobs.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
         {jobs.data?.length === 0 && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">No jobs assigned yet.</p>}
         <div className="mt-6 space-y-3">

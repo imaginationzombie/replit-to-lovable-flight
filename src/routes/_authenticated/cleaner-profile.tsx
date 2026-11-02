@@ -71,7 +71,12 @@ function CleanerPortal() {
       });
       if (s.error) throw s.error;
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["cleaner-portal"] }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["cleaner-portal"] });
+      qc.invalidateQueries({ queryKey: ["cleaner-portal-settings"] });
+      qc.invalidateQueries({ queryKey: ["admin-cleaner-settings"] });
+      qc.invalidateQueries({ queryKey: ["cleaners"] });
+    },
   });
 
   const input = "mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground";
