@@ -15,7 +15,7 @@ export function PayoutAccount({ userId }: { userId: string }) {
   }, onSuccess: () => qc.invalidateQueries({ queryKey: ["payout-account"] }) });
   return <section className="mt-6 border-y border-border py-5"><h2 className="font-bold">PayPal receiving account</h2>
     <form className="mt-3 flex flex-wrap items-end gap-3" onSubmit={e => { e.preventDefault(); save.mutate(); }}>
-      <label className="min-w-0 flex-1 text-sm font-semibold">PayPal email<Input aria-label="PayPal receiving email" className="mt-1" type="email" required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} /></label>
+      <label className="min-w-0 flex-1 text-sm font-semibold">PayPal email<Input aria-label="PayPal receiving email" className="mt-1" type="email" required maxLength={254} disabled={account.isLoading} value={email} onChange={e => setEmail(e.target.value)} /></label>
       <Button type="submit" disabled={save.isPending || account.isLoading}><Save />Save receiving account</Button>
     </form>
     {(save.error || account.error) && <p role="alert" className="mt-2 text-destructive">{(save.error ?? account.error)?.message}</p>}
