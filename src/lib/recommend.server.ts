@@ -55,7 +55,7 @@ export class RecommendError extends Error {
 }
 
 export async function recommendService(description: string): Promise<Recommendation> {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env['LOVABLE_API_KEY'];
   if (!apiKey) throw new RecommendError("AI is not configured.", 401);
 
   const provider = createOpenAI({
