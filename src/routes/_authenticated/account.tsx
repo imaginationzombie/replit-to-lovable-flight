@@ -6,6 +6,7 @@ import { AppHeader } from "@/components/AppHeader";
 import { BookingCard, type BookingRow } from "@/components/BookingCard";
 import { customerBookingsOptions } from "@/lib/customer-bookings";
 import { Button } from "@/components/ui/button";
+import { ReviewRequests } from "@/components/ReviewRequests";
 
 export const Route = createFileRoute("/_authenticated/account")({
   head: () => ({
@@ -74,6 +75,8 @@ function Account() {
           <div className="mt-3 space-y-3">{upcoming.map((b) => <BookingCard key={b.id} b={b} customerPayment />)}</div>
           {past.length > 0 && <h2 className="mt-8 text-sm font-bold uppercase text-muted-foreground">Past</h2>}
           <div className="mt-3 space-y-3">{past.map((b) => <BookingCard key={b.id} b={b} customerPayment />)}</div>
+          <Button asChild variant="outline" className="mt-5"><Link to="/disputes">Report a booking issue</Link></Button>
+          <ReviewRequests bookings={bookings.data ?? []} />
         </section>
 
         <aside className="h-fit rounded-2xl border border-border bg-card p-6">

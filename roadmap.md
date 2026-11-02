@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Customer unpaid/uncleaned booking disputes and admin resolution status; signed-in report and customer resolution readback verified
+- [x] Invite customer reviews for completed cleanings and display them on public housekeeper pages; submission and signed-out public review verified, temporary data removed
+
 - [x] Automatic customer booking confirmations and assigned-cleaner customer-payment notices; triggers and rendered emails tested, real inbox delivery unverified
 
 - [x] Customer portal direct PayPal balance payment and cleaner-visible customer payment amount; checkout verified without charging

@@ -16,14 +16,17 @@ export const publicPortfolio = createServerFn({ method: "GET" }).inputValidator(
   if (!profile) return null;
   const { data: gallery, error: galleryError } = await db.from("housekeeper_gallery").select("id,caption,before_path,after_path").eq("user_id", data.id).order("created_at", { ascending: false });
   if (galleryError) throw new Error("Could not load cleaning photos.");
+  const { data: reviews, error: reviewError } = await db.rpc("public_cleaner_reviews", { _cleaner: data.id });
+  if (reviewError) throw new Error("Could not load customer reviews.");
   async function photo(path: string) {
     if (!path) return "";
     const { data: signed, error } = await db.storage.from("housekeeper-portfolios").createSignedUrl(path, 3600);
     if (error) throw new Error("Could not load this photo.");
     return signed.signedUrl;
   }
-  return { ...profile, portrait: await photo(profile.portrait_path), gallery: await Promise.all((gallery ?? []).map(async g => ({ ...g, before: await photo(g.before_path), after: await photo(g.after_path) }))) } as {
+  return { ...profile, reviews: (reviews ?? []) as { id: string; rating: number; body: string; public_name: string; created_at: string }[], portrait: await photo(profile.portrait_path), gallery: await Promise.all((gallery ?? []).map(async g => ({ ...g, before: await photo(g.before_path), after: await photo(g.after_path) }))) } as {
     user_id: string; display_name: string; headline: string; bio: string; service_areas: string; portrait_path: string; published: boolean; updated_at: string; portrait: string;
     gallery: { id: string; caption: string; before_path: string; after_path: string; before: string; after: string }[];
+    reviews: { id: string; rating: number; body: string; public_name: string; created_at: string }[];
   };
 });

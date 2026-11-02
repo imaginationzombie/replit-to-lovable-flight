@@ -77,6 +77,67 @@ export type Database = {
           },
         ]
       }
+      booking_disputes: {
+        Row: {
+          booking_id: string
+          created_at: string
+          customer_id: string
+          details: string
+          id: string
+          kind: string
+          resolution: string
+          resolved_by: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          booking_id: string
+          created_at?: string
+          customer_id: string
+          details: string
+          id?: string
+          kind: string
+          resolution?: string
+          resolved_by?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          booking_id?: string
+          created_at?: string
+          customer_id?: string
+          details?: string
+          id?: string
+          kind?: string
+          resolution?: string
+          resolved_by?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "booking_disputes_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "booking_disputes_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "booking_disputes_resolved_by_fkey"
+            columns: ["resolved_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       booking_tips: {
         Row: {
           amount_cents: number
@@ -393,6 +454,61 @@ export type Database = {
             columns: ["work_id"]
             isOneToOne: true
             referencedRelation: "appointment_work"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cleaner_reviews: {
+        Row: {
+          body: string
+          booking_id: string
+          cleaner_id: string
+          created_at: string
+          customer_id: string
+          id: string
+          public_name: string
+          rating: number
+        }
+        Insert: {
+          body: string
+          booking_id: string
+          cleaner_id: string
+          created_at?: string
+          customer_id: string
+          id?: string
+          public_name?: string
+          rating: number
+        }
+        Update: {
+          body?: string
+          booking_id?: string
+          cleaner_id?: string
+          created_at?: string
+          customer_id?: string
+          id?: string
+          public_name?: string
+          rating?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cleaner_reviews_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: true
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cleaner_reviews_cleaner_id_fkey"
+            columns: ["cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cleaner_reviews_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -717,6 +833,17 @@ export type Database = {
         Args: { _booking?: string; _cleaner?: string }
         Returns: string
       }
+      owns_customer_booking: { Args: { _booking: string }; Returns: boolean }
+      public_cleaner_reviews: {
+        Args: { _cleaner: string }
+        Returns: {
+          body: string
+          created_at: string
+          id: string
+          public_name: string
+          rating: number
+        }[]
+      }
       reschedule_booking: {
         Args: {
           _assignment: Json
@@ -752,6 +879,10 @@ export type Database = {
           isOneToOne: true
           isSetofReturn: false
         }
+      }
+      resolve_booking_dispute: {
+        Args: { _id: string; _resolution: string; _status: string }
+        Returns: undefined
       }
       review_application: {
         Args: { _id: string; _status: string }
@@ -790,6 +921,19 @@ export type Database = {
       set_cleaner_date_block: {
         Args: { _blocked: boolean; _cleaner_id: string; _date: string }
         Returns: undefined
+      }
+      submit_booking_dispute: {
+        Args: { _booking: string; _details: string; _kind: string }
+        Returns: string
+      }
+      submit_cleaner_review: {
+        Args: {
+          _body: string
+          _booking: string
+          _name: string
+          _rating: number
+        }
+        Returns: string
       }
       waiting_cleanings: {
         Args: never
