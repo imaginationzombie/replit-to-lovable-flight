@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Match the phone homepage to the desktop design and fix shared account navigation; verify phone widths and desktop preservation
+
 - [x] Approved SEO foundations: homepage description, shared-link tags, favicon and nine-page public sitemap; served pages verified, scanner recheck pending
 
 - [x] Customer unpaid/uncleaned booking disputes and admin resolution status; signed-in report and customer resolution readback verified
