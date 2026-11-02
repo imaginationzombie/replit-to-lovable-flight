@@ -2,6 +2,7 @@
 
 - [ ] Customer portal direct PayPal balance payment and cleaner-visible customer payment amount
 - [ ] Admin cleaner date blocking and calendar showing booked appointment slots
+- [ ] Automatically send approved timesheet PayPal payouts and settle only verified delivered payments
 
 - [x] Admin PayPal dashboard with approved earnings, pending transfers, settled payments and manual payout controls; confirmation verified without sending money
 
