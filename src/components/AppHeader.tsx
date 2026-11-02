@@ -26,6 +26,7 @@ export function AppHeader() {
           {!loading && user && (
             <>
               <Link to="/account" className={link}>My account</Link>
+              <Link to="/booking-status" className={link}>Booking status</Link>
               {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
               {isCleaner && <Link to="/cleaner-schedule" className={link}>My schedule</Link>}
               {isAdmin && <Link to="/admin" className={link}>Admin</Link>}
