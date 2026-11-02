@@ -1,4 +1,5 @@
 import { quote } from "./pricing";
+import { notifyBookingEvent } from "./booking-notices.server";
 
 function paypalBase() {
   return process.env["PAYPAL_ENV"] === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
@@ -105,7 +106,10 @@ export async function authorizeBookingOrder(orderId: string) {
   const { data: booking } = await db
     .from("bookings").select("id, access_token, amount_cents, status").eq("paypal_order_id", orderId).single();
   if (!booking) throw new Error("Booking not found.");
-  if (booking.status !== "pending_payment") return { bookingId: booking.id, token: booking.access_token };
+  if (booking.status !== "pending_payment") {
+    if (booking.status === "confirmed") await notifyBookingEvent(db, booking.id, "confirmed");
+    return { bookingId: booking.id, token: booking.access_token };
+  }
   const token = await paypalToken();
   const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/authorize`, {
     method: "POST",
@@ -125,10 +129,12 @@ export async function authorizeBookingOrder(orderId: string) {
     console.error("Amount mismatch", auth.amount, booking.amount_cents);
     throw new Error("Payment amount didn't match. Please contact us.");
   }
-  await db.from("bookings").update({
+  const { error: confirmError } = await db.from("bookings").update({
     status: "confirmed", paypal_authorization_id: auth.id, authorized_at: new Date().toISOString(),
     paypal_vault_id: body.payment_source?.paypal?.attributes?.vault?.id ?? null,
   }).eq("id", booking.id);
+  if (confirmError) throw new Error("Couldn't save your confirmed booking. Please try again.");
+  await notifyBookingEvent(db, booking.id, "confirmed");
   return { bookingId: booking.id, token: booking.access_token };
 }
 
@@ -144,13 +150,15 @@ async function chargeVault(b: { id: string; service: string; amount_cents: numbe
       payment_source: { paypal: { vault_id: b.paypal_vault_id } },
     }),
   });
-  const body = (await res.json()) as { id?: string; status?: string; purchase_units?: { payments?: { captures?: { id: string; status: string }[] } }[] };
+  const body = (await res.json()) as { id?: string; status?: string; purchase_units?: { payments?: { captures?: { id: string; status: string; amount?: { value: string; currency_code: string } }[] } }[] };
   const cap = body.purchase_units?.[0]?.payments?.captures?.[0];
-  if (!res.ok || body.status !== "COMPLETED" || !cap || (cap.status !== "COMPLETED" && cap.status !== "PENDING")) {
+  if (!res.ok || body.status !== "COMPLETED" || !body.id || !cap || (cap.status !== "COMPLETED" && cap.status !== "PENDING")) {
     console.error("PayPal vault charge failed", res.status, JSON.stringify(body));
     return null;
   }
-  return { orderId: body.id!, captureId: cap.id };
+  if (cap.status === "PENDING") return { pending: true as const };
+  if (!cap.amount || Math.round(Number(cap.amount.value) * 100) !== b.amount_cents || cap.amount.currency_code !== "USD") throw new Error("Payment amount didn't match. Please contact us.");
+  return { pending: false as const, orderId: body.id, captureId: cap.id };
 }
 
 /** After the cleaning: charge this visit (held amount, or saved PayPal for repeat visits). */
@@ -158,7 +166,10 @@ export async function collectBookingPayment(bookingId: string) {
   const db = await admin();
   const { data: b } = await db.from("bookings").select("id, status, service, amount_cents, paid_at, paypal_authorization_id, paypal_vault_id").eq("id", bookingId).single();
   if (!b) throw new Error("Booking not found.");
-  if (b.paid_at) return { paid: true, needsCustomerPayment: false };
+  if (b.paid_at) {
+    await notifyBookingEvent(db, b.id, "paid");
+    return { paid: true, needsCustomerPayment: false };
+  }
   if (b.status !== "completed") throw new Error("Mark the cleaning completed before charging.");
   if (b.paypal_authorization_id) {
     const token = await paypalToken();
@@ -167,9 +178,13 @@ export async function collectBookingPayment(bookingId: string) {
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": `cap-${b.id}` },
       body: JSON.stringify({ final_capture: true }),
     });
-    const body = (await res.json()) as { id?: string; status?: string };
-    if (res.ok && body.id && (body.status === "COMPLETED" || body.status === "PENDING")) {
-      await db.from("bookings").update({ paypal_capture_id: body.id, paid_at: new Date().toISOString() }).eq("id", b.id);
+    const body = (await res.json()) as { id?: string; status?: string; amount?: { value: string; currency_code: string } };
+    if (res.ok && body.id && body.status === "PENDING") return { paid: false, needsCustomerPayment: false };
+    if (res.ok && body.id && body.status === "COMPLETED") {
+      if (!body.amount || Math.round(Number(body.amount.value) * 100) !== b.amount_cents || body.amount.currency_code !== "USD") throw new Error("Payment amount didn't match. Please contact us.");
+      const { error } = await db.from("bookings").update({ paypal_capture_id: body.id, paid_at: new Date().toISOString() }).eq("id", b.id);
+      if (error) throw new Error("Couldn't save your payment receipt. Please contact us.");
+      await notifyBookingEvent(db, b.id, "paid");
       return { paid: true, needsCustomerPayment: false };
     }
     console.error("PayPal authorization capture failed", res.status, JSON.stringify(body));
@@ -177,7 +192,10 @@ export async function collectBookingPayment(bookingId: string) {
   if (b.paypal_vault_id) {
     const r = await chargeVault({ ...b, paypal_vault_id: b.paypal_vault_id });
     if (r) {
-      await db.from("bookings").update({ paypal_order_id: r.orderId, paypal_capture_id: r.captureId, paid_at: new Date().toISOString() }).eq("id", b.id);
+      if (r.pending) return { paid: false, needsCustomerPayment: false };
+      const { error } = await db.from("bookings").update({ paypal_order_id: r.orderId, paypal_capture_id: r.captureId, paid_at: new Date().toISOString() }).eq("id", b.id);
+      if (error) throw new Error("Couldn't save your payment receipt. Please contact us.");
+      await notifyBookingEvent(db, b.id, "paid");
       return { paid: true, needsCustomerPayment: false };
     }
   }
@@ -206,16 +224,21 @@ export async function completeVisit(bookingId: string) {
   if (next) {
     const { data: existing } = await db.from("bookings").select("id").eq("parent_booking_id", b.id).maybeSingle();
     if (!existing) {
-      const { error } = await db.from("bookings").insert({
+      const { data: nextBooking, error } = await db.from("bookings").insert({
         parent_booking_id: b.id, visit_number: b.visit_number + 1, status: "confirmed",
         customer_name: b.customer_name, email: b.email, phone: b.phone, address: b.address, service_area: b.service_area,
         service: b.service, frequency: b.frequency, bedrooms: b.bedrooms, bathrooms: b.bathrooms, add_ons: b.add_ons,
         rush: false, preferred_date: next, time_window: b.time_window, notes: b.notes,
         amount_cents: quote({ service: b.service, bedrooms: b.bedrooms, bathrooms: b.bathrooms, addOns: b.add_ons, rush: false }).totalCents,
         user_id: b.user_id, cleaner_id: b.cleaner_id, paypal_vault_id: b.paypal_vault_id,
-      });
+      }).select("id").single();
       if (error) console.error("Next visit insert failed", error);
-      else nextDate = next;
+      else if (nextBooking) {
+        nextDate = next;
+        await notifyBookingEvent(db, nextBooking.id, "confirmed");
+      }
+    } else {
+      await notifyBookingEvent(db, existing.id, "confirmed");
     }
   }
   return { ...pay, nextDate };
@@ -238,7 +261,11 @@ export async function captureBookingOrder(orderId: string) {
   const { data: booking } = await db
     .from("bookings").select("id, access_token, amount_cents, status, paid_at").eq("paypal_order_id", orderId).single();
   if (!booking) throw new Error("Booking not found.");
-  if (booking.paid_at) return { bookingId: booking.id, token: booking.access_token };
+  if (booking.paid_at) {
+    await notifyBookingEvent(db, booking.id, "paid");
+    if (booking.status === "confirmed") await notifyBookingEvent(db, booking.id, "confirmed");
+    return { bookingId: booking.id, token: booking.access_token };
+  }
 
   const token = await paypalToken();
   const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`, {
@@ -258,9 +285,12 @@ export async function captureBookingOrder(orderId: string) {
     console.error("Amount mismatch", capture.amount, booking.amount_cents);
     throw new Error("Payment amount didn't match. Please contact us.");
   }
-  await db.from("bookings").update({
+  const { error: receiptError } = await db.from("bookings").update({
     ...(booking.status === "pending_payment" ? { status: "confirmed" } : {}), paypal_capture_id: capture.id, paid_at: new Date().toISOString(),
   }).eq("id", booking.id);
+  if (receiptError) throw new Error("Couldn't save your payment receipt. Please contact us.");
+  if (booking.status === "pending_payment") await notifyBookingEvent(db, booking.id, "confirmed");
+  await notifyBookingEvent(db, booking.id, "paid");
   return { bookingId: booking.id, token: booking.access_token };
 }
 

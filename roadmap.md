@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Automatic customer booking confirmations and assigned-cleaner customer-payment notices; triggers and rendered emails tested, real inbox delivery unverified
+
 - [x] Customer portal direct PayPal balance payment and cleaner-visible customer payment amount; checkout verified without charging
 - [x] Admin cleaner date blocking and calendar showing booked appointment slots; blocking and reschedule rejection verified
 - [x] Automatically send approved timesheet PayPal payouts and settle only verified delivered payments; missing-email guard and orchestration tested, live transfer unverified
@@ -21,7 +23,7 @@
 - [x] Cleaner portal (schedule, rates, days off, profile)
 - [x] $0-upfront checkout (PayPal hold, charge after cleaning)
 - [x] Remake before/after photos on home page
-- [ ] Booking confirmation email: sender configured, waiting on DNS verification for delivery
+- [x] Booking confirmation email sender domain verified
 - [x] Owner account enabled as Admin, Cleaner and Customer
 - [x] Repair old My account links and verify signed-in navigation
 - [x] Drag-and-drop scheduler for admin and employees
