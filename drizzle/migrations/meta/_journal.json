@@ -36,6 +36,13 @@
       "when": 1793580625186,
       "tag": "0004_recurring_visits",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793628051193,
+      "tag": "0005_booking_scheduler",
+      "breakpoints": true
     }
   ]
 }
