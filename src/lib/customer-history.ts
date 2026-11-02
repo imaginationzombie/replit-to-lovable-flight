@@ -1,6 +1,6 @@
 import { queryOptions } from "@tanstack/react-query";
 import type { BookingRow } from "@/components/BookingCard";
-import { customerBookingsOptions } from "./customer-bookings";
+import { fetchCustomerBookings } from "./customer-bookings";
 import { tipDetails } from "./tips.functions";
 
 export type TipReceipt = {
@@ -26,7 +26,7 @@ export const customerHistoryOptions = queryOptions({
   queryKey: ["my-bookings", "history"],
   refetchInterval: 15000,
   queryFn: async () => {
-    const bookings = await customerBookingsOptions.queryFn();
+    const bookings = await fetchCustomerBookings();
     return Promise.all(bookings.slice().reverse().map(async booking => ({
       booking,
       tip: booking.access_token ? await tipDetails({ data: { id: booking.id, token: booking.access_token } }) : null,

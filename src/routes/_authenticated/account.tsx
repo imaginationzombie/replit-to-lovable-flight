@@ -63,7 +63,7 @@ function Account() {
         <section>
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h1 className="text-3xl font-extrabold text-foreground">Customer portal</h1>
-            <div className="flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/booking-status">Track my bookings</Link></Button><Button asChild><Link to="/book">Request a cleaning</Link></Button></div>
+            <div className="flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/booking-status">Track my bookings</Link></Button><Button asChild variant="outline"><Link to="/booking-history">Payments & history</Link></Button><Button asChild><Link to="/book">Request a cleaning</Link></Button></div>
           </div>
           {bookings.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
           {bookings.error && <p className="mt-6 text-destructive">Couldn't load your bookings.</p>}
