@@ -22,6 +22,10 @@ export const ADD_ONS: Record<string, number> = {
   "Grout & Scale Descale": 30,
 };
 
+/** Add-on promotion: 0.5 = 50% off every add-on. */
+export const ADD_ON_DISCOUNT = 0.5;
+export const addOnPrice = (name: string) => (ADD_ONS[name] ?? 0) * (1 - ADD_ON_DISCOUNT);
+
 export const RUSH_FEE = 15;
 export const ROOM_SURCHARGE = 15;
 
@@ -40,7 +44,7 @@ export const FREQUENCIES = ["One-time", "Weekly", "Bi-weekly", "Monthly"];
 export function quote(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[]; rush: boolean }) {
   const base = SERVICE_BASE[input.service] ?? 0;
   const rooms = Math.max(0, input.bedrooms - 2) * ROOM_SURCHARGE + Math.max(0, input.bathrooms - 1) * ROOM_SURCHARGE;
-  const addOns = [...new Set(input.addOns)].reduce((s, a) => s + (ADD_ONS[a] ?? 0), 0);
+  const addOns = [...new Set(input.addOns)].reduce((s, a) => s + addOnPrice(a), 0);
   const rush = input.rush ? RUSH_FEE : 0;
   const total = base + rooms + addOns + rush;
   return { base, rooms, addOns, rush, total, totalCents: Math.round(total * 100) };
