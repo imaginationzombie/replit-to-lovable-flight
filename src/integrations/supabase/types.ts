@@ -674,6 +674,51 @@ export type Database = {
           },
         ]
       }
+      location_pings: {
+        Row: {
+          accuracy: number | null
+          entry_id: string
+          id: number
+          lat: number
+          lng: number
+          recorded_at: string
+          user_id: string
+        }
+        Insert: {
+          accuracy?: number | null
+          entry_id: string
+          id?: never
+          lat: number
+          lng: number
+          recorded_at?: string
+          user_id: string
+        }
+        Update: {
+          accuracy?: number | null
+          entry_id?: string
+          id?: never
+          lat?: number
+          lng?: number
+          recorded_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "location_pings_entry_id_fkey"
+            columns: ["entry_id"]
+            isOneToOne: false
+            referencedRelation: "time_clock_entries"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "location_pings_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       message_threads: {
         Row: {
           booking_id: string | null
@@ -785,6 +830,69 @@ export type Database = {
         }
         Relationships: []
       }
+      time_clock_entries: {
+        Row: {
+          booking_id: string | null
+          clock_in_at: string
+          clock_out_at: string | null
+          id: string
+          in_lat: number | null
+          in_lng: number | null
+          last_accuracy: number | null
+          last_lat: number | null
+          last_lng: number | null
+          last_seen_at: string | null
+          out_lat: number | null
+          out_lng: number | null
+          user_id: string
+        }
+        Insert: {
+          booking_id?: string | null
+          clock_in_at?: string
+          clock_out_at?: string | null
+          id?: string
+          in_lat?: number | null
+          in_lng?: number | null
+          last_accuracy?: number | null
+          last_lat?: number | null
+          last_lng?: number | null
+          last_seen_at?: string | null
+          out_lat?: number | null
+          out_lng?: number | null
+          user_id: string
+        }
+        Update: {
+          booking_id?: string | null
+          clock_in_at?: string
+          clock_out_at?: string | null
+          id?: string
+          in_lat?: number | null
+          in_lng?: number | null
+          last_accuracy?: number | null
+          last_lat?: number | null
+          last_lng?: number | null
+          last_seen_at?: string | null
+          out_lat?: number | null
+          out_lng?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "time_clock_entries_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "time_clock_entries_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           id: string
@@ -808,10 +916,34 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      booking_cleaner_location: {
+        Args: { _booking: string }
+        Returns: {
+          accuracy: number
+          clocked_in_at: string
+          lat: number
+          lng: number
+          seen_at: string
+        }[]
+      }
       can_read_thread: { Args: { _thread: string }; Returns: boolean }
+      check_coords: { Args: { _lat: number; _lng: number }; Returns: undefined }
       claim_cleaning: { Args: { _booking_id: string }; Returns: undefined }
       cleaner_complete_booking: {
         Args: { _booking_id: string }
+        Returns: undefined
+      }
+      clock_in: {
+        Args: {
+          _accuracy: number
+          _booking: string
+          _lat: number
+          _lng: number
+        }
+        Returns: string
+      }
+      clock_out: {
+        Args: { _accuracy: number; _lat: number; _lng: number }
         Returns: undefined
       }
       has_role: {
@@ -843,6 +975,10 @@ export type Database = {
           public_name: string
           rating: number
         }[]
+      }
+      record_location: {
+        Args: { _accuracy: number; _lat: number; _lng: number }
+        Returns: undefined
       }
       reschedule_booking: {
         Args: {
