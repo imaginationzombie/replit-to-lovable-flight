@@ -1,0 +1,1 @@
+ALTER TABLE public.bookings ADD COLUMN paypal_authorization_id text, ADD COLUMN authorized_at timestamptz;

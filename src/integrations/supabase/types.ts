@@ -20,6 +20,7 @@ export type Database = {
           add_ons: string[]
           address: string
           amount_cents: number
+          authorized_at: string | null
           bathrooms: number
           bedrooms: number
           cleaner_id: string | null
@@ -31,6 +32,7 @@ export type Database = {
           id: string
           notes: string
           paid_at: string | null
+          paypal_authorization_id: string | null
           paypal_capture_id: string | null
           paypal_order_id: string | null
           phone: string
@@ -47,6 +49,7 @@ export type Database = {
           add_ons?: string[]
           address: string
           amount_cents: number
+          authorized_at?: string | null
           bathrooms: number
           bedrooms: number
           cleaner_id?: string | null
@@ -58,6 +61,7 @@ export type Database = {
           id?: string
           notes?: string
           paid_at?: string | null
+          paypal_authorization_id?: string | null
           paypal_capture_id?: string | null
           paypal_order_id?: string | null
           phone: string
@@ -74,6 +78,7 @@ export type Database = {
           add_ons?: string[]
           address?: string
           amount_cents?: number
+          authorized_at?: string | null
           bathrooms?: number
           bedrooms?: number
           cleaner_id?: string | null
@@ -85,6 +90,7 @@ export type Database = {
           id?: string
           notes?: string
           paid_at?: string | null
+          paypal_authorization_id?: string | null
           paypal_capture_id?: string | null
           paypal_order_id?: string | null
           phone?: string
