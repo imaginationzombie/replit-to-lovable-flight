@@ -13,3 +13,4 @@
 - [x] Owner account enabled as Admin, Cleaner and Customer
 - [x] Repair old My account links and verify signed-in navigation
 - [x] Drag-and-drop scheduler for admin and employees
+- [x] Dedicated cleaner drag-and-drop schedule page with links from jobs, profile and navigation

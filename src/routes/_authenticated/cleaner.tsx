@@ -8,6 +8,8 @@ import { hoursSummary } from "@/lib/cleaner-hours";
 import { useServerFn } from "@tanstack/react-start";
 import { completeBooking } from "@/lib/booking.functions";
 import { BookingScheduler } from "@/components/BookingScheduler";
+import { Button } from "@/components/ui/button";
+import { CalendarDays } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
@@ -57,7 +59,7 @@ function CleanerJobs() {
     <div className="min-h-screen bg-background">
       <AppHeader />
       <main className="mx-auto max-w-5xl px-6 py-10">
-        <div className="flex flex-wrap items-center justify-between gap-3"><h1 className="text-3xl font-extrabold text-foreground">My jobs</h1>{isCleaner && <Link to="/cleaner-profile" className="text-sm font-bold text-primary">Schedule, rates & profile →</Link>}</div>
+        <div className="flex flex-wrap items-center justify-between gap-3"><h1 className="text-3xl font-extrabold text-foreground">My jobs</h1>{isCleaner && <div className="flex flex-wrap items-center gap-3"><Button asChild variant="outline"><Link to="/cleaner-schedule"><CalendarDays />My schedule</Link></Button><Link to="/cleaner-profile" className="text-sm font-bold text-primary">Hours, rates & profile →</Link></div>}</div>
         {!loading && !isCleaner && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">This page is for cleaners. Ask an admin to give your account cleaner access.</p>}
         {isCleaner && settings.isSuccess && (
           <div className="mt-6 rounded-2xl border border-border bg-card p-4 text-sm">
