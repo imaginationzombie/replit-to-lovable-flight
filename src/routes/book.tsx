@@ -177,14 +177,14 @@ function BookPage() {
             </section>
 
             <section>
-              <p className={label}>Add-ons</p>
+              <p className={label}>Add-ons <span className="font-normal text-muted-foreground">— 1 free per hour of cleaning ({q.includedHours} included), most expensive first</span></p>
               <div className="mt-2 grid gap-2 sm:grid-cols-2">
                 {Object.entries(ADD_ONS).map(([a, p]) => (
                   <label key={a} className="flex items-center justify-between gap-2 rounded-lg border border-border px-3 py-2 text-sm">
                     <span className="flex items-center gap-2">
                       <input type="checkbox" checked={form.addOns.includes(a)} onChange={(e) => set("addOns", e.target.checked ? [...form.addOns, a] : form.addOns.filter((x) => x !== a))} />
                       {a}</span>
-                    <span className="text-muted-foreground"><s className="mr-1 opacity-60">${p}</s><b className="text-primary">+${addOnPrice(a).toFixed(2)}</b></span>
+                    <span className="text-muted-foreground">{q.freeAddOns.includes(a) ? <b className="text-primary">Included</b> : <><s className="mr-1 opacity-60">${p}</s><b className="text-primary">+${addOnPrice(a).toFixed(2)}</b></>}</span>
                   </label>
                 ))}
               </div>
@@ -209,7 +209,7 @@ function BookPage() {
               <Row k={form.service} v={q.base} />
               {q.rooms > 0 && <Row k="Extra rooms" v={q.rooms} />}
               {q.addOns > 0 && <Row k={`Add-ons (${form.addOns.length})`} v={q.addOns} />}
-              {q.addOns > 0 && <p className="text-xs font-semibold text-primary">Add-ons 50% off applied</p>}
+              <p className="text-xs font-semibold text-primary">{q.includedHours} hr clean includes {q.includedHours} free add-on{q.includedHours === 1 ? "" : "s"}{q.freeAddOns.length ? ` (${q.freeAddOns.length} used)` : ""}. Extra add-ons 50% off.</p>
               {q.rush > 0 && <Row k="Rush dispatch" v={q.rush} />}
             </dl>
             <div className="mt-4 flex items-baseline justify-between border-t border-border pt-4">
