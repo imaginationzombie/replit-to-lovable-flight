@@ -55,7 +55,7 @@ function BookPage() {
     if (!raw) return;
     try {
       const r = JSON.parse(raw);
-      const area = SERVICE_AREAS.find((a) => r.serviceArea && a.toLowerCase().includes(String(r.serviceArea).toLowerCase().split(/[ ,]/)[0]));
+      const area = SERVICE_AREAS.find((a) => r.serviceArea && a.toLowerCase().includes(String(r.serviceArea).toLowerCase().split(/[ ,]/)[0] ?? ""));
       const tw = TIME_WINDOWS.find((t) => String(r.preferredTimeWindow ?? "").toLowerCase().includes(t.split(" ")[0]!.toLowerCase()));
       setForm((f) => ({
         ...f,
