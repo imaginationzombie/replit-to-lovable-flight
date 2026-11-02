@@ -37,6 +37,7 @@ export function AppHeader() {
               {isCleaner && <Link to="/waiting-list" className={link}>Waiting list</Link>}
               {isCleaner && <Link to="/timesheets" className={link}>Timesheets & payments</Link>}
               {isAdmin && <Link to="/admin" className={link}>Admin</Link>}
+              {isAdmin && <Link to="/admin-paypal" search={{ view: "all" }} className={link}>PayPal</Link>}
               <Button onClick={signOut} variant="outline" size="sm">Sign out</Button>
             </>
           )}

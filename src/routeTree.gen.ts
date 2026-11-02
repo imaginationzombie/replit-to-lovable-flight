@@ -17,6 +17,7 @@ import { Route as BookingAssistantRouteImport } from './routes/booking-assistant
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedAdminPaypalRouteImport } from './routes/_authenticated/admin-paypal'
 import { Route as AuthenticatedApplyRouteImport } from './routes/_authenticated/apply'
 import { Route as AuthenticatedAvailabilityRouteImport } from './routes/_authenticated/availability'
 import { Route as AuthenticatedBookingHistoryRouteImport } from './routes/_authenticated/booking-history'
@@ -71,6 +72,12 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAdminPaypalRoute =
+  AuthenticatedAdminPaypalRouteImport.update({
+    id: '/admin-paypal',
+    path: '/admin-paypal',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedApplyRoute = AuthenticatedApplyRouteImport.update({
   id: '/apply',
   path: '/apply',
@@ -157,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/admin-paypal': typeof AuthenticatedAdminPaypalRoute
   '/apply': typeof AuthenticatedApplyRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
   '/booking-history': typeof AuthenticatedBookingHistoryRoute
@@ -180,6 +188,7 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/admin-paypal': typeof AuthenticatedAdminPaypalRoute
   '/apply': typeof AuthenticatedApplyRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
   '/booking-history': typeof AuthenticatedBookingHistoryRoute
@@ -205,6 +214,7 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/admin-paypal': typeof AuthenticatedAdminPaypalRoute
   '/_authenticated/apply': typeof AuthenticatedApplyRoute
   '/_authenticated/availability': typeof AuthenticatedAvailabilityRoute
   '/_authenticated/booking-history': typeof AuthenticatedBookingHistoryRoute
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/account'
     | '/admin'
+    | '/admin-paypal'
     | '/apply'
     | '/availability'
     | '/booking-history'
@@ -253,6 +264,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/account'
     | '/admin'
+    | '/admin-paypal'
     | '/apply'
     | '/availability'
     | '/booking-history'
@@ -277,6 +289,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/_authenticated/account'
     | '/_authenticated/admin'
+    | '/_authenticated/admin-paypal'
     | '/_authenticated/apply'
     | '/_authenticated/availability'
     | '/_authenticated/booking-history'
@@ -361,6 +374,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin-paypal': {
+      id: '/_authenticated/admin-paypal'
+      path: '/admin-paypal'
+      fullPath: '/admin-paypal'
+      preLoaderRoute: typeof AuthenticatedAdminPaypalRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/apply': {
@@ -467,6 +487,7 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedAdminPaypalRoute: typeof AuthenticatedAdminPaypalRoute
   AuthenticatedApplyRoute: typeof AuthenticatedApplyRoute
   AuthenticatedAvailabilityRoute: typeof AuthenticatedAvailabilityRoute
   AuthenticatedBookingHistoryRoute: typeof AuthenticatedBookingHistoryRoute
@@ -483,6 +504,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAccountRoute: AuthenticatedAccountRoute,
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedAdminPaypalRoute: AuthenticatedAdminPaypalRoute,
   AuthenticatedApplyRoute: AuthenticatedApplyRoute,
   AuthenticatedAvailabilityRoute: AuthenticatedAvailabilityRoute,
   AuthenticatedBookingHistoryRoute: AuthenticatedBookingHistoryRoute,
