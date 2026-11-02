@@ -52,7 +52,7 @@ export function matchAddOns(suggested: string[]): string[] {
   const out = new Set<string>();
   for (const s of suggested) {
     const l = s.toLowerCase();
-    const hit = keys.find((k) => k.toLowerCase().split(/[ &/]+/).some((w) => w.length > 3 && l.includes(w)));
+    const hit = keys.find((k) => k.toLowerCase().split(/[ &/]+/).some((w) => w.length >= 3 && l.includes(w)));
     if (hit) out.add(hit);
   }
   return [...out];
