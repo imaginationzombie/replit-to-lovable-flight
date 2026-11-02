@@ -19,9 +19,9 @@ export function AppHeader() {
   const link = "text-sm font-semibold text-muted-foreground hover:text-primary";
   return (
     <header className="border-b border-border bg-card">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-4">
-        <a href="/index.html" aria-label="HousekeepingBooking.com home"><img src="/logo.png" alt="HousekeepingBooking.com" className="h-10 w-auto" width={628} height={160} /></a>
-        <nav className="flex flex-wrap items-center gap-4">
+      <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)] items-center gap-3 px-4 py-4 sm:flex sm:flex-wrap sm:justify-between sm:px-6">
+        <a href="/index.html" aria-label="HousekeepingBooking.com home" className="min-w-0 shrink-0"><img src="/logo.png" alt="HousekeepingBooking.com" className="h-auto w-60 max-w-full sm:h-10 sm:w-auto" width={628} height={160} /></a>
+        <nav aria-label="Account navigation" className="flex min-w-0 max-w-full items-center gap-4 overflow-x-auto whitespace-nowrap pb-2 sm:flex-wrap sm:whitespace-normal sm:pb-0 [&>*]:shrink-0">
           <Link to="/booking-assistant" className={link}>AI Assistant</Link>
           <Link to="/book" className={link}>Book</Link>
           <Link to="/apply" className={link}>Join our team</Link>

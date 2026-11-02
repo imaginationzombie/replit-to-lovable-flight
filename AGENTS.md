@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Marketing uses public/*.html ("/" redirects to /index.html); interactive features use React routes and shared tokens. Maintain public/sitemap.xml for inspected public pages only, excluding private/demo/checkout pages; omit lastmod without page-specific dates. Why: preserves the migrated design without advertising internal demos.
+- Homepage phone overrides stay in its existing stylesheet; portal navigation uses a bounded horizontal row on phones. Why: preserve desktop layouts without clipped controls or page-wide scrolling.
 - AI calls live in src/lib/*.server.ts (gateway, Responses API, structured output) behind createServerFn wrappers in *.functions.ts. Why: keeps the API key server-side.
 - Accounts: roles live in user_roles (admin/cleaner/customer, checked via has_role); a signup trigger creates the profile + customer role. Signed-in pages live under src/routes/_authenticated and read data with the browser client under RLS. Why: no privilege escalation, and access is enforced by the database.
 - Scheduling uses shared dnd-kit week and month views and the authenticated schedule_booking database function; admins assign visits, cleaners move only their own (the cleaner schedule page uses cleaner mode even for admins), and writes check conflicts and stale versions. Why: enforces scheduling permissions independently of the interface.
