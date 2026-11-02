@@ -140,42 +140,7 @@
           </a>
 
           <!-- User Account Dropdown -->
-          <div class="relative group">
-            <button aria-expanded="false" aria-haspopup="true" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-surface-container transition-all cursor-pointer text-left" onclick="var menu = document.getElementById('account-dropdown-menu'); if(menu) menu.classList.toggle('hidden');" type="button">
-              <div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm">
-                <span class="material-symbols-outlined text-[16px]">person</span>
-              </div>
-              <div class="hidden sm:flex flex-col pr-0.5">
-                <span class="text-[11px] font-bold text-on-surface leading-tight">Sarah Jenkins</span>
-                <span class="text-[10px] text-secondary font-semibold leading-none">Preferred Client</span>
-              </div>
-              <span class="material-symbols-outlined text-[16px] text-on-surface-variant transition-transform group-hover:rotate-180">expand_more</span>
-            </button>
-            <div class="hidden group-hover:block absolute right-0 mt-2 w-64 bg-surface-container-lowest rounded-xl shadow-xl border border-surface-container py-1.5 z-50 transition-all" id="account-dropdown-menu">
-              <div class="px-3.5 py-2 border-b border-surface-container">
-                <p class="text-xs font-bold text-on-surface">Signed in as</p>
-                <p class="text-[11px] text-on-surface-variant truncate font-medium">sarah.jenkins@clearfield-client.net</p>
-              </div>
-              <div class="py-1">
-                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors font-medium" href="customer-account.html">
-                  <span class="material-symbols-outlined text-[18px] text-secondary">account_circle</span>Profile &amp; Settings
-                </a>
-                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-primary font-bold bg-secondary-container/30 transition-colors" href="customer-history.html">
-                  <span class="material-symbols-outlined text-[18px] text-primary">history</span>Booking History
-                </a>
-                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors font-medium" href="customer-messages.html">
-                  <span class="material-symbols-outlined text-[18px] text-secondary">chat</span>In-App Messages
-                </a>
-                <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors font-medium" href="reschedule-cancel.html">
-                  <span class="material-symbols-outlined text-[18px] text-secondary">event_repeat</span>Reschedule or Cancel
-                </a>
-              </div>
-              <div class="border-t border-surface-container my-1"></div>
-              <a class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-error hover:bg-error-container/40 transition-colors font-medium" href="/auth">
-                <span class="material-symbols-outlined text-[18px]">logout</span>Sign Out
-              </a>
-            </div>
-          </div>
+          <a class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-surface-container transition-all text-xs font-bold text-on-surface" href="/account"><span class="material-symbols-outlined text-[18px] text-primary">account_circle</span><span>Sign in / My account</span></a>
         </div>
       </div>
     </div>
