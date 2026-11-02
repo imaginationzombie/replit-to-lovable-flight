@@ -259,6 +259,42 @@ export type Database = {
           },
         ]
       }
+      cleaner_date_blocks: {
+        Row: {
+          blocked_date: string
+          cleaner_id: string
+          created_at: string
+          created_by: string
+        }
+        Insert: {
+          blocked_date: string
+          cleaner_id: string
+          created_at?: string
+          created_by: string
+        }
+        Update: {
+          blocked_date?: string
+          cleaner_id?: string
+          created_at?: string
+          created_by?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cleaner_date_blocks_cleaner_id_fkey"
+            columns: ["cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cleaner_date_blocks_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cleaner_payout_accounts: {
         Row: {
           paypal_email: string
@@ -749,6 +785,10 @@ export type Database = {
       }
       send_thread_message: {
         Args: { _body: string; _thread: string }
+        Returns: undefined
+      }
+      set_cleaner_date_block: {
+        Args: { _blocked: boolean; _cleaner_id: string; _date: string }
         Returns: undefined
       }
       waiting_cleanings: {
