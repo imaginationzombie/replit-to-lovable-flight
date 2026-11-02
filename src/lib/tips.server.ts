@@ -10,7 +10,7 @@ async function bookingAccess(id: string, token: string) {
 }
 export async function getTip(id: string, token: string) {
   const { db } = await bookingAccess(id, token);
-  const { data, error } = await db.from("booking_tips").select("amount_cents,status,environment").eq("booking_id", id).maybeSingle();
+  const { data, error } = await db.from("booking_tips").select("amount_cents,status,environment,paid_at,payout_status,payout_paid_at").eq("booking_id", id).maybeSingle();
   if (error) throw new Error("Could not load tip receipt.");
   return data;
 }
