@@ -2,7 +2,7 @@
 
 - [ ] Real Lewistown booking: confirm, customer payment, actual clock-in/out and cleaner payout; awaiting actual appointment details and customer PayPal authorization
 
-- [x] Match the phone homepage to the desktop design and fix shared account navigation; verified 320–767px phones and 1280px desktop, estimator selections and public booking navigation
+- [x] Fit the entire phone homepage and shared navigation within the screen; no clipped containers at 320–767px, desktop preserved at 1280px, room/add-on selections and public booking pages verified
 
 - [x] Approved SEO foundations: homepage description, shared-link tags, favicon and nine-page public sitemap; served pages verified, scanner recheck pending
 
