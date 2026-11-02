@@ -3,16 +3,16 @@ import { useServerFn } from "@tanstack/react-start";
 import { AppHeader } from "@/components/AppHeader";
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { captureOrder, createOrder, getPaypalConfig } from "@/lib/booking.functions";
+import { authorizeOrder, createOrder, getPaypalConfig } from "@/lib/booking.functions";
 import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchAddOns, quote } from "@/lib/pricing";
 
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
       { title: "Book Your Cleaning | HousekeeperBooking.com" },
-      { name: "description", content: "Confirm your cleaning details and pay securely with PayPal." },
+      { name: "description", content: "Confirm your cleaning details and reserve with PayPal — $0 charged until after your cleaning." },
       { property: "og:title", content: "Book Your Cleaning | HousekeeperBooking.com" },
-      { property: "og:description", content: "Confirm your cleaning details and pay securely with PayPal." },
+      { property: "og:description", content: "Confirm your cleaning details and reserve with PayPal — $0 charged until after your cleaning." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -49,7 +49,7 @@ function BookPage() {
   formRef.current = form;
   const paypalRef = useRef<HTMLDivElement>(null);
   const create = useServerFn(createOrder);
-  const capture = useServerFn(captureOrder);
+  const capture = useServerFn(authorizeOrder);
   const config = useServerFn(getPaypalConfig);
 
   useEffect(() => {
@@ -104,7 +104,7 @@ function BookPage() {
       if (!window.paypal) {
         await new Promise<void>((resolve, reject) => {
           const s = document.createElement("script");
-          s.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(cfg.data.clientId)}&currency=USD&intent=capture`;
+          s.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(cfg.data.clientId)}&currency=USD&intent=authorize`;
           s.onload = () => resolve();
           s.onerror = () => reject();
           document.body.appendChild(s);
@@ -113,7 +113,7 @@ function BookPage() {
       if (cancelled || !window.paypal || !paypalRef.current) return;
       paypalRef.current.innerHTML = "";
       await window.paypal.Buttons({
-        style: { layout: "vertical", shape: "rect", label: "pay" },
+        style: { layout: "vertical", shape: "rect", label: "checkout" },
         onClick: (_: unknown, actions: { reject: () => void; resolve: () => void }) => {
           if (!validRef.current) { setError("Please fill in your contact details and date first."); return actions.reject(); }
           setError(null);
@@ -215,9 +215,9 @@ function BookPage() {
               <span className="font-semibold text-foreground">Total</span>
               <span className="text-3xl font-extrabold text-primary">${q.total.toFixed(2)}</span>
             </div>
-            {form.frequency !== "One-time" && <p className="mt-1 text-xs text-muted-foreground">Today's payment covers your first visit.</p>}
+            <p className="mt-2 rounded-lg bg-accent px-3 py-2 text-xs font-semibold text-accent-foreground">$0 charged today. PayPal holds this amount for your first visit and we only charge it after your cleaning is done.{form.frequency !== "One-time" ? " Later visits are billed separately after each cleaning." : ""}</p>
             {error && <p role="alert" className="mt-4 rounded-lg bg-destructive/10 p-3 text-sm text-destructive">{error}</p>}
-            {paying && <p className="mt-4 text-sm text-muted-foreground">Confirming your payment…</p>}
+            {paying && <p className="mt-4 text-sm text-muted-foreground">Confirming your booking…</p>}
             <div ref={paypalRef} className="mt-5 min-h-12" />
             {!ready && !error && <p className="text-xs text-muted-foreground">Loading PayPal…</p>}
           </aside>
