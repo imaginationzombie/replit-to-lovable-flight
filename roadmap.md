@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Customer portal direct PayPal balance payment and cleaner-visible customer payment amount
+- [ ] Admin cleaner date blocking and calendar showing booked appointment slots
+
 - [x] Admin PayPal dashboard with approved earnings, pending transfers, settled payments and manual payout controls; confirmation verified without sending money
 
 - [x] Admin cleaner month calendar with booked arrival windows and drag-and-drop rescheduling
