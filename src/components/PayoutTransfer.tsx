@@ -24,7 +24,7 @@ export function PayoutTransfer({ workId, cleanerId, amount, admin }: { workId: s
     }
     if (!transfer.data) throw new Error("No transfer found.");
     return check({ data: { id: transfer.data.id } });
-  }, onSuccess: async result => { setMessage(result.message); setOpen(false); await Promise.all([qc.invalidateQueries({ queryKey: ["payout-transfer"] }), qc.invalidateQueries({ queryKey: ["timesheets"], refetchType: "all" })]); } });
+  }, onSuccess: async result => { setMessage(result.message); setOpen(false); await Promise.all([qc.invalidateQueries({ queryKey: ["payout-transfer"] }), qc.invalidateQueries({ queryKey: ["payout-dashboard"], refetchType: "all" }), qc.invalidateQueries({ queryKey: ["timesheets"], refetchType: "all" })]); } });
   return <div className="mt-4">
     {transfer.data ? <div><p className="text-sm text-muted-foreground">PayPal · {transfer.data.environment === "live" ? "Live" : "Test"} · {transfer.data.provider_status ?? transfer.data.status}</p>
       {transfer.data.error_message && <p className="mt-1 text-sm text-destructive">{transfer.data.error_message}</p>}
