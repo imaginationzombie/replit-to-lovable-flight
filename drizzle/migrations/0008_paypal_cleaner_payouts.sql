@@ -1,0 +1,35 @@
+CREATE TABLE public.cleaner_payout_accounts(user_id uuid PRIMARY KEY REFERENCES public.profiles(id),paypal_email text NOT NULL,updated_at timestamptz NOT NULL DEFAULT now());
+GRANT SELECT,INSERT,UPDATE ON public.cleaner_payout_accounts TO authenticated;
+GRANT ALL ON public.cleaner_payout_accounts TO service_role;
+ALTER TABLE public.cleaner_payout_accounts ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Cleaner own payout account read" ON public.cleaner_payout_accounts FOR SELECT TO authenticated USING(user_id=auth.uid() AND public.has_role(auth.uid(),'cleaner'));
+CREATE POLICY "Admin payout account read" ON public.cleaner_payout_accounts FOR SELECT TO authenticated USING(public.has_role(auth.uid(),'admin'));
+CREATE POLICY "Cleaner own payout account insert" ON public.cleaner_payout_accounts FOR INSERT TO authenticated WITH CHECK(user_id=auth.uid() AND public.has_role(auth.uid(),'cleaner'));
+CREATE POLICY "Cleaner own payout account update" ON public.cleaner_payout_accounts FOR UPDATE TO authenticated USING(user_id=auth.uid() AND public.has_role(auth.uid(),'cleaner')) WITH CHECK(user_id=auth.uid() AND public.has_role(auth.uid(),'cleaner'));
+CREATE FUNCTION public.validate_payout_email() RETURNS trigger LANGUAGE plpgsql SET search_path=public AS $$ BEGIN NEW.paypal_email:=lower(trim(NEW.paypal_email)); IF length(NEW.paypal_email)>254 OR NEW.paypal_email !~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$' THEN RAISE EXCEPTION 'Enter a valid PayPal email address.'; END IF; NEW.updated_at:=now(); RETURN NEW; END $$;
+CREATE TRIGGER validate_payout_email BEFORE INSERT OR UPDATE ON public.cleaner_payout_accounts FOR EACH ROW EXECUTE FUNCTION public.validate_payout_email();
+CREATE TABLE public.cleaner_payouts(id uuid PRIMARY KEY DEFAULT gen_random_uuid(),work_id uuid NOT NULL UNIQUE REFERENCES public.appointment_work(id),cleaner_id uuid NOT NULL REFERENCES public.profiles(id),recipient_email text NOT NULL,amount_cents integer NOT NULL CHECK(amount_cents>0),currency text NOT NULL DEFAULT 'USD',environment text NOT NULL CHECK(environment IN ('sandbox','live')),status text NOT NULL DEFAULT 'processing',paypal_batch_id text,paypal_item_id text,provider_status text,error_message text NOT NULL DEFAULT '',created_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now(),requested_by uuid NOT NULL REFERENCES public.profiles(id));
+GRANT SELECT ON public.cleaner_payouts TO authenticated;
+GRANT ALL ON public.cleaner_payouts TO service_role;
+ALTER TABLE public.cleaner_payouts ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Cleaner own or admin payouts read" ON public.cleaner_payouts FOR SELECT TO authenticated USING((cleaner_id=auth.uid() AND public.has_role(auth.uid(),'cleaner')) OR public.has_role(auth.uid(),'admin'));
+CREATE FUNCTION public.reserve_cleaner_payout(_work_id uuid,_environment text) RETURNS public.cleaner_payouts LANGUAGE plpgsql SECURITY DEFINER SET search_path=public AS $$
+DECLARE w public.appointment_work%ROWTYPE;p public.cleaner_payouts%ROWTYPE;recipient text;
+BEGIN
+ IF NOT public.has_role(auth.uid(),'admin') THEN RAISE EXCEPTION 'Admin access required.'; END IF;
+ IF _environment NOT IN ('sandbox','live') THEN RAISE EXCEPTION 'Invalid payment environment.'; END IF;
+ SELECT * INTO w FROM public.appointment_work WHERE id=_work_id FOR UPDATE;
+ IF NOT FOUND THEN RAISE EXCEPTION 'Timesheet not found.'; END IF;
+ SELECT * INTO p FROM public.cleaner_payouts WHERE work_id=_work_id;
+ IF FOUND THEN RETURN p; END IF;
+ IF w.status<>'approved' OR w.amount_cents<=0 THEN RAISE EXCEPTION 'Only approved unpaid earnings can be transferred.'; END IF;
+ IF NOT public.has_role(w.cleaner_id,'cleaner') THEN RAISE EXCEPTION 'This account no longer has cleaner access.'; END IF;
+ SELECT paypal_email INTO recipient FROM public.cleaner_payout_accounts WHERE user_id=w.cleaner_id;
+ IF recipient IS NULL THEN RAISE EXCEPTION 'The cleaner must save their PayPal receiving email first.'; END IF;
+ INSERT INTO public.cleaner_payouts(work_id,cleaner_id,recipient_email,amount_cents,environment,requested_by) VALUES(w.id,w.cleaner_id,recipient,w.amount_cents,_environment,auth.uid()) RETURNING * INTO p;
+ RETURN p;
+END $$;
+REVOKE ALL ON FUNCTION public.reserve_cleaner_payout(uuid,text) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.reserve_cleaner_payout(uuid,text) TO authenticated;
+CREATE FUNCTION public.guard_work_during_payout() RETURNS trigger LANGUAGE plpgsql SET search_path=public AS $$ BEGIN IF EXISTS(SELECT 1 FROM public.cleaner_payouts WHERE work_id=OLD.id) AND current_user NOT IN ('postgres','service_role') THEN RAISE EXCEPTION 'This timesheet has a PayPal transfer. Check its transfer status instead.'; END IF; RETURN NEW; END $$;
+CREATE TRIGGER guard_work_during_payout BEFORE UPDATE ON public.appointment_work FOR EACH ROW EXECUTE FUNCTION public.guard_work_during_payout();
