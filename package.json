@@ -13,9 +13,6 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "overrides": {
-    "rolldown": "1.2.1"
-  },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.106",
     "@dnd-kit/core": "^6.3.1",
