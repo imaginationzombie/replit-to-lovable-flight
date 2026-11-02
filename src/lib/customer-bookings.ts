@@ -7,10 +7,7 @@ export function mergeCustomerBookings(owned: BookingRow[], byEmail: BookingRow[]
     .sort((a, b) => a.preferred_date.localeCompare(b.preferred_date) || a.created_at.localeCompare(b.created_at));
 }
 
-export const customerBookingsOptions = queryOptions({
-  queryKey: ["my-bookings"],
-  refetchInterval: 15000,
-  queryFn: async () => {
+export async function fetchCustomerBookings() {
     const { data: auth, error: authError } = await supabase.auth.getUser();
     if (authError) throw authError;
     if (!auth.user) throw new Error("Please sign in to view your bookings.");
@@ -26,7 +23,12 @@ export const customerBookingsOptions = queryOptions({
     if (owned.error) throw owned.error;
     if (byEmail.error) throw byEmail.error;
     return mergeCustomerBookings(owned.data as BookingRow[], byEmail.data as BookingRow[]);
-  },
+}
+
+export const customerBookingsOptions = queryOptions({
+  queryKey: ["my-bookings"],
+  refetchInterval: 15000,
+  queryFn: fetchCustomerBookings,
 });
 
 export function visitSchedule(booking: Pick<BookingRow, "status" | "cleaner_id">): string {

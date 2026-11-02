@@ -1,5 +1,11 @@
 # Roadmap
 
+- [x] Admin cleaner month calendar with booked arrival windows and drag-and-drop rescheduling
+- [x] Customer booking history with payment and tip settlement status
+- [x] Hiring applications and admin review panel
+- [x] Private admin–housekeeper and assigned housekeeper–customer messages
+- [x] Public housekeeper pages with their own uploaded portrait and before-and-after galleries
+
 - [x] Booking form prefilled from AI assistant suggestions
 - [x] Save bookings in Lovable Cloud
 - [x] PayPal checkout (user chose PayPal over Stripe) — needs PayPal API credentials
@@ -21,4 +27,4 @@
 - [x] Customer portal connects existing account creation, cleaning requests and booking tracking
 - [x] Cleaner appointment checklists, hours, submitted timesheets and payment tracking; approval and payment readback verified
 - [x] PayPal Payouts integration for approved cleaner earnings, recipient setup and duplicate-transfer protection; live authentication and confirmation verified without sending money
-- [ ] Optional post-cleaning PayPal tips, customer receipts and cleaner tip tracking
+- [x] Optional post-cleaning PayPal tips, customer receipts and cleaner tip tracking; checkout and tests verified without moving live money
