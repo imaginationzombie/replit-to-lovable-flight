@@ -25,3 +25,8 @@ export function elapsed(fromIso: string, to: Date = new Date()) {
   const mins = Math.max(0, Math.floor((to.getTime() - new Date(fromIso).getTime()) / 60000));
   return `${Math.floor(mins / 60)}h ${String(mins % 60).padStart(2, "0")}m`;
 }
+
+/** Opens turn-by-turn directions from the device's current location to an address. */
+export function directionsLink(address: string) {
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+}

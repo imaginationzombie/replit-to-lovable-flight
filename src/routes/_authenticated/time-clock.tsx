@@ -7,7 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
-import { elapsed, getPosition, LOCATION_INTERVAL_MS, mapLink } from "@/lib/time-clock";
+import { directionsLink, elapsed, getPosition, LOCATION_INTERVAL_MS, mapLink } from "@/lib/time-clock";
 
 export const Route = createFileRoute("/_authenticated/time-clock")({
   head: () => ({
@@ -127,6 +127,7 @@ function TimeClockPage() {
               <p className="text-sm font-semibold uppercase tracking-wide text-primary">Clocked in</p>
               <p className="my-2 text-5xl font-extrabold text-foreground">{elapsed(entry.clock_in_at, now)}</p>
               <p className="text-muted-foreground">{entry.bookings ? `${entry.bookings.service} · ${entry.bookings.address}` : "General shift"}</p>
+              {entry.bookings?.address && <Button asChild variant="outline" className="mt-3"><a href={directionsLink(entry.bookings.address)} target="_blank" rel="noreferrer"><MapPin />Directions to client</a></Button>}
               <p className="mt-2 flex items-center justify-center gap-1 text-xs text-muted-foreground"><MapPin className="h-3 w-3" />Sharing location every 2 minutes while this page is open</p>
               <Button size="lg" variant="destructive" className="mt-6 h-16 w-full max-w-xs text-lg" disabled={busy} onClick={clockOut}><LogOut />Clock out</Button>
             </>
@@ -139,6 +140,7 @@ function TimeClockPage() {
                   {visits.data?.map((v) => <option key={v.id} value={v.id}>{v.time_window} · {v.service} · {v.address}</option>)}
                 </select>
               </label>
+              {visits.data?.map((v) => <a key={v.id} className="mt-2 block text-sm font-semibold text-primary underline" href={directionsLink(v.address)} target="_blank" rel="noreferrer">Directions: {v.address}</a>)}
               {visits.data?.length === 0 && <p className="mt-2 text-sm text-muted-foreground">No appointments assigned to you today.</p>}
               <Button size="lg" className="mt-6 h-16 w-full max-w-xs text-lg" disabled={busy} onClick={clockIn}><LogIn />Clock in</Button>
               <p className="mt-2 text-xs text-muted-foreground">Your location is recorded when you clock in, while clocked in, and when you clock out.</p>
