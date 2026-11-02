@@ -22,6 +22,13 @@
       "when": 1793579471234,
       "tag": "0002_cleaner_settings",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793580008221,
+      "tag": "0003_booking_authorization",
+      "breakpoints": true
     }
   ]
 }

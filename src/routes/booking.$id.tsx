@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { z } from "zod";
 import { fetchBooking } from "@/lib/booking.functions";
+import { PayBalance } from "@/components/PayBalance";
 
 export const Route = createFileRoute("/booking/$id")({
   validateSearch: z.object({ t: z.string().catch("") }),
@@ -33,18 +34,20 @@ export const Route = createFileRoute("/booking/$id")({
 
 function Confirmation() {
   const b = Route.useLoaderData();
-  const confirmed = b.status === "confirmed";
+  const { t } = Route.useSearch();
+  const confirmed = b.status === "confirmed" || b.status === "completed";
+  const due = b.status === "completed" && !b.paid_at;
   return (
     <div className="min-h-screen bg-background px-6 py-12">
       <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 shadow-sm">
         <span className="inline-block rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
-          {confirmed ? "Paid & confirmed" : "Awaiting payment"}
+          {b.paid_at ? "Paid" : due ? "Payment due" : confirmed ? "Confirmed · $0 charged" : "Awaiting checkout"}
         </span>
         <h1 className="mt-3 text-3xl font-extrabold text-foreground">
-          {confirmed ? `You're booked, ${b.customer_name.split(" ")[0]}!` : "Booking not paid yet"}
+          {due ? "Your cleaning is done!" : confirmed ? `You're booked, ${b.customer_name.split(" ")[0]}!` : "Booking not finished"}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          {confirmed ? `We'll send updates to ${b.email}. Save this page link to view your booking anytime.` : "Your payment hasn't completed."}
+          {due ? "Please pay for your visit below." : confirmed ? `Nothing has been charged. Your first visit is charged through PayPal only after the cleaning. Save this page link to view your booking anytime.` : "Checkout wasn't completed."}
         </p>
         <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
           <Item k="Service" v={b.service} />
@@ -54,8 +57,9 @@ function Confirmation() {
           <Item k="Home" v={`${b.bedrooms} bed / ${b.bathrooms} bath`} />
           <Item k="Area" v={b.service_area} />
           <Item k="Address" v={b.address} />
-          <Item k="Paid" v={`$${(b.amount_cents / 100).toFixed(2)}`} />
+          <Item k={b.paid_at ? "Paid" : "Charged after cleaning"} v={`$${(b.amount_cents / 100).toFixed(2)}`} />
         </dl>
+        {due && <PayBalance id={b.id} token={t} />}
         {b.add_ons.length > 0 && <p className="mt-4 text-sm text-foreground"><strong>Add-ons:</strong> {b.add_ons.join(", ")}{b.rush ? ", Rush dispatch" : ""}</p>}
         {b.notes && <p className="mt-2 whitespace-pre-line text-sm text-foreground"><strong>Notes:</strong> {b.notes}</p>}
         <p className="mt-6 text-xs text-muted-foreground">Booking #{b.id.slice(0, 8).toUpperCase()} • Questions? Call (814) 952-1964</p>

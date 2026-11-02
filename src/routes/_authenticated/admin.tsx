@@ -6,6 +6,8 @@ import { AppHeader } from "@/components/AppHeader";
 import { BookingCard, STATUS_LABEL, type BookingRow } from "@/components/BookingCard";
 import { useAuth, type Role } from "@/hooks/use-auth";
 import { hoursSummary } from "@/lib/cleaner-hours";
+import { useServerFn } from "@tanstack/react-start";
+import { collectPayment } from "@/lib/booking.functions";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -75,6 +77,17 @@ function Bookings() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ["admin-bookings"] }),
   });
 
+  const collect = useServerFn(collectPayment);
+  const [payMsg, setPayMsg] = useState<Record<string, string>>({});
+  const charge = useMutation({
+    mutationFn: async (id: string) => {
+      const r = await collect({ data: { bookingId: id } });
+      if (!r.ok) throw new Error(r.error);
+      setPayMsg((m) => ({ ...m, [id]: r.data.paid ? "Charged." : "The PayPal hold expired — the customer can pay from their booking page or account." }));
+    },
+    onError: (e, id) => setPayMsg((m) => ({ ...m, [id]: e.message })),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["admin-bookings"] }),
+  });
   const rows = (bookings.data ?? []).filter((b) => filter === "all" || b.status === filter);
   const select = "rounded-lg border border-input bg-background px-2 py-1.5 text-sm text-foreground";
   return (
@@ -98,6 +111,11 @@ function Bookings() {
                 onChange={(e) => update.mutate({ id: b.id, patch: { status: e.target.value } })}>
                 {Object.entries(STATUS_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
+              {b.status === "completed" && !b.paid_at && (
+                <button onClick={() => charge.mutate(b.id)} disabled={charge.isPending}
+                  className="rounded-lg bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground">Charge ${(b.amount_cents / 100).toFixed(2)}</button>
+              )}
+              {payMsg[b.id] && <span className="text-xs text-muted-foreground">{payMsg[b.id]}</span>}
             </div>
           </BookingCard>
         ))}

@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequestHeader } from "@tanstack/react-start/server";
 import { z } from "zod";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS } from "./pricing";
 
 const bookingSchema = z.object({
@@ -50,4 +51,28 @@ export const fetchBooking = createServerFn({ method: "GET" })
   .handler(async ({ data }) => {
     const { getBooking } = await import("./booking.server");
     return getBooking(data.id, data.token);
+  });
+
+export const authorizeOrder = createServerFn({ method: "POST" })
+  .validator((d: unknown) => z.object({ orderId: z.string().min(5).max(64) }).parse(d))
+  .handler(async ({ data }): Promise<Result<{ bookingId: string; token: string }>> => {
+    const { authorizeBookingOrder } = await import("./booking.server");
+    try { return { ok: true, data: await authorizeBookingOrder(data.orderId) }; } catch (e) { return fail(e); }
+  });
+
+export const collectPayment = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .validator((d: unknown) => z.object({ bookingId: z.string().uuid() }).parse(d))
+  .handler(async ({ data, context }): Promise<Result<{ paid: boolean; needsCustomerPayment: boolean }>> => {
+    const { data: isAdmin } = await context.supabase.rpc("has_role", { _user_id: context.userId, _role: "admin" });
+    if (!isAdmin) return { ok: false, error: "Only admins can charge customers." };
+    const { collectBookingPayment } = await import("./booking.server");
+    try { return { ok: true, data: await collectBookingPayment(data.bookingId) }; } catch (e) { return fail(e); }
+  });
+
+export const createBalance = createServerFn({ method: "POST" })
+  .validator((d: unknown) => z.object({ id: z.string().uuid(), token: z.string().uuid() }).parse(d))
+  .handler(async ({ data }): Promise<Result<{ orderId: string }>> => {
+    const { createBalanceOrder } = await import("./booking.server");
+    try { return { ok: true, data: await createBalanceOrder(data.id, data.token) }; } catch (e) { return fail(e); }
   });

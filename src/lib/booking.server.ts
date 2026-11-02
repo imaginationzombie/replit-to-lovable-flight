@@ -57,16 +57,22 @@ export async function createBookingOrder(input: BookingInput, userId: string | n
     throw new Error("Couldn't save your booking.");
   }
 
+  const orderId = await paypalOrder("AUTHORIZE", booking.id, input.service, q.totalCents, booking.id);
+  await db.from("bookings").update({ paypal_order_id: orderId }).eq("id", booking.id);
+  return { orderId };
+}
+
+async function paypalOrder(intent: "AUTHORIZE" | "CAPTURE", bookingId: string, service: string, cents: number, requestId: string) {
   const token = await paypalToken();
   const res = await fetch(`${paypalBase()}/v2/checkout/orders`, {
     method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": booking.id },
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": requestId },
     body: JSON.stringify({
-      intent: "CAPTURE",
+      intent,
       purchase_units: [{
-        reference_id: booking.id,
-        description: `${input.service} – HousekeeperBooking.com`,
-        amount: { currency_code: "USD", value: q.total.toFixed(2) },
+        reference_id: bookingId,
+        description: `${service} – HousekeeperBooking.com`,
+        amount: { currency_code: "USD", value: (cents / 100).toFixed(2) },
       }],
     }),
   });
@@ -74,17 +80,81 @@ export async function createBookingOrder(input: BookingInput, userId: string | n
     console.error("PayPal create order failed", res.status, await res.text());
     throw new Error("Couldn't start PayPal checkout.");
   }
-  const order = (await res.json()) as { id: string };
-  await db.from("bookings").update({ paypal_order_id: order.id }).eq("id", booking.id);
-  return { orderId: order.id };
+  return ((await res.json()) as { id: string }).id;
+}
+
+/** Customer approved the PayPal hold at checkout: authorize (no money moves yet) and confirm the booking. */
+export async function authorizeBookingOrder(orderId: string) {
+  const db = await admin();
+  const { data: booking } = await db
+    .from("bookings").select("id, access_token, amount_cents, status").eq("paypal_order_id", orderId).single();
+  if (!booking) throw new Error("Booking not found.");
+  if (booking.status !== "pending_payment") return { bookingId: booking.id, token: booking.access_token };
+  const token = await paypalToken();
+  const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/authorize`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+  });
+  const body = (await res.json()) as {
+    status?: string;
+    purchase_units?: { payments?: { authorizations?: { id: string; status: string; amount: { value: string; currency_code: string } }[] } }[];
+  };
+  const auth = body.purchase_units?.[0]?.payments?.authorizations?.[0];
+  if (!res.ok || !auth || (auth.status !== "CREATED" && auth.status !== "PENDING")) {
+    console.error("PayPal authorize failed", res.status, JSON.stringify(body));
+    throw new Error("PayPal couldn't approve that payment method. Please try again.");
+  }
+  if (Math.round(parseFloat(auth.amount.value) * 100) !== booking.amount_cents || auth.amount.currency_code !== "USD") {
+    console.error("Amount mismatch", auth.amount, booking.amount_cents);
+    throw new Error("Payment amount didn't match. Please contact us.");
+  }
+  await db.from("bookings").update({
+    status: "confirmed", paypal_authorization_id: auth.id, authorized_at: new Date().toISOString(),
+  }).eq("id", booking.id);
+  return { bookingId: booking.id, token: booking.access_token };
+}
+
+/** After the cleaning: charge the held amount. Returns needsCustomerPayment if the hold expired. */
+export async function collectBookingPayment(bookingId: string) {
+  const db = await admin();
+  const { data: b } = await db.from("bookings").select("id, status, amount_cents, paid_at, paypal_authorization_id").eq("id", bookingId).single();
+  if (!b) throw new Error("Booking not found.");
+  if (b.paid_at) return { paid: true, needsCustomerPayment: false };
+  if (b.status !== "completed") throw new Error("Mark the cleaning completed before charging.");
+  if (!b.paypal_authorization_id) return { paid: false, needsCustomerPayment: true };
+  const token = await paypalToken();
+  const res = await fetch(`${paypalBase()}/v2/payments/authorizations/${encodeURIComponent(b.paypal_authorization_id)}/capture`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": `cap-${b.id}` },
+    body: JSON.stringify({ final_capture: true }),
+  });
+  const body = (await res.json()) as { id?: string; status?: string; amount?: { value: string } };
+  if (!res.ok || !body.id || (body.status !== "COMPLETED" && body.status !== "PENDING")) {
+    console.error("PayPal authorization capture failed", res.status, JSON.stringify(body));
+    return { paid: false, needsCustomerPayment: true };
+  }
+  await db.from("bookings").update({ paypal_capture_id: body.id, paid_at: new Date().toISOString() }).eq("id", b.id);
+  return { paid: true, needsCustomerPayment: false };
+}
+
+/** Fallback when the hold expired: customer pays the completed visit from their booking page. */
+export async function createBalanceOrder(id: string, accessToken: string) {
+  const db = await admin();
+  const { data: b } = await db.from("bookings").select("id, service, amount_cents, status, paid_at").eq("id", id).eq("access_token", accessToken).maybeSingle();
+  if (!b) throw new Error("Booking not found.");
+  if (b.paid_at) throw new Error("This visit is already paid.");
+  if (b.status !== "completed") throw new Error("Payment opens once your cleaning is completed.");
+  const orderId = await paypalOrder("CAPTURE", b.id, b.service, b.amount_cents, `bal-${b.id}-${Date.now()}`);
+  await db.from("bookings").update({ paypal_order_id: orderId }).eq("id", b.id);
+  return { orderId };
 }
 
 export async function captureBookingOrder(orderId: string) {
   const db = await admin();
   const { data: booking } = await db
-    .from("bookings").select("id, access_token, amount_cents, status").eq("paypal_order_id", orderId).single();
+    .from("bookings").select("id, access_token, amount_cents, status, paid_at").eq("paypal_order_id", orderId).single();
   if (!booking) throw new Error("Booking not found.");
-  if (booking.status === "confirmed") return { bookingId: booking.id, token: booking.access_token };
+  if (booking.paid_at) return { bookingId: booking.id, token: booking.access_token };
 
   const token = await paypalToken();
   const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`, {
@@ -105,7 +175,7 @@ export async function captureBookingOrder(orderId: string) {
     throw new Error("Payment amount didn't match. Please contact us.");
   }
   await db.from("bookings").update({
-    status: "confirmed", paypal_capture_id: capture.id, paid_at: new Date().toISOString(),
+    ...(booking.status === "pending_payment" ? { status: "confirmed" } : {}), paypal_capture_id: capture.id, paid_at: new Date().toISOString(),
   }).eq("id", booking.id);
   return { bookingId: booking.id, token: booking.access_token };
 }
@@ -114,7 +184,7 @@ export async function getBooking(id: string, token: string) {
   const db = await admin();
   const { data } = await db
     .from("bookings")
-    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, preferred_date, time_window, notes, amount_cents, paid_at")
+    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, preferred_date, time_window, notes, amount_cents, paid_at, authorized_at")
     .eq("id", id).eq("access_token", token).maybeSingle();
   return data;
 }

@@ -5,6 +5,7 @@ export type BookingRow = {
   service_area: string; service: string; frequency: string; bedrooms: number; bathrooms: number;
   add_ons: string[]; rush: boolean; preferred_date: string; time_window: string; notes: string;
   amount_cents: number; cleaner_id: string | null; created_at: string;
+  paid_at?: string | null; access_token?: string;
 };
 
 export const STATUS_LABEL: Record<string, string> = {
@@ -33,7 +34,12 @@ export function BookingCard({ b, showCustomer, children }: { b: BookingRow; show
       {showCustomer && <p className="mt-1 text-sm text-foreground"><strong>{b.customer_name}</strong> • {b.phone} • {b.email}</p>}
       {b.notes && <p className="mt-1 whitespace-pre-line text-sm text-muted-foreground">Notes: {b.notes}</p>}
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-        <span className="text-sm font-bold text-primary">${(b.amount_cents / 100).toFixed(2)}</span>
+        <span className="text-sm font-bold text-primary">${(b.amount_cents / 100).toFixed(2)}
+          <span className="ml-2 text-xs font-semibold text-muted-foreground">{b.paid_at ? "Paid" : b.status === "completed" ? "Payment due" : b.status === "confirmed" ? "Charged after cleaning" : ""}</span>
+          {b.status === "completed" && !b.paid_at && b.access_token && !showCustomer && (
+            <a href={`/booking/${b.id}?t=${b.access_token}`} className="ml-3 rounded-lg bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Pay now</a>
+          )}
+        </span>
         {children}
       </div>
     </div>
