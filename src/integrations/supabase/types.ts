@@ -14,6 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
+      appointment_work: {
+        Row: {
+          amount_cents: number
+          booking_id: string
+          cleaner_id: string
+          completed_tasks: string[]
+          id: string
+          minutes: number
+          notes: string
+          paid_at: string | null
+          payment_reference: string
+          rate_cents: number
+          status: string
+          submitted_at: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount_cents?: number
+          booking_id: string
+          cleaner_id: string
+          completed_tasks?: string[]
+          id?: string
+          minutes?: number
+          notes?: string
+          paid_at?: string | null
+          payment_reference?: string
+          rate_cents?: number
+          status?: string
+          submitted_at?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount_cents?: number
+          booking_id?: string
+          cleaner_id?: string
+          completed_tasks?: string[]
+          id?: string
+          minutes?: number
+          notes?: string
+          paid_at?: string | null
+          payment_reference?: string
+          rate_cents?: number
+          status?: string
+          submitted_at?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointment_work_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointment_work_cleaner_id_fkey"
+            columns: ["cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       bookings: {
         Row: {
           access_token: string
@@ -215,6 +278,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      claim_cleaning: { Args: { _booking_id: string }; Returns: undefined }
       cleaner_complete_booking: {
         Args: { _booking_id: string }
         Returns: undefined
@@ -244,6 +308,20 @@ export type Database = {
         }
         Returns: undefined
       }
+      review_timesheet: {
+        Args: { _action: string; _id: string; _reference?: string }
+        Returns: undefined
+      }
+      save_appointment_work: {
+        Args: {
+          _booking_id: string
+          _minutes: number
+          _notes: string
+          _submit: boolean
+          _tasks: string[]
+        }
+        Returns: undefined
+      }
       schedule_booking: {
         Args: {
           _booking_id: string
@@ -255,6 +333,19 @@ export type Database = {
           _time_window: string
         }
         Returns: undefined
+      }
+      waiting_cleanings: {
+        Args: never
+        Returns: {
+          add_ons: string[]
+          bathrooms: number
+          bedrooms: number
+          id: string
+          preferred_date: string
+          service: string
+          service_area: string
+          time_window: string
+        }[]
       }
     }
     Enums: {

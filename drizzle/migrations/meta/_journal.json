@@ -50,6 +50,13 @@
       "when": 1793628141854,
       "tag": "0006_scheduler_nullable_assignments",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1793632384197,
+      "tag": "0007_cleaner_waiting_list_and_work_records",
+      "breakpoints": true
     }
   ]
 }
