@@ -22,7 +22,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
 
 function Admin() {
   const { isAdmin, loading } = useAuth();
-  const [tab, setTab] = useState<"bookings" | "people">("bookings");
+  const [tab, setTab] = useState<"bookings" | "calendar" | "schedules" | "people">("calendar");
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
@@ -32,14 +32,14 @@ function Admin() {
         {isAdmin && (
           <>
             <div className="mt-6 flex gap-2">
-              {(["bookings", "people"] as const).map((t) => (
+              {(["calendar", "schedules", "bookings", "people"] as const).map((t) => (
                 <button key={t} onClick={() => setTab(t)}
                   className={`rounded-lg px-4 py-2 text-sm font-bold ${tab === t ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
-                  {t === "bookings" ? "Bookings" : "People & roles"}
+                  {TAB_LABEL[t]}
                 </button>
               ))}
             </div>
-            {tab === "bookings" ? <Bookings /> : <People />}
+            {tab === "bookings" ? <Bookings /> : tab === "calendar" ? <CalendarView /> : tab === "schedules" ? <Schedules /> : <People />}
           </>
         )}
       </main>
@@ -153,6 +153,108 @@ function People() {
         </tbody>
       </table>
       {toggle.error && <p className="p-3 text-sm text-destructive">Couldn't update that role.</p>}
+    </section>
+  );
+}
+
+const TAB_LABEL = { calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles" } as const;
+
+function useAdminBookings() {
+  return useQuery({
+    queryKey: ["admin-bookings"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("bookings").select("*").order("preferred_date", { ascending: false }).limit(500);
+      if (error) throw error;
+      return data as BookingRow[];
+    },
+  });
+}
+function useCleaners() {
+  return useQuery({
+    queryKey: ["cleaners"],
+    queryFn: async () => {
+      const { data, error } = await supabase.rpc("list_cleaners");
+      if (error) throw error;
+      return data;
+    },
+  });
+}
+const ymd = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
+function CalendarView() {
+  const bookings = useAdminBookings();
+  const cleaners = useCleaners();
+  const [month, setMonth] = useState(() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), 1); });
+  const [day, setDay] = useState(() => ymd(new Date()));
+  const live = (bookings.data ?? []).filter((b) => b.status !== "cancelled" && b.status !== "pending_payment");
+  const byDay = new Map<string, BookingRow[]>();
+  live.forEach((b) => byDay.set(b.preferred_date, [...(byDay.get(b.preferred_date) ?? []), b]));
+  const start = new Date(month); start.setDate(1 - month.getDay());
+  const cells = Array.from({ length: 42 }, (_, i) => { const d = new Date(start); d.setDate(start.getDate() + i); return d; });
+  const name = (id: string | null) => cleaners.data?.find((c) => c.id === id)?.full_name || cleaners.data?.find((c) => c.id === id)?.email || "Unassigned";
+  const shift = (n: number) => setMonth(new Date(month.getFullYear(), month.getMonth() + n, 1));
+  const today = ymd(new Date());
+  return (
+    <section className="mt-6">
+      <div className="flex items-center justify-between">
+        <button onClick={() => shift(-1)} className="rounded-lg bg-muted px-3 py-1.5 text-sm font-bold text-foreground">‹ Prev</button>
+        <h2 className="text-lg font-bold text-foreground">{month.toLocaleDateString(undefined, { month: "long", year: "numeric" })}</h2>
+        <button onClick={() => shift(1)} className="rounded-lg bg-muted px-3 py-1.5 text-sm font-bold text-foreground">Next ›</button>
+      </div>
+      <div className="mt-4 grid grid-cols-7 gap-1 text-center text-xs font-bold uppercase text-muted-foreground">
+        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => <div key={d}>{d}</div>)}
+      </div>
+      <div className="mt-1 grid grid-cols-7 gap-1">
+        {cells.map((d) => {
+          const k = ymd(d); const list = byDay.get(k) ?? []; const inMonth = d.getMonth() === month.getMonth();
+          return (
+            <button key={k} onClick={() => setDay(k)}
+              className={`min-h-20 rounded-lg border p-1.5 text-left text-xs ${day === k ? "border-primary ring-2 ring-primary" : "border-border"} ${inMonth ? "bg-card" : "bg-muted/50"}`}>
+              <span className={`font-bold ${k === today ? "text-primary" : inMonth ? "text-foreground" : "text-muted-foreground"}`}>{d.getDate()}</span>
+              {list.slice(0, 2).map((b) => <div key={b.id} className="mt-1 truncate rounded bg-accent px-1 text-accent-foreground">{b.time_window.split(" ")[0]} {b.customer_name}</div>)}
+              {list.length > 2 && <div className="mt-1 text-muted-foreground">+{list.length - 2} more</div>}
+            </button>
+          );
+        })}
+      </div>
+      <h3 className="mt-6 font-bold text-foreground">{new Date(day + "T12:00").toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}</h3>
+      <div className="mt-3 space-y-3">
+        {(byDay.get(day) ?? []).length === 0 && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">No cleanings this day.</p>}
+        {(byDay.get(day) ?? []).map((b) => (
+          <BookingCard key={b.id} b={b} showCustomer><p className="text-sm text-muted-foreground">Cleaner: <b className="text-foreground">{name(b.cleaner_id)}</b></p></BookingCard>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Schedules() {
+  const bookings = useAdminBookings();
+  const cleaners = useCleaners();
+  const today = ymd(new Date());
+  const upcoming = (bookings.data ?? []).filter((b) => b.preferred_date >= today && (b.status === "confirmed" || b.status === "completed"))
+    .sort((a, b) => a.preferred_date.localeCompare(b.preferred_date));
+  const groups = [...(cleaners.data ?? []).map((c) => ({ id: c.id as string | null, label: c.full_name || c.email })), { id: null, label: "Unassigned" }];
+  return (
+    <section className="mt-6 grid gap-4 md:grid-cols-2">
+      {cleaners.data?.length === 0 && <p className="rounded-xl bg-muted p-4 text-sm text-muted-foreground md:col-span-2">No cleaners yet. Tick "Cleaner" for someone under People & roles.</p>}
+      {groups.map((g) => {
+        const jobs = upcoming.filter((b) => b.cleaner_id === g.id);
+        return (
+          <div key={g.id ?? "none"} className="rounded-2xl border border-border bg-card p-4">
+            <div className="flex items-center justify-between"><h3 className="font-bold text-foreground">{g.label}</h3><span className="text-xs text-muted-foreground">{jobs.length} upcoming</span></div>
+            <ul className="mt-3 space-y-2">
+              {jobs.length === 0 && <li className="text-sm text-muted-foreground">Nothing scheduled.</li>}
+              {jobs.map((b) => (
+                <li key={b.id} className="rounded-lg bg-muted px-3 py-2 text-sm">
+                  <b className="text-foreground">{new Date(b.preferred_date + "T12:00").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}</b>
+                  <span className="text-muted-foreground"> · {b.time_window} · {b.service} · {b.customer_name}, {b.service_area}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
     </section>
   );
 }
