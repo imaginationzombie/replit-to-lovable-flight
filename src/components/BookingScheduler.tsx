@@ -21,9 +21,9 @@ function Job({ booking, movable, open, cleaner }: { booking: BookingRow; movable
     <p className="truncate text-xs font-bold" title={booking.customer_name}>{booking.customer_name}</p>
     {cleaner && <p className="mt-1 break-words text-xs font-semibold">{cleaner}</p>}
     <p className="mt-1 truncate text-xs text-muted-foreground" title={booking.service}>{booking.service}</p>
-    <div className="mt-1 flex items-center gap-1">
+    <p className="mt-1 text-xs">{booking.time_window}</p>
+    <div className="mt-1 flex items-center justify-between gap-1">
       {movable && <Button variant="ghost" size="icon" className="h-7 w-6 shrink-0 touch-none cursor-grab" aria-label={`Move ${booking.customer_name}`} title="Move booking" {...listeners} {...attributes}><GripVertical /></Button>}
-      <p className="min-w-0 flex-1 break-words text-xs">{booking.time_window.split(" (")[0]}</p>
       {movable && <Button variant="ghost" size="icon" className="h-7 w-6 shrink-0" onClick={open} aria-label={`Reschedule ${booking.customer_name}`} title="Reschedule"><CalendarClock /></Button>}
     </div>
   </article>;
@@ -74,7 +74,7 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
   const groups = allGroups.filter(g => filter === "all" || (g.id ?? "unassigned") === filter);
   const rows = bookings.data ?? [];
   const visibleRows = rows.filter(b => filter === "all" || (b.cleaner_id ?? "unassigned") === filter);
-  const cleanerName = (id: string | null) => allGroups.find(g => g.id === id)?.label ?? "Unassigned";
+  const cleanerName = (id: string | null) => allGroups.find(g => g.id === id)?.label ?? (id ? "Assigned housekeeper" : "Unassigned");
   const active = rows.find(b => b.id === activeId);
   const beginMove = (booking: BookingRow, target: Target) => { update.reset(); setMessage(""); setMove({ booking, ...target, time: booking.time_window }); };
   function drop(event: DragEndEvent) {
