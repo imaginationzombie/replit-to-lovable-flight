@@ -10,7 +10,7 @@ import { payoutDashboardOptions, type PaymentGroup } from "@/lib/payout-dashboar
 
 const labels: Record<PaymentGroup, string> = { approved: "Approved earnings", pending: "Pending transfers", settled: "Settled payments", review: "Needs review", recorded: "Recorded outside PayPal", test: "Test transfers" };
 export const Route = createFileRoute("/_authenticated/admin-paypal")({
-  validateSearch: (search: Record<string, unknown>): { view: PaymentGroup | "all" } => ({ view: typeof search.view === "string" && search.view in labels ? search.view as PaymentGroup : "all" }),
+  validateSearch: (search: Record<string, unknown>): { view: PaymentGroup | "all" } => ({ view: typeof search["view"] === "string" && search["view"] in labels ? search["view"] as PaymentGroup : "all" }),
   loader: ({ context }) => context.queryClient.ensureQueryData(payoutDashboardOptions),
   head: () => ({ meta: [{ title: "Admin PayPal Dashboard | HousekeepingBooking.com" }, { name: "description", content: "Manage approved cleaner earnings, pending PayPal transfers and verified settled payments." }, { property: "og:title", content: "Admin PayPal Dashboard | HousekeepingBooking.com" }, { property: "og:description", content: "Review cleaner earnings and manually send PayPal payouts." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }, { name: "robots", content: "noindex" }] }),
   pendingComponent: () => <div><AppHeader /><p role="status" className="mx-auto max-w-5xl px-6 py-10">Loading PayPal payments…</p></div>,
