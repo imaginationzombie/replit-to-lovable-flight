@@ -184,6 +184,108 @@ export type Database = {
           },
         ]
       }
+      cleaner_payout_accounts: {
+        Row: {
+          paypal_email: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          paypal_email: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          paypal_email?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cleaner_payout_accounts_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cleaner_payouts: {
+        Row: {
+          amount_cents: number
+          cleaner_id: string
+          created_at: string
+          currency: string
+          environment: string
+          error_message: string
+          id: string
+          paypal_batch_id: string | null
+          paypal_item_id: string | null
+          provider_status: string | null
+          recipient_email: string
+          requested_by: string
+          status: string
+          updated_at: string
+          work_id: string
+        }
+        Insert: {
+          amount_cents: number
+          cleaner_id: string
+          created_at?: string
+          currency?: string
+          environment: string
+          error_message?: string
+          id?: string
+          paypal_batch_id?: string | null
+          paypal_item_id?: string | null
+          provider_status?: string | null
+          recipient_email: string
+          requested_by: string
+          status?: string
+          updated_at?: string
+          work_id: string
+        }
+        Update: {
+          amount_cents?: number
+          cleaner_id?: string
+          created_at?: string
+          currency?: string
+          environment?: string
+          error_message?: string
+          id?: string
+          paypal_batch_id?: string | null
+          paypal_item_id?: string | null
+          provider_status?: string | null
+          recipient_email?: string
+          requested_by?: string
+          status?: string
+          updated_at?: string
+          work_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cleaner_payouts_cleaner_id_fkey"
+            columns: ["cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cleaner_payouts_requested_by_fkey"
+            columns: ["requested_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cleaner_payouts_work_id_fkey"
+            columns: ["work_id"]
+            isOneToOne: true
+            referencedRelation: "appointment_work"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cleaner_settings: {
         Row: {
           accepting_jobs: boolean
@@ -307,6 +409,32 @@ export type Database = {
           _time_window: string
         }
         Returns: undefined
+      }
+      reserve_cleaner_payout: {
+        Args: { _environment: string; _work_id: string }
+        Returns: {
+          amount_cents: number
+          cleaner_id: string
+          created_at: string
+          currency: string
+          environment: string
+          error_message: string
+          id: string
+          paypal_batch_id: string | null
+          paypal_item_id: string | null
+          provider_status: string | null
+          recipient_email: string
+          requested_by: string
+          status: string
+          updated_at: string
+          work_id: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "cleaner_payouts"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
       review_timesheet: {
         Args: { _action: string; _id: string; _reference?: string }
