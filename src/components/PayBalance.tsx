@@ -1,18 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { useRouter } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import { refreshBookingViews } from "@/lib/booking-sync";
 import { captureOrder, createBalance, getPaypalConfig } from "@/lib/booking.functions";
 
 type PP = { Buttons: (o: unknown) => { render: (el: HTMLElement) => Promise<void> } };
 
 /** PayPal pay-now for a completed visit whose card hold had expired. */
-export function PayBalance({ id, token }: { id: string; token: string }) {
+export function PayBalance({ id, token, onPaid }: { id: string; token: string; onPaid?: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string | null>(null);
   const config = useServerFn(getPaypalConfig);
   const create = useServerFn(createBalance);
   const capture = useServerFn(captureOrder);
   const router = useRouter();
+  const qc = useQueryClient();
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -40,11 +43,14 @@ export function PayBalance({ id, token }: { id: string; token: string }) {
         onApprove: async (d: { orderID: string }) => {
           const r = await capture({ data: { orderId: d.orderID } });
           if (!r.ok) { setError(r.error); return; }
+          await refreshBookingViews(qc);
+          await qc.invalidateQueries({ queryKey: ["customer-history"] });
           router.invalidate();
+          onPaid?.();
         },
         onError: () => setError("PayPal ran into a problem. Please try again."),
       }).render(ref.current);
-    })();
+    })().catch(() => setError("Couldn't load PayPal. Please refresh."));
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

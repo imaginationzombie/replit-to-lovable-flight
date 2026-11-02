@@ -83,7 +83,7 @@ function CleanerJobs() {
         <div className="mt-6 space-y-3">
           {jobs.data?.map((b) => (
             <article key={b.id}>
-            <BookingCard b={b} showCustomer>
+            <BookingCard b={b} showCustomer cleanerPayment>
               {b.status === "confirmed" && (
                 <Button onClick={() => complete.mutate(b.id)} disabled={complete.isPending}>Mark completed</Button>
               )}
