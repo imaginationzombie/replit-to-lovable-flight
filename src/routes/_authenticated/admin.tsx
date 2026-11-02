@@ -7,7 +7,7 @@ import { BookingCard, STATUS_LABEL, type BookingRow } from "@/components/Booking
 import { useAuth, type Role } from "@/hooks/use-auth";
 import { hoursSummary } from "@/lib/cleaner-hours";
 import { useServerFn } from "@tanstack/react-start";
-import { collectPayment } from "@/lib/booking.functions";
+import { collectPayment, completeBooking } from "@/lib/booking.functions";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -88,6 +88,17 @@ function Bookings() {
     onError: (e, id) => setPayMsg((m) => ({ ...m, [id]: e.message })),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["admin-bookings"] }),
   });
+  const completeFn = useServerFn(completeBooking);
+  const complete = useMutation({
+    mutationFn: async (id: string) => {
+      const r = await completeFn({ data: { bookingId: id } });
+      if (!r.ok) throw new Error(r.error);
+      const d = r.data;
+      setPayMsg((m) => ({ ...m, [id]: `${d.paid ? "Completed & charged." : "Completed — customer needs to pay from their booking page."}${d.nextDate ? ` Next visit scheduled ${d.nextDate}.` : ""}` }));
+    },
+    onError: (e, id) => setPayMsg((m) => ({ ...m, [id]: e.message })),
+    onSettled: () => qc.invalidateQueries({ queryKey: ["admin-bookings"] }),
+  });
   const rows = (bookings.data ?? []).filter((b) => filter === "all" || b.status === filter);
   const select = "rounded-lg border border-input bg-background px-2 py-1.5 text-sm text-foreground";
   return (
@@ -108,7 +119,7 @@ function Bookings() {
                 {cleaners.data?.map((c) => <option key={c.id} value={c.id}>{c.full_name || c.email}</option>)}
               </select>
               <select aria-label="Status" className={select} value={b.status}
-                onChange={(e) => update.mutate({ id: b.id, patch: { status: e.target.value } })}>
+                onChange={(e) => e.target.value === "completed" && b.status === "confirmed" ? complete.mutate(b.id) : update.mutate({ id: b.id, patch: { status: e.target.value } })}>
                 {Object.entries(STATUS_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
               {b.status === "completed" && !b.paid_at && (

@@ -5,6 +5,8 @@ import { AppHeader } from "@/components/AppHeader";
 import { BookingCard, type BookingRow } from "@/components/BookingCard";
 import { useAuth } from "@/hooks/use-auth";
 import { hoursSummary } from "@/lib/cleaner-hours";
+import { useServerFn } from "@tanstack/react-start";
+import { completeBooking } from "@/lib/booking.functions";
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
@@ -41,10 +43,11 @@ function CleanerJobs() {
       return data;
     },
   });
+  const completeFn = useServerFn(completeBooking);
   const complete = useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase.rpc("cleaner_complete_booking", { _booking_id: id });
-      if (error) throw error;
+      const r = await completeFn({ data: { bookingId: id } });
+      if (!r.ok) throw new Error(r.error);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["cleaner-jobs"] }),
   });

@@ -32,9 +32,11 @@ export type Database = {
           id: string
           notes: string
           paid_at: string | null
+          parent_booking_id: string | null
           paypal_authorization_id: string | null
           paypal_capture_id: string | null
           paypal_order_id: string | null
+          paypal_vault_id: string | null
           phone: string
           preferred_date: string
           rush: boolean
@@ -43,6 +45,7 @@ export type Database = {
           status: string
           time_window: string
           user_id: string | null
+          visit_number: number
         }
         Insert: {
           access_token?: string
@@ -61,9 +64,11 @@ export type Database = {
           id?: string
           notes?: string
           paid_at?: string | null
+          parent_booking_id?: string | null
           paypal_authorization_id?: string | null
           paypal_capture_id?: string | null
           paypal_order_id?: string | null
+          paypal_vault_id?: string | null
           phone: string
           preferred_date: string
           rush?: boolean
@@ -72,6 +77,7 @@ export type Database = {
           status?: string
           time_window: string
           user_id?: string | null
+          visit_number?: number
         }
         Update: {
           access_token?: string
@@ -90,9 +96,11 @@ export type Database = {
           id?: string
           notes?: string
           paid_at?: string | null
+          parent_booking_id?: string | null
           paypal_authorization_id?: string | null
           paypal_capture_id?: string | null
           paypal_order_id?: string | null
+          paypal_vault_id?: string | null
           phone?: string
           preferred_date?: string
           rush?: boolean
@@ -101,8 +109,17 @@ export type Database = {
           status?: string
           time_window?: string
           user_id?: string | null
+          visit_number?: number
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "bookings_parent_booking_id_fkey"
+            columns: ["parent_booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       cleaner_settings: {
         Row: {

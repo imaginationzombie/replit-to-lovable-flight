@@ -216,7 +216,7 @@ function BookPage() {
               <span className="font-semibold text-foreground">Total</span>
               <span className="text-3xl font-extrabold text-primary">${q.total.toFixed(2)}</span>
             </div>
-            <p className="mt-2 rounded-lg bg-accent px-3 py-2 text-xs font-semibold text-accent-foreground">$0 charged today. PayPal holds this amount for your first visit and we only charge it after your cleaning is done.{form.frequency !== "One-time" ? " Later visits are billed separately after each cleaning." : ""}</p>
+            <p className="mt-2 rounded-lg bg-accent px-3 py-2 text-xs font-semibold text-accent-foreground">$0 charged today. PayPal holds this amount for your first visit and we only charge it after your cleaning is done.{form.frequency !== "One-time" ? " Each repeat visit is charged automatically to the same PayPal account after that cleaning." : ""}</p>
             {error && <p role="alert" className="mt-4 rounded-lg bg-destructive/10 p-3 text-sm text-destructive">{error}</p>}
             {paying && <p className="mt-4 text-sm text-muted-foreground">Confirming your booking…</p>}
             <div ref={paypalRef} className="mt-5 min-h-12" />
