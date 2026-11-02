@@ -43,6 +43,13 @@
       "when": 1793628051193,
       "tag": "0005_booking_scheduler",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793628141854,
+      "tag": "0006_scheduler_nullable_assignments",
+      "breakpoints": true
     }
   ]
 }

@@ -234,6 +234,16 @@ export type Database = {
           id: string
         }[]
       }
+      reschedule_booking: {
+        Args: {
+          _assignment: Json
+          _booking_id: string
+          _date: string
+          _expected: Json
+          _time_window: string
+        }
+        Returns: undefined
+      }
       schedule_booking: {
         Args: {
           _booking_id: string
