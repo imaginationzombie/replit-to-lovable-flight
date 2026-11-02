@@ -47,14 +47,16 @@
         gap: 8px;
         padding-block: 10px;
       }
-      header > div:first-child a.group { min-width: 0; }
+      header > div:first-child a.group { min-width: 0; justify-content: center; }
       header > div:first-child a.group img { width: 228px; max-width: 100%; height: auto; }
       header > div:first-child a.group > div { display: none; }
-      header > div:first-child > div > div { min-width: 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+      header > div:first-child > div > div { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+      header > div:first-child > div > div > a:not(.hidden) { min-width: 0; justify-content: center; padding-inline: 8px; }
       header a[href="instant-quote.html"] { white-space: nowrap; }
       header > div:last-child > div { height: auto; padding-block: 6px; }
-      header nav { min-width: 0; width: 100%; display: flex; flex-wrap: wrap; white-space: normal; overflow: visible; gap: 6px; }
-      header nav a { max-width: 100%; padding-inline: 10px; }
+      header nav { min-width: 0; width: 100%; display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); white-space: normal !important; overflow: visible !important; gap: 6px; }
+      header nav a { min-width: 0; max-width: 100%; padding-inline: 8px; text-align: center; }
+      header nav a:last-child { grid-column: 1 / -1; }
       main { padding-top: 0 !important; }
       section[id] { scroll-margin-top: 12px; }
       main .grid > *, main .flex > *, footer .grid > * { min-width: 0; }
@@ -65,10 +67,13 @@
       #step-location > div > .grid {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        gap: 10px;
+        gap: 6px;
       }
-      #step-location > div > .grid > a { padding: 12px; }
-      #step-location > div > .grid > a > .flex { gap: 8px; }
+      #step-location > div > .grid > a { padding: 9px 12px; }
+      #step-location > div > .grid > a > div:first-child,
+      #step-location > div > .grid > a > div:last-child { display: none; }
+      #step-location > div > .grid > a > div.my-2 { margin: 0; }
+      #step-location > div > .grid > a > div.my-2 > div:last-child { font-size: 11px; margin-top: 2px; }
       #step-location + section { padding-block: 24px; }
       #step-location + section > div > div:first-child > div:first-child { width: 100%; }
       h1 { font-size: 24px !important; line-height: 1.3 !important; overflow-wrap: anywhere; }
