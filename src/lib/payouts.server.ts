@@ -4,7 +4,7 @@ type Payout = Database["public"]["Tables"]["cleaner_payouts"]["Row"];
 
 export function payoutEnvironment() { return process.env["PAYPAL_ENV"] === "live" ? "live" : "sandbox"; }
 export function payoutsConfigured() { return !!process.env["PAYPAL_CLIENT_ID"] && !!process.env["PAYPAL_CLIENT_SECRET"]; }
-async function api(path: string, method = "GET", body?: unknown, environment = payoutEnvironment()) {
+export async function api(path: string, method = "GET", body?: unknown, environment = payoutEnvironment()) {
   const id = process.env["PAYPAL_CLIENT_ID"]; const secret = process.env["PAYPAL_CLIENT_SECRET"];
   if (!id || !secret) throw new Error("PayPal credentials are not configured.");
   const base = environment === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
