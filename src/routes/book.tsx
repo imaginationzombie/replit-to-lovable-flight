@@ -15,6 +15,7 @@ export const Route = createFileRoute("/book")({
       { property: "og:description", content: "Confirm your cleaning details and reserve with PayPal — $0 charged until after your cleaning." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "noindex" },
     ],
   }),
   component: BookPage,

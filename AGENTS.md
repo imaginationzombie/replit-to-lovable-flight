@@ -9,7 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- The marketing site is static HTML in public/*.html (served as-is, "/" redirects to /index.html); new interactive features are React routes styled with matching tokens in src/styles.css. Why: preserves the migrated design exactly while allowing real app features.
+- Marketing uses public/*.html ("/" redirects to /index.html); interactive features use React routes and shared tokens. Maintain public/sitemap.xml for inspected public pages only, excluding private/demo/checkout pages; omit lastmod without page-specific dates. Why: preserves the migrated design without advertising internal demos.
 - AI calls live in src/lib/*.server.ts (gateway, Responses API, structured output) behind createServerFn wrappers in *.functions.ts. Why: keeps the API key server-side.
 - Accounts: roles live in user_roles (admin/cleaner/customer, checked via has_role); a signup trigger creates the profile + customer role. Signed-in pages live under src/routes/_authenticated and read data with the browser client under RLS. Why: no privilege escalation, and access is enforced by the database.
 - Scheduling uses shared dnd-kit week and month views and the authenticated schedule_booking database function; admins assign visits, cleaners move only their own, and writes check conflicts and stale versions. Why: enforces scheduling permissions independently of the interface.
