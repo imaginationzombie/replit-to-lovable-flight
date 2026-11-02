@@ -230,6 +230,14 @@ function CalendarView() {
 
 function Schedules() {
   const bookings = useAdminBookings();
+  const settings = useQuery({
+    queryKey: ["admin-cleaner-settings"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("cleaner_settings").select("user_id, hourly_rate_cents, accepting_jobs, service_areas, unavailable_dates");
+      if (error) throw error;
+      return data;
+    },
+  });
   const cleaners = useCleaners();
   const today = ymd(new Date());
   const upcoming = (bookings.data ?? []).filter((b) => b.preferred_date >= today && (b.status === "confirmed" || b.status === "completed"))
@@ -243,6 +251,9 @@ function Schedules() {
         return (
           <div key={g.id ?? "none"} className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-center justify-between"><h3 className="font-bold text-foreground">{g.label}</h3><span className="text-xs text-muted-foreground">{jobs.length} upcoming</span></div>
+            {(() => { const st = settings.data?.find((x) => x.user_id === g.id); return st ? (
+              <p className="mt-1 text-xs text-muted-foreground">${(st.hourly_rate_cents / 100).toFixed(2)}/hr · {st.accepting_jobs ? "Accepting jobs" : "Not accepting jobs"}{st.service_areas ? ` · ${st.service_areas}` : ""}{st.unavailable_dates.filter((d) => d >= today).length ? ` · Off: ${st.unavailable_dates.filter((d) => d >= today).join(", ")}` : ""}</p>
+            ) : null; })()}
             <ul className="mt-3 space-y-2">
               {jobs.length === 0 && <li className="text-sm text-muted-foreground">Nothing scheduled.</li>}
               {jobs.map((b) => (

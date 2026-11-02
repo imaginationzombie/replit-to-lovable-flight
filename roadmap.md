@@ -6,5 +6,6 @@
 - [x] Booking confirmation page
 - [x] Customer, cleaner and admin accounts
 - [x] Admin calendar + cleaner schedules
+- [x] Cleaner portal (schedule, rates, days off, profile)
 - [ ] Booking confirmation email: waiting on the owner setting up an email sender domain
 - [ ] First admin: waiting on the owner's sign-in email
