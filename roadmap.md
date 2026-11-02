@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Match the phone homepage to the desktop design and fix shared account navigation; verify phone widths and desktop preservation
+- [x] Match the phone homepage to the desktop design and fix shared account navigation; verified 320–767px phones and 1280px desktop, estimator selections and public booking navigation
 
 - [x] Approved SEO foundations: homepage description, shared-link tags, favicon and nine-page public sitemap; served pages verified, scanner recheck pending
 
