@@ -10,4 +10,6 @@
 - [x] $0-upfront checkout (PayPal hold, charge after cleaning)
 - [x] Remake before/after photos on home page
 - [ ] Booking confirmation email: waiting on the owner setting up an email sender domain
-- [ ] First admin: waiting on the owner's sign-in email
+- [x] Owner account enabled as Admin, Cleaner and Customer
+- [ ] Repair old My account links and verify signed-in navigation
+- [ ] Drag-and-drop scheduler for admin and employees
