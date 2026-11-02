@@ -41,3 +41,4 @@
 - [x] Cleaner appointment checklists, hours, submitted timesheets and payment tracking; approval and payment readback verified
 - [x] PayPal Payouts integration for approved cleaner earnings, recipient setup and duplicate-transfer protection; live authentication and confirmation verified without sending money
 - [x] Optional post-cleaning PayPal tips, customer receipts and cleaner tip tracking; checkout and tests verified without moving live money
+- [x] Map directions to client address for cleaners

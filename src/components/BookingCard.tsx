@@ -1,3 +1,4 @@
+import { directionsLink } from "@/lib/time-clock";
 import type { ReactNode } from "react";
 import { BookingPayment } from "@/components/BookingPayment";
 
@@ -30,7 +31,7 @@ export function BookingCard({ b, showCustomer, customerPayment = false, cleanerP
         </div>
         <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">{STATUS_LABEL[b.status] ?? b.status}</span>
       </div>
-      <p className="mt-2 text-sm text-foreground">{b.bedrooms} bed / {b.bathrooms} bath • {b.address} ({b.service_area})</p>
+      <p className="mt-2 text-sm text-foreground">{b.bedrooms} bed / {b.bathrooms} bath • {b.address} ({b.service_area}){cleanerPayment && b.address && <> · <a className="font-semibold text-primary underline" href={directionsLink(b.address)} target="_blank" rel="noreferrer">Get directions</a></>}</p>
       {b.add_ons.length > 0 && <p className="text-sm text-muted-foreground">Add-ons: {b.add_ons.join(", ")}{b.rush ? ", Rush" : ""}</p>}
       {showCustomer && <p className="mt-1 text-sm text-foreground"><strong>{b.customer_name}</strong> • {b.phone} • {b.email}</p>}
       {b.notes && <p className="mt-1 whitespace-pre-line text-sm text-muted-foreground">Notes: {b.notes}</p>}
