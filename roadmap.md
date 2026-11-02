@@ -20,3 +20,4 @@
 - [x] Housekeepers claim confirmed unassigned visits from a waiting list; signed-in claim verified
 - [x] Customer portal connects existing account creation, cleaning requests and booking tracking
 - [x] Cleaner appointment checklists, hours, submitted timesheets and payment tracking; approval and payment readback verified
+- [ ] Real PayPal transfers for approved cleaner earnings with recipient setup and duplicate-transfer protection
