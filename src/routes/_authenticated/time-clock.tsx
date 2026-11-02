@@ -90,7 +90,7 @@ function TimeClockPage() {
   const refresh = () => qc.invalidateQueries({ queryKey: ["time-clock"] });
 
   async function clockIn() {
-    if (!bookingId && !isAdmin) return toast.error("Choose the appointment you're clocking in for.");
+    if (!bookingId && !isAdmin) { toast.error("Choose the appointment you're clocking in for."); return; }
     setBusy(true);
     try {
       const c = await getPosition();
