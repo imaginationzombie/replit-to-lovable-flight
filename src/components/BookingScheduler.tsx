@@ -53,9 +53,9 @@ export function BookingScheduler({ admin = false }: { admin?: boolean }) {
     const { data, error } = await supabase.rpc("list_cleaners"); if (error) throw error; return data;
   }});
   const update = useMutation({ mutationFn: async (v: Move) => {
-    const { error } = await supabase.rpc("schedule_booking", {
-      _booking_id: v.booking.id, _date: v.date, _time_window: v.time, _cleaner_id: v.cleanerId,
-      _expected_date: v.booking.preferred_date, _expected_time_window: v.booking.time_window, _expected_cleaner_id: v.booking.cleaner_id,
+    const { error } = await supabase.rpc("reschedule_booking", {
+      _booking_id: v.booking.id, _date: v.date, _time_window: v.time, _assignment: { cleaner_id: v.cleanerId },
+      _expected: { date: v.booking.preferred_date, time_window: v.booking.time_window, cleaner_id: v.booking.cleaner_id },
     });
     if (error) throw error;
   }, onSuccess: async () => {
