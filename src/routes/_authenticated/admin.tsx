@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { AppHeader } from "@/components/AppHeader";
 import { BookingCard, STATUS_LABEL, type BookingRow } from "@/components/BookingCard";
@@ -12,6 +12,7 @@ import { BookingScheduler } from "@/components/BookingScheduler";
 import { refreshBookingViews } from "@/lib/booking-sync";
 import { SendConfirmation } from "@/components/SendConfirmation";
 import { TimesheetList } from "@/components/TimesheetList";
+import { HiringPanel } from "@/components/HiringPanel";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/admin")({
@@ -30,7 +31,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
 
 function Admin() {
   const { isAdmin, loading } = useAuth();
-  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people" | "timesheets">("scheduler");
+  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people" | "timesheets" | "hiring">("scheduler");
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
@@ -40,13 +41,13 @@ function Admin() {
         {isAdmin && (
           <>
             <div className="mt-6 flex flex-wrap gap-2">
-              {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets"] as const).map((t) => (
+              {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets", "hiring"] as const).map((t) => (
                 <Button key={t} onClick={() => setTab(t)} variant={tab === t ? "default" : "secondary"}>
                   {TAB_LABEL[t]}
                 </Button>
               ))}
             </div>
-            {tab === "scheduler" ? <BookingScheduler admin /> : tab === "bookings" ? <Bookings /> : tab === "calendar" ? <BookingScheduler admin view="month" /> : tab === "schedules" ? <Schedules /> : tab === "timesheets" ? <TimesheetList admin /> : <People />}
+            {tab === "scheduler" ? <BookingScheduler admin /> : tab === "bookings" ? <Bookings /> : tab === "calendar" ? <BookingScheduler admin view="month" /> : tab === "schedules" ? <Schedules /> : tab === "hiring" ? <Suspense fallback={<p className="mt-6">Loading applications…</p>}><HiringPanel /></Suspense> : tab === "timesheets" ? <TimesheetList admin /> : <People />}
           </>
         )}
       </main>
@@ -187,7 +188,7 @@ function People() {
   );
 }
 
-const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles", timesheets: "Timesheets & payments" } as const;
+const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles", timesheets: "Timesheets & payments", hiring: "Hiring" } as const;
 
 function useAdminBookings() {
   return useQuery({

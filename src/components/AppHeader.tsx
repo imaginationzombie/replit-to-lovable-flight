@@ -24,11 +24,14 @@ export function AppHeader() {
         <nav className="flex flex-wrap items-center gap-4">
           <Link to="/booking-assistant" className={link}>AI Assistant</Link>
           <Link to="/book" className={link}>Book</Link>
+          <Link to="/apply" className={link}>Join our team</Link>
           {!loading && user && (
             <>
               <Link to="/account" className={link}>My account</Link>
               <Link to="/booking-status" className={link}>Booking status</Link>
               <Link to="/booking-history" className={link}>Payments & history</Link>
+              <Link to="/messages" className={link}>Messages</Link>
+              {isCleaner && <Link to="/my-page" className={link}>My public page</Link>}
               {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
               {isCleaner && <Link to="/cleaner-schedule" className={link}>My schedule</Link>}
               {isCleaner && <Link to="/waiting-list" className={link}>Waiting list</Link>}

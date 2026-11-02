@@ -25,3 +25,7 @@
 - Customer tips are separate post-cleaning PayPal captures and separate one-shot cleaner payouts; booking access tokens authorize customer actions and only verified completed receipts credit tips. Why: voluntary tips never alter recurring charges or frozen timesheet wages.
 
 - Customer payment history reuses the owner-filtered bookings query and booking-token tip receipts, distinguishing capture dates from cleaner delivery dates and sandbox records. Why: customers see only their records without exposing cleaner payout account details.
+
+- Hiring review enables cleaner roles only through the admin-checked review_application RPC; applicants cannot change their own status. Why: applying cannot grant staff access.
+- Messaging uses participant-scoped threads and authenticated RPC sends with server-derived sender names; booking participation follows the current cleaner assignment. Why: users cannot spoof messages or read another customer’s conversations.
+- Public housekeeper portfolios expose only explicitly published profile fields and linked private-bucket photos through expiring links; uploads are cleaner-owned. Why: publicity is opt-in and customer contact data stays private.

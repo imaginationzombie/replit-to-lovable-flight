@@ -25,9 +25,11 @@ import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
 import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
+import { Route as AuthenticatedMyPageRouteImport } from './routes/_authenticated/my-page'
 import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authenticated/timesheets'
 import { Route as AuthenticatedWaitingListRouteImport } from './routes/_authenticated/waiting-list'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
+import { Route as HousekeepersIdRouteImport } from './routes/housekeepers.$id'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
@@ -114,6 +116,11 @@ const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
   path: '/messages',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedMyPageRoute = AuthenticatedMyPageRouteImport.update({
+  id: '/my-page',
+  path: '/my-page',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedTimesheetsRoute = AuthenticatedTimesheetsRouteImport.update({
   id: '/timesheets',
   path: '/timesheets',
@@ -128,6 +135,11 @@ const AuthenticatedWaitingListRoute =
 const BookingIdRoute = BookingIdRouteImport.update({
   id: '/booking/$id',
   path: '/booking/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HousekeepersIdRoute = HousekeepersIdRouteImport.update({
+  id: '/housekeepers/$id',
+  path: '/housekeepers/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LovableEmailTransactionalPreviewRoute =
@@ -153,9 +165,11 @@ export interface FileRoutesByFullPath {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/messages': typeof AuthenticatedMessagesRoute
+  '/my-page': typeof AuthenticatedMyPageRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/housekeepers/$id': typeof HousekeepersIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
@@ -174,9 +188,11 @@ export interface FileRoutesByTo {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/messages': typeof AuthenticatedMessagesRoute
+  '/my-page': typeof AuthenticatedMyPageRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/housekeepers/$id': typeof HousekeepersIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
@@ -197,9 +213,11 @@ export interface FileRoutesById {
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/_authenticated/messages': typeof AuthenticatedMessagesRoute
+  '/_authenticated/my-page': typeof AuthenticatedMyPageRoute
   '/_authenticated/timesheets': typeof AuthenticatedTimesheetsRoute
   '/_authenticated/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/housekeepers/$id': typeof HousekeepersIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
@@ -220,9 +238,11 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/messages'
+    | '/my-page'
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
+    | '/housekeepers/$id'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -241,9 +261,11 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/messages'
+    | '/my-page'
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
+    | '/housekeepers/$id'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
@@ -263,9 +285,11 @@ export interface FileRouteTypes {
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
     | '/_authenticated/messages'
+    | '/_authenticated/my-page'
     | '/_authenticated/timesheets'
     | '/_authenticated/waiting-list'
     | '/booking/$id'
+    | '/housekeepers/$id'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
@@ -277,6 +301,7 @@ export interface RootRouteChildren {
   BookingAssistantRoute: typeof BookingAssistantRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   BookingIdRoute: typeof BookingIdRoute
+  HousekeepersIdRoute: typeof HousekeepersIdRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
@@ -394,6 +419,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedMessagesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/my-page': {
+      id: '/_authenticated/my-page'
+      path: '/my-page'
+      fullPath: '/my-page'
+      preLoaderRoute: typeof AuthenticatedMyPageRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/timesheets': {
       id: '/_authenticated/timesheets'
       path: '/timesheets'
@@ -413,6 +445,13 @@ declare module '@tanstack/react-router' {
       path: '/booking/$id'
       fullPath: '/booking/$id'
       preLoaderRoute: typeof BookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/housekeepers/$id': {
+      id: '/housekeepers/$id'
+      path: '/housekeepers/$id'
+      fullPath: '/housekeepers/$id'
+      preLoaderRoute: typeof HousekeepersIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/transactional/preview': {
@@ -436,6 +475,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
   AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
   AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
+  AuthenticatedMyPageRoute: typeof AuthenticatedMyPageRoute
   AuthenticatedTimesheetsRoute: typeof AuthenticatedTimesheetsRoute
   AuthenticatedWaitingListRoute: typeof AuthenticatedWaitingListRoute
 }
@@ -451,6 +491,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
   AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,
   AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
+  AuthenticatedMyPageRoute: AuthenticatedMyPageRoute,
   AuthenticatedTimesheetsRoute: AuthenticatedTimesheetsRoute,
   AuthenticatedWaitingListRoute: AuthenticatedWaitingListRoute,
 }
@@ -466,6 +507,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookingAssistantRoute: BookingAssistantRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   BookingIdRoute: BookingIdRoute,
+  HousekeepersIdRoute: HousekeepersIdRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
