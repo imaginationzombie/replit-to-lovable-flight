@@ -47,7 +47,7 @@ export function PayoutTransfer({ workId, cleanerId, amount, admin }: { workId: s
     return () => { cancelled = true; clearInterval(timer); };
   }, [transferId, pendingReceipt, check, qc]);
   return <div className="mt-4">
-    {transfer.data ? <div><p className="text-sm text-muted-foreground">PayPal · {transfer.data.environment === "live" ? "Live" : "Test"} · {transfer.data.provider_status ?? transfer.data.status}</p>
+    {transfer.data ? <div><p className="text-sm text-muted-foreground">PayPal · {transfer.data.environment === "live" ? "Live" : "Test"} · {transfer.data.status === "paid" && transfer.data.environment === "live" ? "Settled through PayPal" : transfer.data.provider_status ?? transfer.data.status}</p>
       {transfer.data.error_message && <p className="mt-1 text-sm text-destructive">{transfer.data.error_message}</p>}
       <Button className="mt-2" variant="outline" disabled={action.isPending} onClick={() => action.mutate(false)}><RefreshCw />Check transfer status</Button></div>
       : admin && <><Button disabled={action.isPending || transfer.isLoading || transfer.isError || !config.data?.configured || !account.data?.paypal_email} onClick={() => setOpen(true)}><Banknote />Pay with PayPal</Button>
