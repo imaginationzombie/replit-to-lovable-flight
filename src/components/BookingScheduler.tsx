@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { DndContext, DragOverlay, PointerSensor, KeyboardSensor, useSensor, useSensors, useDraggable, useDroppable, type DragEndEvent } from "@dnd-kit/core";
+import { DndContext, DragOverlay, PointerSensor, KeyboardSensor, pointerWithin, rectIntersection, useSensor, useSensors, useDraggable, useDroppable, type DragEndEvent } from "@dnd-kit/core";
 import { addDays, format } from "date-fns";
 import { ChevronLeft, ChevronRight, GripVertical, CalendarClock, RefreshCw } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -84,7 +84,7 @@ export function BookingScheduler({ admin = false }: { admin?: boolean }) {
     {message && <p role="status" className="mb-3 text-sm text-primary">{message}</p>}
     {(bookings.error || cleaners.error) && <p role="alert" className="mb-3 text-sm text-destructive">Couldn’t load the schedule. Please refresh.</p>}
     {bookings.isLoading && <p className="mb-3 text-sm text-muted-foreground">Loading schedule…</p>}
-    <DndContext sensors={sensors} onDragStart={e => setActiveId(String(e.active.id))} onDragCancel={() => setActiveId(null)} onDragEnd={drop}>
+    <DndContext sensors={sensors} collisionDetection={args => args.pointerCoordinates ? pointerWithin(args) : rectIntersection(args)} onDragStart={e => setActiveId(String(e.active.id))} onDragCancel={() => setActiveId(null)} onDragEnd={drop}>
       <div className="overflow-x-auto rounded-md border border-border"><div className="grid min-w-[1080px] grid-cols-[160px_repeat(7,minmax(125px,1fr))]">
         <div className="border-b border-r border-border bg-muted p-3 text-xs font-bold text-muted-foreground">Employee</div>{days.map(d => <div key={dateKey(d)} className={`border-b border-r border-border p-3 text-center text-sm font-bold ${dateKey(d) === dateKey(new Date()) ? "bg-secondary text-secondary-foreground" : "bg-muted text-foreground"}`}>{format(d, "EEE")}<br />{format(d, "MMM d")}</div>)}
         {groups.map(g => <Row key={g.id ?? "unassigned"} label={g.label}>{days.map(d => <Cell key={dateKey(d)} target={{ date: dateKey(d), cleanerId: g.id }}>{rows.filter(b => b.preferred_date === dateKey(d) && b.cleaner_id === g.id).map(b => <Job key={b.id} booking={b} movable={canMoveJob(canAdmin, user?.id, b)} open={() => beginMove(b, { date: b.preferred_date, cleanerId: b.cleaner_id })} />)}</Cell>)}</Row>)}
