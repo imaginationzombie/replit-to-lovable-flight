@@ -13,3 +13,4 @@
 - AI calls live in src/lib/*.server.ts (gateway, Responses API, structured output) behind createServerFn wrappers in *.functions.ts. Why: keeps the API key server-side.
 - Accounts: roles live in user_roles (admin/cleaner/customer, checked via has_role); a signup trigger creates the profile + customer role. Signed-in pages live under src/routes/_authenticated and read data with the browser client under RLS. Why: no privilege escalation, and access is enforced by the database.
 - Scheduling uses a shared dnd-kit weekly board and the authenticated schedule_booking database function; admins assign visits, cleaners move only their own, and writes check conflicts and stale versions. Why: enforces scheduling permissions independently of the interface.
+- The dedicated cleaner schedule page reuses the weekly board in cleaner mode, even for accounts that also have admin access. Why: personal scheduling stays limited to the signed-in cleaner's assigned visits.

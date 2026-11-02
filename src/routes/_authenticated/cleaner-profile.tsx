@@ -90,7 +90,7 @@ function CleanerPortal() {
       <main className="mx-auto max-w-3xl px-6 py-10">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-3xl font-extrabold text-foreground">Cleaner portal</h1>
-          <Link to="/cleaner" className="text-sm font-bold text-primary">View my jobs →</Link>
+          <Link to="/cleaner-schedule" className="text-sm font-bold text-primary">View my schedule →</Link>
         </div>
         {!loading && !isCleaner && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">This page is for cleaners. Ask an admin to give your account cleaner access.</p>}
         {isCleaner && data.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}

@@ -27,6 +27,7 @@ export function AppHeader() {
             <>
               <Link to="/account" className={link}>My account</Link>
               {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
+              {isCleaner && <Link to="/cleaner-schedule" className={link}>My schedule</Link>}
               {isAdmin && <Link to="/admin" className={link}>Admin</Link>}
               <button onClick={signOut} className="rounded-lg border border-border px-3 py-1.5 text-sm font-semibold text-foreground hover:bg-muted">Sign out</button>
             </>
