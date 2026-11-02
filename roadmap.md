@@ -11,5 +11,5 @@
 - [x] Remake before/after photos on home page
 - [ ] Booking confirmation email: waiting on the owner setting up an email sender domain
 - [x] Owner account enabled as Admin, Cleaner and Customer
-- [ ] Repair old My account links and verify signed-in navigation
-- [ ] Drag-and-drop scheduler for admin and employees
+- [x] Repair old My account links and verify signed-in navigation
+- [x] Drag-and-drop scheduler for admin and employees
