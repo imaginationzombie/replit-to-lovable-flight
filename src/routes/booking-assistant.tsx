@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { getRecommendation } from "@/lib/recommend.functions";
@@ -23,6 +23,7 @@ const EXAMPLE =
 
 function BookingAssistant() {
   const recommend = useServerFn(getRecommendation);
+  const navigate = useNavigate();
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -157,9 +158,16 @@ function BookingAssistant() {
                 )}
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <a href="/booking-checkout.html" className="rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      sessionStorage.setItem("hkb-booking-draft", JSON.stringify(rec));
+                      navigate({ to: "/book" });
+                    }}
+                    className="rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground hover:opacity-90"
+                  >
                     Continue to booking
-                  </a>
+                  </button>
                   <button
                     type="button"
                     onClick={async () => {
