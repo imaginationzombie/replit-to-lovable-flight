@@ -234,6 +234,28 @@ export type Database = {
           id: string
         }[]
       }
+      reschedule_booking: {
+        Args: {
+          _assignment: Json
+          _booking_id: string
+          _date: string
+          _expected: Json
+          _time_window: string
+        }
+        Returns: undefined
+      }
+      schedule_booking: {
+        Args: {
+          _booking_id: string
+          _cleaner_id: string
+          _date: string
+          _expected_cleaner_id: string
+          _expected_date: string
+          _expected_time_window: string
+          _time_window: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "cleaner" | "customer"

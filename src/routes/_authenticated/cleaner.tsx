@@ -7,6 +7,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { hoursSummary } from "@/lib/cleaner-hours";
 import { useServerFn } from "@tanstack/react-start";
 import { completeBooking } from "@/lib/booking.functions";
+import { BookingScheduler } from "@/components/BookingScheduler";
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
@@ -55,7 +56,7 @@ function CleanerJobs() {
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
-      <main className="mx-auto max-w-3xl px-6 py-10">
+      <main className="mx-auto max-w-5xl px-6 py-10">
         <div className="flex flex-wrap items-center justify-between gap-3"><h1 className="text-3xl font-extrabold text-foreground">My jobs</h1>{isCleaner && <Link to="/cleaner-profile" className="text-sm font-bold text-primary">Schedule, rates & profile →</Link>}</div>
         {!loading && !isCleaner && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">This page is for cleaners. Ask an admin to give your account cleaner access.</p>}
         {isCleaner && settings.isSuccess && (
@@ -67,6 +68,7 @@ function CleanerJobs() {
             </>) : <p className="text-muted-foreground">You haven't set your rate or hours yet.</p>}
           </div>
         )}
+        {isCleaner && <BookingScheduler />}
         {jobs.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
         {jobs.data?.length === 0 && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">No jobs assigned yet.</p>}
         <div className="mt-6 space-y-3">

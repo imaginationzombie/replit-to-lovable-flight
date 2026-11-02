@@ -8,6 +8,7 @@ import { useAuth, type Role } from "@/hooks/use-auth";
 import { hoursSummary } from "@/lib/cleaner-hours";
 import { useServerFn } from "@tanstack/react-start";
 import { collectPayment, completeBooking } from "@/lib/booking.functions";
+import { BookingScheduler } from "@/components/BookingScheduler";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
 
 function Admin() {
   const { isAdmin, loading } = useAuth();
-  const [tab, setTab] = useState<"bookings" | "calendar" | "schedules" | "people">("calendar");
+  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people">("scheduler");
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
@@ -34,15 +35,15 @@ function Admin() {
         {!loading && !isAdmin && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">You don't have admin access.</p>}
         {isAdmin && (
           <>
-            <div className="mt-6 flex gap-2">
-              {(["calendar", "schedules", "bookings", "people"] as const).map((t) => (
+            <div className="mt-6 flex flex-wrap gap-2">
+              {(["scheduler", "calendar", "schedules", "bookings", "people"] as const).map((t) => (
                 <button key={t} onClick={() => setTab(t)}
                   className={`rounded-lg px-4 py-2 text-sm font-bold ${tab === t ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"}`}>
                   {TAB_LABEL[t]}
                 </button>
               ))}
             </div>
-            {tab === "bookings" ? <Bookings /> : tab === "calendar" ? <CalendarView /> : tab === "schedules" ? <Schedules /> : <People />}
+            {tab === "scheduler" ? <BookingScheduler admin /> : tab === "bookings" ? <Bookings /> : tab === "calendar" ? <CalendarView /> : tab === "schedules" ? <Schedules /> : <People />}
           </>
         )}
       </main>
@@ -187,7 +188,7 @@ function People() {
   );
 }
 
-const TAB_LABEL = { calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles" } as const;
+const TAB_LABEL = { scheduler: "Scheduler", calendar: "Calendar", schedules: "Cleaner schedules", bookings: "All bookings", people: "People & roles" } as const;
 
 function useAdminBookings() {
   return useQuery({
