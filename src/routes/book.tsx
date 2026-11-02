@@ -1,6 +1,8 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
+import { AppHeader } from "@/components/AppHeader";
 import { useEffect, useRef, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { captureOrder, createOrder, getPaypalConfig } from "@/lib/booking.functions";
 import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchAddOns, quote } from "@/lib/pricing";
 
@@ -72,6 +74,22 @@ function BookPage() {
     } catch { /* ignore bad draft */ }
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      const { data: u } = await supabase.auth.getUser();
+      if (!u.user) return;
+      const { data: p } = await supabase.from("profiles").select("full_name, phone, address, email").eq("id", u.user.id).maybeSingle();
+      if (!p) return;
+      setForm((f) => ({
+        ...f,
+        customerName: f.customerName || p.full_name,
+        phone: f.phone || p.phone,
+        address: f.address || p.address,
+        email: f.email || p.email,
+      }));
+    })();
+  }, []);
+
   const valid =
     form.customerName.trim().length >= 2 && /\S+@\S+\.\S+/.test(form.email) && form.phone.trim().length >= 7 &&
     form.address.trim().length >= 5 && !!form.preferredDate;
@@ -129,12 +147,7 @@ function BookPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <a href="/index.html" className="text-lg font-extrabold text-primary">HousekeeperBooking.com</a>
-          <a href="/booking-assistant" className="text-sm font-semibold text-muted-foreground hover:text-primary">AI Booking Assistant</a>
-        </div>
-      </header>
+      <AppHeader />
       <main className="mx-auto max-w-5xl px-6 py-10">
         <h1 className="text-4xl font-extrabold tracking-tight text-foreground">Book your cleaning</h1>
         {fromAi && <p className="mt-2 rounded-lg bg-accent px-3 py-2 text-sm text-accent-foreground">We filled this in from your assistant recommendation — check it over and adjust anything.</p>}

@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { getRequestHeader } from "@tanstack/react-start/server";
 import { z } from "zod";
 import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS } from "./pricing";
 
@@ -30,8 +31,11 @@ export const getPaypalConfig = createServerFn({ method: "GET" }).handler(async (
 export const createOrder = createServerFn({ method: "POST" })
   .validator((d: unknown) => bookingSchema.parse(d))
   .handler(async ({ data }): Promise<Result<{ orderId: string }>> => {
-    const { createBookingOrder } = await import("./booking.server");
-    try { return { ok: true, data: await createBookingOrder(data) }; } catch (e) { return fail(e); }
+    const { createBookingOrder, userIdFromBearer } = await import("./booking.server");
+    try {
+      const userId = await userIdFromBearer(getRequestHeader("authorization"));
+      return { ok: true, data: await createBookingOrder(data, userId) };
+    } catch (e) { return fail(e); }
   });
 
 export const captureOrder = createServerFn({ method: "POST" })

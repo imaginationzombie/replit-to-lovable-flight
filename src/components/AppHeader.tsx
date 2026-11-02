@@ -1,0 +1,41 @@
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/use-auth";
+
+export function AppHeader() {
+  const { user, isAdmin, isCleaner, loading } = useAuth();
+  const navigate = useNavigate();
+  const qc = useQueryClient();
+
+  async function signOut() {
+    await qc.cancelQueries();
+    qc.clear();
+    await supabase.auth.signOut();
+    navigate({ to: "/auth", replace: true });
+  }
+
+  const link = "text-sm font-semibold text-muted-foreground hover:text-primary";
+  return (
+    <header className="border-b border-border bg-card">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-4">
+        <a href="/index.html" className="text-lg font-extrabold text-primary">HousekeeperBooking.com</a>
+        <nav className="flex flex-wrap items-center gap-4">
+          <Link to="/booking-assistant" className={link}>AI Assistant</Link>
+          <Link to="/book" className={link}>Book</Link>
+          {!loading && user && (
+            <>
+              <Link to="/account" className={link}>My account</Link>
+              {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
+              {isAdmin && <Link to="/admin" className={link}>Admin</Link>}
+              <button onClick={signOut} className="rounded-lg border border-border px-3 py-1.5 text-sm font-semibold text-foreground hover:bg-muted">Sign out</button>
+            </>
+          )}
+          {!loading && !user && (
+            <Link to="/auth" className="rounded-lg bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground">Sign in</Link>
+          )}
+        </nav>
+      </div>
+    </header>
+  );
+}

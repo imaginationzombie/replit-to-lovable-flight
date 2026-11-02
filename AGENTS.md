@@ -11,3 +11,4 @@
 
 - The marketing site is static HTML in public/*.html (served as-is, "/" redirects to /index.html); new interactive features are React routes styled with matching tokens in src/styles.css. Why: preserves the migrated design exactly while allowing real app features.
 - AI calls live in src/lib/*.server.ts (gateway, Responses API, structured output) behind createServerFn wrappers in *.functions.ts. Why: keeps the API key server-side.
+- Accounts: roles live in user_roles (admin/cleaner/customer, checked via has_role); a signup trigger creates the profile + customer role. Signed-in pages live under src/routes/_authenticated and read data with the browser client under RLS. Why: no privilege escalation, and access is enforced by the database.
