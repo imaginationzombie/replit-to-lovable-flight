@@ -584,6 +584,8 @@ export type Database = {
           experience: string
           full_name: string
           id: string
+          interview_date: string | null
+          interview_time: string | null
           phone: string
           resume_name: string
           resume_path: string
@@ -597,6 +599,8 @@ export type Database = {
           experience: string
           full_name: string
           id?: string
+          interview_date?: string | null
+          interview_time?: string | null
           phone?: string
           resume_name?: string
           resume_path?: string
@@ -610,6 +614,8 @@ export type Database = {
           experience?: string
           full_name?: string
           id?: string
+          interview_date?: string | null
+          interview_time?: string | null
           phone?: string
           resume_name?: string
           resume_path?: string
@@ -957,6 +963,10 @@ export type Database = {
       }
       can_read_thread: { Args: { _thread: string }; Returns: boolean }
       check_coords: { Args: { _lat: number; _lng: number }; Returns: undefined }
+      choose_interview_time: {
+        Args: { _date: string; _id: string; _time: string }
+        Returns: undefined
+      }
       claim_cleaning: { Args: { _booking_id: string }; Returns: undefined }
       cleaner_complete_booking: {
         Args: { _booking_id: string }
