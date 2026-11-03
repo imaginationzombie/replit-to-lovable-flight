@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Cleaner applicants upload private resumes and track hiring before staff access; admin reviews resumes and enables approved cleaners
+
 - [x] Essential account email templates, customer payment/tip receipts and verified cleaner settlement notices; 38 checks passed, six account previews and unsigned-request rejection verified, test receipt sent; publish required for new account email routes
 
 - [x] Phone requests visible in staff calendars; signed-in date/window move and customer requested-state readback verified, temporary booking removed without charges
