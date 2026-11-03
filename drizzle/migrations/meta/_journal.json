@@ -120,6 +120,13 @@
       "when": 1793666579080,
       "tag": "0016_direct_housekeeper_booking",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1793668777038,
+      "tag": "0017_booking_cleaning_level",
+      "breakpoints": true
     }
   ]
 }

@@ -1,0 +1,1 @@
+ALTER TABLE public.bookings ADD COLUMN cleaning_level text NOT NULL DEFAULT 'Light' CHECK (cleaning_level IN ('Light','Medium','Heavy'));

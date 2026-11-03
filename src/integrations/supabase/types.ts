@@ -223,6 +223,7 @@ export type Database = {
           bathrooms: number
           bedrooms: number
           cleaner_id: string | null
+          cleaning_level: string
           created_at: string
           currency: string
           customer_name: string
@@ -256,6 +257,7 @@ export type Database = {
           bathrooms: number
           bedrooms: number
           cleaner_id?: string | null
+          cleaning_level?: string
           created_at?: string
           currency?: string
           customer_name: string
@@ -289,6 +291,7 @@ export type Database = {
           bathrooms?: number
           bedrooms?: number
           cleaner_id?: string | null
+          cleaning_level?: string
           created_at?: string
           currency?: string
           customer_name?: string
