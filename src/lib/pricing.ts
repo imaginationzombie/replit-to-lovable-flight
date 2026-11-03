@@ -47,6 +47,9 @@ export function includedAddOns(input: { service: string; bedrooms: number; bathr
 export const RUSH_FEE = 15;
 export const BEDROOM_SURCHARGE = 15;
 export const BATHROOM_SURCHARGE = 10;
+export const CLEANING_LEVELS = ["Light", "Medium", "Heavy"] as const;
+export type CleaningLevel = typeof CLEANING_LEVELS[number];
+export const CLEANING_LEVEL_FEES: Record<CleaningLevel, number> = { Light: 0, Medium: 15, Heavy: 30 };
 
 export const SERVICE_AREAS = [
   "DuBois & Sandy Twp",
@@ -61,14 +64,15 @@ export const SERVICE_AREAS = [
 export const TIME_WINDOWS = ["Morning (8am–12pm)", "Afternoon (12pm–4pm)", "Evening (4pm–7pm)"];
 export const FREQUENCIES = ["One-time", "Weekly", "Bi-weekly", "Monthly"];
 
-export function quote(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[]; rush: boolean }) {
+export function quote(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[]; rush: boolean; cleaningLevel?: CleaningLevel | undefined }) {
   const base = SERVICE_BASE[input.service] ?? 0;
   const rooms = Math.max(0, input.bedrooms - 2) * BEDROOM_SURCHARGE + Math.max(0, input.bathrooms - 1) * BATHROOM_SURCHARGE;
   const inc = includedAddOns(input);
   const addOns = inc.paid.reduce((s, a) => s + addOnPrice(a), 0);
   const rush = input.rush ? RUSH_FEE : 0;
-  const total = base + rooms + addOns + rush;
-  return { base, rooms, addOns, rush, total, totalCents: Math.round(total * 100), includedHours: inc.hours, freeAddOns: inc.free };
+  const cleaningLevel = CLEANING_LEVEL_FEES[input.cleaningLevel ?? "Light"];
+  const total = base + rooms + addOns + rush + cleaningLevel;
+  return { base, rooms, addOns, rush, cleaningLevel, total, totalCents: Math.round(total * 100), includedHours: inc.hours, freeAddOns: inc.free };
 }
 
 // Map loosely-worded AI add-on suggestions onto real add-on names.

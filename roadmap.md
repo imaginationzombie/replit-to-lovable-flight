@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Light/Medium/Heavy fixed $15 price steps across estimators, checkout and recurring bookings
+
 - [x] Customer date and arrival-window calendar in checkout; selections and phone sizing verified
 - [x] Housekeeper-page estimator and direct booking; pricing and submission guards tested; published-page walkthrough awaits a published housekeeper profile
 
