@@ -606,20 +606,20 @@
                   <div>
                     <label class="text-xs font-bold text-on-surface mb-2 block">Condition &amp; Soiling Level</label>
                     <div class="grid grid-cols-3 gap-2">
-                      <button class="intensity-btn p-3 rounded-xl border-2 border-primary bg-secondary-container/40 text-center transition-all" data-label="Light Maintenance (1.0x)" data-multiplier="1.0" type="button">
+                      <button class="intensity-btn p-3 rounded-xl border-2 border-primary bg-secondary-container/40 text-center transition-all" data-label="Light (Base price)" data-addition="0" type="button">
                         <div class="font-bold text-on-surface text-sm">Light</div>
                         <div class="text-xs text-on-surface-variant">Routine Maintenance</div>
-                        <div class="text-xs font-semibold text-primary mt-1">1.0x Base</div>
+                        <div class="text-xs font-semibold text-primary mt-1">Base price</div>
                       </button>
-                      <button class="intensity-btn p-3 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container text-center transition-all" data-label="Medium Regular (+25%)" data-multiplier="1.25" type="button">
+                      <button class="intensity-btn p-3 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container text-center transition-all" data-label="Medium (+$15)" data-addition="15" type="button">
                         <div class="font-bold text-on-surface text-sm">Medium</div>
                         <div class="text-xs text-on-surface-variant">High-Traffic / Kids</div>
-                        <div class="text-xs font-semibold text-primary mt-1">+25% Focus</div>
+                        <div class="text-xs font-semibold text-primary mt-1">+$15</div>
                       </button>
-                      <button class="intensity-btn p-3 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container text-center transition-all" data-label="Heavy Deep (+50%)" data-multiplier="1.5" type="button">
+                      <button class="intensity-btn p-3 rounded-xl border-2 border-transparent bg-surface-container-low hover:bg-surface-container text-center transition-all" data-label="Heavy (+$30)" data-addition="30" type="button">
                         <div class="font-bold text-on-surface text-sm">Heavy</div>
                         <div class="text-xs text-on-surface-variant">Grease &amp; Scale Detail</div>
-                        <div class="text-xs font-semibold text-primary mt-1">+50% Deep</div>
+                        <div class="text-xs font-semibold text-primary mt-1">+$30</div>
                       </button>
                     </div>
                   </div>
@@ -889,7 +889,7 @@
                   </div>
                   <div class="flex justify-between text-on-surface-variant">
                     <span class="">Intensity Configuration</span>
-                    <span class="font-medium text-on-surface" id="summary-intensity">Light Maintenance (1.0x)</span>
+                    <span class="font-medium text-on-surface" id="summary-intensity">Light (Base price)</span>
                   </div>
                   <div class="flex justify-between text-on-surface-variant">
                     <span class="">Crew Allocation</span>
@@ -1034,8 +1034,8 @@
             var state = {
               basePrice: 95,
               baseMins: 120,
-              intensityMult: 1.0,
-              intensityLabel: 'Light Maintenance (1.0x)',
+              intensityAddition: 0,
+              intensityLabel: 'Light (Base price)',
               crewMult: 1.0,
               crewLabel: '1 Solo Specialist',
               beds: 2,
@@ -1066,7 +1066,7 @@
               var freeUsed = Math.min(includedCount, prices.length);
 
               var rushFee = state.rush ? 15 : 0;
-              var subtotal = (state.basePrice + roomSurcharge) * state.intensityMult * state.crewMult + addonTotal + rushFee;
+              var subtotal = (state.basePrice + roomSurcharge) * state.crewMult + state.intensityAddition + addonTotal + rushFee;
               var totalMins = state.baseMins + roomMins + addonMins;
               if (state.crewMult > 1.2) {
                 totalMins = Math.round(totalMins * 0.65);
@@ -1148,7 +1148,8 @@
                 });
                 this.classList.remove('border-transparent', 'bg-surface-container-low');
                 this.classList.add('border-primary', 'bg-secondary-container/40');
-                state.intensityMult = parseFloat(this.getAttribute('data-multiplier') || '1.0');
+                state.intensityAddition = parseFloat(this.getAttribute('data-addition') || '0');
+                sessionStorage.setItem('hkb-cleaning-level', state.intensityAddition === 30 ? 'Heavy' : state.intensityAddition === 15 ? 'Medium' : 'Light');
                 state.intensityLabel = this.getAttribute('data-label') || '';
                 calculate();
               });
