@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Customer date and time calendar in checkout
-- [ ] Estimator on individual housekeeper pages with direct booking for that housekeeper
+- [x] Customer date and arrival-window calendar in checkout; selections and phone sizing verified
+- [x] Housekeeper-page estimator and direct booking; pricing and submission guards tested; published-page walkthrough awaits a published housekeeper profile
 
 - [ ] Real Lewistown booking: confirm, customer payment, actual clock-in/out and cleaner payout; awaiting actual appointment details and customer PayPal authorization
 

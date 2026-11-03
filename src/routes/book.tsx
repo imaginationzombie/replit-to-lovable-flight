@@ -89,7 +89,7 @@ function BookPage() {
         frequency: FREQUENCIES.includes(r.frequency) ? r.frequency : f.frequency,
         bedrooms: Math.min(10, Math.max(1, Math.round(r.bedrooms) || f.bedrooms)),
         bathrooms: Math.min(10, Math.max(1, Math.round(r.bathrooms) || f.bathrooms)),
-        addOns: matchAddOns(r.addOns ?? []),
+        addOns: r.source === "estimator" ? (r.addOns ?? []).filter((a: string) => a in ADD_ONS) : matchAddOns(r.addOns ?? []),
         serviceArea: area ?? f.serviceArea,
         timeWindow: tw ?? f.timeWindow,
         notes: [r.specialNotes, r.preferredDay ? `Preferred day: ${r.preferredDay}` : ""].filter(Boolean).join("\n").slice(0, 1000),
