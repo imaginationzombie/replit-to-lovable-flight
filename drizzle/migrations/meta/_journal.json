@@ -127,6 +127,13 @@
       "when": 1793668777038,
       "tag": "0017_booking_cleaning_level",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1793669918408,
+      "tag": "0018_staff_phone_bookings",
+      "breakpoints": true
     }
   ]
 }

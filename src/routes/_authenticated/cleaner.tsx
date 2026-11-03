@@ -9,7 +9,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { completeBooking } from "@/lib/booking.functions";
 import { BookingScheduler } from "@/components/BookingScheduler";
 import { Button } from "@/components/ui/button";
-import { CalendarDays, Pencil } from "lucide-react";
+import { CalendarDays, Pencil, Phone } from "lucide-react";
 import { refreshBookingViews } from "@/lib/booking-sync";
 import { AppointmentWork } from "@/components/AppointmentWork";
 
@@ -76,7 +76,7 @@ function CleanerJobs() {
           </div>
         )}
         {isCleaner && <BookingScheduler />}
-        {isCleaner && <div className="mt-6 flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/my-page"><Pencil />Edit my public page</Link></Button><Button asChild><Link to="/waiting-list">Choose from waiting list</Link></Button><Button asChild variant="outline"><Link to="/timesheets">Timesheets & payments</Link></Button></div>}
+        {isCleaner && <div className="mt-6 flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/phone-booking"><Phone />Phone bookings</Link></Button><Button asChild variant="outline"><Link to="/my-page"><Pencil />Edit my public page</Link></Button><Button asChild><Link to="/waiting-list">Choose from waiting list</Link></Button><Button asChild variant="outline"><Link to="/timesheets">Timesheets & payments</Link></Button></div>}
         {jobs.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
         {(jobs.error || complete.error) && <p role="alert" className="mt-4 text-destructive">{(jobs.error ?? complete.error)?.message}</p>}
         {jobs.data?.length === 0 && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">No jobs assigned yet.</p>}

@@ -1,0 +1,3 @@
+ALTER TABLE public.bookings ADD COLUMN created_by_staff uuid REFERENCES public.profiles(id);
+CREATE POLICY "Staff read own phone requests" ON public.bookings FOR SELECT TO authenticated USING (created_by_staff = auth.uid() AND (public.has_role(auth.uid(),'admin') OR public.has_role(auth.uid(),'cleaner')));
+COMMENT ON COLUMN public.bookings.created_by_staff IS 'Staff caller-booking creator; never the customer user_id.';

@@ -225,6 +225,7 @@ export type Database = {
           cleaner_id: string | null
           cleaning_level: string
           created_at: string
+          created_by_staff: string | null
           currency: string
           customer_name: string
           email: string
@@ -259,6 +260,7 @@ export type Database = {
           cleaner_id?: string | null
           cleaning_level?: string
           created_at?: string
+          created_by_staff?: string | null
           currency?: string
           customer_name: string
           email: string
@@ -293,6 +295,7 @@ export type Database = {
           cleaner_id?: string | null
           cleaning_level?: string
           created_at?: string
+          created_by_staff?: string | null
           currency?: string
           customer_name?: string
           email?: string
@@ -317,6 +320,13 @@ export type Database = {
           visit_number?: number
         }
         Relationships: [
+          {
+            foreignKeyName: "bookings_created_by_staff_fkey"
+            columns: ["created_by_staff"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "bookings_parent_booking_id_fkey"
             columns: ["parent_booking_id"]

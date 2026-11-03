@@ -42,6 +42,7 @@ function Admin() {
         {isAdmin && (
           <>
             <div className="mt-6 flex flex-wrap gap-2">
+              <Button asChild variant="outline"><Link to="/phone-booking">Phone bookings</Link></Button>
               <Button asChild variant="outline"><Link to="/admin-paypal" search={{ view: "all" }}>PayPal dashboard</Link></Button>
               {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets", "hiring", "disputes"] as const).map((t) => (
                 <Button key={t} onClick={() => setTab(t)} variant={tab === t ? "default" : "secondary"}>
