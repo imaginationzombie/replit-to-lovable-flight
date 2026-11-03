@@ -36,7 +36,7 @@ export type BookingInput = {
   customerName: string; email: string; phone: string; address: string; serviceArea: string;
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
-  requestedCleanerId?: string;
+  requestedCleanerId?: string | undefined;
 };
 
 export async function createBookingOrder(input: BookingInput, userId: string | null, origin = "") {

@@ -10,7 +10,10 @@ import { authorizeOrder, createOrder, getPaypalConfig } from "@/lib/booking.func
 import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchAddOns, quote, addOnPrice } from "@/lib/pricing";
 
 export const Route = createFileRoute("/book")({
-  validateSearch: (search: Record<string, unknown>) => ({ housekeeper: z.string().uuid().optional().catch(undefined).parse(search.housekeeper) }),
+  validateSearch: (search: Record<string, unknown>): { housekeeper?: string } => {
+    const housekeeper = z.string().uuid().optional().catch(undefined).parse(search["housekeeper"]);
+    return housekeeper ? { housekeeper } : {};
+  },
   head: () => ({
     meta: [
       { title: "Book Your Cleaning | HousekeepingBooking.com" },
@@ -31,7 +34,7 @@ type Form = {
   customerName: string; email: string; phone: string; address: string; serviceArea: string;
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
-  requestedCleanerId?: string;
+  requestedCleanerId?: string | undefined;
 };
 
 const empty: Form = {
