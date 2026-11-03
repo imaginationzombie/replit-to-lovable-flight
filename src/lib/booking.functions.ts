@@ -19,6 +19,7 @@ const bookingSchema = z.object({
   preferredDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   timeWindow: z.enum(TIME_WINDOWS as [string, ...string[]]),
   notes: z.string().max(1000),
+  requestedCleanerId: z.string().uuid().optional(),
 });
 
 type Result<T> = { ok: true; data: T } | { ok: false; error: string };

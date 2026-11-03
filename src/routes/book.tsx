@@ -2,12 +2,15 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AppHeader } from "@/components/AppHeader";
 import { AppointmentCalendar } from "@/components/AppointmentCalendar";
+import { publicPortfolio } from "@/lib/portfolio.functions";
+import { z } from "zod";
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { authorizeOrder, createOrder, getPaypalConfig } from "@/lib/booking.functions";
 import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchAddOns, quote, addOnPrice } from "@/lib/pricing";
 
 export const Route = createFileRoute("/book")({
+  validateSearch: (search: Record<string, unknown>) => ({ housekeeper: z.string().uuid().optional().catch(undefined).parse(search.housekeeper) }),
   head: () => ({
     meta: [
       { title: "Book Your Cleaning | HousekeepingBooking.com" },
@@ -28,6 +31,7 @@ type Form = {
   customerName: string; email: string; phone: string; address: string; serviceArea: string;
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
+  requestedCleanerId?: string;
 };
 
 const empty: Form = {
@@ -41,6 +45,9 @@ declare global {
 }
 
 function BookPage() {
+  const { housekeeper } = Route.useSearch();
+  const [housekeeperName, setHousekeeperName] = useState<string | null>(null);
+  const portfolio = useServerFn(publicPortfolio);
   const navigate = useNavigate();
   const [form, setForm] = useState<Form>(empty);
   const [fromAi, setFromAi] = useState(false);
@@ -53,6 +60,18 @@ function BookPage() {
   const create = useServerFn(createOrder);
   const capture = useServerFn(authorizeOrder);
   const config = useServerFn(getPaypalConfig);
+
+  useEffect(() => {
+    let cancelled = false;
+    setForm(f => ({ ...f, requestedCleanerId: housekeeper }));
+    setHousekeeperName(null);
+    if (housekeeper) portfolio({ data: { id: housekeeper } }).then(p => {
+      if (cancelled) return;
+      if (!p) { setError("This housekeeper page is unavailable."); return; }
+      setHousekeeperName(p.display_name);
+    }).catch(() => { if (!cancelled) setError("Couldn't load your selected housekeeper."); });
+    return () => { cancelled = true; };
+  }, [housekeeper, portfolio]);
 
   useEffect(() => {
     const raw = sessionStorage.getItem(DRAFT_KEY);
@@ -72,7 +91,7 @@ function BookPage() {
         timeWindow: tw ?? f.timeWindow,
         notes: [r.specialNotes, r.preferredDay ? `Preferred day: ${r.preferredDay}` : ""].filter(Boolean).join("\n").slice(0, 1000),
       }));
-      setFromAi(true);
+      setFromAi(r.source !== "estimator");
     } catch { /* ignore bad draft */ }
   }, []);
 
@@ -94,7 +113,7 @@ function BookPage() {
 
   const valid =
     form.customerName.trim().length >= 2 && /\S+@\S+\.\S+/.test(form.email) && form.phone.trim().length >= 7 &&
-    form.address.trim().length >= 5 && !!form.preferredDate;
+    form.address.trim().length >= 5 && !!form.preferredDate && (!housekeeper || !!housekeeperName);
   const validRef = useRef(valid);
   validRef.current = valid;
 
@@ -151,6 +170,7 @@ function BookPage() {
       <AppHeader />
       <main className="mx-auto max-w-5xl px-6 py-10">
         <h1 className="text-4xl font-extrabold tracking-tight text-foreground">Book your cleaning</h1>
+        {housekeeper && <p className="mt-3 text-lg font-semibold text-primary">{housekeeperName ? `Your housekeeper: ${housekeeperName}` : "Loading selected housekeeper…"}</p>}
         {fromAi && <p className="mt-2 rounded-lg bg-accent px-3 py-2 text-sm text-accent-foreground">We filled this in from your assistant recommendation — check it over and adjust anything.</p>}
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
