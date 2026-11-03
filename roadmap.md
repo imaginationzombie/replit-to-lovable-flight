@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Make the housekeeper public-page editor easy to reach from the panel, with profile, photo and publication controls; verify signed-in saving
+- [x] Housekeeper panel links to public-page editor with details, portrait, gallery and publication controls; signed-in save/reload and 320–767px fit verified, original content restored
 
 - [x] Light/Medium/Heavy fixed $15 price steps across estimators and checkout; level saved for recurring bookings, public and checkout totals verified, pricing and PayPal payload tests passed without live charges
 
