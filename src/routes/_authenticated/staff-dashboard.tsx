@@ -13,7 +13,7 @@ import { sendPhoneEstimate } from "@/lib/phone-booking.functions";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_authenticated/staff-dashboard")({
-  validateSearch: (search: Record<string, unknown>) => ({ from: typeof search.from === "string" ? search.from : "", to: typeof search.to === "string" ? search.to : "", cleaner: typeof search.cleaner === "string" ? search.cleaner : "all", view: typeof search.view === "string" ? search.view : "all" }),
+  validateSearch: (search: Record<string, unknown>) => ({ from: typeof search['from'] === "string" ? search['from'] : "", to: typeof search['to'] === "string" ? search['to'] : "", cleaner: typeof search['cleaner'] === "string" ? search['cleaner'] : "all", view: typeof search['view'] === "string" ? search['view'] : "all" }),
   head: () => ({ meta: [
     { title: "Staff Booking Dashboard | HousekeepingBooking.com" },
     { name: "description", content: "View phone estimates and scheduled cleaning visits by date and housekeeper." },
