@@ -38,6 +38,7 @@
       background: #005447;
     }
     /* Phone layouts wrap content instead of clipping or creating scroll strips. */
+    #mobile-location-picker { display: none; }
     @media (max-width: 767px) {
       body { width: 100%; }
       header { position: relative !important; }
@@ -65,7 +66,7 @@
       #step-location > div > div:first-child { gap: 6px; }
       #step-location h3 { font-size: 14px; line-height: 1.5; }
       #step-location > div > .grid {
-        display: grid;
+        display: none !important;
         grid-template-columns: minmax(0, 1fr);
         gap: 6px;
       }
@@ -74,6 +75,8 @@
       #step-location > div > .grid > a > div:last-child { display: none; }
       #step-location > div > .grid > a > div.my-2 { margin: 0; }
       #step-location > div > .grid > a > div.my-2 > div:last-child { font-size: 11px; margin-top: 2px; }
+      #mobile-location-picker { display: block; min-width: 0; }
+      #mobile-service-location { width: 100%; min-width: 0; font-size: 16px; }
       #step-location + section { padding-block: 24px; }
       #step-location + section > div > div:first-child > div:first-child { width: 100%; }
       h1 { font-size: 24px !important; line-height: 1.3 !important; overflow-wrap: anywhere; }
@@ -225,6 +228,13 @@
               <span class="material-symbols-outlined text-[16px]">map</span>
               <span class="">Select Corridor in Estimator Below</span>
             </a>
+          </div>
+          <div id="mobile-location-picker">
+            <label for="mobile-service-location" class="block text-sm font-bold text-primary mb-2">Service location</label>
+            <select id="mobile-service-location" class="w-full rounded-lg border border-surface-container bg-surface-container-lowest text-on-surface px-3 py-3">
+              <option value="" disabled selected>Choose your service area</option>
+            </select>
+            <p id="service-location-status" role="status" class="text-xs text-on-surface-variant mt-2">Choose your service area.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             <a class="p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container hover:border-primary shadow-sm hover:shadow-md transition-all flex flex-col justify-between group" href="#pricing-calculator">
@@ -1094,6 +1104,20 @@
               });
             });
 
+            document.addEventListener('service-location-selected', function(event) {
+              var area = event.detail;
+              state.corridor = area.corridor;
+              state.territoryLabel = area.label;
+              document.querySelectorAll('.territory-btn').forEach(function(b) {
+                var selected = b.getAttribute('data-corridor') === area.corridor;
+                b.classList.toggle('border-primary', selected);
+                b.classList.toggle('bg-secondary-container/40', selected);
+                b.classList.toggle('border-transparent', !selected);
+                b.classList.toggle('bg-surface-container-low', !selected);
+              });
+              calculate();
+            });
+
             document.querySelectorAll('.territory-btn').forEach(function(btn) {
               btn.addEventListener('click', function() {
                 document.querySelectorAll('.territory-btn').forEach(function(b) {
@@ -1104,6 +1128,7 @@
                 this.classList.add('border-primary', 'bg-secondary-container/40');
                 state.corridor = this.getAttribute('data-corridor') || 'DuBois 15801';
                 state.territoryLabel = this.getAttribute('data-territory') || '';
+                document.dispatchEvent(new CustomEvent('service-location-updated', { detail: { corridor: state.corridor, label: state.territoryLabel } }));
                 calculate();
               });
             });
@@ -1444,4 +1469,5 @@
 
 
 
+<script type="module" src="/service-location.js"></script>
 </body></html>
