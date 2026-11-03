@@ -238,6 +238,7 @@ export type Database = {
           paypal_vault_id: string | null
           phone: string
           preferred_date: string
+          requested_cleaner_id: string | null
           rush: boolean
           service: string
           service_area: string
@@ -270,6 +271,7 @@ export type Database = {
           paypal_vault_id?: string | null
           phone: string
           preferred_date: string
+          requested_cleaner_id?: string | null
           rush?: boolean
           service: string
           service_area: string
@@ -302,6 +304,7 @@ export type Database = {
           paypal_vault_id?: string | null
           phone?: string
           preferred_date?: string
+          requested_cleaner_id?: string | null
           rush?: boolean
           service?: string
           service_area?: string
@@ -316,6 +319,13 @@ export type Database = {
             columns: ["parent_booking_id"]
             isOneToOne: false
             referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "bookings_requested_cleaner_id_fkey"
+            columns: ["requested_cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]

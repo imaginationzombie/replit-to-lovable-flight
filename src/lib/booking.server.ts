@@ -36,6 +36,7 @@ export type BookingInput = {
   customerName: string; email: string; phone: string; address: string; serviceArea: string;
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
+  requestedCleanerId?: string | undefined;
 };
 
 export async function createBookingOrder(input: BookingInput, userId: string | null, origin = "") {
@@ -49,13 +50,13 @@ export async function createBookingOrder(input: BookingInput, userId: string | n
       service_area: input.serviceArea, service: input.service, frequency: input.frequency,
       bedrooms: input.bedrooms, bathrooms: input.bathrooms, add_ons: input.addOns, rush: input.rush,
       preferred_date: input.preferredDate, time_window: input.timeWindow, notes: input.notes,
-      amount_cents: q.totalCents, user_id: userId,
+      amount_cents: q.totalCents, user_id: userId, requested_cleaner_id: input.requestedCleanerId ?? null,
     })
     .select("id")
     .single();
   if (error || !booking) {
     console.error(error);
-    throw new Error("Couldn't save your booking.");
+    throw new Error(input.requestedCleanerId ? error?.message ?? "Couldn't reserve that housekeeper. Choose another appointment." : "Couldn't save your booking.");
   }
 
   let orderId: string;

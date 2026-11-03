@@ -1,12 +1,19 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AppHeader } from "@/components/AppHeader";
+import { AppointmentCalendar } from "@/components/AppointmentCalendar";
+import { publicPortfolio } from "@/lib/portfolio.functions";
+import { z } from "zod";
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { authorizeOrder, createOrder, getPaypalConfig } from "@/lib/booking.functions";
 import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, matchAddOns, quote, addOnPrice } from "@/lib/pricing";
 
 export const Route = createFileRoute("/book")({
+  validateSearch: (search: Record<string, unknown>): { housekeeper?: string } => {
+    const housekeeper = z.string().uuid().optional().catch(undefined).parse(search["housekeeper"]);
+    return housekeeper ? { housekeeper } : {};
+  },
   head: () => ({
     meta: [
       { title: "Book Your Cleaning | HousekeepingBooking.com" },
@@ -27,12 +34,13 @@ type Form = {
   customerName: string; email: string; phone: string; address: string; serviceArea: string;
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
+  requestedCleanerId?: string | undefined;
 };
 
 const empty: Form = {
-  customerName: "", email: "", phone: "", address: "", serviceArea: SERVICE_AREAS[0]!,
+  customerName: "", email: "", phone: "", address: "", serviceArea: SERVICE_AREAS[0] ?? "",
   service: "Standard Housekeeping", frequency: "One-time", bedrooms: 2, bathrooms: 1, addOns: [],
-  rush: false, preferredDate: "", timeWindow: TIME_WINDOWS[0]!, notes: "",
+  rush: false, preferredDate: "", timeWindow: TIME_WINDOWS[0] ?? "", notes: "",
 };
 
 declare global {
@@ -40,6 +48,9 @@ declare global {
 }
 
 function BookPage() {
+  const { housekeeper } = Route.useSearch();
+  const [housekeeperName, setHousekeeperName] = useState<string | null>(null);
+  const portfolio = useServerFn(publicPortfolio);
   const navigate = useNavigate();
   const [form, setForm] = useState<Form>(empty);
   const [fromAi, setFromAi] = useState(false);
@@ -54,24 +65,36 @@ function BookPage() {
   const config = useServerFn(getPaypalConfig);
 
   useEffect(() => {
+    let cancelled = false;
+    setForm(f => ({ ...f, requestedCleanerId: housekeeper }));
+    setHousekeeperName(null);
+    if (housekeeper) portfolio({ data: { id: housekeeper } }).then(p => {
+      if (cancelled) return;
+      if (!p) { setError("This housekeeper page is unavailable."); return; }
+      setHousekeeperName(p.display_name);
+    }).catch(() => { if (!cancelled) setError("Couldn't load your selected housekeeper."); });
+    return () => { cancelled = true; };
+  }, [housekeeper, portfolio]);
+
+  useEffect(() => {
     const raw = sessionStorage.getItem(DRAFT_KEY);
     if (!raw) return;
     try {
       const r = JSON.parse(raw);
       const area = SERVICE_AREAS.find((a) => r.serviceArea && a.toLowerCase().includes(String(r.serviceArea).toLowerCase().split(/[ ,]/)[0] ?? ""));
-      const tw = TIME_WINDOWS.find((t) => String(r.preferredTimeWindow ?? "").toLowerCase().includes(t.split(" ")[0]!.toLowerCase()));
+      const tw = TIME_WINDOWS.find((t) => String(r.preferredTimeWindow ?? "").toLowerCase().includes((t.split(" ")[0] ?? "").toLowerCase()));
       setForm((f) => ({
         ...f,
         service: r.service in SERVICE_BASE ? r.service : f.service,
         frequency: FREQUENCIES.includes(r.frequency) ? r.frequency : f.frequency,
         bedrooms: Math.min(10, Math.max(1, Math.round(r.bedrooms) || f.bedrooms)),
         bathrooms: Math.min(10, Math.max(1, Math.round(r.bathrooms) || f.bathrooms)),
-        addOns: matchAddOns(r.addOns ?? []),
+        addOns: r.source === "estimator" ? (r.addOns ?? []).filter((a: string) => a in ADD_ONS) : matchAddOns(r.addOns ?? []),
         serviceArea: area ?? f.serviceArea,
         timeWindow: tw ?? f.timeWindow,
         notes: [r.specialNotes, r.preferredDay ? `Preferred day: ${r.preferredDay}` : ""].filter(Boolean).join("\n").slice(0, 1000),
       }));
-      setFromAi(true);
+      setFromAi(r.source !== "estimator");
     } catch { /* ignore bad draft */ }
   }, []);
 
@@ -93,7 +116,7 @@ function BookPage() {
 
   const valid =
     form.customerName.trim().length >= 2 && /\S+@\S+\.\S+/.test(form.email) && form.phone.trim().length >= 7 &&
-    form.address.trim().length >= 5 && !!form.preferredDate;
+    form.address.trim().length >= 5 && !!form.preferredDate && (!housekeeper || !!housekeeperName);
   const validRef = useRef(valid);
   validRef.current = valid;
 
@@ -142,7 +165,6 @@ function BookPage() {
 
   const q = quote(form);
   const set = <K extends keyof Form>(k: K, v: Form[K]) => setForm((f) => ({ ...f, [k]: v }));
-  const today = new Date().toISOString().slice(0, 10);
   const field = "mt-1 w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring";
   const label = "text-sm font-semibold text-foreground";
 
@@ -151,10 +173,11 @@ function BookPage() {
       <AppHeader />
       <main className="mx-auto max-w-5xl px-6 py-10">
         <h1 className="text-4xl font-extrabold tracking-tight text-foreground">Book your cleaning</h1>
+        {housekeeper && <p className="mt-3 text-lg font-semibold text-primary">{housekeeperName ? `Your housekeeper: ${housekeeperName}` : "Loading selected housekeeper…"}</p>}
         {fromAi && <p className="mt-2 rounded-lg bg-accent px-3 py-2 text-sm text-accent-foreground">We filled this in from your assistant recommendation — check it over and adjust anything.</p>}
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-          <div className="space-y-6 rounded-2xl border border-border bg-card p-6">
+          <div className="min-w-0 space-y-6 rounded-2xl border border-border bg-card p-4 sm:p-6">
             <section className="grid gap-4 sm:grid-cols-2">
               <label className="sm:col-span-2"><span className={label}>Service</span>
                 <select className={field} value={form.service} onChange={(e) => set("service", e.target.value)}>
@@ -170,12 +193,10 @@ function BookPage() {
               <label><span className={label}>Area</span>
                 <select className={field} value={form.serviceArea} onChange={(e) => set("serviceArea", e.target.value)}>
                   {SERVICE_AREAS.map((a) => <option key={a}>{a}</option>)}</select></label>
-              <label><span className={label}>Date</span>
-                <input type="date" min={today} className={field} value={form.preferredDate} onChange={(e) => set("preferredDate", e.target.value)} /></label>
-              <label><span className={label}>Time</span>
-                <select className={field} value={form.timeWindow} onChange={(e) => set("timeWindow", e.target.value)}>
-                  {TIME_WINDOWS.map((t) => <option key={t}>{t}</option>)}</select></label>
             </section>
+
+            <AppointmentCalendar date={form.preferredDate} timeWindow={form.timeWindow}
+              onChange={(preferredDate, timeWindow) => setForm((f) => ({ ...f, preferredDate, timeWindow }))} />
 
             <section>
               <p className={label}>Add-ons <span className="font-normal text-muted-foreground">— 1 free per hour of cleaning ({q.includedHours} included), most expensive first</span></p>
@@ -206,6 +227,7 @@ function BookPage() {
 
           <aside className="h-fit rounded-2xl border border-border bg-card p-6 lg:sticky lg:top-6">
             <h2 className="text-lg font-bold text-foreground">Your total</h2>
+            {form.preferredDate && <p className="mt-2 text-sm text-muted-foreground">{form.preferredDate} · {form.timeWindow}</p>}
             <dl className="mt-4 space-y-2 text-sm">
               <Row k={form.service} v={q.base} />
               {q.rooms > 0 && <Row k="Extra rooms" v={q.rooms} />}
