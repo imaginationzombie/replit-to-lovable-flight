@@ -4,6 +4,7 @@ import { fetchBooking } from "@/lib/booking.functions";
 import { PayBalance } from "@/components/PayBalance";
 import { LeaveTip } from "@/components/LeaveTip";
 import { canTip } from "@/lib/tips";
+import { EstimateCheckout } from "@/components/EstimateCheckout";
 
 export const Route = createFileRoute("/booking/$id")({
   validateSearch: z.object({ t: z.string().catch("") }),
@@ -16,10 +17,10 @@ export const Route = createFileRoute("/booking/$id")({
   },
   head: () => ({
     meta: [
-      { title: "Booking Confirmed | HousekeepingBooking.com" },
+      { title: "Your Cleaning Booking & Estimate | HousekeepingBooking.com" },
       { name: "description", content: "Your cleaning booking details." },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Booking Confirmed | HousekeepingBooking.com" },
+      { property: "og:title", content: "Your Cleaning Booking & Estimate | HousekeepingBooking.com" },
       { property: "og:description", content: "Your cleaning booking details." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -40,19 +41,20 @@ function Confirmation() {
   const confirmed = b.status === "confirmed" || b.status === "completed";
   const due = b.status === "completed" && !b.paid_at;
   return (
-    <div className="min-h-screen bg-background px-6 py-12">
-      <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 shadow-sm">
+    <div className="min-h-screen bg-background px-4 py-8 sm:px-6 sm:py-12">
+      <div className="mx-auto max-w-2xl rounded-md border border-border bg-card p-4 shadow-sm sm:p-8">
         <span className="inline-block rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
           {b.paid_at ? "Paid" : due ? "Payment due" : confirmed ? "Confirmed · $0 charged" : "Awaiting checkout"}
         </span>
         <h1 className="mt-3 text-3xl font-extrabold text-foreground">
-          {due ? "Your cleaning is done!" : confirmed ? `You're booked, ${b.customer_name.split(" ")[0]}!` : "Booking not finished"}
+          {due ? "Your cleaning is done!" : confirmed ? `You're booked, ${b.customer_name.split(" ")[0]}!` : b.status === "pending_payment" ? "Your cleaning estimate" : "Booking not active"}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          {b.paid_at ? "Your visit payment is complete. Thank you!" : due ? "Please pay for your visit below." : confirmed ? "Nothing has been charged. Your visit is charged through PayPal only after the cleaning." : "Checkout wasn't completed."}
+          {b.paid_at ? "Your visit payment is complete. Thank you!" : due ? "Please pay for your visit below." : confirmed ? "Nothing has been charged. Your visit is charged through PayPal only after the cleaning." : b.status === "pending_payment" ? "Review your estimate and approve your PayPal payment method below. Your requested appointment is not confirmed until checkout is complete." : "Contact us about this booking."}
         </p>
         <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
           <Item k="Service" v={b.service} />
+          <Item k="Cleaning level" v={b.cleaning_level} />
           <Item k="How often" v={b.frequency} />
           <Item k="Date" v={new Date(b.preferred_date + "T12:00:00").toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })} />
           <Item k="Time" v={b.time_window} />
@@ -62,6 +64,7 @@ function Confirmation() {
           <Item k={b.paid_at ? "Paid" : "Charged after cleaning"} v={`$${(b.amount_cents / 100).toFixed(2)}`} />
         </dl>
         {due && <PayBalance id={b.id} token={t} />}
+        {b.status === "pending_payment" && <EstimateCheckout id={b.id} token={t} />}
         {canTip(b) && <LeaveTip id={b.id} token={t} />}
         {b.add_ons.length > 0 && <p className="mt-4 text-sm text-foreground"><strong>Add-ons:</strong> {b.add_ons.join(", ")}{b.rush ? ", Rush dispatch" : ""}</p>}
         {b.notes && <p className="mt-2 whitespace-pre-line text-sm text-foreground"><strong>Notes:</strong> {b.notes}</p>}
@@ -73,5 +76,5 @@ function Confirmation() {
 }
 
 function Item({ k, v }: { k: string; v: string }) {
-  return <div className="rounded-lg bg-muted p-3"><dt className="text-xs text-muted-foreground">{k}</dt><dd className="font-semibold text-foreground">{v}</dd></div>;
+  return <div className="min-w-0 rounded-md bg-muted p-3"><dt className="text-xs text-muted-foreground">{k}</dt><dd className="break-words font-semibold text-foreground">{v}</dd></div>;
 }

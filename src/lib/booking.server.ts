@@ -103,6 +103,24 @@ async function paypalOrder(intent: "AUTHORIZE" | "CAPTURE", bookingId: string, s
   return ((await res.json()) as { id: string }).id;
 }
 
+/** Resume an emailed estimate without creating another booking or charging upfront. */
+export async function createPendingBookingOrder(id: string, accessToken: string) {
+  const db = await admin();
+  const { data: b } = await db.from("bookings").select("id, status, service, amount_cents, frequency, preferred_date").eq("id", id).eq("access_token", accessToken).maybeSingle();
+  if (!b) throw new Error("Booking not found.");
+  if (b.status !== "pending_payment") throw new Error("This booking is no longer awaiting checkout.");
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  if (b.preferred_date < today) throw new Error("This requested date has passed. Please contact us for a new estimate.");
+  const source = b.frequency !== "One-time" ? { paypal: {
+    attributes: { vault: { store_in_vault: "ON_SUCCESS", usage_type: "MERCHANT", customer_type: "CONSUMER" } },
+    experience_context: { return_url: `https://housekeepingbooking.com/booking/${id}?t=${accessToken}`, cancel_url: `https://housekeepingbooking.com/booking/${id}?t=${accessToken}`, shipping_preference: "NO_SHIPPING" },
+  } } : undefined;
+  const orderId = await paypalOrder("AUTHORIZE", b.id, b.service, b.amount_cents, `phone-${b.id}`, source);
+  const { error } = await db.from("bookings").update({ paypal_order_id: orderId }).eq("id", b.id).eq("status", "pending_payment");
+  if (error) throw new Error("Could not start checkout. Please try again.");
+  return { orderId };
+}
+
 /** Customer approved the PayPal hold at checkout: authorize (no money moves yet) and confirm the booking. */
 export async function authorizeBookingOrder(orderId: string) {
   const db = await admin();
@@ -302,7 +320,7 @@ export async function getBooking(id: string, token: string) {
   const db = await admin();
   const { data } = await db
     .from("bookings")
-    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, preferred_date, time_window, notes, amount_cents, paid_at, authorized_at, cleaner_id")
+    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, cleaning_level, preferred_date, time_window, notes, amount_cents, paid_at, authorized_at, cleaner_id")
     .eq("id", id).eq("access_token", token).maybeSingle();
   return data;
 }
