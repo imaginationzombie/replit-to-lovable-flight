@@ -1,6 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 import { sendTemplateEmail } from "./email-templates/send-email";
+import { notifyPaymentReceipt } from "./payment-notices.server";
 
 type Db = SupabaseClient<Database>;
 function visitDate(date: string) {
@@ -58,6 +59,8 @@ export async function notifyBookingEvent(db: Db, id: string, event: "confirmed" 
   // Attempt each recipient independently: a customer email failure must not hide a new booking from the owner.
   if (event === "confirmed") {
     await safeBookingNotice(() => sendOwnerBookingNotice(db, id), id, "owner-confirmed");
+  } else {
+    await notifyPaymentReceipt(db, id, "customer-payment");
   }
   return safeBookingNotice(() => event === "confirmed" ? sendBookingNotice(db, id) : sendCleanerPaymentNotice(db, id), id, event);
 }
