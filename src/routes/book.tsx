@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AppHeader } from "@/components/AppHeader";
+import { AppointmentCalendar } from "@/components/AppointmentCalendar";
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { authorizeOrder, createOrder, getPaypalConfig } from "@/lib/booking.functions";
@@ -30,9 +31,9 @@ type Form = {
 };
 
 const empty: Form = {
-  customerName: "", email: "", phone: "", address: "", serviceArea: SERVICE_AREAS[0]!,
+  customerName: "", email: "", phone: "", address: "", serviceArea: SERVICE_AREAS[0] ?? "",
   service: "Standard Housekeeping", frequency: "One-time", bedrooms: 2, bathrooms: 1, addOns: [],
-  rush: false, preferredDate: "", timeWindow: TIME_WINDOWS[0]!, notes: "",
+  rush: false, preferredDate: "", timeWindow: TIME_WINDOWS[0] ?? "", notes: "",
 };
 
 declare global {
@@ -59,7 +60,7 @@ function BookPage() {
     try {
       const r = JSON.parse(raw);
       const area = SERVICE_AREAS.find((a) => r.serviceArea && a.toLowerCase().includes(String(r.serviceArea).toLowerCase().split(/[ ,]/)[0] ?? ""));
-      const tw = TIME_WINDOWS.find((t) => String(r.preferredTimeWindow ?? "").toLowerCase().includes(t.split(" ")[0]!.toLowerCase()));
+      const tw = TIME_WINDOWS.find((t) => String(r.preferredTimeWindow ?? "").toLowerCase().includes((t.split(" ")[0] ?? "").toLowerCase()));
       setForm((f) => ({
         ...f,
         service: r.service in SERVICE_BASE ? r.service : f.service,
@@ -142,7 +143,6 @@ function BookPage() {
 
   const q = quote(form);
   const set = <K extends keyof Form>(k: K, v: Form[K]) => setForm((f) => ({ ...f, [k]: v }));
-  const today = new Date().toISOString().slice(0, 10);
   const field = "mt-1 w-full rounded-xl border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring";
   const label = "text-sm font-semibold text-foreground";
 
@@ -154,7 +154,7 @@ function BookPage() {
         {fromAi && <p className="mt-2 rounded-lg bg-accent px-3 py-2 text-sm text-accent-foreground">We filled this in from your assistant recommendation — check it over and adjust anything.</p>}
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-          <div className="space-y-6 rounded-2xl border border-border bg-card p-6">
+          <div className="min-w-0 space-y-6 rounded-2xl border border-border bg-card p-4 sm:p-6">
             <section className="grid gap-4 sm:grid-cols-2">
               <label className="sm:col-span-2"><span className={label}>Service</span>
                 <select className={field} value={form.service} onChange={(e) => set("service", e.target.value)}>
@@ -170,12 +170,10 @@ function BookPage() {
               <label><span className={label}>Area</span>
                 <select className={field} value={form.serviceArea} onChange={(e) => set("serviceArea", e.target.value)}>
                   {SERVICE_AREAS.map((a) => <option key={a}>{a}</option>)}</select></label>
-              <label><span className={label}>Date</span>
-                <input type="date" min={today} className={field} value={form.preferredDate} onChange={(e) => set("preferredDate", e.target.value)} /></label>
-              <label><span className={label}>Time</span>
-                <select className={field} value={form.timeWindow} onChange={(e) => set("timeWindow", e.target.value)}>
-                  {TIME_WINDOWS.map((t) => <option key={t}>{t}</option>)}</select></label>
             </section>
+
+            <AppointmentCalendar date={form.preferredDate} timeWindow={form.timeWindow}
+              onChange={(preferredDate, timeWindow) => setForm((f) => ({ ...f, preferredDate, timeWindow }))} />
 
             <section>
               <p className={label}>Add-ons <span className="font-normal text-muted-foreground">— 1 free per hour of cleaning ({q.includedHours} included), most expensive first</span></p>
@@ -206,6 +204,7 @@ function BookPage() {
 
           <aside className="h-fit rounded-2xl border border-border bg-card p-6 lg:sticky lg:top-6">
             <h2 className="text-lg font-bold text-foreground">Your total</h2>
+            {form.preferredDate && <p className="mt-2 text-sm text-muted-foreground">{form.preferredDate} · {form.timeWindow}</p>}
             <dl className="mt-4 space-y-2 text-sm">
               <Row k={form.service} v={q.base} />
               {q.rooms > 0 && <Row k="Extra rooms" v={q.rooms} />}
