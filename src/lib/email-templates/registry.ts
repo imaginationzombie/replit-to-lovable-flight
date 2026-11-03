@@ -3,6 +3,7 @@ import { template as bookingConfirmation } from './booking-confirmation'
 import { template as cleanerPaymentConfirmation } from './cleaner-payment-confirmation'
 import { template as bookingEstimate } from './booking-estimate'
 import { template as ownerBookingNotification } from './owner-booking-notification'
+import { customerPaymentReceipt, customerTipReceipt, cleanerPayoutReceipt, cleanerTipPayoutReceipt } from './payment-receipts'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -26,6 +27,10 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'cleaner-payment-confirmation': cleanerPaymentConfirmation,
   'booking-estimate': bookingEstimate,
   'owner-booking-notification': ownerBookingNotification,
+  'customer-payment-receipt': customerPaymentReceipt,
+  'customer-tip-receipt': customerTipReceipt,
+  'cleaner-payout-receipt': cleanerPayoutReceipt,
+  'cleaner-tip-payout-receipt': cleanerTipPayoutReceipt,
   // Add templates here as they are created, e.g.:
   // 'welcome': welcomeTemplate,
 }

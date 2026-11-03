@@ -1,6 +1,7 @@
 import { api, payoutEnvironment } from "./payouts.server";
 import { canTip, tipReceiptMatches } from "./tips";
 import { payoutOutcome, payoutValue } from "./payouts";
+import { notifyPaymentReceipt } from "./payment-notices.server";
 
 async function bookingAccess(id: string, token: string) {
   const { supabaseAdmin: db } = await import("@/integrations/supabase/client.server");
@@ -36,7 +37,10 @@ export async function finishTip(id: string, token: string, orderId: string) {
   const { db } = await bookingAccess(id, token);
   const { data: tip } = await db.from("booking_tips").select("*").eq("booking_id", id).eq("paypal_order_id", orderId).single();
   if (!tip) throw new Error("Tip checkout not found.");
-  if (tip.status === "paid") return { paid: true };
+  if (tip.status === "paid") {
+    await notifyPaymentReceipt(db, tip.id, "customer-tip");
+    return { paid: true };
+  }
   // Retrieve first: a previous successful capture may have lost its local receipt.
   let response = await api(`/v2/checkout/orders/${encodeURIComponent(orderId)}`, "GET", undefined, tip.environment);
   if (!response.ok) throw new Error("Could not check your PayPal tip. No additional payment was sent.");
@@ -51,6 +55,7 @@ export async function finishTip(id: string, token: string, orderId: string) {
   if (!response.ok || body.status !== "COMPLETED" || unit?.reference_id !== tip.id || !receipt?.id || !tipReceiptMatches(receipt, tip.amount_cents)) throw new Error("Your tip is not confirmed yet. Check PayPal before paying again.");
   const { error } = await db.from("booking_tips").update({ status: "paid", paypal_capture_id: receipt.id, paid_at: new Date().toISOString() }).eq("id", tip.id);
   if (error) throw new Error("PayPal received your tip. Please contact us to update the receipt; do not pay again.");
+  await notifyPaymentReceipt(db, tip.id, "customer-tip");
   return { paid: true };
 }
 
@@ -87,5 +92,6 @@ export async function transferTip(tipId: string, send: boolean) {
   const status = payoutOutcome(item.transaction_status);
   const { error } = await db.from("booking_tips").update({ payout_status: status, paypal_item_id: item.payout_item_id ?? null, payout_paid_at: status === "paid" ? new Date().toISOString() : null }).eq("id", tip.id);
   if (error) throw new Error("Could not save transfer receipt. Check again; no new payment will be sent.");
+  if (status === "paid" && tip.environment === "live") await notifyPaymentReceipt(db, tip.id, "tip");
   return { message: status === "paid" ? (tip.environment === "live" ? "Tip delivered through PayPal." : "Test tip transfer completed. No real money moved.") : `Tip transfer: ${status}.` };
 }

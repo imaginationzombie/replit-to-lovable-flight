@@ -1,4 +1,5 @@
 import { payoutOutcome, payoutValue } from "./payouts";
+import { notifyPaymentReceipt } from "./payment-notices.server";
 import type { Database } from "@/integrations/supabase/types";
 type Payout = Database["public"]["Tables"]["cleaner_payouts"]["Row"];
 
@@ -55,6 +56,7 @@ export async function transferPayout(payout: Payout, send: boolean) {
   if (outcome === "paid" && payout.environment === "live") {
     const { error } = await db.from("appointment_work").update({ status: "paid", paid_at: new Date().toISOString(), payment_reference: `PayPal ${item.payout_item_id ?? batch}` }).eq("id", payout.work_id);
     if (error) throw new Error("PayPal paid this transfer. Check status again to update the timesheet.");
+    await notifyPaymentReceipt(db, payout.id, "work");
   }
   if (outcome === "failed" && payout.environment === "live") {
     const { error } = await db.from("appointment_work").update({ status: "approved", paid_at: null, payment_reference: "" }).eq("id", payout.work_id);
