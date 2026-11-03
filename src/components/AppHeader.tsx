@@ -32,7 +32,7 @@ export function AppHeader() {
               <Link to="/booking-history" className={link}>Payments & history</Link>
               <Link to="/disputes" className={link}>Disputes</Link>
               <Link to="/messages" className={link}>Messages</Link>
-              {isCleaner && <Link to="/my-page" className={link}>My public page</Link>}
+              {isCleaner && <Link to="/my-page" className={link}>Edit my page</Link>}
               {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
               {isCleaner && <Link to="/cleaner-schedule" className={link}>My schedule</Link>}
               {isCleaner && <Link to="/waiting-list" className={link}>Waiting list</Link>}
