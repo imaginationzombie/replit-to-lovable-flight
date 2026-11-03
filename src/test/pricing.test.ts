@@ -8,8 +8,14 @@ describe("booking price", () => {
   it("deep clean base is $140", () => {
     expect(quote({ service: "Deep Clean", bedrooms: 1, bathrooms: 1, addOns: [], rush: false }).total).toBe(140);
   });
-  it("adds $15 per bedroom over 2 and per bathroom over 1", () => {
-    expect(quote({ service: "Standard Housekeeping", bedrooms: 3, bathrooms: 2, addOns: [], rush: false }).total).toBe(125);
+  it("adds $15 per bedroom over 2", () => {
+    expect(quote({ service: "Standard Housekeeping", bedrooms: 4, bathrooms: 1, addOns: [], rush: false }).rooms).toBe(30);
+  });
+  it("adds $10 per bathroom over 1", () => {
+    expect(quote({ service: "Standard Housekeeping", bedrooms: 2, bathrooms: 3, addOns: [], rush: false }).rooms).toBe(20);
+  });
+  it("combines bedroom and bathroom surcharges", () => {
+    expect(quote({ service: "Standard Housekeeping", bedrooms: 3, bathrooms: 2, addOns: [], rush: false }).totalCents).toBe(12000);
   });
   it("includes 1 free add-on per hour (most expensive first), rest 50% off, plus $15 rush fee, counting each add-on once", () => {
     // Standard = 2 hrs → 2 free add-ons; third (cheapest) is 50% off.
@@ -28,7 +34,7 @@ describe("booking price", () => {
     expect(quote({ service: "Deep Clean", bedrooms: 1, bathrooms: 1, addOns: ["Oven Degrease", "Window Detailing", "Cabinet Interiors"], rush: false }).total).toBe(140);
   });
   it("extra rooms do not add free add-ons, they are charged", () => {
-    // 4 extra rooms: still 2 free (2-hr Standard), rooms add +$60
+    // 4 extra rooms: still 2 free (2-hr Standard), rooms add +$50
     expect(quote({ service: "Standard Housekeeping", bedrooms: 4, bathrooms: 3, addOns: ["Oven Degrease", "Window Detailing", "Cabinet Interiors"], rush: false }).freeAddOns.length).toBe(2);
   });
 });
