@@ -1,0 +1,6 @@
+ALTER TABLE public.hiring_applications ADD COLUMN resume_path text NOT NULL DEFAULT '', ADD COLUMN resume_name text NOT NULL DEFAULT '';
+ALTER TABLE public.hiring_applications ADD CONSTRAINT applicant_resume_owner_path CHECK (resume_path = '' OR (split_part(resume_path, '/', 1) = user_id::text AND length(resume_path) <= 500));
+ALTER TABLE public.hiring_applications ADD CONSTRAINT applicant_resume_name_length CHECK(length(resume_name) <= 200);
+CREATE POLICY "Applicants upload own resumes" ON storage.objects FOR INSERT TO authenticated WITH CHECK(bucket_id='hiring-resumes' AND (storage.foldername(name))[1]=auth.uid()::text AND lower(storage.extension(name)) IN ('pdf','doc','docx'));
+CREATE POLICY "Applicant and admin resume reads" ON storage.objects FOR SELECT TO authenticated USING(bucket_id='hiring-resumes' AND ((storage.foldername(name))[1]=auth.uid()::text OR public.has_role(auth.uid(),'admin')));
+CREATE POLICY "Applicants delete unattached resumes" ON storage.objects FOR DELETE TO authenticated USING(bucket_id='hiring-resumes' AND (storage.foldername(name))[1]=auth.uid()::text AND NOT EXISTS(SELECT 1 FROM public.hiring_applications a WHERE a.resume_path=name));

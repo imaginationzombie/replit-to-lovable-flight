@@ -148,6 +148,13 @@
       "when": 1793670578024,
       "tag": "0020_null_safe_phone_schedule_permissions",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1793732879051,
+      "tag": "0021_applicant_private_resumes",
+      "breakpoints": true
     }
   ]
 }

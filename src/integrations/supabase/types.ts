@@ -585,6 +585,8 @@ export type Database = {
           full_name: string
           id: string
           phone: string
+          resume_name: string
+          resume_path: string
           service_areas: string
           status: string
           user_id: string
@@ -596,6 +598,8 @@ export type Database = {
           full_name: string
           id?: string
           phone?: string
+          resume_name?: string
+          resume_path?: string
           service_areas: string
           status?: string
           user_id: string
@@ -607,6 +611,8 @@ export type Database = {
           full_name?: string
           id?: string
           phone?: string
+          resume_name?: string
+          resume_path?: string
           service_areas?: string
           status?: string
           user_id?: string
