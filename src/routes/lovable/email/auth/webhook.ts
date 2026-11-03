@@ -9,7 +9,7 @@ import { EmailChangeEmail } from '@/lib/email-templates/email-change'
 import { ReauthenticationEmail } from '@/lib/email-templates/reauthentication'
 
 // Configuration
-const SITE_NAME = "Replit To Lovable Flight"
+const SITE_NAME = "HousekeepingBooking.com"
 const SENDER_DOMAIN = "notify.housekeepingbooking.com"
 const ROOT_DOMAIN = "housekeepingbooking.com"
 const FROM_DOMAIN = "housekeepingbooking.com"
