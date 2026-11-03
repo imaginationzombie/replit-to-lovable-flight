@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Essential account emails, customer payment/tip receipts and verified cleaner settlement notices; preserve existing booking and estimate emails
+- [x] Essential account email templates, customer payment/tip receipts and verified cleaner settlement notices; 38 checks passed, six account previews and unsigned-request rejection verified, test receipt sent; publish required for new account email routes
 
 - [x] Phone requests visible in staff calendars; signed-in date/window move and customer requested-state readback verified, temporary booking removed without charges
 - [x] Staff dashboard for phone bookings, estimates and visits with persistent date/cleaner filters; filtered list/calendar verified, permissions and filters tested
