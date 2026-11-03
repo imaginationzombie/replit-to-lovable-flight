@@ -8,7 +8,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { TIME_WINDOWS } from "@/lib/pricing";
-import { canMoveJob, dateKey, weekDates } from "@/lib/scheduling";
+import { canMoveJob, dateKey, weekDates, isPhoneRequest } from "@/lib/scheduling";
 import type { BookingRow } from "@/components/BookingCard";
 import { refreshBookingViews } from "@/lib/booking-sync";
 import { CleanerDateBlocks } from "@/components/CleanerDateBlocks";
@@ -23,6 +23,7 @@ function Job({ booking, movable, open, cleaner }: { booking: BookingRow; movable
     {cleaner && <p className="mt-1 break-words text-xs font-semibold">{cleaner}</p>}
     <p className="mt-1 truncate text-xs text-muted-foreground" title={booking.service}>{booking.service}</p>
     <p className="mt-1 text-xs">{booking.time_window}</p>
+    {isPhoneRequest(booking) && <p className="mt-1 text-xs font-bold">Phone request · awaiting checkout</p>}
     <div className="mt-1 flex items-center justify-between gap-1">
       {movable && <Button variant="ghost" size="icon" className="h-7 w-6 shrink-0 touch-none cursor-grab" aria-label={`Move ${booking.customer_name}`} title="Move booking" {...listeners} {...attributes}><GripVertical /></Button>}
       {movable && <Button variant="ghost" size="icon" className="h-7 w-6 shrink-0" onClick={open} aria-label={`Reschedule ${booking.customer_name}`} title="Reschedule"><CalendarClock /></Button>}
@@ -47,8 +48,8 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }), useSensor(KeyboardSensor));
   const bookings = useQuery({ queryKey: ["scheduler-bookings", canAdmin, user?.id], enabled: !!user && (canAdmin || isCleaner), refetchInterval: 15000,
     queryFn: async () => {
-      let query = supabase.from("bookings").select("*").in("status", ["confirmed", "completed"]).order("preferred_date").order("time_window");
-      if (!canAdmin) query = query.eq("cleaner_id", user?.id ?? "");
+      let query = supabase.from("bookings").select("*").or("status.in.(confirmed,completed),and(status.eq.pending_payment,created_by_staff.not.is.null)").order("preferred_date").order("time_window");
+      if (!canAdmin) query = query.or(`cleaner_id.eq.${user?.id ?? ""},and(status.eq.pending_payment,created_by_staff.eq.${user?.id ?? ""})`);
       const { data, error } = await query;
       if (error) throw error;
       return data as BookingRow[];
@@ -60,7 +61,7 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
   const update = useMutation({ mutationFn: async (v: Move) => {
     const { error } = await supabase.rpc("reschedule_booking", {
       _booking_id: v.booking.id, _date: v.date, _time_window: v.time, _assignment: { cleaner_id: v.cleanerId },
-      _expected: { date: v.booking.preferred_date, time_window: v.booking.time_window, cleaner_id: v.booking.cleaner_id },
+      _expected: { date: v.booking.preferred_date, time_window: v.booking.time_window, cleaner_id: v.booking.cleaner_id, status: v.booking.status },
     });
     if (error) throw error;
   }, onSuccess: async () => {
@@ -71,7 +72,7 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
   const monthStart = startOfMonth(week);
   const calendarStart = startOfWeek(monthStart, { weekStartsOn: 1 });
   const monthDays = Array.from({ length: 42 }, (_, i) => addDays(calendarStart, i));
-  const allGroups = canAdmin ? [{ id: null, label: "Unassigned" }, ...(cleaners.data ?? []).map(c => ({ id: c.id as string | null, label: c.full_name || c.email }))] : [{ id: user?.id ?? null, label: "My schedule" }];
+  const allGroups = canAdmin ? [{ id: null, label: "Unassigned / phone requests" }, ...(cleaners.data ?? []).map(c => ({ id: c.id as string | null, label: c.full_name || c.email }))] : [{ id: user?.id ?? null, label: "My schedule" }, { id: null, label: "My phone requests" }];
   const groups = allGroups.filter(g => filter === "all" || (g.id ?? "unassigned") === filter);
   const rows = bookings.data ?? [];
   const visibleRows = rows.filter(b => filter === "all" || (b.cleaner_id ?? "unassigned") === filter);
@@ -83,7 +84,7 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
     const booking = rows.find(b => b.id === event.active.id);
     const target = event.over?.data.current as Target | undefined;
     if (!booking || !target || !canMoveJob(canAdmin, user?.id, booking)) return;
-    const assignment = target.preserveCleaner ? booking.cleaner_id : target.cleanerId;
+    const assignment = target.preserveCleaner || isPhoneRequest(booking) ? booking.cleaner_id : target.cleanerId;
     if (target.date === booking.preferred_date && assignment === booking.cleaner_id) return;
     beginMove(booking, { ...target, cleanerId: assignment });
   }
@@ -114,7 +115,8 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
       {move && <form className="space-y-4" onSubmit={e => { e.preventDefault(); update.mutate(move); }}>
         <label className="block text-sm font-semibold">Date<input required type="date" min={dateKey(new Date())} value={move.date} onChange={e => setMove({ ...move, date: e.target.value })} className="mt-1 block w-full rounded-md border border-input bg-background p-2 text-foreground" /></label>
         <label className="block text-sm font-semibold">Time window<select value={move.time} onChange={e => setMove({ ...move, time: e.target.value })} className="mt-1 block w-full rounded-md border border-input bg-background p-2 text-foreground">{TIME_WINDOWS.map(t => <option key={t}>{t}</option>)}</select></label>
-        {canAdmin && <label className="block text-sm font-semibold">Employee<select value={move.cleanerId ?? ""} onChange={e => setMove({ ...move, cleanerId: e.target.value || null })} className="mt-1 block w-full rounded-md border border-input bg-background p-2 text-foreground">{allGroups.map(g => <option key={g.id ?? "unassigned"} value={g.id ?? ""}>{g.label}</option>)}</select></label>}
+        {canAdmin && !isPhoneRequest(move.booking) && <label className="block text-sm font-semibold">Employee<select value={move.cleanerId ?? ""} onChange={e => setMove({ ...move, cleanerId: e.target.value || null })} className="mt-1 block w-full rounded-md border border-input bg-background p-2 text-foreground">{allGroups.map(g => <option key={g.id ?? "unassigned"} value={g.id ?? ""}>{g.label}</option>)}</select></label>}
+        {isPhoneRequest(move.booking) && <p className="text-sm text-muted-foreground">Phone request · awaiting customer checkout. No payment or cleaner assignment changes.</p>}
         {update.error && <p role="alert" className="text-sm text-destructive">{update.error.message}</p>}
         <div className="flex justify-end gap-2"><Button type="button" variant="outline" disabled={update.isPending} onClick={() => setMove(null)}>Cancel</Button><Button disabled={update.isPending}>{update.isPending ? "Saving…" : "Save schedule"}</Button></div>
       </form>}
