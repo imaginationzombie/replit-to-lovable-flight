@@ -1,6 +1,7 @@
 # Roadmap
 
 - [ ] Show phone requests in staff calendars with secure rescheduling and customer date/window readback
+- [ ] Staff dashboard for phone bookings, estimates and scheduled visits with date/cleaner filters; preserve staff-scoped private access
 
 - [x] Staff phone bookings with saved caller details and shared estimates; signed-in save, customer readback, sent email event and 320–767px fit verified; token/amount tests passed, temporary booking removed, no live charge
 
