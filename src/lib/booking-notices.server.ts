@@ -38,10 +38,33 @@ export async function sendCleanerPaymentNotice(db: Db, bookingId: string) {
   });
 }
 
+export async function sendOwnerBookingNotice(db: Db, bookingId: string) {
+  const { data: b, error } = await db.from("bookings").select("id, status, customer_name, email, phone, service, preferred_date, time_window, address, frequency, cleaner_id, amount_cents").eq("id", bookingId).single();
+  if (error) throw new Error("Cannot load appointment for owner notification.");
+  if (!b || b.status !== "confirmed") return { sent: false as const, reason: "not_confirmed" };
+  let cleaner = "Assignment pending";
+  if (b.cleaner_id) {
+    const { data: profile } = await db.from("profiles").select("full_name").eq("id", b.cleaner_id).maybeSingle();
+    cleaner = profile?.full_name || "Cleaner assigned";
+  }
+  return sendTemplateEmail("owner-booking-notification", "", {
+    templateData: { name: b.customer_name, email: b.email, phone: b.phone, service: b.service, date: visitDate(b.preferred_date), time: b.time_window, address: b.address, frequency: b.frequency, cleaner, amount: new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(b.amount_cents / 100) },
+    idempotencyKey: `owner-booking-notification-${b.id}`,
+  });
+}
+
 /** Email outages must never turn a successful payment into a failed checkout or another charge. */
 export async function notifyBookingEvent(db: Db, id: string, event: "confirmed" | "paid") {
+  // Attempt each recipient independently: a customer email failure must not hide a new booking from the owner.
+  if (event === "confirmed") {
+    await safeBookingNotice(() => sendOwnerBookingNotice(db, id), id, "owner-confirmed");
+  }
+  return safeBookingNotice(() => event === "confirmed" ? sendBookingNotice(db, id) : sendCleanerPaymentNotice(db, id), id, event);
+}
+
+async function safeBookingNotice(send: () => Promise<{ sent: boolean; reason?: string }>, id: string, event: string) {
   try {
-    return event === "confirmed" ? await sendBookingNotice(db, id) : await sendCleanerPaymentNotice(db, id);
+    return await send();
   } catch (error) {
     const code = error && typeof error === "object" && "code" in error ? String(error.code) : "send_failed";
     console.error("Booking email not sent", { bookingId: id, event, code });
