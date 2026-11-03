@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Make the housekeeper public-page editor easy to reach from the panel, with profile, photo and publication controls; verify signed-in saving
+
 - [x] Light/Medium/Heavy fixed $15 price steps across estimators and checkout; level saved for recurring bookings, public and checkout totals verified, pricing and PayPal payload tests passed without live charges
 
 - [x] Customer date and arrival-window calendar in checkout; selections and phone sizing verified
