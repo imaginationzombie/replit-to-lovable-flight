@@ -12,6 +12,25 @@ export function HousekeeperEstimator({ id, name, areas }: { id: string; name: st
   const field = "mt-2 w-full min-w-0 rounded-md border border-input bg-background px-3 py-2 text-sm";
   const draft = () => sessionStorage.setItem("hkb-booking-draft", JSON.stringify({ source: "estimator", service, bedrooms, bathrooms, addOns, serviceArea: SERVICE_AREAS.find(a => areas.toLowerCase().includes(a.toLowerCase())) }));
   return <section className="border-b border-border py-8" aria-labelledby="estimate-heading">
+    <div className="mb-8 border-b border-border pb-6">
+      <p className="text-sm font-semibold text-primary">First-cleaning offers</p>
+      <h2 className="mt-2 text-2xl font-bold text-foreground">A fresh start for your home</h2>
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        <div className="min-w-0 border-l-4 border-primary bg-accent px-4 py-5">
+          <h3 className="text-lg font-semibold text-accent-foreground">First 1-hour cleaning</h3>
+          <p className="mt-2 text-4xl font-extrabold text-primary">$35</p>
+        </div>
+        <div className="min-w-0 border-l-4 border-secondary bg-muted px-4 py-5">
+          <h3 className="text-lg font-semibold text-foreground">First 2-hour cleaning</h3>
+          <p className="mt-2 text-4xl font-extrabold text-primary">$65</p>
+        </div>
+      </div>
+      <p className="mt-4 text-sm text-muted-foreground">Introductory offers advertised here are not applied automatically. Standard prices are shown in the estimator and at checkout.</p>
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        <div className="min-w-0"><h3 className="font-bold text-primary">1 free add-on per cleaning hour</h3><p className="mt-1 text-sm text-muted-foreground">Based on your service’s included hours. Your most expensive selected add-ons are free first.</p></div>
+        <div className="min-w-0"><h3 className="font-bold text-primary">50% off extra add-ons</h3><p className="mt-1 text-sm text-muted-foreground">Every remaining add-on is half price.</p></div>
+      </div>
+    </div>
     <h2 id="estimate-heading" className="break-words text-2xl font-bold">Book with {name}</h2>
     <div className="mt-5 grid min-w-0 gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
       <div className="min-w-0 space-y-4">
