@@ -3,6 +3,7 @@ import { template as bookingConfirmation } from './booking-confirmation'
 import { template as cleanerPaymentConfirmation } from './cleaner-payment-confirmation'
 import { template as bookingEstimate } from './booking-estimate'
 import { template as ownerBookingNotification } from './owner-booking-notification'
+import { template as interviewConfirmation } from './interview-confirmation'
 import { customerPaymentReceipt, customerTipReceipt, cleanerPayoutReceipt, cleanerTipPayoutReceipt } from './payment-receipts'
 
 export interface TemplateEntry {
@@ -31,6 +32,7 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'customer-tip-receipt': customerTipReceipt,
   'cleaner-payout-receipt': cleanerPayoutReceipt,
   'cleaner-tip-payout-receipt': cleanerTipPayoutReceipt,
+  'interview-confirmation': interviewConfirmation,
   // Add templates here as they are created, e.g.:
   // 'welcome': welcomeTemplate,
 }
