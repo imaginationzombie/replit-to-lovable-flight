@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { getRequestHeader } from "@tanstack/react-start/server";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS } from "./pricing";
+import { ADD_ONS, FREQUENCIES, SERVICE_AREAS, SERVICE_BASE, TIME_WINDOWS, CLEANING_LEVELS } from "./pricing";
 
 const bookingSchema = z.object({
   customerName: z.string().trim().min(2).max(100),
@@ -16,6 +16,7 @@ const bookingSchema = z.object({
   bathrooms: z.number().int().min(1).max(10),
   addOns: z.array(z.string().refine((a) => a in ADD_ONS)).max(12),
   rush: z.boolean(),
+  cleaningLevel: z.enum(CLEANING_LEVELS).default("Light"),
   preferredDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   timeWindow: z.enum(TIME_WINDOWS as [string, ...string[]]),
   notes: z.string().max(1000),

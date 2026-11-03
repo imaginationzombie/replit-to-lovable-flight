@@ -2,6 +2,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AppHeader } from "@/components/AppHeader";
 import { AppointmentCalendar } from "@/components/AppointmentCalendar";
+import { CleaningLevelPicker } from "@/components/CleaningLevelPicker";
+import { CLEANING_LEVELS, type CleaningLevel } from "@/lib/pricing";
 import { publicPortfolio } from "@/lib/portfolio.functions";
 import { z } from "zod";
 import { useEffect, useRef, useState } from "react";
@@ -35,12 +37,14 @@ type Form = {
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
   requestedCleanerId?: string | undefined;
+  cleaningLevel: CleaningLevel;
 };
 
 const empty: Form = {
   customerName: "", email: "", phone: "", address: "", serviceArea: SERVICE_AREAS[0] ?? "",
   service: "Standard Housekeeping", frequency: "One-time", bedrooms: 2, bathrooms: 1, addOns: [],
   rush: false, preferredDate: "", timeWindow: TIME_WINDOWS[0] ?? "", notes: "",
+  cleaningLevel: "Light",
 };
 
 declare global {
@@ -86,6 +90,7 @@ function BookPage() {
       setForm((f) => ({
         ...f,
         service: r.service in SERVICE_BASE ? r.service : f.service,
+        cleaningLevel: CLEANING_LEVELS.includes(r.cleaningLevel) ? r.cleaningLevel : f.cleaningLevel,
         frequency: FREQUENCIES.includes(r.frequency) ? r.frequency : f.frequency,
         bedrooms: Math.min(10, Math.max(1, Math.round(r.bedrooms) || f.bedrooms)),
         bathrooms: Math.min(10, Math.max(1, Math.round(r.bathrooms) || f.bathrooms)),
@@ -195,6 +200,7 @@ function BookPage() {
                   {SERVICE_AREAS.map((a) => <option key={a}>{a}</option>)}</select></label>
             </section>
 
+            <CleaningLevelPicker value={form.cleaningLevel} onChange={value => set("cleaningLevel", value)} />
             <AppointmentCalendar date={form.preferredDate} timeWindow={form.timeWindow}
               onChange={(preferredDate, timeWindow) => setForm((f) => ({ ...f, preferredDate, timeWindow }))} />
 
@@ -230,6 +236,7 @@ function BookPage() {
             {form.preferredDate && <p className="mt-2 text-sm text-muted-foreground">{form.preferredDate} · {form.timeWindow}</p>}
             <dl className="mt-4 space-y-2 text-sm">
               <Row k={form.service} v={q.base} />
+              {q.cleaningLevel > 0 && <Row k={`${form.cleaningLevel} cleaning`} v={q.cleaningLevel} />}
               {q.rooms > 0 && <Row k="Extra rooms" v={q.rooms} />}
               {q.addOns > 0 && <Row k={`Add-ons (${form.addOns.length})`} v={q.addOns} />}
               <p className="text-xs font-semibold text-primary">{q.includedHours} hr clean includes {q.includedHours} free add-on{q.includedHours === 1 ? "" : "s"}{q.freeAddOns.length ? ` (${q.freeAddOns.length} used)` : ""}. Extra add-ons 50% off.</p>
