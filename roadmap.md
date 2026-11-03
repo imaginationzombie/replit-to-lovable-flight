@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Customer date and time calendar in checkout
+- [ ] Estimator on individual housekeeper pages with direct booking for that housekeeper
+
 - [ ] Real Lewistown booking: confirm, customer payment, actual clock-in/out and cleaner payout; awaiting actual appointment details and customer PayPal authorization
 
 - [x] Fit the entire phone homepage and shared navigation within the screen; no clipped containers at 320–767px, desktop preserved at 1280px, room/add-on selections and public booking pages verified
