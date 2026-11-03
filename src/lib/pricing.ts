@@ -40,12 +40,13 @@ export const ROOM_MINUTES = 15;
 export function includedAddOns(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[] }) {
   const mins = SERVICE_MINUTES[input.service] ?? 0; // extra rooms are charged, they do not add free add-ons
   const hours = Math.floor(mins / 60);
-  const picked = [...new Set(input.addOns)].filter((a) => a in ADD_ONS).sort((a, b) => ADD_ONS[b]! - ADD_ONS[a]! || a.localeCompare(b));
+  const picked = [...new Set(input.addOns)].filter((a) => a in ADD_ONS).sort((a, b) => (ADD_ONS[b] ?? 0) - (ADD_ONS[a] ?? 0) || a.localeCompare(b));
   return { hours, free: picked.slice(0, hours), paid: picked.slice(hours) };
 }
 
 export const RUSH_FEE = 15;
-export const ROOM_SURCHARGE = 15;
+export const BEDROOM_SURCHARGE = 15;
+export const BATHROOM_SURCHARGE = 10;
 
 export const SERVICE_AREAS = [
   "DuBois & Sandy Twp",
@@ -62,7 +63,7 @@ export const FREQUENCIES = ["One-time", "Weekly", "Bi-weekly", "Monthly"];
 
 export function quote(input: { service: string; bedrooms: number; bathrooms: number; addOns: string[]; rush: boolean }) {
   const base = SERVICE_BASE[input.service] ?? 0;
-  const rooms = Math.max(0, input.bedrooms - 2) * ROOM_SURCHARGE + Math.max(0, input.bathrooms - 1) * ROOM_SURCHARGE;
+  const rooms = Math.max(0, input.bedrooms - 2) * BEDROOM_SURCHARGE + Math.max(0, input.bathrooms - 1) * BATHROOM_SURCHARGE;
   const inc = includedAddOns(input);
   const addOns = inc.paid.reduce((s, a) => s + addOnPrice(a), 0);
   const rush = input.rush ? RUSH_FEE : 0;
