@@ -328,14 +328,14 @@
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-on-surface-variant uppercase">Condition &amp; Soiling Level</label>
 <div class="grid grid-cols-3 gap-2" id="intensitySelector">
-<button class="intensity-btn active p-2.5 rounded-xl bg-primary text-on-primary text-xs font-bold text-center" data-multiplier="1.0" type="button">
-                      Light (1.0x)
+<button class="intensity-btn active p-2.5 rounded-xl bg-primary text-on-primary text-xs font-bold text-center" data-addition="0" type="button">
+                      Light (Base price)
                     </button>
-<button class="intensity-btn p-2.5 rounded-xl bg-surface-container text-on-surface text-xs font-bold text-center hover:bg-surface-container-high transition-colors" data-multiplier="1.25" type="button">
-                      Medium (+25%)
+<button class="intensity-btn p-2.5 rounded-xl bg-surface-container text-on-surface text-xs font-bold text-center hover:bg-surface-container-high transition-colors" data-addition="15" type="button">
+                      Medium (+$15)
                     </button>
-<button class="intensity-btn p-2.5 rounded-xl bg-surface-container text-on-surface text-xs font-bold text-center hover:bg-surface-container-high transition-colors" data-multiplier="1.50" type="button">
-                      Heavy (+50%)
+<button class="intensity-btn p-2.5 rounded-xl bg-surface-container text-on-surface text-xs font-bold text-center hover:bg-surface-container-high transition-colors" data-addition="30" type="button">
+                      Heavy (+$30)
                     </button>
 </div>
 </div>
@@ -612,7 +612,7 @@
 </div>
 <div class="flex justify-between items-center text-on-surface">
 <span class="text-on-surface-variant">Intensity Configuration:</span>
-<span class="font-bold" id="summaryIntensity">Light (1.0x)</span>
+<span class="font-bold" id="summaryIntensity">Light (Base price)</span>
 </div>
 <div class="flex justify-between items-center text-on-surface">
 <span class="text-on-surface-variant">Crew Allocation:</span>
@@ -929,8 +929,8 @@
         category: 'housekeeping',
         basePrice: 95,
         baseDuration: 120, // minutes
-        intensityMultiplier: 1.0,
-        intensityLabel: 'Light (1.0x)',
+        intensityAddition: 0,
+        intensityLabel: 'Light (Base price)',
         crewMultiplier: 1.0,
         crewLabel: '1 Solo Pro',
         beds: 2,
@@ -1131,7 +1131,8 @@
           });
           btn.classList.add('bg-primary', 'text-on-primary');
           btn.classList.remove('bg-surface-container', 'text-on-surface');
-          state.intensityMultiplier = parseFloat(btn.getAttribute('data-multiplier'));
+          state.intensityAddition = parseFloat(btn.getAttribute('data-addition'));
+          sessionStorage.setItem('hkb-cleaning-level', state.intensityAddition === 30 ? 'Heavy' : state.intensityAddition === 15 ? 'Medium' : 'Light');
           state.intensityLabel = btn.innerText.trim();
           recalculate();
         });
@@ -1290,7 +1291,7 @@
         }
 
         // Subtotal calculation
-        let subtotal = (state.basePrice + roomSurcharge) * state.intensityMultiplier * state.crewMultiplier;
+        let subtotal = (state.basePrice + roomSurcharge) * state.crewMultiplier + state.intensityAddition;
 
         // Add-ons
         if (isHousekeeping) {

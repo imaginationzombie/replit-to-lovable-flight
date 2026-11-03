@@ -2,6 +2,10 @@ import { describe, expect, it } from "vitest";
 import { matchAddOns, quote } from "@/lib/pricing";
 
 describe("booking price", () => {
+  const levelInput = { service: "Standard Housekeeping", bedrooms: 2, bathrooms: 1, addOns: [], rush: false };
+  it("Light keeps the current $95 price", () => expect(quote({ ...levelInput, cleaningLevel: "Light" }).total).toBe(95));
+  it("Medium adds exactly $15", () => expect(quote({ ...levelInput, cleaningLevel: "Medium" }).total).toBe(110));
+  it("Heavy adds exactly $30, $15 above Medium", () => expect(quote({ ...levelInput, cleaningLevel: "Heavy" }).total).toBe(125));
   it("2 bed / 1 bath standard clean is $95", () => {
     expect(quote({ service: "Standard Housekeeping", bedrooms: 2, bathrooms: 1, addOns: [], rush: false }).total).toBe(95);
   });

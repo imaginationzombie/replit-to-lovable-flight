@@ -11,7 +11,8 @@
 
 - Marketing uses public/*.html ("/" redirects to /index.html); interactive features use React routes and shared tokens. Maintain public/sitemap.xml for inspected public pages only, excluding private/demo/checkout pages; omit lastmod without page-specific dates. Why: preserves the migrated design without advertising internal demos.
 - Homepage phone styles stay inline; its location module selects the nearest area with browser permission and syncs the estimator. Why: keep coordinates on-device and manual choices intact.
-- AI calls live in src/lib/*.server.ts (gateway, Responses API, structured output) behind createServerFn wrappers in *.functions.ts. Why: keeps the API key server-side.
+- Cleaning levels use shared quote fees persisted and copied to repeat bookings; static estimators mirror them. Why: charges match the chosen level.
+- AI uses server-only helpers behind server functions. Why: keeps keys private.
 - Accounts: roles live in user_roles (admin/cleaner/customer, checked via has_role); a signup trigger creates the profile + customer role. Signed-in pages live under src/routes/_authenticated and read data with the browser client under RLS. Why: no privilege escalation, and access is enforced by the database.
 - Staff scheduling uses shared dnd-kit views and schedule_booking with permissions, conflicts and versions enforced; customer AppointmentCalendar submits dates and arrival windows, not live availability. Why: protects private schedules and avoids promising unassigned staff.
 - The availability creator edits only the signed-in cleaner's existing cleaner_settings hours, days off and accepting status; shared validation also applies to the profile editor. Why: availability is consistent across jobs and admin views without replacing profile or rate data.

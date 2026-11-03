@@ -1,4 +1,4 @@
-import { quote } from "./pricing";
+import { quote, type CleaningLevel } from "./pricing";
 import { notifyBookingEvent } from "./booking-notices.server";
 
 function paypalBase() {
@@ -37,6 +37,7 @@ export type BookingInput = {
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
   requestedCleanerId?: string | undefined;
+  cleaningLevel?: CleaningLevel | undefined;
 };
 
 export async function createBookingOrder(input: BookingInput, userId: string | null, origin = "") {
@@ -51,6 +52,7 @@ export async function createBookingOrder(input: BookingInput, userId: string | n
       bedrooms: input.bedrooms, bathrooms: input.bathrooms, add_ons: input.addOns, rush: input.rush,
       preferred_date: input.preferredDate, time_window: input.timeWindow, notes: input.notes,
       amount_cents: q.totalCents, user_id: userId, requested_cleaner_id: input.requestedCleanerId ?? null,
+      cleaning_level: input.cleaningLevel ?? "Light",
     })
     .select("id")
     .single();
@@ -230,7 +232,8 @@ export async function completeVisit(bookingId: string) {
         customer_name: b.customer_name, email: b.email, phone: b.phone, address: b.address, service_area: b.service_area,
         service: b.service, frequency: b.frequency, bedrooms: b.bedrooms, bathrooms: b.bathrooms, add_ons: b.add_ons,
         rush: false, preferred_date: next, time_window: b.time_window, notes: b.notes,
-        amount_cents: quote({ service: b.service, bedrooms: b.bedrooms, bathrooms: b.bathrooms, addOns: b.add_ons, rush: false }).totalCents,
+        cleaning_level: b.cleaning_level,
+        amount_cents: quote({ service: b.service, bedrooms: b.bedrooms, bathrooms: b.bathrooms, addOns: b.add_ons, rush: false, cleaningLevel: b.cleaning_level === "Medium" || b.cleaning_level === "Heavy" ? b.cleaning_level : "Light" }).totalCents,
         user_id: b.user_id, cleaner_id: b.cleaner_id, paypal_vault_id: b.paypal_vault_id,
       }).select("id").single();
       if (error) console.error("Next visit insert failed", error);

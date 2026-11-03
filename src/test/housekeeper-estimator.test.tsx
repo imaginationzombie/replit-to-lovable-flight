@@ -8,8 +8,9 @@ it("carries the client's estimate selections and chosen housekeeper into booking
   fireEvent.change(screen.getByLabelText("Bedrooms"), { target: { value: "3" } });
   fireEvent.change(screen.getByLabelText("Bathrooms"), { target: { value: "2" } });
   fireEvent.click(screen.getByLabelText(/Microwave & Hood/));
+  fireEvent.click(screen.getByRole("button", { name: /Medium/ }));
   const link = screen.getByRole("link");
   expect(link.getAttribute("href")).toBe("/book?housekeeper=11111111-1111-4111-8111-111111111111");
   fireEvent.click(link);
-  expect(JSON.parse(sessionStorage.getItem("hkb-booking-draft") ?? "{}")).toMatchObject({ source: "estimator", bedrooms: 3, bathrooms: 2, addOns: ["Microwave & Hood"], serviceArea: "Lewistown, PA" });
+  expect(JSON.parse(sessionStorage.getItem("hkb-booking-draft") ?? "{}")).toMatchObject({ source: "estimator", bedrooms: 3, bathrooms: 2, cleaningLevel: "Medium", addOns: ["Microwave & Hood"], serviceArea: "Lewistown, PA" });
 });
