@@ -35,7 +35,7 @@ export const sendPhoneEstimate = createServerFn({ method: "POST" })
     const { EmailAPIError } = await import("@lovable.dev/email-js");
     try {
       const result = await sendTemplateEmail("booking-estimate", b.email, {
-        idempotencyKey: `booking-estimate-${b.id}`,
+        idempotencyKey: `booking-estimate-${b.id}-${b.preferred_date}-${encodeURIComponent(b.time_window)}`,
         templateData: { name: b.customer_name, service: b.service, level: b.cleaning_level, date: b.preferred_date, time: b.time_window, address: b.address, frequency: b.frequency, home: `${b.bedrooms} bedrooms / ${b.bathrooms} bathrooms`, addOns: b.add_ons.join(", "), amount: `$${(b.amount_cents / 100).toFixed(2)}`, url: `https://housekeepingbooking.com/booking/${b.id}?t=${b.access_token}` },
       });
       return { sent: result.sent, message: result.sent ? "Estimate sent to the customer's email." : "Booking saved, but this address cannot receive app emails." };
