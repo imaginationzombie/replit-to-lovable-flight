@@ -15,7 +15,7 @@ function OwnerBookingNotification({ name, email, phone, service, date, time, add
 }
 export const template = {
   component: OwnerBookingNotification,
-  subject: (data: Record<string, unknown>) => `${data.test ? "Test booking alert" : "New cleaning appointment"} | HousekeepingBooking.com`,
+  subject: (data: Record<string, unknown>) => `${data['test'] ? "Test booking alert" : "New cleaning appointment"} | HousekeepingBooking.com`,
   displayName: "Owner booking alert",
   to: "chelsealawhead88@gmail.com",
   previewData: { name: "Example customer", service: "Standard Housekeeping", date: "Monday, November 9, 2026", time: "Morning (8am–12pm)", cleaner: "Assignment pending", amount: "$95.00" },
