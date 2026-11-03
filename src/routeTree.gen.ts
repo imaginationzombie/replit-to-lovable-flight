@@ -29,6 +29,7 @@ import { Route as AuthenticatedDisputesRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
 import { Route as AuthenticatedMyPageRouteImport } from './routes/_authenticated/my-page'
 import { Route as AuthenticatedPhoneBookingRouteImport } from './routes/_authenticated/phone-booking'
+import { Route as AuthenticatedStaffDashboardRouteImport } from './routes/_authenticated/staff-dashboard'
 import { Route as AuthenticatedTimeClockRouteImport } from './routes/_authenticated/time-clock'
 import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authenticated/timesheets'
 import { Route as AuthenticatedWaitingListRouteImport } from './routes/_authenticated/waiting-list'
@@ -142,6 +143,12 @@ const AuthenticatedPhoneBookingRoute =
     path: '/phone-booking',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedStaffDashboardRoute =
+  AuthenticatedStaffDashboardRouteImport.update({
+    id: '/staff-dashboard',
+    path: '/staff-dashboard',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedTimeClockRoute = AuthenticatedTimeClockRouteImport.update({
   id: '/time-clock',
   path: '/time-clock',
@@ -195,6 +202,7 @@ export interface FileRoutesByFullPath {
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/phone-booking': typeof AuthenticatedPhoneBookingRoute
+  '/staff-dashboard': typeof AuthenticatedStaffDashboardRoute
   '/time-clock': typeof AuthenticatedTimeClockRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
@@ -222,6 +230,7 @@ export interface FileRoutesByTo {
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/phone-booking': typeof AuthenticatedPhoneBookingRoute
+  '/staff-dashboard': typeof AuthenticatedStaffDashboardRoute
   '/time-clock': typeof AuthenticatedTimeClockRoute
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
@@ -251,6 +260,7 @@ export interface FileRoutesById {
   '/_authenticated/messages': typeof AuthenticatedMessagesRoute
   '/_authenticated/my-page': typeof AuthenticatedMyPageRoute
   '/_authenticated/phone-booking': typeof AuthenticatedPhoneBookingRoute
+  '/_authenticated/staff-dashboard': typeof AuthenticatedStaffDashboardRoute
   '/_authenticated/time-clock': typeof AuthenticatedTimeClockRoute
   '/_authenticated/timesheets': typeof AuthenticatedTimesheetsRoute
   '/_authenticated/waiting-list': typeof AuthenticatedWaitingListRoute
@@ -280,6 +290,7 @@ export interface FileRouteTypes {
     | '/messages'
     | '/my-page'
     | '/phone-booking'
+    | '/staff-dashboard'
     | '/time-clock'
     | '/timesheets'
     | '/waiting-list'
@@ -307,6 +318,7 @@ export interface FileRouteTypes {
     | '/messages'
     | '/my-page'
     | '/phone-booking'
+    | '/staff-dashboard'
     | '/time-clock'
     | '/timesheets'
     | '/waiting-list'
@@ -335,6 +347,7 @@ export interface FileRouteTypes {
     | '/_authenticated/messages'
     | '/_authenticated/my-page'
     | '/_authenticated/phone-booking'
+    | '/_authenticated/staff-dashboard'
     | '/_authenticated/time-clock'
     | '/_authenticated/timesheets'
     | '/_authenticated/waiting-list'
@@ -497,6 +510,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPhoneBookingRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/staff-dashboard': {
+      id: '/_authenticated/staff-dashboard'
+      path: '/staff-dashboard'
+      fullPath: '/staff-dashboard'
+      preLoaderRoute: typeof AuthenticatedStaffDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/time-clock': {
       id: '/_authenticated/time-clock'
       path: '/time-clock'
@@ -557,6 +577,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
   AuthenticatedMyPageRoute: typeof AuthenticatedMyPageRoute
   AuthenticatedPhoneBookingRoute: typeof AuthenticatedPhoneBookingRoute
+  AuthenticatedStaffDashboardRoute: typeof AuthenticatedStaffDashboardRoute
   AuthenticatedTimeClockRoute: typeof AuthenticatedTimeClockRoute
   AuthenticatedTimesheetsRoute: typeof AuthenticatedTimesheetsRoute
   AuthenticatedWaitingListRoute: typeof AuthenticatedWaitingListRoute
@@ -577,6 +598,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
   AuthenticatedMyPageRoute: AuthenticatedMyPageRoute,
   AuthenticatedPhoneBookingRoute: AuthenticatedPhoneBookingRoute,
+  AuthenticatedStaffDashboardRoute: AuthenticatedStaffDashboardRoute,
   AuthenticatedTimeClockRoute: AuthenticatedTimeClockRoute,
   AuthenticatedTimesheetsRoute: AuthenticatedTimesheetsRoute,
   AuthenticatedWaitingListRoute: AuthenticatedWaitingListRoute,

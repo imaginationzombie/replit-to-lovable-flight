@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Phone requests visible in staff calendars; signed-in date/window move and customer requested-state readback verified, temporary booking removed without charges
+- [x] Staff dashboard for phone bookings, estimates and visits with persistent date/cleaner filters; filtered list/calendar verified, permissions and filters tested
+
 - [x] Staff phone bookings with saved caller details and shared estimates; signed-in save, customer readback, sent email event and 320–767px fit verified; token/amount tests passed, temporary booking removed, no live charge
 
 - [x] Housekeeper panel links to public-page editor with details, portrait, gallery and publication controls; signed-in save/reload and 320–767px fit verified, original content restored

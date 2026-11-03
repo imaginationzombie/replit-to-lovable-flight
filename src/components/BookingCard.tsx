@@ -8,6 +8,7 @@ export type BookingRow = {
   add_ons: string[]; rush: boolean; preferred_date: string; time_window: string; notes: string;
   amount_cents: number; cleaner_id: string | null; created_at: string;
   paid_at?: string | null; access_token?: string; visit_number?: number;
+  created_by_staff?: string | null;
 };
 
 export const STATUS_LABEL: Record<string, string> = {
