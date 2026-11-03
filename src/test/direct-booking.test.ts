@@ -22,3 +22,12 @@ it("does not open PayPal when the selected housekeeper cannot accept the appoint
   await expect(createBookingOrder(input, null)).rejects.toThrow("unavailable on that date");
   expect(fetch).not.toHaveBeenCalled();
 });
+it("saves Heavy level and includes its $30 fee in the PayPal order", async () => {
+  vi.stubEnv("PAYPAL_CLIENT_ID", "test"); vi.stubEnv("PAYPAL_CLIENT_SECRET", "test");
+  const fetch = vi.fn().mockResolvedValueOnce(Response.json({ access_token: "test" })).mockResolvedValueOnce(Response.json({ id: "order-test" }));
+  vi.stubGlobal("fetch", fetch);
+  await createBookingOrder({ ...input, cleaningLevel: "Heavy" }, null);
+  expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ cleaning_level: "Heavy", amount_cents: 15000 }));
+  const order = JSON.parse(fetch.mock.calls[1]?.[1]?.body ?? "{}");
+  expect(order.purchase_units[0].amount.value).toBe("150.00");
+});

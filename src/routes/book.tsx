@@ -82,6 +82,8 @@ function BookPage() {
 
   useEffect(() => {
     const raw = sessionStorage.getItem(DRAFT_KEY);
+    const storedLevel = sessionStorage.getItem("hkb-cleaning-level");
+    if (storedLevel === "Light" || storedLevel === "Medium" || storedLevel === "Heavy") setForm(f => ({ ...f, cleaningLevel: storedLevel }));
     if (!raw) return;
     try {
       const r = JSON.parse(raw);
@@ -158,6 +160,7 @@ function BookPage() {
           const res = await capture({ data: { orderId: d.orderID } });
           if (!res.ok) { setPaying(false); setError(res.error); return; }
           sessionStorage.removeItem(DRAFT_KEY);
+          sessionStorage.removeItem("hkb-cleaning-level");
           navigate({ to: "/booking/$id", params: { id: res.data.bookingId }, search: { t: res.data.token } });
         },
         onError: () => setError("PayPal ran into a problem. Please try again."),
