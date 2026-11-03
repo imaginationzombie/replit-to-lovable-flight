@@ -12,6 +12,7 @@ import { canMoveJob, dateKey, weekDates, isPhoneRequest } from "@/lib/scheduling
 import type { BookingRow } from "@/components/BookingCard";
 import { refreshBookingViews } from "@/lib/booking-sync";
 import { CleanerDateBlocks } from "@/components/CleanerDateBlocks";
+import { filterStaffBookings, type StaffFilters } from "@/lib/staff-dashboard";
 
 type Target = { date: string; cleanerId: string | null; preserveCleaner?: boolean };
 type Move = Target & { booking: BookingRow; time: string };
@@ -36,7 +37,7 @@ function Cell({ target, children }: { target: Target; children: React.ReactNode 
   return <div ref={setNodeRef} aria-label={`${target.date} ${target.cleanerId ?? "unassigned"}`} className={`min-h-32 space-y-2 border-b border-r border-border p-2 ${isOver ? "bg-secondary/20 ring-2 ring-inset ring-primary" : "bg-card"}`}>{children}</div>;
 }
 
-export function BookingScheduler({ admin = false, view = "week" }: { admin?: boolean; view?: "week" | "month" }) {
+export function BookingScheduler({ admin = false, view = "week", bookingFilters }: { admin?: boolean; view?: "week" | "month"; bookingFilters?: StaffFilters }) {
   const { user, isAdmin, isCleaner } = useAuth();
   const canAdmin = admin && isAdmin;
   const qc = useQueryClient();
@@ -74,7 +75,7 @@ export function BookingScheduler({ admin = false, view = "week" }: { admin?: boo
   const monthDays = Array.from({ length: 42 }, (_, i) => addDays(calendarStart, i));
   const allGroups = canAdmin ? [{ id: null, label: "Unassigned / phone requests" }, ...(cleaners.data ?? []).map(c => ({ id: c.id as string | null, label: c.full_name || c.email }))] : [{ id: user?.id ?? null, label: "My schedule" }, { id: null, label: "My phone requests" }];
   const groups = allGroups.filter(g => filter === "all" || (g.id ?? "unassigned") === filter);
-  const rows = bookings.data ?? [];
+  const rows = bookingFilters ? filterStaffBookings(bookings.data ?? [], bookingFilters) : bookings.data ?? [];
   const visibleRows = rows.filter(b => filter === "all" || (b.cleaner_id ?? "unassigned") === filter);
   const cleanerName = (id: string | null) => allGroups.find(g => g.id === id)?.label ?? (id ? "Assigned housekeeper" : "Unassigned");
   const active = rows.find(b => b.id === activeId);

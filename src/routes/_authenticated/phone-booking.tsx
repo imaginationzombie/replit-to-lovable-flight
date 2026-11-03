@@ -69,7 +69,7 @@ function PhoneBooking() {
   return <div className="min-h-screen bg-background"><AppHeader /><main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
     <div className="flex flex-wrap items-center justify-between gap-4"><h1 className="flex items-center gap-3 text-3xl font-bold"><Phone className="h-7 w-7 shrink-0 text-primary" />Phone bookings</h1><Button variant="outline" onClick={() => { setForm(blank()); setSavedId(""); setMessage(""); setValidationError(""); }} disabled={busy}><Plus />New caller</Button></div>
     {loading ? <p className="mt-6">Loading…</p> : !allowed ? <p className="mt-6">Staff access required.</p> : <>
-      <section className="mt-8 border-t border-border pt-6"><h2 className="text-xl font-bold">Customer appointment calendar</h2><BookingScheduler admin={isAdmin} view="month" /></section>
+      <section className="mt-8 border-t border-border pt-6"><div className="flex flex-wrap items-center justify-between gap-3"><h2 className="text-xl font-bold">Customer appointment calendar</h2><Button asChild variant="outline"><Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }}>Staff dashboard</Link></Button></div><BookingScheduler admin={isAdmin} view="month" /></section>
       <form className="mt-8 grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_280px]" onSubmit={e => { e.preventDefault(); submit(false); }}>
         <fieldset disabled={busy || Boolean(savedId)} className="min-w-0 space-y-6">
           <section className="border-t border-border pt-5"><h2 className="text-xl font-bold">Customer details</h2><div className="mt-4 grid min-w-0 gap-4 sm:grid-cols-2">
