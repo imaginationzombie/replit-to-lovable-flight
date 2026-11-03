@@ -24,25 +24,32 @@ export function nearestServiceLocation(latitude, longitude) {
 }
 
 export function initializeServiceLocation() {
-  const select = document.getElementById('mobile-service-location');
+  const selects = ['mobile-service-location', 'estimator-service-location']
+    .map(id => document.getElementById(id))
+    .filter(element => element instanceof HTMLSelectElement);
   const status = document.getElementById('service-location-status');
-  if (!(select instanceof HTMLSelectElement) || !status) return;
-  for (const area of SERVICE_LOCATIONS) {
-    select.add(new Option(area.label, area.corridor));
+  if (!selects.length || !status) return;
+  for (const select of selects) {
+    for (const area of SERVICE_LOCATIONS) {
+      select.add(new Option(area.label, area.corridor));
+    }
+    select.value = document.querySelector('.territory-btn.border-primary')?.getAttribute('data-corridor') || SERVICE_LOCATIONS[0].corridor;
   }
   let manuallySelected = false;
   function apply(area) {
-    select.value = area.corridor;
+    for (const select of selects) select.value = area.corridor;
     document.dispatchEvent(new CustomEvent('service-location-selected', { detail: area }));
   }
-  select.addEventListener('change', () => {
-    manuallySelected = true;
-    const area = SERVICE_LOCATIONS.find(item => item.corridor === select.value);
-    if (area) { apply(area); status.textContent = 'Selected: ' + area.label; }
-  });
+  for (const select of selects) {
+    select.addEventListener('change', () => {
+      manuallySelected = true;
+      const area = SERVICE_LOCATIONS.find(item => item.corridor === select.value);
+      if (area) { apply(area); status.textContent = 'Selected: ' + area.label; }
+    });
+  }
   document.addEventListener('service-location-updated', event => {
     manuallySelected = true;
-    select.value = event.detail.corridor;
+    for (const select of selects) select.value = event.detail.corridor;
     status.textContent = 'Selected: ' + event.detail.label;
   });
   if (!window.matchMedia('(max-width: 767px)').matches) return;
