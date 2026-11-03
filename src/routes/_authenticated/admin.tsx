@@ -229,7 +229,7 @@ function Schedules() {
   });
   const cleaners = useCleaners();
   const today = ymd(new Date());
-  const upcoming = (bookings.data ?? []).filter((b) => b.preferred_date >= today && (b.status === "confirmed" || b.status === "completed"))
+  const upcoming = (bookings.data ?? []).filter((b) => b.preferred_date >= today && (b.status === "confirmed" || b.status === "completed" || (b.status === "pending_payment" && b.created_by_staff)))
     .sort((a, b) => a.preferred_date.localeCompare(b.preferred_date));
   const groups = [...(cleaners.data ?? []).map((c) => ({ id: c.id as string | null, label: c.full_name || c.email })), { id: null, label: "Unassigned" }];
   return (
@@ -249,6 +249,7 @@ function Schedules() {
                 <li key={b.id} className="rounded-lg bg-muted px-3 py-2 text-sm">
                   <b className="text-foreground">{new Date(b.preferred_date + "T12:00").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}</b>
                   <span className="text-muted-foreground"> · {b.time_window} · {b.service} · {b.customer_name}, {b.service_area}</span>
+                  {b.status === "pending_payment" && <span className="block text-xs font-semibold text-primary">Phone request · awaiting checkout</span>}
                 </li>
               ))}
             </ul>

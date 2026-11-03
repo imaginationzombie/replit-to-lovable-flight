@@ -141,6 +141,13 @@
       "when": 1793670508083,
       "tag": "0019_schedule_phone_booking_requests",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1793670578024,
+      "tag": "0020_null_safe_phone_schedule_permissions",
+      "breakpoints": true
     }
   ]
 }
