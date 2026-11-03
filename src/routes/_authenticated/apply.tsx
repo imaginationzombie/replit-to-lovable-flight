@@ -5,6 +5,8 @@ import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { applicationsOptions, applicationSchema } from "@/lib/people-portals";
+import { chooseInterviewTime } from "@/lib/interview.functions";
+import { useServerFn } from "@tanstack/react-start";
 import { useAuth } from "@/hooks/use-auth";
 import { hiringStage, openResume, validateResume, INTERVIEW_TIMES, interviewLabel } from "@/lib/hiring";
 import { FileText, CheckCircle2, Clock, BriefcaseBusiness } from "lucide-react";
@@ -53,10 +55,11 @@ function Apply() {
 function InterviewPicker({ id, date, time }: { id: string; date: string | null; time: string | null }) {
   const qc = useQueryClient(); const today = new Date().toLocaleDateString("en-CA");
   const [day, setDay] = useState(date ?? ""); const [slot, setSlot] = useState(time ?? "");
-  const save = useMutation({ mutationFn: async () => { const { error } = await supabase.rpc("choose_interview_time", { _id: id, _date: day, _time: slot }); if (error) throw new Error(error.message); }, onSuccess: () => qc.invalidateQueries({ queryKey: ["hiring-applications"] }) });
+  const choose = useServerFn(chooseInterviewTime);
+  const save = useMutation({ mutationFn: () => choose({ data: { id, date: day, time: slot } }), onSuccess: () => qc.invalidateQueries({ queryKey: ["hiring-applications"] }) });
   return <div className="mt-4 rounded-md border border-border p-4">
     <h3 className="font-bold">Phone interview</h3>
-    {date && time && <p className="mt-1 text-sm text-primary">Scheduled: {new Date(date + "T12:00").toLocaleDateString()} at {interviewLabel(time)}. We'll call you then.</p>}
+    {date && time && <p className="mt-1 text-sm text-primary">Scheduled: {new Date(date + "T12:00").toLocaleDateString()} at {interviewLabel(time)}. We'll call you then.{save.data?.emailed && " A confirmation email is on its way."}</p>}
     <label className="mt-3 block text-sm font-semibold">Date<input type="date" min={today} value={day} onChange={e => setDay(e.target.value)} className="mt-1 block w-full rounded-md border border-input bg-background p-2 text-foreground" /></label>
     <div className="mt-3 grid grid-cols-4 gap-2" role="radiogroup" aria-label="Call time">{INTERVIEW_TIMES.map(t => <Button key={t.value} type="button" role="radio" aria-checked={slot === t.value} variant={slot === t.value ? "default" : "outline"} onClick={() => setSlot(t.value)}>{t.label}</Button>)}</div>
     {save.error && <p role="alert" className="mt-2 text-sm text-destructive">{save.error.message}</p>}
