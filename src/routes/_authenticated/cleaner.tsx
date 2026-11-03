@@ -65,7 +65,7 @@ function CleanerJobs() {
       <AppHeader />
       <main className="mx-auto max-w-5xl px-6 py-10">
         <div className="flex flex-wrap items-center justify-between gap-3"><h1 className="text-3xl font-extrabold text-foreground">My jobs</h1>{isCleaner && <div className="flex flex-wrap items-center gap-3"><Button asChild variant="outline"><Link to="/cleaner-schedule"><CalendarDays />My schedule</Link></Button><Link to="/cleaner-profile" className="text-sm font-bold text-primary">Hours, rates & profile →</Link></div>}</div>
-        {!loading && !isCleaner && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">This page is for cleaners. Ask an admin to give your account cleaner access.</p>}
+        {!loading && !isCleaner && <section className="mt-6 border-t border-border py-6"><h2 className="text-xl font-bold">Housekeeper application</h2><p className="mt-2 text-muted-foreground">Cleaner access begins after your application is approved.</p><Button asChild className="mt-4"><Link to="/apply">Apply or check hiring progress</Link></Button></section>}
         {isCleaner && settings.isSuccess && (
           <div className="mt-6 rounded-2xl border border-border bg-card p-4 text-sm">
             {settings.data ? (<>

@@ -89,7 +89,7 @@ function AuthPage() {
           <h1 className="text-2xl font-extrabold text-foreground">
             {mode === "signin" ? "Welcome back" : mode === "signup" ? "Create your account" : "Reset your password"}
           </h1>
-          <p className="mt-1 text-sm text-muted-foreground">For customers, cleaners and staff.</p>
+          <p className="mt-1 text-sm text-muted-foreground">{dest === "/apply" || dest === "/cleaner" ? "Housekeeper applications · create an account or sign in to apply." : "For customers, cleaners and staff."}</p>
 
           {mode !== "forgot" && (
             <div className="mt-6 space-y-3">
