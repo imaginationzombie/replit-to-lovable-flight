@@ -20,7 +20,7 @@ export const Route = createFileRoute("/booking-assistant")({
 });
 
 const EXAMPLE =
-  "3 bedroom, 2 bath house in Brookville with two dogs. Haven't had a proper clean in months — kitchen and bathrooms need the most work, and the fridge is a mess. I'd like someone every other week, ideally Tuesday mornings.";
+  "3 bedroom, 2 bath house in Lewistown with two dogs. Haven't had a proper clean in months — kitchen and bathrooms need the most work, and the fridge is a mess. I'd like someone every other week, ideally Tuesday mornings.";
 
 function BookingAssistant() {
   const recommend = useServerFn(getRecommendation);

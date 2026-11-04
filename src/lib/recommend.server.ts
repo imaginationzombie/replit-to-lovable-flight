@@ -41,7 +41,7 @@ export const recommendationSchema = z.object({
 
 export type Recommendation = z.infer<typeof recommendationSchema>;
 
-const INSTRUCTIONS = `You are the booking assistant for HousekeepingBooking.com, a home cleaning company in Central Pennsylvania (DuBois, Brookville, Punxsutawney, Reynoldsville, Sykesville, Falls Creek, Brockway).
+const INSTRUCTIONS = `You are the booking assistant for HousekeepingBooking.com, a home cleaning company in Central Pennsylvania (DuBois, Lewistown, Punxsutawney, Reynoldsville, Sykesville, Falls Creek, Brockway).
 Read the customer's description of their home, cleaning needs and schedule, then recommend exactly one service and prepare booking details.
 Services: ${SERVICES.join(", ")}.
 Available add-ons: Inside Oven, Inside Refrigerator, Baseboards, Interior Windows, Patio Sweep, Laundry Fold, Pet Hair Treatment.

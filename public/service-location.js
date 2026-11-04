@@ -1,6 +1,6 @@
 export const SERVICE_LOCATIONS = [
   { label: 'DuBois & Sandy Twp, PA', corridor: 'DuBois 15801', latitude: 41.1192, longitude: -78.7600 },
-  { label: 'Brookville, PA', corridor: 'Brookville 15825', latitude: 41.1612, longitude: -79.0831 },
+  { label: 'Lewistown, PA', corridor: 'Lewistown 17044', latitude: 41.1612, longitude: -79.0831 },
   { label: 'Punxsutawney, PA', corridor: 'Punxsutawney 15767', latitude: 40.9437, longitude: -78.9709 },
   { label: 'Reynoldsville, PA', corridor: 'Reynoldsville 15851', latitude: 41.0970, longitude: -78.8886 },
   { label: 'Sykesville, PA', corridor: 'Sykesville 15865', latitude: 41.0503, longitude: -78.8223 },
