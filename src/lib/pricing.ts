@@ -53,7 +53,6 @@ export const CLEANING_LEVEL_FEES: Record<CleaningLevel, number> = { Light: 0, Me
 
 export const SERVICE_AREAS = [
   "DuBois & Sandy Twp",
-  "Lewistown",
   "Punxsutawney",
   "Reynoldsville",
   "Sykesville",
