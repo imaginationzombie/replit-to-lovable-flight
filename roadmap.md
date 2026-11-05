@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Consolidate applicant signup, private resume submission and hiring status into /apply; remove the duplicate careers form and retire mock hiring pages
+
 - [x] Cleaner applicants upload private resumes and track hiring before staff access; temporary applicant submitted, admin review appeared on phone, approval enabled cleaner tools; test data removed and eight checks passed
 
 - [x] Essential account email templates, customer payment/tip receipts and verified cleaner settlement notices; 38 checks passed, six account previews and unsigned-request rejection verified, test receipt sent; publish required for new account email routes
