@@ -15,8 +15,10 @@ import { TimesheetList } from "@/components/TimesheetList";
 import { HiringPanel } from "@/components/HiringPanel";
 import { Button } from "@/components/ui/button";
 import { DisputePanel } from "@/components/DisputePanel";
+import { z } from "zod";
 
 export const Route = createFileRoute("/_authenticated/admin")({
+  validateSearch: z.object({ tab: z.enum(["bookings", "scheduler", "calendar", "schedules", "people", "timesheets", "hiring", "disputes"]).optional() }),
   head: () => ({
     meta: [
       { title: "Admin | HousekeepingBooking.com" },
@@ -32,7 +34,9 @@ export const Route = createFileRoute("/_authenticated/admin")({
 
 function Admin() {
   const { isAdmin, loading } = useAuth();
-  const [tab, setTab] = useState<"bookings" | "scheduler" | "calendar" | "schedules" | "people" | "timesheets" | "hiring" | "disputes">("scheduler");
+  const { tab: selectedTab } = Route.useSearch();
+  const navigate = Route.useNavigate();
+  const tab = selectedTab ?? "scheduler";
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
@@ -46,7 +50,7 @@ function Admin() {
               <Button asChild variant="outline"><Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }}>Staff dashboard</Link></Button>
               <Button asChild variant="outline"><Link to="/admin-paypal" search={{ view: "all" }}>PayPal dashboard</Link></Button>
               {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets", "hiring", "disputes"] as const).map((t) => (
-                <Button key={t} onClick={() => setTab(t)} variant={tab === t ? "default" : "secondary"}>
+                <Button key={t} onClick={() => navigate({ search: { tab: t }, replace: true })} variant={tab === t ? "default" : "secondary"}>
                   {TAB_LABEL[t]}
                 </Button>
               ))}

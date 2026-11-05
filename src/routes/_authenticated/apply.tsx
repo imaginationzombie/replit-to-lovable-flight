@@ -4,18 +4,19 @@ import { useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { applicationsOptions, applicationSchema } from "@/lib/people-portals";
+import { myApplicationOptions, applicationSchema } from "@/lib/people-portals";
 import { chooseInterviewTime } from "@/lib/interview.functions";
 import { useServerFn } from "@tanstack/react-start";
 import { useAuth } from "@/hooks/use-auth";
 import { hiringStage, openResume, validateResume, INTERVIEW_TIMES, interviewLabel } from "@/lib/hiring";
 import { FileText, CheckCircle2, Clock, BriefcaseBusiness } from "lucide-react";
-export const Route = createFileRoute("/_authenticated/apply")({ loader: ({ context }) => context.queryClient.ensureQueryData(applicationsOptions), head: () => ({ meta: [{ title:"Housekeeper Application | HousekeepingBooking.com" },{ name:"description",content:"Apply to join our housekeepers and follow your application." },{ property:"og:title",content:"Housekeeper Application | HousekeepingBooking.com" },{ property:"og:description",content:"Apply to join our cleaning team." },{ property:"og:type",content:"website" },{ name:"twitter:card",content:"summary" }] }), errorComponent: ApplyError, notFoundComponent: () => <p>Application page not found.</p>, component: Apply });
+export const Route = createFileRoute("/_authenticated/apply")({ loader: async ({ context }) => { const { data, error } = await supabase.auth.getUser(); if (error || !data.user) throw new Error("Please sign in to view your application."); await context.queryClient.ensureQueryData(myApplicationOptions(data.user.id)); return { userId: data.user.id }; }, head: () => ({ meta: [{ title:"Housekeeper Application | HousekeepingBooking.com" },{ name:"description",content:"Apply to join our housekeepers and follow your application." },{ property:"og:title",content:"Housekeeper Application | HousekeepingBooking.com" },{ property:"og:description",content:"Apply to join our cleaning team." },{ property:"og:type",content:"website" },{ name:"twitter:card",content:"summary" }] }), errorComponent: ApplyError, notFoundComponent: () => <p>Application page not found.</p>, component: Apply });
 function ApplyError() { const router=useRouter(); return <div><AppHeader /><main className="p-6"><p>Couldn’t load applications.</p><Button onClick={()=>router.invalidate()}>Try again</Button></main></div>; }
 function Apply() {
-  const { user, isCleaner } = useAuth(); const qc = useQueryClient();
-  const applications = useSuspenseQuery(applicationsOptions);
-  const mine = applications.data.filter(a => a.user_id === user?.id);
+  const { user, isCleaner, loading } = useAuth(); const qc = useQueryClient();
+  const { userId } = Route.useLoaderData();
+  const applications = useSuspenseQuery(myApplicationOptions(userId));
+  const mine = applications.data;
   const active = mine.some(a => a.status === "submitted" || a.status === "reviewing" || a.status === "interview" || a.status === "hired");
   const [form, setForm] = useState({ full_name: "", phone: "", service_areas: "", experience: "", availability: "" });
   const [resume, setResume] = useState<File | null>(null); const [fileError, setFileError] = useState("");
@@ -44,8 +45,9 @@ function Apply() {
       {a.resume_path && <Button variant="outline" className="mt-4 max-w-full" disabled={viewResume.isPending} onClick={() => viewResume.mutate(a.resume_path)}><FileText className="shrink-0" /><span className="truncate">{a.resume_name || "View resume"}</span></Button>}
     </article>)}</section>
     {viewResume.error && <p role="alert" className="mt-3 text-destructive">{viewResume.error.message}</p>}
-    {!active && !isCleaner && <form className="mt-6 space-y-4" onSubmit={e => { e.preventDefault(); submit.mutate(); }}>
-      {([{ key: "full_name", label: "Full name", max: 100 }, { key: "phone", label: "Phone", max: 30 }, { key: "service_areas", label: "Service areas", max: 500 }, { key: "experience", label: "Cleaning experience", max: 3000 }, { key: "availability", label: "Availability", max: 1000 }] as const).map(f => <label key={f.key} className="block text-sm font-semibold">{f.label}<textarea required={f.key !== "phone"} rows={f.key === "experience" ? 4 : 2} maxLength={f.max} value={form[f.key]} onChange={e => setForm({ ...form, [f.key]: e.target.value })} className="mt-1 w-full rounded-md border border-input bg-background p-3 text-foreground" /></label>)}
+    {!active && !isCleaner && !loading && <form className="mt-6 space-y-4" onSubmit={e => { e.preventDefault(); submit.mutate(); }}>
+      <h2 className="text-xl font-bold">Housekeeper application</h2>
+      {([{ key: "full_name", label: "Full name", max: 100 }, { key: "phone", label: "Phone", max: 30 }, { key: "service_areas", label: "Service areas", max: 500 }, { key: "experience", label: "Cleaning experience", max: 3000 }, { key: "availability", label: "Availability", max: 1000 }] as const).map(f => <label key={f.key} className="block text-sm font-semibold">{f.label}{f.key === "full_name" || f.key === "phone" ? <input required={f.key === "full_name"} type={f.key === "phone" ? "tel" : "text"} autoComplete={f.key === "phone" ? "tel" : "name"} maxLength={f.max} value={form[f.key]} onChange={e => setForm({ ...form, [f.key]: e.target.value })} className="mt-1 w-full rounded-md border border-input bg-background p-3 text-foreground" /> : <textarea required rows={f.key === "experience" ? 4 : 2} maxLength={f.max} value={form[f.key]} onChange={e => setForm({ ...form, [f.key]: e.target.value })} className="mt-1 w-full rounded-md border border-input bg-background p-3 text-foreground" />}</label>)}
       <label className="block text-sm font-semibold">Resume <span className="font-normal text-muted-foreground">(optional)</span><input type="file" accept=".pdf,.doc,.docx" className="mt-2 block w-full min-w-0 rounded-md border border-input p-3 text-sm" onChange={e => { const file = e.target.files?.[0]; setFileError(""); setResume(null); if (file) { try { validateResume(file); setResume(file); } catch (error) { setFileError(error instanceof Error ? error.message : "Invalid resume."); e.target.value = ""; } } }} /><span className="mt-1 block text-xs font-normal text-muted-foreground">PDF, DOC or DOCX · up to 5 MB · private to you and hiring admins</span></label>
       {(fileError || submit.error) && <p role="alert" className="text-destructive">{fileError || submit.error?.message}</p>}
       <Button disabled={submit.isPending || !!fileError}>{submit.isPending ? "Submitting…" : "Submit application"}</Button>
@@ -61,7 +63,7 @@ function InterviewPicker({ id, date, time }: { id: string; date: string | null; 
     <h3 className="font-bold">Phone interview</h3>
     {date && time && <p className="mt-1 text-sm text-primary">Scheduled: {new Date(date + "T12:00").toLocaleDateString()} at {interviewLabel(time)}. We'll call you then.{save.data?.emailed && " A confirmation email is on its way."}</p>}
     <label className="mt-3 block text-sm font-semibold">Date<input type="date" min={today} value={day} onChange={e => setDay(e.target.value)} className="mt-1 block w-full rounded-md border border-input bg-background p-2 text-foreground" /></label>
-    <div className="mt-3 grid grid-cols-4 gap-2" role="radiogroup" aria-label="Call time">{INTERVIEW_TIMES.map(t => <Button key={t.value} type="button" role="radio" aria-checked={slot === t.value} variant={slot === t.value ? "default" : "outline"} onClick={() => setSlot(t.value)}>{t.label}</Button>)}</div>
+    <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4" role="radiogroup" aria-label="Call time">{INTERVIEW_TIMES.map(t => <Button key={t.value} type="button" role="radio" aria-checked={slot === t.value} variant={slot === t.value ? "default" : "outline"} onClick={() => setSlot(t.value)}>{t.label}</Button>)}</div>
     {save.error && <p role="alert" className="mt-2 text-sm text-destructive">{save.error.message}</p>}
     <Button className="mt-3" disabled={!day || !slot || save.isPending} onClick={() => save.mutate()}>{save.isPending ? "Saving…" : date ? "Change time" : "Confirm interview time"}</Button>
   </div>;
