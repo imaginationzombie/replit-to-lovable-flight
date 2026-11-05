@@ -1,7 +1,6 @@
 # Roadmap
 
-- [ ] Housekeepers create individual dated appointment slots; customers select them with protected reservation and exact appointment times
-- [ ] Create colored-pencil coloring videos from the four uploaded pictures
+- [ ] Housekeepers create individual dated appointment slots; customers select them with protected reservation and exact appointment times — paused at the user's request; storage added, booking controls unfinished
 
 - [x] Consolidate applicant signup, private resume submission and hiring status into /apply; duplicate careers form removed and mock pages redirected; signup/mobile links and signed-in hiring verified, 11 checks passed; fresh signup/resume submission not repeated (no applicant account available)
 
