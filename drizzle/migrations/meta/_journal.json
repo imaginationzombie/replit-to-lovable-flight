@@ -162,6 +162,13 @@
       "when": 1793739114180,
       "tag": "0022_applicant_interviews",
       "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1793842348781,
+      "tag": "0023_individual_housekeeper_slots",
+      "breakpoints": true
     }
   ]
 }
