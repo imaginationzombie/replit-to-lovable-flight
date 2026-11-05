@@ -219,6 +219,9 @@ export type Database = {
           add_ons: string[]
           address: string
           amount_cents: number
+          appointment_end: string | null
+          appointment_slot_id: string | null
+          appointment_start: string | null
           authorized_at: string | null
           bathrooms: number
           bedrooms: number
@@ -254,6 +257,9 @@ export type Database = {
           add_ons?: string[]
           address: string
           amount_cents: number
+          appointment_end?: string | null
+          appointment_slot_id?: string | null
+          appointment_start?: string | null
           authorized_at?: string | null
           bathrooms: number
           bedrooms: number
@@ -289,6 +295,9 @@ export type Database = {
           add_ons?: string[]
           address?: string
           amount_cents?: number
+          appointment_end?: string | null
+          appointment_slot_id?: string | null
+          appointment_start?: string | null
           authorized_at?: string | null
           bathrooms?: number
           bedrooms?: number
@@ -321,6 +330,13 @@ export type Database = {
         }
         Relationships: [
           {
+            foreignKeyName: "bookings_appointment_slot_id_fkey"
+            columns: ["appointment_slot_id"]
+            isOneToOne: false
+            referencedRelation: "cleaner_appointment_slots"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "bookings_created_by_staff_fkey"
             columns: ["created_by_staff"]
             isOneToOne: false
@@ -337,6 +353,44 @@ export type Database = {
           {
             foreignKeyName: "bookings_requested_cleaner_id_fkey"
             columns: ["requested_cleaner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cleaner_appointment_slots: {
+        Row: {
+          active: boolean
+          cleaner_id: string
+          created_at: string
+          end_time: string
+          id: string
+          slot_date: string
+          start_time: string
+        }
+        Insert: {
+          active?: boolean
+          cleaner_id: string
+          created_at?: string
+          end_time: string
+          id?: string
+          slot_date: string
+          start_time: string
+        }
+        Update: {
+          active?: boolean
+          cleaner_id?: string
+          created_at?: string
+          end_time?: string
+          id?: string
+          slot_date?: string
+          start_time?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cleaner_appointment_slots_cleaner_id_fkey"
+            columns: ["cleaner_id"]
             isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
@@ -1005,6 +1059,15 @@ export type Database = {
         Returns: string
       }
       owns_customer_booking: { Args: { _booking: string }; Returns: boolean }
+      public_appointment_slots: {
+        Args: { _cleaner: string }
+        Returns: {
+          end_time: string
+          id: string
+          slot_date: string
+          start_time: string
+        }[]
+      }
       public_cleaner_reviews: {
         Args: { _cleaner: string }
         Returns: {
@@ -1067,6 +1130,16 @@ export type Database = {
         Args: { _action: string; _id: string; _reference?: string }
         Returns: undefined
       }
+      save_appointment_slot: {
+        Args: {
+          _active?: boolean
+          _date: string
+          _end: string
+          _id?: string
+          _start: string
+        }
+        Returns: string
+      }
       save_appointment_work: {
         Args: {
           _booking_id: string
@@ -1097,6 +1170,7 @@ export type Database = {
         Args: { _blocked: boolean; _cleaner_id: string; _date: string }
         Returns: undefined
       }
+      slot_window: { Args: { _start: string }; Returns: string }
       submit_booking_dispute: {
         Args: { _booking: string; _details: string; _kind: string }
         Returns: string
