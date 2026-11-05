@@ -4,6 +4,7 @@ import { z } from "zod";
 export const messageSchema = z.string().trim().min(1).max(3000);
 export const applicationSchema = z.object({ full_name: z.string().trim().min(1).max(100), phone: z.string().max(30), service_areas: z.string().trim().min(1).max(500), experience: z.string().trim().min(1).max(3000), availability: z.string().trim().min(1).max(1000) });
 export const applicationsOptions = queryOptions({ queryKey: ["hiring-applications"], queryFn: async () => { const { data, error } = await supabase.from("hiring_applications").select("*").order("created_at", { ascending: false }); if (error) throw error; return data; }, refetchInterval: 15000 });
+export const myApplicationOptions = (userId: string) => queryOptions({ queryKey: ["hiring-applications", "owner", userId], queryFn: async () => { const { data, error } = await supabase.from("hiring_applications").select("*").eq("user_id", userId).order("created_at", { ascending: false }); if (error) throw error; return data; }, refetchInterval: 15000 });
 export const threadsOptions = queryOptions({ queryKey: ["message-threads"], queryFn: async () => { const { data, error } = await supabase.from("message_threads").select("*,bookings(service,preferred_date,customer_name)").order("created_at", { ascending: false }); if (error) throw error; return data; }, refetchInterval: 5000 });
 export async function photoUrl(path: string) {
   if (!path) return "";

@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 import "@lovable.dev/cloud-auth-js/styles.css";
 import { AppHeader } from "@/components/AppHeader";
+import { Button } from "@/components/ui/button";
 
 const safeNext = (n?: string) => (n && n.startsWith("/") && !n.startsWith("//") ? n : "/account");
 
@@ -26,7 +27,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const { next } = Route.useSearch();
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "signup" | "forgot">("signin");
+  const [mode, setMode] = useState<"signin" | "signup" | "forgot">(next === "/apply" ? "signup" : "signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -84,19 +85,19 @@ function AuthPage() {
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
-      <main className="mx-auto max-w-md px-6 py-12">
-        <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
+      <main className="mx-auto max-w-md px-4 py-10 sm:px-6">
+        <div className="min-w-0 py-4">
           <h1 className="text-2xl font-extrabold text-foreground">
-            {mode === "signin" ? "Welcome back" : mode === "signup" ? "Create your account" : "Reset your password"}
+            {mode === "signin" ? "Welcome back" : mode === "signup" ? dest === "/apply" ? "Create your applicant account" : "Create your account" : "Reset your password"}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{dest === "/apply" || dest === "/cleaner" ? "Housekeeper applications · create an account or sign in to apply." : "For customers, cleaners and staff."}</p>
 
           {mode !== "forgot" && (
             <div className="mt-6 space-y-3">
-              <button type="button" onClick={() => social("google")} className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-muted">
+              <Button type="button" variant="outline" onClick={() => social("google")} className="w-full">
                 Continue with Google
-              </button>
-              <button type="button" className="lovable-auth-button w-full" onClick={() => social("lovable")}>Continue with Lovable</button>
+              </Button>
+              <Button type="button" variant="outline" className="w-full" onClick={() => social("lovable")}>Continue with Lovable</Button>
               <div className="flex items-center gap-3 text-xs text-muted-foreground"><span className="h-px flex-1 bg-border" />or<span className="h-px flex-1 bg-border" /></div>
             </div>
           )}
@@ -113,19 +114,19 @@ function AuthPage() {
                 <input required type="password" minLength={8} className={field} value={password} onChange={(e) => setPassword(e.target.value)} /></label>
             )}
             {msg && <p role="alert" className={`rounded-lg p-3 text-sm ${msg.type === "ok" ? "bg-accent text-accent-foreground" : "bg-destructive/10 text-destructive"}`}>{msg.text}</p>}
-            <button disabled={busy} className="w-full rounded-xl bg-primary px-4 py-3 font-bold text-primary-foreground disabled:opacity-60">
+            <Button disabled={busy} className="w-full" type="submit">
               {busy ? "Please wait…" : mode === "signin" ? "Sign in" : mode === "signup" ? "Create account" : "Send reset link"}
-            </button>
+            </Button>
           </form>
 
-          <div className="mt-5 flex justify-between text-sm">
+          <div className="mt-5 flex flex-wrap justify-between gap-2 text-sm">
             {mode === "signin" ? (
               <>
-                <button className="text-primary hover:underline" onClick={() => { setMode("signup"); setMsg(null); }}>Create an account</button>
-                <button className="text-muted-foreground hover:underline" onClick={() => { setMode("forgot"); setMsg(null); }}>Forgot password?</button>
+                <Button variant="link" className="px-0" onClick={() => { setMode("signup"); setMsg(null); }}>Create an account</Button>
+                <Button variant="link" className="px-0" onClick={() => { setMode("forgot"); setMsg(null); }}>Forgot password?</Button>
               </>
             ) : (
-              <button className="text-primary hover:underline" onClick={() => { setMode("signin"); setMsg(null); }}>Back to sign in</button>
+              <Button variant="link" className="px-0" onClick={() => { setMode("signin"); setMsg(null); }}>{mode === "signup" ? "Already have an account? Sign in" : "Back to sign in"}</Button>
             )}
           </div>
         </div>
