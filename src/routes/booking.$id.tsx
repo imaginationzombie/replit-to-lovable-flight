@@ -5,6 +5,7 @@ import { PayBalance } from "@/components/PayBalance";
 import { LeaveTip } from "@/components/LeaveTip";
 import { canTip } from "@/lib/tips";
 import { EstimateCheckout } from "@/components/EstimateCheckout";
+import { slotLabel } from "@/lib/appointment-slots";
 
 export const Route = createFileRoute("/booking/$id")({
   validateSearch: z.object({ t: z.string().catch("") }),
@@ -57,7 +58,7 @@ function Confirmation() {
           <Item k="Cleaning level" v={b.cleaning_level} />
           <Item k="How often" v={b.frequency} />
           <Item k="Date" v={new Date(b.preferred_date + "T12:00:00").toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })} />
-          <Item k="Time" v={b.time_window} />
+          <Item k="Time" v={b.appointment_start && b.appointment_end ? slotLabel({ start_time: b.appointment_start, end_time: b.appointment_end }) : b.time_window} />
           <Item k="Home" v={`${b.bedrooms} bed / ${b.bathrooms} bath`} />
           <Item k="Area" v={b.service_area} />
           <Item k="Address" v={b.address} />

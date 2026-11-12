@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { getRequestHeader } from "@tanstack/react-start/server";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { bookingSchema } from "./booking-input";
+import { customerBookingSchema } from "./booking-input";
 
 type Result<T> = { ok: true; data: T } | { ok: false; error: string };
 const fail = (e: unknown) => ({ ok: false as const, error: e instanceof Error ? e.message : "Something went wrong." });
@@ -13,7 +13,7 @@ export const getPaypalConfig = createServerFn({ method: "GET" }).handler(async (
 });
 
 export const createOrder = createServerFn({ method: "POST" })
-  .validator((d: unknown) => bookingSchema.parse(d))
+  .validator((d: unknown) => customerBookingSchema.parse(d))
   .handler(async ({ data }): Promise<Result<{ orderId: string }>> => {
     const { createBookingOrder, userIdFromBearer } = await import("./booking.server");
     try {

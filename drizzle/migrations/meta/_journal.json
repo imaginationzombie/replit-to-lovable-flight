@@ -169,6 +169,20 @@
       "when": 1793842348781,
       "tag": "0023_individual_housekeeper_slots",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1794504205700,
+      "tag": "0024_flexible_slot_scheduling",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1794504388631,
+      "tag": "0025_bookable_cleaner_slots_without_portfolio",
+      "breakpoints": true
     }
   ]
 }

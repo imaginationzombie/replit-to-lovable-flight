@@ -31,3 +31,9 @@ it("saves Heavy level and includes its $30 fee in the PayPal order", async () =>
   const order = JSON.parse(fetch.mock.calls[1]?.[1]?.body ?? "{}");
   expect(order.purchase_units[0].amount.value).toBe("150.00");
 });
+it("stores the individual appointment slot selected by the customer", async () => {
+  vi.stubEnv("PAYPAL_CLIENT_ID", "test"); vi.stubEnv("PAYPAL_CLIENT_SECRET", "test");
+  vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce(Response.json({ access_token: "test" })).mockResolvedValueOnce(Response.json({ id: "order-test" })));
+  await createBookingOrder({ ...input, appointmentSlotId: "22222222-2222-4222-8222-222222222222" }, null);
+  expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ appointment_slot_id: "22222222-2222-4222-8222-222222222222" }));
+});

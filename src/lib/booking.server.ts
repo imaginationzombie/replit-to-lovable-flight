@@ -37,6 +37,7 @@ export type BookingInput = {
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
   requestedCleanerId?: string | undefined;
+  appointmentSlotId?: string | undefined;
   cleaningLevel?: CleaningLevel | undefined;
 };
 
@@ -53,6 +54,7 @@ export async function createBookingOrder(input: BookingInput, userId: string | n
       preferred_date: input.preferredDate, time_window: input.timeWindow, notes: input.notes,
       amount_cents: q.totalCents, user_id: userId, requested_cleaner_id: input.requestedCleanerId ?? null,
       cleaning_level: input.cleaningLevel ?? "Light",
+      appointment_slot_id: input.appointmentSlotId ?? null,
     })
     .select("id")
     .single();
@@ -320,7 +322,7 @@ export async function getBooking(id: string, token: string) {
   const db = await admin();
   const { data } = await db
     .from("bookings")
-    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, cleaning_level, preferred_date, time_window, notes, amount_cents, paid_at, authorized_at, cleaner_id")
+    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, cleaning_level, preferred_date, time_window, appointment_start, appointment_end, notes, amount_cents, paid_at, authorized_at, cleaner_id")
     .eq("id", id).eq("access_token", token).maybeSingle();
   return data;
 }
