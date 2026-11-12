@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add office cleaning estimate quoter and movers quoter; remove yardwork from offerings and estimates
+- [x] Office and moving-labor quote pages, 10%-below published regional comparisons, phone review and printing; homepage/instant quote links, mobile price changes and 156 tests verified; yardwork removed from offerings and recommendations, existing bookings untouched
 
 - [x] Housekeeper-selected service locations and town-centre travel radius; customer/waiting-list matching and assignment guards; signed-in save/reload, excluded-area readback and phone fit verified; original settings restored, 151 tests passed
 
