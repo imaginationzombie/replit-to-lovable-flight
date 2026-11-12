@@ -1,0 +1,15 @@
+import { useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useServerFn } from '@tanstack/react-start';
+import { supabase } from '@/integrations/supabase/client';
+import { reviewQuote } from '@/lib/service-quote.functions';
+import { refreshBookingViews } from '@/lib/booking-sync';
+import { Button } from './ui/button';
+import { slotLabel } from '@/lib/appointment-slots';
+export function ServiceQuoteReview({userId}:{userId:string}) {
+ const qc=useQueryClient();const review=useServerFn(reviewQuote);const [notes,setNotes]=useState<Record<string,string>>({});const [busy,setBusy]=useState('');const [error,setError]=useState('');
+ const requests=useQuery({queryKey:['service-quote-reviews',userId],refetchInterval:15000,queryFn:async()=>{const {data,error}=await supabase.from('bookings').select('*').eq('cleaner_id',userId).eq('status','pending_payment').not('service_quote','is',null).order('preferred_date');if(error)throw error;return data;}});
+ async function decide(id:string,approve:boolean){setBusy(id);setError('');try{await review({data:{id,approve,notes:notes[id] ?? ''}});await qc.invalidateQueries({queryKey:['service-quote-reviews']});await refreshBookingViews(qc);}catch(e){setError(e instanceof Error?e.message:'Could not save review.');}finally{setBusy('');}}
+ return <section className="mt-8 border-t border-border py-6"><h2 className="text-xl font-bold">Office & moving phone reviews</h2>{(error || requests.error) && <p role="alert" className="mt-3 text-destructive">{error || requests.error?.message}</p>}{requests.isPending && <p>Loading quotes…</p>}{requests.data?.length===0 && <p className="mt-3 text-muted-foreground">No quotes awaiting review or payment.</p>}
+ <div className="divide-y divide-border">{requests.data?.map(b=><article key={b.id} className="space-y-3 py-5"><h3 className="font-bold">{b.service} · ${(b.amount_cents/100).toFixed(2)}</h3><p>{b.preferred_date} · {b.appointment_start && b.appointment_end ? slotLabel({start_time:b.appointment_start,end_time:b.appointment_end}):b.time_window}</p><p className="break-words">{b.customer_name} · <a className="text-primary underline" href={`tel:${b.phone}`}>{b.phone}</a><br/>{b.email}<br/>{b.address}</p><p className="whitespace-pre-line text-sm">{b.notes}</p>{b.quote_reviewed_at ? <p className="text-primary">Phone review approved · awaiting customer payment<br/>{b.quote_review_notes}</p> : <><label className="block text-sm font-semibold">Phone review notes<textarea value={notes[b.id] ?? ''} maxLength={1500} onChange={e=>setNotes({...notes,[b.id]:e.target.value})} className="mt-2 w-full rounded-md border border-input bg-background p-3" placeholder="Scope, crew availability and price agreed during the call"/></label><div className="flex flex-wrap gap-3"><Button disabled={busy===b.id || (notes[b.id] ?? '').trim().length<5} onClick={()=>decide(b.id,true)}>Approve quote after call</Button><Button variant="outline" disabled={busy===b.id || (notes[b.id] ?? '').trim().length<5} onClick={()=>decide(b.id,false)}>Decline quote</Button></div></>}</article>)}</div></section>;
+}

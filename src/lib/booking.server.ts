@@ -1,6 +1,15 @@
 import { quote, type CleaningLevel } from "./pricing";
 import { bookingBalance } from "./gift-certificates";
 import { notifyBookingEvent } from "./booking-notices.server";
+import { quotePaypal } from './service-quote-paypal.server';
+
+async function paypalFetch(url: string, init: RequestInit) {
+  if (process.env['PAYPAL_API_KEY']) {
+    const headers = new Headers(init.headers);
+    return quotePaypal(new URL(url).pathname, init.method ?? 'GET', typeof init.body === 'string' ? JSON.parse(init.body) : undefined, headers.get('PayPal-Request-Id') ?? undefined);
+  }
+  return fetch(url, init);
+}
 
 function paypalBase() {
   return process.env["PAYPAL_ENV"] === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
@@ -13,6 +22,7 @@ export function paypalClientId() {
 }
 
 async function paypalToken() {
+  if (process.env['PAYPAL_API_KEY']) return 'connector-managed';
   const id = paypalClientId();
   const secret = process.env["PAYPAL_CLIENT_SECRET"];
   if (!secret) throw new Error("PayPal is not configured yet.");
@@ -86,7 +96,7 @@ export async function createBookingOrder(input: BookingInput, userId: string | n
 
 async function paypalOrder(intent: "AUTHORIZE" | "CAPTURE", bookingId: string, service: string, cents: number, requestId: string, paymentSource?: unknown) {
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": requestId },
     body: JSON.stringify({
@@ -109,9 +119,10 @@ async function paypalOrder(intent: "AUTHORIZE" | "CAPTURE", bookingId: string, s
 /** Resume an emailed estimate without creating another booking or charging upfront. */
 export async function createPendingBookingOrder(id: string, accessToken: string) {
   const db = await admin();
-  const { data: b } = await db.from("bookings").select("id, status, service, amount_cents, frequency, preferred_date").eq("id", id).eq("access_token", accessToken).maybeSingle();
+  const { data: b } = await db.from("bookings").select("id, status, service, amount_cents, frequency, preferred_date, service_quote").eq("id", id).eq("access_token", accessToken).maybeSingle();
   if (!b) throw new Error("Booking not found.");
   if (b.status !== "pending_payment") throw new Error("This booking is no longer awaiting checkout.");
+  if (b.service_quote) throw new Error("Use the approved service quote payment button.");
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
   if (b.preferred_date < today) throw new Error("This requested date has passed. Please contact us for a new estimate.");
   const source = b.frequency !== "One-time" ? { paypal: {
@@ -135,7 +146,7 @@ export async function authorizeBookingOrder(orderId: string) {
     return { bookingId: booking.id, token: booking.access_token };
   }
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/authorize`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/authorize`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
   });
@@ -165,7 +176,7 @@ export async function authorizeBookingOrder(orderId: string) {
 /** Charge a vaulted (saved) PayPal account for one visit — no customer action needed. */
 async function chargeVault(b: { id: string; service: string; amount_cents: number; paypal_vault_id: string }) {
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": `vault-${b.id}` },
     body: JSON.stringify({
@@ -205,7 +216,7 @@ export async function collectBookingPayment(bookingId: string) {
   }
   if (b.paypal_authorization_id) {
     const token = await paypalToken();
-    const res = await fetch(`${paypalBase()}/v2/payments/authorizations/${encodeURIComponent(b.paypal_authorization_id)}/capture`, {
+    const res = await paypalFetch(`${paypalBase()}/v2/payments/authorizations/${encodeURIComponent(b.paypal_authorization_id)}/capture`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": `cap-${b.id}` },
       body: JSON.stringify({ final_capture: true, amount: { currency_code: "USD", value: (dueCents / 100).toFixed(2) } }),
@@ -305,7 +316,7 @@ export async function captureBookingOrder(orderId: string) {
   }
 
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
   });
@@ -335,7 +346,7 @@ export async function getBooking(id: string, token: string) {
   const db = await admin();
   const { data } = await db
     .from("bookings")
-    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, cleaning_level, preferred_date, time_window, appointment_start, appointment_end, notes, amount_cents, gift_credit_cents, payment_checkout_started, paid_at, authorized_at, cleaner_id")
+    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, cleaning_level, preferred_date, time_window, appointment_start, appointment_end, notes, amount_cents, gift_credit_cents, payment_checkout_started, paid_at, authorized_at, cleaner_id, service_quote, quote_reviewed_at, quote_review_notes")
     .eq("id", id).eq("access_token", token).maybeSingle();
   return data;
 }

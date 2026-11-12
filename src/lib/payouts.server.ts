@@ -1,11 +1,13 @@
 import { payoutOutcome, payoutValue } from "./payouts";
 import { notifyPaymentReceipt } from "./payment-notices.server";
+import { quotePaypal } from './service-quote-paypal.server';
 import type { Database } from "@/integrations/supabase/types";
 type Payout = Database["public"]["Tables"]["cleaner_payouts"]["Row"];
 
 export function payoutEnvironment() { return process.env["PAYPAL_ENV"] === "live" ? "live" : "sandbox"; }
 export function payoutsConfigured() { return !!process.env["PAYPAL_CLIENT_ID"] && !!process.env["PAYPAL_CLIENT_SECRET"]; }
 export async function api(path: string, method = "GET", body?: unknown, environment = payoutEnvironment(), requestId?: string) {
+  if (process.env['PAYPAL_API_KEY'] && environment === 'live') return quotePaypal(path, method, body, requestId);
   const id = process.env["PAYPAL_CLIENT_ID"]; const secret = process.env["PAYPAL_CLIENT_SECRET"];
   if (!id || !secret) throw new Error("PayPal credentials are not configured.");
   const base = environment === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";

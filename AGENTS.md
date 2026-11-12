@@ -43,4 +43,4 @@
 
 - Homepage video uses CDN media, muted looping and pause/reduced-motion controls. Why: no forced motion.
 
-- Gifts lock verified credit; income separates settlement. Office/moving share tested estimates with phone review, not checkout. Why: no false charges.
+- Gifts lock credit; income separates settlement. Slot-based office/moving quotes require cleaner phone approval before token PayPal capture and booking emails. Why: no unreviewed charges.

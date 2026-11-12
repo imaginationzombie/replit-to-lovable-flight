@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react'
+import { template as serviceQuoteUpdate } from './service-quote-update'
 import { template as giftCertificate } from './gift-certificate'
 import { template as cleanerBookingConfirmation } from './cleaner-booking-confirmation'
 import { template as tipConfirmation } from './tip-confirmation'
@@ -27,6 +28,7 @@ export interface TemplateEntry {
  *   // then add to TEMPLATES: 'welcome': welcomeTemplate
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
+  'service-quote-update': serviceQuoteUpdate,
   'gift-certificate': giftCertificate,
   'cleaner-booking-confirmation': cleanerBookingConfirmation,
   'tip-confirmation': tipConfirmation,

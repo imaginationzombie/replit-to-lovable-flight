@@ -14,6 +14,7 @@ import { CalendarDays, Pencil, Phone, LayoutDashboard } from "lucide-react";
 import { refreshBookingViews } from "@/lib/booking-sync";
 import { slotLabel } from "@/lib/appointment-slots";
 import { bookedSlot } from "@/lib/housekeeper-dashboard";
+import { ServiceQuoteReview } from '@/components/ServiceQuoteReview';
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
@@ -89,6 +90,7 @@ function CleanerJobs() {
         
         {isCleaner && <section className="mt-8 border-t border-border py-6"><div className="flex flex-wrap justify-between gap-3"><h2 className="text-xl font-bold">Appointment slots</h2><Button asChild variant="outline"><Link to="/availability">Create or move slots</Link></Button></div>{slots.error && <p role="alert" className="mt-3 text-destructive">{slots.error.message}</p>}<div className="mt-4 divide-y divide-border">{slots.data?.map(slot => { const b = bookedSlot(slot, jobs.data ?? []); return <article key={slot.id} className="flex flex-wrap items-center justify-between gap-3 py-4"><div className="min-w-0 break-words"><p className="font-semibold">{slot.slot_date} · {slotLabel(slot)}</p><p className="mt-1 text-sm text-muted-foreground">{b ? `Booked · ${b.customer_name}` : "Available"}</p>{b && <><p className="mt-1 text-sm">{b.address}</p><p className="mt-1 break-all text-sm text-muted-foreground">{b.phone} · {b.email}</p></>}</div>{b && <Button asChild variant="outline"><Link to="/appointment/$id" params={{ id: b.id }}>View client</Link></Button>}</article>; })}</div>{slots.isSuccess && slots.data.length === 0 && <p className="mt-4 text-sm text-muted-foreground">No upcoming slot listings.</p>}</section>}
         {isCleaner && <Button asChild variant="outline" className="mt-6"><Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }}><LayoutDashboard />Staff dashboard</Link></Button>}
+        {isCleaner && user && <ServiceQuoteReview userId={user.id}/>}
         {isCleaner && <div className="mt-6 flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/phone-booking"><Phone />Phone bookings</Link></Button><Button asChild variant="outline"><Link to="/my-page"><Pencil />Edit my public page</Link></Button><Button asChild><Link to="/waiting-list">Choose from waiting list</Link></Button><Button asChild variant="outline"><Link to="/timesheets">Timesheets & payments</Link></Button></div>}
         {jobs.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
         {(jobs.error || complete.error) && <p role="alert" className="mt-4 text-destructive">{(jobs.error ?? complete.error)?.message}</p>}

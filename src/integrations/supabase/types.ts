@@ -296,10 +296,15 @@ export type Database = {
           paypal_vault_id: string | null
           phone: string
           preferred_date: string
+          quote_payment_environment: string | null
+          quote_review_notes: string
+          quote_reviewed_at: string | null
+          quote_reviewed_by: string | null
           requested_cleaner_id: string | null
           rush: boolean
           service: string
           service_area: string
+          service_quote: Json | null
           status: string
           time_window: string
           user_id: string | null
@@ -336,10 +341,15 @@ export type Database = {
           paypal_vault_id?: string | null
           phone: string
           preferred_date: string
+          quote_payment_environment?: string | null
+          quote_review_notes?: string
+          quote_reviewed_at?: string | null
+          quote_reviewed_by?: string | null
           requested_cleaner_id?: string | null
           rush?: boolean
           service: string
           service_area: string
+          service_quote?: Json | null
           status?: string
           time_window: string
           user_id?: string | null
@@ -376,10 +386,15 @@ export type Database = {
           paypal_vault_id?: string | null
           phone?: string
           preferred_date?: string
+          quote_payment_environment?: string | null
+          quote_review_notes?: string
+          quote_reviewed_at?: string | null
+          quote_reviewed_by?: string | null
           requested_cleaner_id?: string | null
           rush?: boolean
           service?: string
           service_area?: string
+          service_quote?: Json | null
           status?: string
           time_window?: string
           user_id?: string | null
@@ -405,6 +420,13 @@ export type Database = {
             columns: ["parent_booking_id"]
             isOneToOne: false
             referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "bookings_quote_reviewed_by_fkey"
+            columns: ["quote_reviewed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
@@ -1357,6 +1379,10 @@ export type Database = {
       }
       review_application: {
         Args: { _id: string; _status: string }
+        Returns: undefined
+      }
+      review_service_quote: {
+        Args: { _approve: boolean; _booking: string; _notes: string }
         Returns: undefined
       }
       review_timesheet: {

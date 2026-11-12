@@ -5,6 +5,7 @@ import { AppHeader } from './AppHeader';
 import { Button } from './ui/button';
 import { SERVICE_AREAS } from '@/lib/pricing';
 import { officeEstimate, movingEstimate, ESTIMATE_SOURCES } from '@/lib/service-estimates';
+import { ServiceQuoteBooking } from './ServiceQuoteBooking';
 export function ServiceEstimate({ mode }: { mode: 'office' | 'moving' }) {
  const office = mode === 'office';
  const hydrated = useHydrated();
@@ -28,7 +29,7 @@ export function ServiceEstimate({ mode }: { mode: 'office' | 'moving' }) {
  <aside className="min-w-0 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0"><h2 className="text-xl font-bold">Estimated {office ? 'cleaning price' : 'labor price'}</h2><p className="mt-4 text-4xl font-bold text-primary" aria-live="polite">{money(office ? oq.perVisit : mq.total)}</p><p className="mt-2 text-sm text-muted-foreground">{office ? `Per visit · ${cleaners} cleaner${cleaners===1?'':'s'} · ${oq.billableHours} hours` : `2 movers · ${mq.billableHours} hours · ${money(mq.rate)}/crew hour`}</p>
  {office && <p className="mt-4 font-semibold">{visits} visits/month: {money(oq.total)}</p>}
  <div className="mt-6 space-y-3 border-y border-border py-5 text-sm"><p>10% below the selected published comparison.</p><p className="text-muted-foreground">{office ? `Johnstown comparison: ${money(oq.benchmark)} per visit before tax/chemical fees.` : `${area==='Lewistown, PA'?'Lewistown':'DuBois-area'} comparison: ${money(mq.benchmarkRate)}/hour for a two-person crew.`}</p><a href={source} target="_blank" rel="noreferrer" className="text-primary underline">View published comparison</a><p className="text-xs text-muted-foreground">Checked November 12, 2026. Competitor availability and prices can change.</p></div>
- <p className="mt-5 text-sm text-muted-foreground">Estimate only, subject to scope and crew availability. {office ? 'Tax, special chemicals and specialty floor work are not included.' : 'Labor only: truck, transport, fuel, packing materials and specialty-item handling are not included.'} No payment or appointment is reserved here.</p>
+ <p className="mt-5 text-sm text-muted-foreground">Estimate subject to housekeeper phone review and crew availability. {office ? 'Tax, special chemicals and specialty floor work are not included.' : 'Labor only: truck, transport, fuel, packing materials and specialty-item handling are not included.'} Pay this estimate with PayPal after approval to confirm your appointment.</p>
  {!office && (stairs || heavy) && <p className="mt-3 text-sm text-primary">Stairs or specialty items need a reviewed estimate before scheduling.</p>}
- <div className="mt-6 flex flex-wrap gap-3"><Button asChild><a href="tel:8149521964"><Phone/>Review estimate by phone</a></Button><Button variant="outline" onClick={()=>window.print()}><Printer/>Print estimate</Button></div></aside></div></main></div>;
+ <div className="mt-6 flex flex-wrap gap-3"><Button asChild><a href="tel:8149521964"><Phone/>Review estimate by phone</a></Button><Button variant="outline" onClick={()=>window.print()}><Printer/>Print estimate</Button></div></aside></div><ServiceQuoteBooking key={area} quote={{mode,area,hours:safeHours,cleaners,visits:Math.max(1,Math.min(31,visits)),size,notes,stairs,heavy}}/></main></div>;
 }
