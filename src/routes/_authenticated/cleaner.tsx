@@ -85,6 +85,7 @@ function CleanerJobs() {
           {jobs.data?.map((b) => (
             <article key={b.id}>
             <BookingCard b={b} showCustomer cleanerPayment>
+              <Button asChild variant="outline"><Link to="/appointment/$id" params={{ id: b.id }}>Open appointment</Link></Button>
               {b.status === "confirmed" && (
                 <Button onClick={() => complete.mutate(b.id)} disabled={complete.isPending}>Mark completed</Button>
               )}
