@@ -36,9 +36,9 @@
 - Time clock entries and location pings are written only through clock_in/record_location/clock_out RPCs (staff, assigned confirmed visits; admins may clock general shifts); customers read live location only via booking_cleaner_location while the assigned cleaner is clocked in. Why: location is never exposed outside an active visit.
 - Exact appointment slots use owner-only RPC edits and public safe projections; booking triggers reserve under the shared cleaner lock, while staff requests and recurring visits retain their existing paths. Why: customers choose real availability without exposing private bookings or double-booking.
 
-- Customer tip capture starts a database-enforced 24-hour amount-confirmation period; token-authorized explicit POST confirmation alone enables one-shot payout, and expired unconfirmed tips stay held for review. Why: a collected tip is not consent to release it.
-- Assigned cleaner appointment pages reuse work and clock RPCs, with room guidance and append-only participant notes; add-on selections are recorded requests, never direct changes to captured customer charges. Why: job details remain private and customer totals cannot silently change.
+- Tip capture starts a DB-enforced 24-hour deadline; token-authorized POST confirmation enables one-shot payout; expired tips stay held. Why: capture is not release consent.
+- Assigned appointment pages reuse work/clock RPCs and append-only notes; add-ons stay requests. Why: private job details cannot silently change customer charges.
 
-- Housekeeper confirmations reload saved assignments and customer details, independently of customer/owner delivery, and link to the assigned-only appointment route; the cleaner dashboard lists owner-scoped slots and visits. Why: booking emails and client details reach only the responsible cleaner.
+- Cleaner confirmations reload saved client/assignment details independently of other emails; dashboards and appointment links are owner-scoped. Why: only assigned cleaners receive client details.
 
-- The static homepage intro references generated CDN video/poster pointers, with muted inline looping, a playback control and reduced-motion pause. Why: the video stays behind existing copy without blocking booking controls or forcing motion.
+- Homepage video uses CDN pointers, muted inline looping, pause controls and reduced-motion pause. Why: booking controls stay usable without forced motion.
