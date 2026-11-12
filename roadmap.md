@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Office/moving quote PayPal payments at saved estimate amount; customer appointment requests, assigned-housekeeper phone review before confirmation, and housekeeper confirmation emails
+
 - [x] Office and moving-labor quote pages, 10%-below published regional comparisons, phone review and printing; homepage/instant quote links, mobile price changes and 156 tests verified; yardwork removed from offerings and recommendations, existing bookings untouched
 
 - [x] Housekeeper-selected service locations and town-centre travel radius; customer/waiting-list matching and assignment guards; signed-in save/reload, excluded-area readback and phone fit verified; original settings restored, 151 tests passed
