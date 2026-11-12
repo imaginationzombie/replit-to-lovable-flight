@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Assigned-housekeeper slot confirmation email with date, exact time and saved customer details
+- [ ] Housekeeper dashboard for booked slots, upcoming appointments and assigned customer details
+
 - [ ] Verify and finish applicant signup, resume upload and hiring status without dead pages
 
 - [ ] Tip amount confirmation email with a 24-hour deadline and payout only after explicit confirmation
