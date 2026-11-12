@@ -35,6 +35,7 @@ import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authentic
 import { Route as AuthenticatedWaitingListRouteImport } from './routes/_authenticated/waiting-list'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
 import { Route as HousekeepersIdRouteImport } from './routes/housekeepers.$id'
+import { Route as AuthenticatedAppointmentIdRouteImport } from './routes/_authenticated/appointment.$id'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
 import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -177,6 +178,12 @@ const HousekeepersIdRoute = HousekeepersIdRouteImport.update({
   path: '/housekeepers/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAppointmentIdRoute =
+  AuthenticatedAppointmentIdRouteImport.update({
+    id: '/appointment/$id',
+    path: '/appointment/$id',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
   id: '/lovable/email/auth/preview',
   path: '/lovable/email/auth/preview',
@@ -220,6 +227,7 @@ export interface FileRoutesByFullPath {
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
+  '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -250,6 +258,7 @@ export interface FileRoutesByTo {
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
+  '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -282,6 +291,7 @@ export interface FileRoutesById {
   '/_authenticated/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
+  '/_authenticated/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/waiting-list'
     | '/booking/$id'
     | '/housekeepers/$id'
+    | '/appointment/$id'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
     | '/lovable/email/transactional/preview'
@@ -344,6 +355,7 @@ export interface FileRouteTypes {
     | '/waiting-list'
     | '/booking/$id'
     | '/housekeepers/$id'
+    | '/appointment/$id'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
     | '/lovable/email/transactional/preview'
@@ -375,6 +387,7 @@ export interface FileRouteTypes {
     | '/_authenticated/waiting-list'
     | '/booking/$id'
     | '/housekeepers/$id'
+    | '/_authenticated/appointment/$id'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
     | '/lovable/email/transactional/preview'
@@ -578,6 +591,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HousekeepersIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/appointment/$id': {
+      id: '/_authenticated/appointment/$id'
+      path: '/appointment/$id'
+      fullPath: '/appointment/$id'
+      preLoaderRoute: typeof AuthenticatedAppointmentIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/lovable/email/auth/preview': {
       id: '/lovable/email/auth/preview'
       path: '/lovable/email/auth/preview'
@@ -621,6 +641,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedTimeClockRoute: typeof AuthenticatedTimeClockRoute
   AuthenticatedTimesheetsRoute: typeof AuthenticatedTimesheetsRoute
   AuthenticatedWaitingListRoute: typeof AuthenticatedWaitingListRoute
+  AuthenticatedAppointmentIdRoute: typeof AuthenticatedAppointmentIdRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -642,6 +663,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedTimeClockRoute: AuthenticatedTimeClockRoute,
   AuthenticatedTimesheetsRoute: AuthenticatedTimesheetsRoute,
   AuthenticatedWaitingListRoute: AuthenticatedWaitingListRoute,
+  AuthenticatedAppointmentIdRoute: AuthenticatedAppointmentIdRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

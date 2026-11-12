@@ -16,6 +16,9 @@ export async function sendCustomerTipReceipt(db: Db, id: string) {
   if (!tip || tip.status !== "paid" || !tip.paid_at || !tip.paypal_capture_id) return { sent: false, reason: "not_paid" };
   const { data: b, error: bookingError } = await db.from("bookings").select("id,email,customer_name,access_token").eq("id", tip.booking_id).single();
   if (bookingError || !b) throw new Error("Cannot load tip customer.");
+  if (!tip.customer_confirmed_at && tip.confirmation_expires_at) {
+    return sendTemplateEmail("tip-confirmation", b.email, { templateData: { name: b.customer_name, amount: money(tip.amount_cents), deadline: new Date(tip.confirmation_expires_at).toLocaleString("en-US", { timeZone: "America/New_York", dateStyle: "long", timeStyle: "short" }) + " Eastern", url: `https://housekeepingbooking.com/booking/${b.id}?t=${b.access_token}`, test: tip.environment !== "live" }, idempotencyKey: `tip-confirm-${tip.id}-${tip.confirmation_requested_at}` });
+  }
   return sendTemplateEmail("customer-tip-receipt", b.email, { templateData: { name: b.customer_name, amount: money(tip.amount_cents), reference: tip.paypal_capture_id, url: `https://housekeepingbooking.com/booking/${b.id}?t=${b.access_token}`, test: tip.environment !== "live" }, idempotencyKey: `customer-tip-${tip.id}-${tip.paypal_capture_id}` });
 }
 export async function sendCleanerPayoutReceipt(db: Db, id: string, kind: "work" | "tip") {

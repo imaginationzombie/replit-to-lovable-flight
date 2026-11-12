@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canTip, tipAmountSchema, tipReceiptMatches } from "../lib/tips";
+import { canTip, canConfirmTip, canPayTip, TIP_CONFIRMATION_HOURS, tipAmountSchema, tipReceiptMatches } from "../lib/tips";
 describe("optional customer tips", () => {
   it("only opens after an assigned visit is completed and paid", () => {
     const b = { status: "completed", paid_at: "2026-11-02", cleaner_id: "cleaner" };
@@ -20,4 +20,18 @@ describe("optional customer tips", () => {
     expect(tipReceiptMatches({ ...r, status: "PENDING" }, 1000)).toBe(false);
     expect(tipReceiptMatches({ ...r, amount: { value: "10.00", currency_code: "EUR" } }, 1000)).toBe(false);
   });
+});
+describe("tip customer confirmation", () => {
+ it("allows exactly 24 hours and rejects the deadline and later", () => {
+  const start = Date.parse("2026-11-12T17:00:00Z");
+  expect(TIP_CONFIRMATION_HOURS).toBe(24);
+  const tip = { status: "paid", customer_confirmed_at: null, confirmation_expires_at: "2026-11-13T17:00:00Z" };
+  expect(canConfirmTip(tip, start + 24 * 3600000 - 1)).toBe(true);
+  expect(canConfirmTip(tip, start + 24 * 3600000)).toBe(false);
+ });
+ it("never permits payout before explicit customer confirmation", () => {
+  expect(canPayTip({ status: "paid", customer_confirmed_at: null })).toBe(false);
+  expect(canPayTip({ status: "paid", customer_confirmed_at: "2026-11-12T18:00:00Z" })).toBe(true);
+  expect(canPayTip({ status: "pending", customer_confirmed_at: "2026-11-12T18:00:00Z" })).toBe(false);
+ });
 });

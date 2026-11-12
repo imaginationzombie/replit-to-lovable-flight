@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      appointment_notes: {
+        Row: {
+          author_id: string
+          body: string
+          booking_id: string
+          created_at: string
+          id: string
+          requested_add_ons: string[]
+        }
+        Insert: {
+          author_id: string
+          body: string
+          booking_id: string
+          created_at?: string
+          id?: string
+          requested_add_ons?: string[]
+        }
+        Update: {
+          author_id?: string
+          body?: string
+          booking_id?: string
+          created_at?: string
+          id?: string
+          requested_add_ons?: string[]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointment_notes_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointment_notes_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       appointment_work: {
         Row: {
           amount_cents: number
@@ -143,8 +185,11 @@ export type Database = {
           amount_cents: number
           booking_id: string
           cleaner_id: string
+          confirmation_expires_at: string | null
+          confirmation_requested_at: string | null
           created_at: string
           currency: string
+          customer_confirmed_at: string | null
           environment: string
           id: string
           paid_at: string | null
@@ -162,8 +207,11 @@ export type Database = {
           amount_cents: number
           booking_id: string
           cleaner_id: string
+          confirmation_expires_at?: string | null
+          confirmation_requested_at?: string | null
           created_at?: string
           currency?: string
+          customer_confirmed_at?: string | null
           environment: string
           id?: string
           paid_at?: string | null
@@ -181,8 +229,11 @@ export type Database = {
           amount_cents?: number
           booking_id?: string
           cleaner_id?: string
+          confirmation_expires_at?: string | null
+          confirmation_requested_at?: string | null
           created_at?: string
           currency?: string
+          customer_confirmed_at?: string | null
           environment?: string
           id?: string
           paid_at?: string | null
@@ -1005,6 +1056,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_appointment_note: {
+        Args: { _add_ons?: string[]; _body: string; _booking: string }
+        Returns: string
+      }
       available_slot_cleaners: {
         Args: never
         Returns: {

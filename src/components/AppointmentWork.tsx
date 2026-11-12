@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { roomCare } from "@/lib/room-care";
 import { Save, Send } from "lucide-react";
 
 export function AppointmentWork({ booking, userId, rate }: { booking: BookingRow; userId: string; rate: number }) {
@@ -36,10 +37,14 @@ export function AppointmentWork({ booking, userId, rate }: { booking: BookingRow
     setMessage(submit ? "Timesheet submitted." : "Appointment progress saved.");
   }, onSuccess: async () => { await Promise.all([qc.invalidateQueries({ queryKey: ["appointment-work"] }), qc.invalidateQueries({ queryKey: ["timesheets"], refetchType: "all" })]); } });
   const allTasks = appointmentTasks(booking);
+  const taskKeys = [...allTasks, ...roomCare(booking.bedrooms, booking.bathrooms).flatMap(room => room.tasks.map(task => `${room.room}: ${task}`))];
   return <section className="mt-3 border-t border-border pt-4">
-    <div className="flex flex-wrap justify-between gap-2"><h3 className="font-bold">Appointment to-do list</h3><span className="text-sm text-muted-foreground">{allTasks.filter(t => tasks.includes(t)).length}/{allTasks.length} complete · {record.data?.status ?? "draft"}</span></div>
+    <div className="flex flex-wrap justify-between gap-2"><h3 className="font-bold">Appointment to-do list</h3><span className="text-sm text-muted-foreground">{taskKeys.filter(t => tasks.includes(t)).length}/{taskKeys.length} complete · {record.data?.status ?? "draft"}</span></div>
     {record.isLoading ? <p role="status">Loading progress…</p> : <>
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">{allTasks.map(task => <label key={task} className="flex items-center gap-2 text-sm"><Checkbox aria-label={task} disabled={locked || record.isError} checked={tasks.includes(task)} onCheckedChange={checked => setTasks(previous => checked ? [...previous, task] : previous.filter(t => t !== task))} />{task}</label>)}</div>
+      <div className="mt-4 space-y-6">{roomCare(booking.bedrooms, booking.bathrooms).map(room => <div key={room.room}><h4 className="font-bold">{room.room}</h4><p className="mt-1 text-xs text-muted-foreground">Recommended products: {room.product}</p><div className="mt-3 grid gap-3 sm:grid-cols-2">{room.tasks.map(task => { const key = `${room.room}: ${task}`; return <label key={key} className="flex items-start gap-2 text-sm"><Checkbox aria-label={key} disabled={locked || record.isError} checked={tasks.includes(key)} onCheckedChange={checked => setTasks(old => checked ? [...old, key] : old.filter(t => t !== key))} />{task}</label>; })}</div></div>)}</div>
+      <p className="mt-4 text-xs text-muted-foreground">Follow product labels and surface care instructions. Never mix chemicals.</p>
+      <h4 className="mt-6 font-bold">Booked extras & final checks</h4>
+      <div className="mt-3 grid gap-3 sm:grid-cols-2">{allTasks.map(task => <label key={task} className="flex items-start gap-2 text-sm"><Checkbox aria-label={task} disabled={locked || record.isError} checked={tasks.includes(task)} onCheckedChange={checked => setTasks(previous => checked ? [...previous, task] : previous.filter(t => t !== task))} />{task}</label>)}</div>
       <div className="mt-5 grid gap-4 sm:grid-cols-[100px_100px_1fr]">
         <label className="text-sm font-semibold">Hours<Input aria-label="Hours worked" type="number" min={0} max={24} disabled={locked} value={hours} onChange={e => setHours(e.target.value)} /></label>
         <label className="text-sm font-semibold">Minutes<Input aria-label="Minutes worked" type="number" min={0} max={59} disabled={locked} value={minutes} onChange={e => setMinutes(e.target.value)} /></label>

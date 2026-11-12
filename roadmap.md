@@ -1,5 +1,16 @@
 # Roadmap
 
+- [x] Generated 8.06-second 720p woman-cleaning video behind homepage top text and buttons; playback, pause control, reduced motion and phone fit verified
+
+- [x] Assigned-housekeeper slot confirmation email with date, exact time and saved customer details; recipient and confirmation guards tested; inbox delivery awaits next real booking
+- [x] Housekeeper dashboard for booked slots, upcoming appointments and assigned customer details; assigned appointment navigation verified
+
+- [x] Applicant signup, sign-in, private resume upload and hiring status saved/reloaded on desktop and mobile; temporary applicant removed; inbox verification not exercised
+
+- [x] Tip amount confirmation email with database-enforced 24-hour deadline and payout only after explicit confirmation; exact deadline and saved email amount tested; no real tip payout performed
+- [x] Cleaner appointment pages with appointment clock, room tasks, cleaning products, note history, add-on requests/prices and earnings; clock-in/out, room task and note persistence verified; temporary records removed
+- [x] Add-on list and discounted prices in staff phone bookings; real signed-in price display verified
+
 - [x] Flexible housekeeper appointment slots with drag-and-drop date moves and exact time editing; customers must select an available appointment; signed-in creation, reload, drag move and customer selection verified, temporary slot removed, no PayPal charge
 
 - [x] Consolidate applicant signup, private resume submission and hiring status into /apply; duplicate careers form removed and mock pages redirected; signup/mobile links and signed-in hiring verified, 11 checks passed; fresh signup/resume submission not repeated (no applicant account available)

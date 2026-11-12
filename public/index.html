@@ -37,6 +37,14 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #005447;
     }
+    :root { --home-video-shade: #191c1b; --home-video-text: #ffffff; }
+    #home-cleaning-intro { position: relative; isolation: isolate; }
+    #home-cleaning-intro .home-cleaning-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -2; }
+    #home-cleaning-intro::before { content: ""; position: absolute; inset: 0; background: var(--home-video-shade); opacity: .48; z-index: -1; }
+    #home-cleaning-intro h1, #home-cleaning-intro h1 + p { color: var(--home-video-text); }
+    #home-cleaning-intro .video-toggle { position: absolute; right: 16px; bottom: 14px; }
+    @media (max-width: 767px) { #home-cleaning-intro { padding-bottom: 64px; } #home-cleaning-intro h1 { font-size: 18px !important; overflow-wrap: normal; } #home-cleaning-intro .home-cleaning-video { object-position: 58% center; } }
+    @media (max-width: 359px) { #home-cleaning-intro h1 { font-size: 16px !important; } }
     /* Phone layouts wrap content instead of clipping or creating scroll strips. */
     #mobile-location-picker, #estimator-location-picker { display: none; }
     @media (max-width: 767px) {
@@ -324,7 +332,9 @@
       <!-- Hero Section -->
       <section class="w-full px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-surface border-b border-surface-container pt-6 pb-12">
         <div class="max-w-7xl mx-auto flex flex-col gap-8">
-          <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div id="home-cleaning-intro" class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 p-4 sm:p-6 lg:p-8">
+            <video class="home-cleaning-video" autoplay muted loop playsinline preload="metadata" poster="/__l5e/assets-v1/36e3e46e-3180-449f-9ab2-2ad421c778e0/home-cleaning-poster.jpg" aria-hidden="true"><source src="/__l5e/assets-v1/095f40fc-c79e-4644-92b9-f44394169f59/home-cleaning.mp4" type="video/mp4"></video>
+            <button id="home-video-toggle" class="video-toggle inline-flex items-center justify-center rounded-lg bg-surface-container-lowest text-primary p-2 border border-surface-container" type="button" aria-label="Pause background video" title="Pause background video"><span class="material-symbols-outlined" aria-hidden="true">pause</span></button>
             <div class="flex-1 max-w-3xl mx-auto flex flex-col items-center text-center gap-3">
               <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container/60 text-on-secondary-container text-xs font-bold border border-primary/20 shadow-sm">
                 <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shrink-0"></span>
@@ -1477,4 +1487,17 @@
 
 
 <script type="module" src="/service-location.js"></script>
-</body></html>
+<script>
+(function () {
+  const video = document.querySelector('.home-cleaning-video');
+  const control = document.getElementById('home-video-toggle');
+  if (!video || !control) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function sync() { const paused = video.paused; control.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video'); control.title = paused ? 'Play background video' : 'Pause background video'; control.querySelector('span').textContent = paused ? 'play_arrow' : 'pause'; }
+  if (motion.matches) { video.removeAttribute('autoplay'); video.pause(); }
+  video.addEventListener('play', sync); video.addEventListener('pause', sync);
+  control.addEventListener('click', () => { if (video.paused) video.play().catch(sync); else video.pause(); });
+  motion.addEventListener('change', () => { if (motion.matches) video.pause(); });
+  sync();
+})();
+</script></body></html>

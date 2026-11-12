@@ -183,6 +183,13 @@
       "when": 1794504388631,
       "tag": "0025_bookable_cleaner_slots_without_portfolio",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1794505140303,
+      "tag": "0026_tip_confirmation_and_appointment_notes",
+      "breakpoints": true
     }
   ]
 }

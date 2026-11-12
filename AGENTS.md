@@ -35,3 +35,10 @@
 - Disputes and completed-visit reviews use owner-checked RPCs; only admins resolve reports, and public reviews expose chosen display names, never booking/contact IDs. Why: customer claims cannot change payment receipts or leak private data.
 - Time clock entries and location pings are written only through clock_in/record_location/clock_out RPCs (staff, assigned confirmed visits; admins may clock general shifts); customers read live location only via booking_cleaner_location while the assigned cleaner is clocked in. Why: location is never exposed outside an active visit.
 - Exact appointment slots use owner-only RPC edits and public safe projections; booking triggers reserve under the shared cleaner lock, while staff requests and recurring visits retain their existing paths. Why: customers choose real availability without exposing private bookings or double-booking.
+
+- Tip capture starts a DB-enforced 24-hour deadline; token-authorized POST confirmation enables one-shot payout; expired tips stay held. Why: capture is not release consent.
+- Assigned appointment pages reuse work/clock RPCs and append-only notes; add-ons stay requests. Why: private job details cannot silently change customer charges.
+
+- Cleaner confirmations reload saved client/assignment details independently of other emails; dashboards and appointment links are owner-scoped. Why: only assigned cleaners receive client details.
+
+- Homepage video uses CDN pointers, muted inline looping, pause controls and reduced-motion pause. Why: booking controls stay usable without forced motion.

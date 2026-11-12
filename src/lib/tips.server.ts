@@ -1,5 +1,5 @@
 import { api, payoutEnvironment } from "./payouts.server";
-import { canTip, tipReceiptMatches } from "./tips";
+import { canTip, canConfirmTip, canPayTip, tipReceiptMatches } from "./tips";
 import { payoutOutcome, payoutValue } from "./payouts";
 import { notifyPaymentReceipt } from "./payment-notices.server";
 
@@ -11,7 +11,7 @@ async function bookingAccess(id: string, token: string) {
 }
 export async function getTip(id: string, token: string) {
   const { db } = await bookingAccess(id, token);
-  const { data, error } = await db.from("booking_tips").select("amount_cents,status,environment,paid_at,payout_status,payout_paid_at").eq("booking_id", id).maybeSingle();
+  const { data, error } = await db.from("booking_tips").select("amount_cents,status,environment,paid_at,payout_status,payout_paid_at,customer_confirmed_at,confirmation_expires_at").eq("booking_id", id).maybeSingle();
   if (error) throw new Error("Could not load tip receipt.");
   return data;
 }
@@ -63,6 +63,7 @@ export async function transferTip(tipId: string, send: boolean) {
   const { supabaseAdmin: db } = await import("@/integrations/supabase/client.server");
   const { data: tip } = await db.from("booking_tips").select("*").eq("id", tipId).single();
   if (!tip || tip.status !== "paid") throw new Error("Only collected tips can be transferred.");
+  if (send && !canPayTip(tip)) throw new Error("The customer must confirm the tip amount before payout.");
   let batch = tip.paypal_batch_id;
   let recipient = tip.recipient_email;
   if (!batch && send) {
@@ -94,4 +95,18 @@ export async function transferTip(tipId: string, send: boolean) {
   if (error) throw new Error("Could not save transfer receipt. Check again; no new payment will be sent.");
   if (status === "paid" && tip.environment === "live") await notifyPaymentReceipt(db, tip.id, "tip");
   return { message: status === "paid" ? (tip.environment === "live" ? "Tip delivered through PayPal." : "Test tip transfer completed. No real money moved.") : `Tip transfer: ${status}.` };
+}
+export async function confirmCustomerTip(id: string, token: string) {
+ const { db } = await bookingAccess(id, token);
+ const { data: tip, error } = await db.from("booking_tips").select("*").eq("booking_id", id).single();
+ if (error || !tip) throw new Error("Tip receipt not found.");
+ if (!tip.customer_confirmed_at) {
+  if (!canConfirmTip(tip)) throw new Error("The 24-hour confirmation period has ended. Your tip is held for review; contact us.");
+  const { error: saved } = await db.from("booking_tips").update({ customer_confirmed_at: new Date().toISOString() }).eq("id", tip.id).is("customer_confirmed_at", null);
+  if (saved) throw new Error("Could not confirm the tip. Refresh to check its status.");
+ }
+ await notifyPaymentReceipt(db, tip.id, "customer-tip");
+ if (tip.payout_status !== "unpaid") return { message: "Tip confirmed. Payout is already being processed." };
+ try { return await transferTip(tip.id, true); }
+ catch { return { message: "Tip confirmed. Cleaner payout awaits review; you will not be charged again." }; }
 }

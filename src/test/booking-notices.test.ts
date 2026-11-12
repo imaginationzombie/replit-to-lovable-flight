@@ -1,7 +1,7 @@
 import { beforeEach, expect, it, vi } from "vitest";
 const send = vi.hoisted(() => vi.fn().mockResolvedValue({ sent: true }));
 vi.mock("../lib/email-templates/send-email", () => ({ sendTemplateEmail: send }));
-import { notifyBookingEvent, sendBookingNotice, sendCleanerPaymentNotice, sendOwnerBookingNotice } from "../lib/booking-notices.server";
+import { notifyBookingEvent, sendBookingNotice, sendCleanerPaymentNotice, sendOwnerBookingNotice, sendCleanerBookingNotice } from "../lib/booking-notices.server";
 import { template as ownerTemplate } from "../lib/email-templates/owner-booking-notification";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "../integrations/supabase/types";
@@ -35,10 +35,11 @@ it("does not send a cleaner receipt for unpaid or unassigned appointments", asyn
 });
 it("does not turn successful booking or payment into failure when email sending fails", async () => {
   send.mockResolvedValueOnce({ sent: true });
+  send.mockResolvedValueOnce({ sent: true });
   send.mockRejectedValueOnce(new Error("Email unavailable"));
   const log = vi.spyOn(console, "error").mockImplementation(() => {});
   await expect(notifyBookingEvent(db(), booking.id, "confirmed")).resolves.toEqual({ sent: false, reason: "send_failed" });
-  expect(send).toHaveBeenCalledTimes(2);
+  expect(send).toHaveBeenCalledTimes(3);
   log.mockRestore();
 });
 it("sends new appointments to the owner's fixed email, not the customer's address", async () => {
@@ -58,9 +59,18 @@ it("does not alert the owner about abandoned or cancelled bookings", async () =>
   expect(send).not.toHaveBeenCalled();
 });
 it("keeps customer confirmations working if the owner alert fails", async () => {
+  send.mockResolvedValueOnce({ sent: true });
   send.mockRejectedValueOnce(new Error("Owner email unavailable"));
   const log = vi.spyOn(console, "error").mockImplementation(() => {});
   await expect(notifyBookingEvent(db(), booking.id, "confirmed")).resolves.toEqual({ sent: true });
-  expect(send.mock.calls.map(call => call[0])).toEqual(["owner-booking-notification", "booking-confirmation"]);
+  expect(send.mock.calls.map(call => call[0])).toEqual(["cleaner-booking-confirmation", "owner-booking-notification", "booking-confirmation"]);
   log.mockRestore();
+});
+it("emails only the assigned housekeeper with exact slot time and saved customer details", async () => {
+ await sendCleanerBookingNotice(db({ ...booking, appointment_start: "09:00:00", appointment_end: "11:00:00", phone: "555-0100" } as typeof booking), booking.id);
+ expect(send).toHaveBeenCalledWith("cleaner-booking-confirmation", "cleaner@example.com", expect.objectContaining({ templateData: expect.objectContaining({ customer: "Customer", email: "customer@example.com", phone: "555-0100", time: "9:00am–11:00am Eastern", address: "Home" }) }));
+});
+it("never sends housekeeper customer details for an unconfirmed visit", async () => {
+ await sendCleanerBookingNotice(db({ ...booking, status: "pending_payment" }), booking.id);
+ expect(send).not.toHaveBeenCalled();
 });
