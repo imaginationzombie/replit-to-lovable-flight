@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Verify and refine housekeeper booked-slot dashboard and assigned client details; check real booking email sending and report inbox-verification limits
+
 - [x] Approved applicants: admin-set start date, weekly hours and hourly pay shown privately on /apply; approval, save/reload, applicant readback, edit rejection and mobile fit verified; temporary candidate removed, no wages changed
 
 - [x] Generated 8.06-second 720p woman-cleaning video behind homepage top text and buttons; playback, pause control, reduced motion and phone fit verified
