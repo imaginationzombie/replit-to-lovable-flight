@@ -9,6 +9,11 @@ type Db = SupabaseClient<Database>;
 function visitDate(date: string) {
   return new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", month: "long", day: "numeric", year: "numeric" });
 }
+async function customerConfirmationKey(b: { id: string; preferred_date: string; time_window: string; cleaner_id: string | null; appointment_start?: string | null; appointment_end?: string | null }) {
+  const event = JSON.stringify([b.id, b.preferred_date, b.time_window, b.cleaner_id, b.appointment_start, b.appointment_end]);
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(event));
+  return `booking-confirmation-${Array.from(new Uint8Array(digest), value => value.toString(16).padStart(2, "0")).join("")}`;
+}
 
 /** Fixed recipients from persisted records; called only after the feature's successful write. */
 export async function sendBookingNotice(db: Db, bookingId: string) {
@@ -22,7 +27,7 @@ export async function sendBookingNotice(db: Db, bookingId: string) {
   }
   return sendTemplateEmail("booking-confirmation", b.email, {
     templateData: { name: b.customer_name, service: b.service, date: visitDate(b.preferred_date), time: b.appointment_start && b.appointment_end ? slotLabel({ start_time: b.appointment_start, end_time: b.appointment_end }) : b.time_window, address: b.address, frequency: b.frequency, cleaner, paid: Boolean(b.paid_at), url: `https://housekeepingbooking.com/booking/${b.id}?t=${b.access_token}` },
-    idempotencyKey: `booking-confirmation-${b.id}-${b.preferred_date}-${b.time_window}-${b.cleaner_id ?? "unassigned"}`,
+    idempotencyKey: await customerConfirmationKey(b),
   });
 }
 

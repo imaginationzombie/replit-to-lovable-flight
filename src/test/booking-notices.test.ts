@@ -24,6 +24,12 @@ it("does not email abandoned or cancelled bookings", async () => {
   await sendBookingNotice(db({ ...booking, status: "cancelled" }), booking.id);
   expect(send).not.toHaveBeenCalled();
 });
+it("keeps confirmation retry keys ASCII and short for real UUIDs and Eastern arrival windows", async () => {
+ await sendBookingNotice(db({ ...booking, id: "472ebb5d-1d5f-4706-a958-c5d1a000f6d8", cleaner_id: "472ebb5d-1d5f-4706-a958-c5d1a000f6d8", time_window: "Morning (8am–12pm)" }), booking.id);
+ const key = send.mock.calls[0]?.[2].idempotencyKey;
+ expect(key).toMatch(/^booking-confirmation-[a-f0-9]{64}$/);
+ expect(key.length).toBeLessThan(128);
+});
 it("sends the assigned cleaner the verified customer amount, not their payout address", async () => {
   await sendCleanerPaymentNotice(db({ ...booking, paid_at: "2026-11-09", paypal_capture_id: "capture-1" }), booking.id);
   expect(send).toHaveBeenCalledWith("cleaner-payment-confirmation", "cleaner@example.com", expect.objectContaining({ templateData: expect.objectContaining({ amount: "$95.00", reference: "capture-1" }), idempotencyKey: "cleaner-payment-visit-1-capture-1-cleaner-1" }));
