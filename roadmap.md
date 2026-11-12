@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Verify and finish applicant signup, resume upload and hiring status without dead pages
+
 - [ ] Tip amount confirmation email with a 24-hour deadline and payout only after explicit confirmation
 - [ ] Cleaner appointment pages with appointment clock, room tasks, cleaning products, note history, add-on requests/prices and earnings
 - [ ] Add-on list and discounted prices in staff phone bookings
