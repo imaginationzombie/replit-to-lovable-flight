@@ -25,3 +25,9 @@ export const confirmTip = createServerFn({ method: "POST" }).inputValidator((d: 
  const { confirmCustomerTip } = await import("./tips.server");
  return confirmCustomerTip(data.id, data.token);
 });
+export const checkOwnTipTransfer = createServerFn({ method: "POST" }).middleware([requireSupabaseAuth]).validator((d: unknown) => z.object({ id: z.string().uuid() }).parse(d)).handler(async ({ data, context }) => {
+ const { data: tip, error } = await context.supabase.from("booking_tips").select("id,cleaner_id").eq("id", data.id).eq("cleaner_id", context.userId).maybeSingle();
+ if (error || !tip) throw new Error("This tip is not assigned to you.");
+ const { transferTip } = await import("./tips.server");
+ return transferTip(tip.id, false);
+});
