@@ -7,6 +7,8 @@ import { useAuth } from "@/hooks/use-auth";
 import type { Json } from "@/integrations/supabase/types";
 import { validateWeeklyHours } from "@/lib/availability";
 import { Button } from "@/components/ui/button";
+import { SERVICE_AREAS } from "@/lib/pricing";
+import { eligibleAreas, validateTravel } from "@/lib/travel-areas";
 
 export const Route = createFileRoute("/_authenticated/cleaner-profile")({
   head: () => ({
@@ -34,9 +36,10 @@ function CleanerPortal() {
     queryKey: ["cleaner-portal", user?.id],
     enabled: !!user && isCleaner,
     queryFn: async () => {
+      if (!user) throw new Error("Sign in first.");
       const [p, s] = await Promise.all([
-        supabase.from("profiles").select("full_name, phone, address").eq("id", user!.id).single(),
-        supabase.from("cleaner_settings").select("*").eq("user_id", user!.id).maybeSingle(),
+        supabase.from("profiles").select("full_name, phone, address").eq("id", user.id).single(),
+        supabase.from("cleaner_settings").select("*").eq("user_id", user.id).maybeSingle(),
       ]);
       if (p.error) throw p.error;
       if (s.error) throw s.error;
@@ -48,6 +51,9 @@ function CleanerPortal() {
   const [hours, setHours] = useState<Hours>(defaultHours);
   const [off, setOff] = useState<string[]>([]);
   const [newOff, setNewOff] = useState("");
+  const [areas, setAreas] = useState<string[]>(SERVICE_AREAS);
+  const [base, setBase] = useState("");
+  const [radius, setRadius] = useState("");
   useEffect(() => {
     if (!data.data) return;
     const { profile, settings } = data.data;
@@ -59,17 +65,23 @@ function CleanerPortal() {
     const wh = settings?.weekly_hours as unknown as Partial<Hours> | undefined;
     setHours({ ...defaultHours(), ...(wh ?? {}) });
     setOff(settings?.unavailable_dates ?? []);
+    setAreas(settings?.selected_service_areas ?? SERVICE_AREAS);
+    setBase(settings?.travel_base_area ?? "");
+    setRadius(settings?.travel_radius_miles == null ? "" : String(settings.travel_radius_miles));
   }, [data.data]);
 
   const save = useMutation({
     mutationFn: async () => {
+      if (!user || !isCleaner) throw new Error("Cleaner access required.");
+      const miles = validateTravel(base, radius);
       validateWeeklyHours(hours);
       const rate = Math.round(Number(f.rate || 0) * 100);
       if (!Number.isFinite(rate) || rate < 0 || rate > 100000) throw new Error("Enter an hourly rate between $0 and $1,000.");
-      const p = await supabase.from("profiles").update({ full_name: f.full_name.trim().slice(0, 120), phone: f.phone.trim().slice(0, 40), address: f.address.trim().slice(0, 300) }).eq("id", user!.id);
+      const p = await supabase.from("profiles").update({ full_name: f.full_name.trim().slice(0, 120), phone: f.phone.trim().slice(0, 40), address: f.address.trim().slice(0, 300) }).eq("id", user.id);
       if (p.error) throw p.error;
       const s = await supabase.from("cleaner_settings").upsert({
-        user_id: user!.id, bio: f.bio.slice(0, 1000), hourly_rate_cents: rate, service_areas: f.service_areas.slice(0, 300),
+        user_id: user.id, bio: f.bio.slice(0, 1000), hourly_rate_cents: rate, service_areas: eligibleAreas(areas, base, miles).join(" · "),
+        selected_service_areas: areas, travel_base_area: base || null, travel_radius_miles: miles,
         accepting_jobs: f.accepting_jobs, weekly_hours: hours as unknown as Json, unavailable_dates: off, updated_at: new Date().toISOString(),
       });
       if (s.error) throw s.error;
@@ -79,12 +91,14 @@ function CleanerPortal() {
       qc.invalidateQueries({ queryKey: ["cleaner-portal-settings"] });
       qc.invalidateQueries({ queryKey: ["admin-cleaner-settings"] });
       qc.invalidateQueries({ queryKey: ["cleaners"] });
+      qc.invalidateQueries({ queryKey: ["available-slot-cleaners"] });
+      qc.invalidateQueries({ queryKey: ["waiting-list"] });
     },
   });
 
   const input = "mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground";
   const label = "block text-sm font-semibold text-foreground";
-  const card = "mt-6 rounded-2xl border border-border bg-card p-6";
+  const card = "mt-6 border-t border-border py-6";
   const today = new Date().toISOString().slice(0, 10);
 
   return (
@@ -113,7 +127,11 @@ function CleanerPortal() {
               <h2 className="text-lg font-bold text-foreground">Rates & areas</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <label className={label}>Hourly rate (USD)<input type="number" min={0} max={1000} step="0.5" className={input} value={f.rate} onChange={(e) => setF({ ...f, rate: e.target.value })} /></label>
-                <label className={label}>Service areas<input className={input} value={f.service_areas} onChange={(e) => setF({ ...f, service_areas: e.target.value })} placeholder="e.g. Spokane, Spokane Valley" /></label>
+                <label className={label}>Travel base location<select className={input} value={base} onChange={e => setBase(e.target.value)}><option value="">Choose a location</option>{SERVICE_AREAS.map(a => <option key={a}>{a}</option>)}</select></label>
+                <label className={label}>Maximum travel radius (miles)<input type="number" min={0} max={500} step="0.5" className={input} value={radius} onChange={e => setRadius(e.target.value)} placeholder="No distance limit" /></label>
+                <p className="text-sm text-muted-foreground sm:col-span-2">Approximate straight-line distance between town centres, not driving miles. Leave blank for no distance limit.</p>
+                <fieldset className="sm:col-span-2"><legend className={label}>Locations I accept appointments</legend><div className="mt-3 grid gap-3 sm:grid-cols-2">{SERVICE_AREAS.map(a => <label key={a} className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={areas.includes(a)} onChange={e => setAreas(e.target.checked ? [...areas, a] : areas.filter(x => x !== a))} />{a}</label>)}</div></fieldset>
+                <p className="break-words text-sm text-muted-foreground sm:col-span-2">Accepting locations: {eligibleAreas(areas, base, radius === "" ? null : Number(radius)).join(" · ") || "None"}</p>
                 <label className="flex items-center gap-2 text-sm font-semibold text-foreground sm:col-span-2">
                   <input type="checkbox" checked={f.accepting_jobs} onChange={(e) => setF({ ...f, accepting_jobs: e.target.checked })} /> Accepting new jobs
                 </label>
@@ -158,7 +176,7 @@ function CleanerPortal() {
             </section>
 
             <div className="mt-6 flex items-center gap-3">
-              <button type="submit" disabled={save.isPending} className="rounded-lg bg-primary px-5 py-2.5 font-bold text-primary-foreground">{save.isPending ? "Saving…" : "Save changes"}</button>
+              <Button type="submit" disabled={save.isPending}>{save.isPending ? "Saving…" : "Save changes"}</Button>
               {save.isSuccess && <span className="text-sm text-primary">Saved.</span>}
               {save.error && <span className="text-sm text-destructive">{save.error.message}</span>}
             </div>
