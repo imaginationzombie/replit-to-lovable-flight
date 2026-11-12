@@ -27,6 +27,7 @@ import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
 import { Route as AuthenticatedDisputesRouteImport } from './routes/_authenticated/disputes'
+import { Route as AuthenticatedHousekeeperIncomeRouteImport } from './routes/_authenticated/housekeeper-income'
 import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
 import { Route as AuthenticatedMyPageRouteImport } from './routes/_authenticated/my-page'
 import { Route as AuthenticatedPhoneBookingRouteImport } from './routes/_authenticated/phone-booking'
@@ -137,6 +138,12 @@ const AuthenticatedDisputesRoute = AuthenticatedDisputesRouteImport.update({
   path: '/disputes',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedHousekeeperIncomeRoute =
+  AuthenticatedHousekeeperIncomeRouteImport.update({
+    id: '/housekeeper-income',
+    path: '/housekeeper-income',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
   id: '/messages',
   path: '/messages',
@@ -231,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/disputes': typeof AuthenticatedDisputesRoute
+  '/housekeeper-income': typeof AuthenticatedHousekeeperIncomeRoute
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/phone-booking': typeof AuthenticatedPhoneBookingRoute
@@ -264,6 +272,7 @@ export interface FileRoutesByTo {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/disputes': typeof AuthenticatedDisputesRoute
+  '/housekeeper-income': typeof AuthenticatedHousekeeperIncomeRoute
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/phone-booking': typeof AuthenticatedPhoneBookingRoute
@@ -299,6 +308,7 @@ export interface FileRoutesById {
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/_authenticated/disputes': typeof AuthenticatedDisputesRoute
+  '/_authenticated/housekeeper-income': typeof AuthenticatedHousekeeperIncomeRoute
   '/_authenticated/messages': typeof AuthenticatedMessagesRoute
   '/_authenticated/my-page': typeof AuthenticatedMyPageRoute
   '/_authenticated/phone-booking': typeof AuthenticatedPhoneBookingRoute
@@ -334,6 +344,7 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/disputes'
+    | '/housekeeper-income'
     | '/messages'
     | '/my-page'
     | '/phone-booking'
@@ -367,6 +378,7 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/disputes'
+    | '/housekeeper-income'
     | '/messages'
     | '/my-page'
     | '/phone-booking'
@@ -401,6 +413,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
     | '/_authenticated/disputes'
+    | '/_authenticated/housekeeper-income'
     | '/_authenticated/messages'
     | '/_authenticated/my-page'
     | '/_authenticated/phone-booking'
@@ -561,6 +574,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDisputesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/housekeeper-income': {
+      id: '/_authenticated/housekeeper-income'
+      path: '/housekeeper-income'
+      fullPath: '/housekeeper-income'
+      preLoaderRoute: typeof AuthenticatedHousekeeperIncomeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/messages': {
       id: '/_authenticated/messages'
       path: '/messages'
@@ -674,6 +694,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
   AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
   AuthenticatedDisputesRoute: typeof AuthenticatedDisputesRoute
+  AuthenticatedHousekeeperIncomeRoute: typeof AuthenticatedHousekeeperIncomeRoute
   AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
   AuthenticatedMyPageRoute: typeof AuthenticatedMyPageRoute
   AuthenticatedPhoneBookingRoute: typeof AuthenticatedPhoneBookingRoute
@@ -696,6 +717,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
   AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,
   AuthenticatedDisputesRoute: AuthenticatedDisputesRoute,
+  AuthenticatedHousekeeperIncomeRoute: AuthenticatedHousekeeperIncomeRoute,
   AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
   AuthenticatedMyPageRoute: AuthenticatedMyPageRoute,
   AuthenticatedPhoneBookingRoute: AuthenticatedPhoneBookingRoute,
