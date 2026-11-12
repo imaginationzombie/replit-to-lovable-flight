@@ -1,7 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AppHeader } from "@/components/AppHeader";
-import { AppointmentCalendar } from "@/components/AppointmentCalendar";
+import { AppointmentSlotPicker } from "@/components/AppointmentSlotPicker";
+import { availableSlotCleaners } from "@/lib/appointment-slots.functions";
+import { slotLabel, slotWindow, type AppointmentSlot } from "@/lib/appointment-slots";
+import { useQuery } from "@tanstack/react-query";
 import { CleaningLevelPicker } from "@/components/CleaningLevelPicker";
 import { CLEANING_LEVELS, type CleaningLevel } from "@/lib/pricing";
 import { publicPortfolio } from "@/lib/portfolio.functions";
@@ -37,6 +40,7 @@ type Form = {
   service: string; frequency: string; bedrooms: number; bathrooms: number; addOns: string[];
   rush: boolean; preferredDate: string; timeWindow: string; notes: string;
   requestedCleanerId?: string | undefined;
+  appointmentSlotId?: string | undefined;
   cleaningLevel: CleaningLevel;
 };
 
@@ -54,6 +58,9 @@ declare global {
 function BookPage() {
   const { housekeeper } = Route.useSearch();
   const [housekeeperName, setHousekeeperName] = useState<string | null>(null);
+  const [chosenCleaner, setChosenCleaner] = useState(housekeeper ?? "");
+  const [chosenSlot, setChosenSlot] = useState<AppointmentSlot | null>(null);
+  const cleaners = useQuery({ queryKey: ["available-slot-cleaners"], queryFn: () => availableSlotCleaners(), refetchInterval: 15000 });
   const portfolio = useServerFn(publicPortfolio);
   const navigate = useNavigate();
   const [form, setForm] = useState<Form>(empty);
@@ -70,7 +77,9 @@ function BookPage() {
 
   useEffect(() => {
     let cancelled = false;
-    setForm(f => ({ ...f, requestedCleanerId: housekeeper }));
+    setChosenCleaner(housekeeper ?? "");
+    setChosenSlot(null);
+    setForm(f => ({ ...f, requestedCleanerId: housekeeper, appointmentSlotId: undefined, preferredDate: "" }));
     setHousekeeperName(null);
     if (housekeeper) portfolio({ data: { id: housekeeper } }).then(p => {
       if (cancelled) return;
@@ -123,7 +132,7 @@ function BookPage() {
 
   const valid =
     form.customerName.trim().length >= 2 && /\S+@\S+\.\S+/.test(form.email) && form.phone.trim().length >= 7 &&
-    form.address.trim().length >= 5 && !!form.preferredDate && (!housekeeper || !!housekeeperName);
+    form.address.trim().length >= 5 && !!form.preferredDate && !!form.appointmentSlotId && !!form.requestedCleanerId;
   const validRef = useRef(valid);
   validRef.current = valid;
 
@@ -204,8 +213,8 @@ function BookPage() {
             </section>
 
             <CleaningLevelPicker value={form.cleaningLevel} onChange={value => set("cleaningLevel", value)} />
-            <AppointmentCalendar date={form.preferredDate} timeWindow={form.timeWindow}
-              onChange={(preferredDate, timeWindow) => setForm((f) => ({ ...f, preferredDate, timeWindow }))} />
+            {!housekeeper && <label className="block"><span className={label}>Housekeeper</span><select aria-label="Housekeeper" className={field} value={chosenCleaner} onChange={e => { setChosenCleaner(e.target.value); setChosenSlot(null); setForm(f => ({ ...f, requestedCleanerId: e.target.value || undefined, appointmentSlotId: undefined, preferredDate: "" })); }}><option value="">Choose an available housekeeper</option>{(cleaners.data ?? []).map(c => <option key={c.id} value={c.id}>{c.display_name}</option>)}</select>{cleaners.error && <p role="alert" className="mt-2 text-destructive">Couldn’t load available housekeepers.</p>}{cleaners.isSuccess && !cleaners.data.length && <p className="mt-2 text-muted-foreground">No appointments currently available.</p>}</label>}
+            {chosenCleaner && <AppointmentSlotPicker cleaner={chosenCleaner} value={form.appointmentSlotId} onChange={slot => { setChosenSlot(slot); setForm(f => ({ ...f, requestedCleanerId: chosenCleaner, appointmentSlotId: slot?.id, preferredDate: slot?.slot_date ?? "", timeWindow: slot ? slotWindow(slot.start_time) : f.timeWindow })); }} />}
 
             <section>
               <p className={label}>Add-ons <span className="font-normal text-muted-foreground">— 1 free per hour of cleaning ({q.includedHours} included), most expensive first</span></p>
@@ -236,7 +245,7 @@ function BookPage() {
 
           <aside className="h-fit rounded-2xl border border-border bg-card p-6 lg:sticky lg:top-6">
             <h2 className="text-lg font-bold text-foreground">Your total</h2>
-            {form.preferredDate && <p className="mt-2 text-sm text-muted-foreground">{form.preferredDate} · {form.timeWindow}</p>}
+            {form.preferredDate && <p className="mt-2 text-sm text-muted-foreground">{form.preferredDate} · {chosenSlot ? slotLabel(chosenSlot) : form.timeWindow}</p>}
             <dl className="mt-4 space-y-2 text-sm">
               <Row k={form.service} v={q.base} />
               {q.cleaningLevel > 0 && <Row k={`${form.cleaningLevel} cleaning`} v={q.cleaningLevel} />}
