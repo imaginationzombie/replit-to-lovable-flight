@@ -83,7 +83,7 @@ function BookPage() {
     setHousekeeperName(null);
     if (housekeeper) portfolio({ data: { id: housekeeper } }).then(p => {
       if (cancelled) return;
-      if (!p) { setError("This housekeeper page is unavailable."); return; }
+      if (!p) { setHousekeeperName("Selected housekeeper"); return; }
       setHousekeeperName(p.display_name);
     }).catch(() => { if (!cancelled) setError("Couldn't load your selected housekeeper."); });
     return () => { cancelled = true; };
