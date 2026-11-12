@@ -1005,6 +1005,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      available_slot_cleaners: {
+        Args: never
+        Returns: {
+          display_name: string
+          id: string
+        }[]
+      }
       booking_cleaner_location: {
         Args: { _booking: string }
         Returns: {
