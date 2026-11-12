@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Finish flexible housekeeper appointment slots with drag-and-drop moves; require customers to select a published available appointment
+- [x] Flexible housekeeper appointment slots with drag-and-drop date moves and exact time editing; customers must select an available appointment; signed-in creation, reload, drag move and customer selection verified, temporary slot removed, no PayPal charge
 
 - [x] Consolidate applicant signup, private resume submission and hiring status into /apply; duplicate careers form removed and mock pages redirected; signup/mobile links and signed-in hiring verified, 11 checks passed; fresh signup/resume submission not repeated (no applicant account available)
 

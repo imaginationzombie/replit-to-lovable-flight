@@ -21,3 +21,4 @@ export const bookingSchema = z.object({
   appointmentSlotId: z.string().uuid().optional(),
 });
 export type BookingFormInput = z.infer<typeof bookingSchema>;
+export const customerBookingSchema = bookingSchema.refine(b => Boolean(b.appointmentSlotId && b.requestedCleanerId), { message: "Choose an available appointment." });
