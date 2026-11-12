@@ -39,6 +39,6 @@
 - Tip capture starts a DB-enforced 24-hour deadline; token-authorized POST confirmation enables one-shot payout; expired tips stay held. Why: capture is not release consent.
 - Assigned appointment pages reuse work/clock RPCs and append-only notes; add-ons stay requests. Why: private job details cannot silently change customer charges.
 
-- Cleaner confirmations reload saved client/assignment details independently of other emails; dashboards and appointment links are owner-scoped. Why: only assigned cleaners receive client details.
+- Automatic/manual cleaner confirmations reload saved assignments independently of customer sends; dashboards match slot IDs and owner-scoped appointments. Why: only assigned cleaners receive client details; accepted sends never imply inbox delivery.
 
 - Homepage video uses CDN pointers, muted inline looping, pause controls and reduced-motion pause. Why: booking controls stay usable without forced motion.

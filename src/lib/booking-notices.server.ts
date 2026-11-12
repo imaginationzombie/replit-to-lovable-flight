@@ -77,6 +77,12 @@ async function safeBookingNotice(send: () => Promise<{ sent: boolean; reason?: s
     return { sent: false as const, reason: code };
   }
 }
+/** Manual confirmation retries both participants independently without repeating owner alerts. */
+export async function sendParticipantConfirmations(db: Db, id: string) {
+  const customer = await safeBookingNotice(() => sendBookingNotice(db, id), id, "confirmed");
+  const cleaner = await safeBookingNotice(() => sendCleanerBookingNotice(db, id), id, "cleaner-confirmed");
+  return { customer, cleaner };
+}
 export async function sendCleanerBookingNotice(db: Db, bookingId: string) {
  const { data: b, error } = await db.from("bookings").select("id,status,cleaner_id,customer_name,email,phone,address,service,preferred_date,time_window,appointment_start,appointment_end,notes").eq("id", bookingId).single();
  if (error) throw new Error("Cannot load housekeeper appointment confirmation.");
