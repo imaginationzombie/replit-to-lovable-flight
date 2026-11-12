@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Client portal for owner-booked appointments, add-ons and tip balances/status with existing private housekeeper messaging
+
 - [ ] PayPal gift certificates in $50/$100/$150 denominations, private certificate delivery and partial cleaning credit redemption; verify balances and payment guards without live charges
 
 - [x] Housekeeper booked slots, upcoming appointments and client details verified on desktop/mobile; manual confirmation now includes housekeepers, safe customer retry keys tested; customer/housekeeper test emails recorded as sent to owner at 18:04 UTC, temporary slot/booking removed; inbox arrival cannot be verified from sending records
