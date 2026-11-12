@@ -60,10 +60,11 @@ function BookPage() {
   const [housekeeperName, setHousekeeperName] = useState<string | null>(null);
   const [chosenCleaner, setChosenCleaner] = useState(housekeeper ?? "");
   const [chosenSlot, setChosenSlot] = useState<AppointmentSlot | null>(null);
-  const cleaners = useQuery({ queryKey: ["available-slot-cleaners"], queryFn: () => availableSlotCleaners(), refetchInterval: 15000 });
   const portfolio = useServerFn(publicPortfolio);
   const navigate = useNavigate();
   const [form, setForm] = useState<Form>(empty);
+  const cleaners = useQuery({ queryKey: ["available-slot-cleaners", form.serviceArea], queryFn: () => availableSlotCleaners({ data: { area: form.serviceArea } }), refetchInterval: 15000 });
+  const servesArea = !!cleaners.data?.some(c => c.id === chosenCleaner);
   const [fromAi, setFromAi] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
@@ -132,7 +133,7 @@ function BookPage() {
 
   const valid =
     form.customerName.trim().length >= 2 && /\S+@\S+\.\S+/.test(form.email) && form.phone.trim().length >= 7 &&
-    form.address.trim().length >= 5 && !!form.preferredDate && !!form.appointmentSlotId && !!form.requestedCleanerId;
+    form.address.trim().length >= 5 && !!form.preferredDate && !!form.appointmentSlotId && !!form.requestedCleanerId && servesArea;
   const validRef = useRef(valid);
   validRef.current = valid;
 
@@ -208,13 +209,14 @@ function BookPage() {
                 <select className={field} value={form.frequency} onChange={(e) => set("frequency", e.target.value)}>
                   {FREQUENCIES.map((f) => <option key={f}>{f}</option>)}</select></label>
               <label><span className={label}>Area</span>
-                <select className={field} value={form.serviceArea} onChange={(e) => set("serviceArea", e.target.value)}>
+                <select className={field} value={form.serviceArea} onChange={(e) => { setChosenSlot(null); if (!housekeeper) setChosenCleaner(""); setForm(f => ({ ...f, serviceArea: e.target.value, appointmentSlotId: undefined, preferredDate: "", requestedCleanerId: housekeeper })); }}>
                   {SERVICE_AREAS.map((a) => <option key={a}>{a}</option>)}</select></label>
             </section>
 
             <CleaningLevelPicker value={form.cleaningLevel} onChange={value => set("cleaningLevel", value)} />
             {!housekeeper && <label className="block"><span className={label}>Housekeeper</span><select aria-label="Housekeeper" className={field} value={chosenCleaner} onChange={e => { setChosenCleaner(e.target.value); setChosenSlot(null); setForm(f => ({ ...f, requestedCleanerId: e.target.value || undefined, appointmentSlotId: undefined, preferredDate: "" })); }}><option value="">Choose an available housekeeper</option>{(cleaners.data ?? []).map(c => <option key={c.id} value={c.id}>{c.display_name}</option>)}</select>{cleaners.error && <p role="alert" className="mt-2 text-destructive">Couldn’t load available housekeepers.</p>}{cleaners.isSuccess && !cleaners.data.length && <p className="mt-2 text-muted-foreground">No appointments currently available.</p>}</label>}
-            {chosenCleaner && <AppointmentSlotPicker cleaner={chosenCleaner} value={form.appointmentSlotId} onChange={slot => { setChosenSlot(slot); setForm(f => ({ ...f, requestedCleanerId: chosenCleaner, appointmentSlotId: slot?.id, preferredDate: slot?.slot_date ?? "", timeWindow: slot ? slotWindow(slot.start_time) : f.timeWindow })); }} />}
+            {chosenCleaner && cleaners.isSuccess && !servesArea && <p role="alert" className="text-destructive">This housekeeper has no available appointments for your selected location. Choose another area or housekeeper.</p>}
+            {chosenCleaner && servesArea && <AppointmentSlotPicker cleaner={chosenCleaner} value={form.appointmentSlotId} onChange={slot => { setChosenSlot(slot); setForm(f => ({ ...f, requestedCleanerId: chosenCleaner, appointmentSlotId: slot?.id, preferredDate: slot?.slot_date ?? "", timeWindow: slot ? slotWindow(slot.start_time) : f.timeWindow })); }} />}
 
             <section>
               <p className={label}>Add-ons <span className="font-normal text-muted-foreground">— 1 free per hour of cleaning ({q.includedHours} included), most expensive first</span></p>

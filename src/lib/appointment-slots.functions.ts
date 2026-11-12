@@ -18,7 +18,9 @@ export const publicAppointmentSlots = createServerFn({ method: "GET" })
     if (error) throw new Error("Could not load available appointment times.");
     return slots ?? [];
   });
-export const availableSlotCleaners = createServerFn({ method: "GET" }).handler(async () => {
+export const availableSlotCleaners = createServerFn({ method: "GET" })
+ .inputValidator((input: unknown) => z.object({ area: z.string().max(100) }).parse(input))
+ .handler(async ({ data: input }) => {
   const { createClient } = await import("@supabase/supabase-js");
   const url = process.env["SUPABASE_URL"];
   const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
@@ -29,7 +31,7 @@ export const availableSlotCleaners = createServerFn({ method: "GET" }).handler(a
     headers.set("apikey", key);
     return fetch(input, { ...init, headers });
   } } });
-  const { data, error } = await db.rpc("available_slot_cleaners");
+  const { data, error } = await db.rpc("available_cleaners_for_area", { _area: input.area });
   if (error) throw new Error("Could not load available housekeepers.");
   return data ?? [];
 });
