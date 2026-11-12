@@ -10,6 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";
 import { DAY_NAMES, WEEK_DAYS, readWeeklyHours, validateWeeklyHours } from "@/lib/availability";
 import { dateKey } from "@/lib/scheduling";
+import { AppointmentSlotEditor } from "@/components/AppointmentSlotEditor";
 
 export const Route = createFileRoute("/_authenticated/availability")({
   head: () => ({ meta: [
@@ -71,6 +72,7 @@ function AvailabilityPage() {
         <h1 className="flex items-center gap-3 text-3xl font-extrabold text-foreground"><CalendarClock className="h-7 w-7 shrink-0 text-primary" />Schedule creator</h1>
         <Button asChild variant="outline"><Link to="/cleaner-schedule">My appointments</Link></Button>
       </div>
+      {!loading && isCleaner && user && <AppointmentSlotEditor cleaner={user.id} />}
       {loading || (isCleaner && settings.isLoading) ? <p role="status" className="mt-6 text-muted-foreground">Loading availability…</p> : !isCleaner ? <p className="mt-6 text-muted-foreground">Cleaner access is required to set appointment availability.</p> : settings.error ? <div className="mt-6"><p role="alert" className="text-destructive">Couldn’t load availability.</p><Button variant="outline" onClick={() => settings.refetch()}>Try again</Button></div> : <form onSubmit={e => { e.preventDefault(); save.mutate(); }}>
         <fieldset disabled={save.isPending} className="min-w-0">
           <section className="mt-8 flex items-center justify-between gap-4 border-b border-border pb-6">

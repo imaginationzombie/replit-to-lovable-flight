@@ -13,7 +13,7 @@ export const getPaypalConfig = createServerFn({ method: "GET" }).handler(async (
 });
 
 export const createOrder = createServerFn({ method: "POST" })
-  .validator((d: unknown) => bookingSchema.parse(d))
+  .validator((d: unknown) => bookingSchema.refine(b => Boolean(b.appointmentSlotId && b.requestedCleanerId), { message: "Choose an available appointment." }).parse(d))
   .handler(async ({ data }): Promise<Result<{ orderId: string }>> => {
     const { createBookingOrder, userIdFromBearer } = await import("./booking.server");
     try {

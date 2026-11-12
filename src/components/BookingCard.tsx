@@ -1,6 +1,7 @@
 import { directionsLink } from "@/lib/time-clock";
 import type { ReactNode } from "react";
 import { BookingPayment } from "@/components/BookingPayment";
+import { slotLabel } from "@/lib/appointment-slots";
 
 export type BookingRow = {
   id: string; status: string; customer_name: string; email: string; phone: string; address: string;
@@ -9,6 +10,7 @@ export type BookingRow = {
   amount_cents: number; cleaner_id: string | null; created_at: string;
   paid_at?: string | null; access_token?: string; visit_number?: number;
   created_by_staff?: string | null;
+  appointment_start?: string | null; appointment_end?: string | null;
 };
 
 export const STATUS_LABEL: Record<string, string> = {
@@ -28,7 +30,7 @@ export function BookingCard({ b, showCustomer, customerPayment = false, cleanerP
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
           <p className="font-bold text-foreground">{b.service} <span className="font-normal text-muted-foreground">• {b.frequency}{b.frequency !== "One-time" && b.visit_number ? ` · Visit ${b.visit_number}` : ""}</span></p>
-          <p className="text-sm text-muted-foreground">{fmtDate(b.preferred_date)} • {b.time_window}</p>
+          <p className="text-sm text-muted-foreground">{fmtDate(b.preferred_date)} • {b.appointment_start && b.appointment_end ? slotLabel({ start_time: b.appointment_start, end_time: b.appointment_end }) : b.time_window}</p>
         </div>
         <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">{STATUS_LABEL[b.status] ?? b.status}</span>
       </div>
