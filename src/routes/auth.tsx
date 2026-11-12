@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, useHydrated } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -27,6 +27,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const { next } = Route.useSearch();
   const navigate = useNavigate();
+  const hydrated = useHydrated();
   const [mode, setMode] = useState<"signin" | "signup" | "forgot">(next === "/apply" ? "signup" : "signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -114,7 +115,7 @@ function AuthPage() {
                 <input required type="password" minLength={8} className={field} value={password} onChange={(e) => setPassword(e.target.value)} /></label>
             )}
             {msg && <p role="alert" className={`rounded-lg p-3 text-sm ${msg.type === "ok" ? "bg-accent text-accent-foreground" : "bg-destructive/10 text-destructive"}`}>{msg.text}</p>}
-            <Button disabled={busy} className="w-full" type="submit">
+            <Button disabled={busy || !hydrated} className="w-full" type="submit">
               {busy ? "Please wait…" : mode === "signin" ? "Sign in" : mode === "signup" ? "Create account" : "Send reset link"}
             </Button>
           </form>
