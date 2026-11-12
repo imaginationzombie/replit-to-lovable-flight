@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHydrated } from '@tanstack/react-router';
 import { Building2, Truck, Phone, Printer } from 'lucide-react';
 import { AppHeader } from './AppHeader';
 import { Button } from './ui/button';
@@ -6,6 +7,7 @@ import { SERVICE_AREAS } from '@/lib/pricing';
 import { officeEstimate, movingEstimate, ESTIMATE_SOURCES } from '@/lib/service-estimates';
 export function ServiceEstimate({ mode }: { mode: 'office' | 'moving' }) {
  const office = mode === 'office';
+ const hydrated = useHydrated();
  const [area,setArea] = useState(SERVICE_AREAS[0] ?? '');
  const [hours,setHours] = useState(2);const [cleaners,setCleaners] = useState(1);const [visits,setVisits] = useState(1);
  const [size,setSize] = useState('');const [notes,setNotes] = useState('');
@@ -15,7 +17,7 @@ export function ServiceEstimate({ mode }: { mode: 'office' | 'moving' }) {
  const money=(n:number)=>'$'+n.toFixed(2);
  const field='mt-2 w-full min-w-0 rounded-md border border-input bg-background p-3 text-foreground';
  const source=office ? ESTIMATE_SOURCES.office : area==='Lewistown, PA' ? ESTIMATE_SOURCES.lewistown : ESTIMATE_SOURCES.dubois;
- return <div className="min-h-screen bg-background"><AppHeader/><main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+ return <div className="min-h-screen bg-background"><AppHeader/><main className="mx-auto max-w-5xl px-4 py-10 sm:px-6" aria-busy={!hydrated}>
  <div className="flex items-center gap-3 text-primary">{office ? <Building2 className="h-8 w-8"/> : <Truck className="h-8 w-8"/>}<h1 className="text-3xl font-bold">{office ? 'Office cleaning estimate' : 'Moving labor estimate'}</h1></div>
  <p className="mt-4 text-muted-foreground">{office ? 'Desks, floors, restrooms and breakrooms.' : 'Two movers for loading, unloading, packing or moving furniture.'}</p>
  <div className="mt-8 grid gap-8 lg:grid-cols-[1.3fr_1fr]"><section className="min-w-0 space-y-6"><h2 className="border-b border-border pb-3 text-xl font-bold">Job details</h2>
