@@ -8,7 +8,7 @@ export function ServiceQuotePayment({id,token,amount}:{id:string;token:string;am
  const [open,setOpen]=useState(false);const [error,setError]=useState('');const container=useRef<HTMLDivElement>(null);
  const start=useServerFn(startQuotePayment);const finish=useServerFn(finishQuotePayment);const router=useRouter();
  useEffect(()=>{if(!open)return;let cancelled=false;let buttons:{render:(el:HTMLElement)=>Promise<void>;close:()=>Promise<void>}|undefined;
- (async()=>{const clientId=import.meta.env.VITE_LOVABLE_CONNECTOR_PAYPAL_CLIENT_ID;if(!clientId)throw new Error('PayPal is not connected.');
+ (async()=>{const clientId=import.meta.env['VITE_LOVABLE_CONNECTOR_PAYPAL_CLIENT_ID'];if(!clientId)throw new Error('PayPal is not connected.');
  type PP={Buttons:(options:unknown)=>{render:(el:HTMLElement)=>Promise<void>;close:()=>Promise<void>}};const w=window as unknown as {serviceQuotePaypal?:PP};
  if(!w.serviceQuotePaypal)await new Promise<void>((resolve,reject)=>{const s=document.createElement('script');s.src=`https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&currency=USD&intent=capture`;s.setAttribute('data-namespace','serviceQuotePaypal');s.onload=()=>resolve();s.onerror=()=>reject(new Error('Could not load PayPal.'));document.body.appendChild(s);});
  if(cancelled || !w.serviceQuotePaypal || !container.current)return;
