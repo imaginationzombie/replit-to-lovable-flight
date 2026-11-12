@@ -112,6 +112,8 @@ export async function createPendingBookingOrder(id: string, accessToken: string)
   const { data: b } = await db.from("bookings").select("id, status, service, amount_cents, frequency, preferred_date").eq("id", id).eq("access_token", accessToken).maybeSingle();
   if (!b) throw new Error("Booking not found.");
   if (b.status !== "pending_payment") throw new Error("This booking is no longer awaiting checkout.");
+  const { data: quoteBooking } = await db.from("bookings").select("service_quote").eq("id", id).single();
+  if (quoteBooking?.service_quote) throw new Error("Use the approved service quote payment button.");
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
   if (b.preferred_date < today) throw new Error("This requested date has passed. Please contact us for a new estimate.");
   const source = b.frequency !== "One-time" ? { paypal: {
@@ -335,7 +337,7 @@ export async function getBooking(id: string, token: string) {
   const db = await admin();
   const { data } = await db
     .from("bookings")
-    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, cleaning_level, preferred_date, time_window, appointment_start, appointment_end, notes, amount_cents, gift_credit_cents, payment_checkout_started, paid_at, authorized_at, cleaner_id")
+    .select("id, status, customer_name, email, address, service_area, service, frequency, bedrooms, bathrooms, add_ons, rush, cleaning_level, preferred_date, time_window, appointment_start, appointment_end, notes, amount_cents, gift_credit_cents, payment_checkout_started, paid_at, authorized_at, cleaner_id, service_quote, quote_reviewed_at, quote_review_notes")
     .eq("id", id).eq("access_token", token).maybeSingle();
   return data;
 }
