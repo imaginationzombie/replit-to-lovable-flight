@@ -25,7 +25,8 @@ export function AppointmentSlotEditor({ cleaner }: { cleaner: string }) {
   }, onSuccess: async () => { await Promise.all(["own-appointment-slots", "public-appointment-slots"].map(key => qc.invalidateQueries({ queryKey: [key] }))); } });
   const save = useMutation({ mutationFn: async (remove?: { id: string; slot_date: string; start_time: string; end_time: string }) => {
     if (!remove) validateSlot(start, end);
-    const { error } = await supabase.rpc("save_appointment_slot", { _date: remove?.slot_date ?? date, _start: remove?.start_time ?? start, _end: remove?.end_time ?? end, _id: remove?.id ?? editing, _active: !remove });
+    const id = remove?.id ?? editing;
+    const { error } = await supabase.rpc("save_appointment_slot", { _date: remove?.slot_date ?? date, _start: remove?.start_time ?? start, _end: remove?.end_time ?? end, ...(id ? { _id: id } : {}), _active: !remove });
     if (error) throw error;
   }, onSuccess: async () => {
     setEditing(undefined);

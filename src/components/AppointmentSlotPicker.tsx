@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { publicAppointmentSlots } from "@/lib/appointment-slots.functions";
 import { slotLabel, type AppointmentSlot } from "@/lib/appointment-slots";
 
-export function AppointmentSlotPicker({ cleaner, value, onChange }: { cleaner: string; value?: string; onChange: (slot: AppointmentSlot | null) => void }) {
+export function AppointmentSlotPicker({ cleaner, value, onChange }: { cleaner: string; value?: string | undefined; onChange: (slot: AppointmentSlot | null) => void }) {
   const [date, setDate] = useState("");
   const slots = useQuery({ queryKey: ["public-appointment-slots", cleaner], queryFn: () => publicAppointmentSlots({ data: { cleaner } }), refetchInterval: 15000, staleTime: 0 });
   const dates = [...new Set((slots.data ?? []).map(s => s.slot_date))];
