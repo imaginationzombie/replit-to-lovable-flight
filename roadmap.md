@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Approved applicants: admin-set start date, weekly hours and hourly pay shown privately on /apply; approval, save/reload, applicant readback, edit rejection and mobile fit verified; temporary candidate removed, no wages changed
+
 - [x] Generated 8.06-second 720p woman-cleaning video behind homepage top text and buttons; playback, pause control, reduced motion and phone fit verified
 
 - [x] Assigned-housekeeper slot confirmation email with date, exact time and saved customer details; recipient and confirmation guards tested; inbox delivery awaits next real booking

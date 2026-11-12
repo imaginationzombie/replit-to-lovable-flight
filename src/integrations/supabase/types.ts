@@ -738,6 +738,38 @@ export type Database = {
           },
         ]
       }
+      hiring_details: {
+        Row: {
+          application_id: string
+          hourly_pay_cents: number
+          start_date: string
+          updated_at: string
+          weekly_hours: number
+        }
+        Insert: {
+          application_id: string
+          hourly_pay_cents: number
+          start_date: string
+          updated_at?: string
+          weekly_hours: number
+        }
+        Update: {
+          application_id?: string
+          hourly_pay_cents?: number
+          start_date?: string
+          updated_at?: string
+          weekly_hours?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hiring_details_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: true
+            referencedRelation: "hiring_applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       housekeeper_gallery: {
         Row: {
           after_path: string
@@ -1209,6 +1241,15 @@ export type Database = {
           _notes: string
           _submit: boolean
           _tasks: string[]
+        }
+        Returns: undefined
+      }
+      save_hiring_details: {
+        Args: {
+          _application_id: string
+          _hourly_pay_cents: number
+          _start_date: string
+          _weekly_hours: number
         }
         Returns: undefined
       }

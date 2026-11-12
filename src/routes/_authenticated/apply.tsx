@@ -10,6 +10,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useAuth } from "@/hooks/use-auth";
 import { hiringStage, openResume, validateResume, INTERVIEW_TIMES, interviewLabel } from "@/lib/hiring";
 import { FileText, CheckCircle2, Clock, BriefcaseBusiness } from "lucide-react";
+import { HiringDetails } from "@/components/HiringDetails";
 export const Route = createFileRoute("/_authenticated/apply")({ loader: async ({ context }) => { const { data, error } = await supabase.auth.getUser(); if (error || !data.user) throw new Error("Please sign in to view your application."); await context.queryClient.ensureQueryData(myApplicationOptions(data.user.id)); return { userId: data.user.id }; }, head: () => ({ meta: [{ title:"Housekeeper Application | HousekeepingBooking.com" },{ name:"description",content:"Apply to join our housekeepers and follow your application." },{ property:"og:title",content:"Housekeeper Application | HousekeepingBooking.com" },{ property:"og:description",content:"Apply to join our cleaning team." },{ property:"og:type",content:"website" },{ name:"twitter:card",content:"summary" }] }), errorComponent: ApplyError, notFoundComponent: () => <p>Application page not found.</p>, component: Apply });
 function ApplyError() { const router=useRouter(); return <div><AppHeader /><main className="p-6"><p>Couldn’t load applications.</p><Button onClick={()=>router.invalidate()}>Try again</Button></main></div>; }
 function Apply() {
@@ -42,6 +43,7 @@ function Apply() {
       <ol className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">{["Submitted", "Under review", "Interview", "Approved"].map((label, index) => <li key={label} className={`border-t-2 pt-3 text-sm ${hiringStage(a.status) > index && a.status !== "declined" ? "border-primary text-primary" : "border-border text-muted-foreground"}`}><span className="mb-1 block">{hiringStage(a.status) > index && a.status !== "declined" ? <CheckCircle2 className="h-5 w-5" /> : <Clock className="h-5 w-5" />}</span>{label}</li>)}</ol>
       <p className="mt-5 text-sm text-muted-foreground">{a.status === "submitted" ? "Your application has been received." : a.status === "reviewing" ? "Your application is being reviewed." : a.status === "interview" ? "We'd like to interview you by phone. Pick a time below." : a.status === "declined" ? "Your application was not selected." : "Your application was approved. Your cleaner account is enabled."}</p>
       {a.status === "interview" && <InterviewPicker id={a.id} date={a.interview_date} time={a.interview_time} />}
+      {a.status === "hired" && <HiringDetails applicationId={a.id} />}
       {a.resume_path && <Button variant="outline" className="mt-4 max-w-full" disabled={viewResume.isPending} onClick={() => viewResume.mutate(a.resume_path)}><FileText className="shrink-0" /><span className="truncate">{a.resume_name || "View resume"}</span></Button>}
     </article>)}</section>
     {viewResume.error && <p role="alert" className="mt-3 text-destructive">{viewResume.error.message}</p>}
