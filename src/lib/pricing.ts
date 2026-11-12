@@ -4,7 +4,6 @@ export const SERVICE_BASE: Record<string, number> = {
   "Deep Clean": 140,
   "Move-In / Move-Out Turnover": 140,
   "Commercial Office": 95,
-  "Fall & Seasonal Property Care": 95,
 };
 
 export const ADD_ONS: Record<string, number> = {
@@ -32,7 +31,6 @@ export const SERVICE_MINUTES: Record<string, number> = {
   "Deep Clean": 180,
   "Move-In / Move-Out Turnover": 180,
   "Commercial Office": 120,
-  "Fall & Seasonal Property Care": 120,
 };
 export const ROOM_MINUTES = 15;
 

@@ -20,7 +20,6 @@ export const SERVICES = [
   "Deep Clean",
   "Move-In / Move-Out Turnover",
   "Commercial Office",
-  "Fall & Seasonal Property Care",
 ] as const;
 
 export const recommendationSchema = z.object({
