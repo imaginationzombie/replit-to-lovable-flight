@@ -40,3 +40,5 @@
 - Assigned cleaner appointment pages reuse work and clock RPCs, with room guidance and append-only participant notes; add-on selections are recorded requests, never direct changes to captured customer charges. Why: job details remain private and customer totals cannot silently change.
 
 - Housekeeper confirmations reload saved assignments and customer details, independently of customer/owner delivery, and link to the assigned-only appointment route; the cleaner dashboard lists owner-scoped slots and visits. Why: booking emails and client details reach only the responsible cleaner.
+
+- The static homepage intro references generated CDN video/poster pointers, with muted inline looping, a playback control and reduced-motion pause. Why: the video stays behind existing copy without blocking booking controls or forcing motion.
