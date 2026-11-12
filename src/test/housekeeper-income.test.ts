@@ -1,0 +1,8 @@
+import { expect, it } from "vitest";
+import { housekeeperIncome } from "../lib/housekeeper-income";
+const cleaner = [{ id: "cleaner-1", full_name: "Cleaner" }];
+const work = [{ id: "work-1", cleaner_id: "cleaner-1", amount_cents: 5000, status: "submitted", paid_at: null }];
+const tip = { cleaner_id: "cleaner-1", amount_cents: 1000, status: "paid", environment: "live", customer_confirmed_at: "2026-11-12", payout_status: "unpaid", payout_paid_at: null, paypal_item_id: null };
+it("totals recorded earnings plus explicitly confirmed live tips and completed appointments", () => { const r = housekeeperIncome(cleaner,work,[tip],[{ cleaner_id: "cleaner-1" }],[])[0]; expect(r).toMatchObject({ wages: 5000, confirmedTips: 1000, total: 6000, completed: 1, settledTotal: 0 }); });
+it("excludes drafts, unconfirmed tips and test tips", () => { const r = housekeeperIncome(cleaner,[{ ...work[0], id: "draft", cleaner_id: "cleaner-1", amount_cents: 10000, status: "draft", paid_at: null }],[{ ...tip, customer_confirmed_at: null },{ ...tip, environment: "sandbox" }],[],[])[0]; expect(r?.total).toBe(0); });
+it("marks delivered tips only from payout receipt and timestamp", () => { expect(housekeeperIncome(cleaner,[],[{ ...tip,payout_status: "paid" }],[],[])[0]?.settledTips).toBe(0); expect(housekeeperIncome(cleaner,[],[{ ...tip,payout_status: "paid",payout_paid_at: "2026-11-12",paypal_item_id: "item-1" }],[],[])[0]?.settledTips).toBe(1000); });

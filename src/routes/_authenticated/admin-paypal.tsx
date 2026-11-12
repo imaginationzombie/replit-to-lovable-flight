@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { PayoutTransfer } from "@/components/PayoutTransfer";
 import { payoutConfig } from "@/lib/payouts.functions";
 import { payoutDashboardOptions, type PaymentGroup } from "@/lib/payout-dashboard";
+import { TipPayments } from "@/components/TipPayments";
 
 const labels: Record<PaymentGroup, string> = { approved: "Approved earnings", pending: "Pending transfers", settled: "Settled payments", review: "Needs review", recorded: "Recorded outside PayPal", test: "Test transfers" };
 export const Route = createFileRoute("/_authenticated/admin-paypal")({
@@ -38,5 +39,6 @@ function PayPalDashboard() {
       {row.transfer?.paypal_batch_id && <p className="mt-3 break-all text-xs text-muted-foreground">PayPal batch: {row.transfer.paypal_batch_id}</p>}
       {(row.group !== "recorded") && <PayoutTransfer workId={row.id} cleanerId={row.cleaner_id} amount={row.amount_cents} admin={row.group === "approved"} />}
     </article>)}</div>
+    <TipPayments admin />
   </main></div>;
 }

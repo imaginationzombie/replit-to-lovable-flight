@@ -43,6 +43,7 @@ export function AppHeader() {
               {(isCleaner || isAdmin) && <Link to="/phone-booking" className={link}>Phone bookings</Link>}
               {(isCleaner || isAdmin) && <Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }} className={link}>Staff dashboard</Link>}
               {isAdmin && <Link to="/admin" className={link}>Admin</Link>}
+              {isAdmin && <Link to="/housekeeper-income" className={link}>Housekeeper income</Link>}
               {isAdmin && <Link to="/admin-paypal" search={{ view: "all" }} className={link}>PayPal</Link>}
               <Button onClick={signOut} variant="outline" size="sm">Sign out</Button>
             </>
