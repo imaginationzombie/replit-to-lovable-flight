@@ -41,6 +41,6 @@
 
 - Automatic/manual cleaner confirmations reload saved assignments independently of customer sends; dashboards match slot IDs and owner-scoped appointments. Why: only assigned cleaners receive client details; accepted sends never imply inbox delivery.
 
-- Homepage video uses CDN pointers, muted inline looping, pause controls and reduced-motion pause. Why: booking controls stay usable without forced motion.
+- Homepage video uses CDN media, muted looping and pause/reduced-motion controls. Why: no forced motion.
 
-- Gifts use verified PayPal receipts and locked credits, never wages. Income separates confirmed tips from settlement. Why: no double spending.
+- Gifts use verified receipts and locked credit, not wages; income separates tips from settlement. Why: no double spending.
