@@ -3,6 +3,8 @@ import type { Database } from "@/integrations/supabase/types";
 import { sendTemplateEmail } from "./email-templates/send-email";
 import { notifyPaymentReceipt } from "./payment-notices.server";
 
+import { slotLabel } from "./appointment-slots";
+
 type Db = SupabaseClient<Database>;
 function visitDate(date: string) {
   return new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", month: "long", day: "numeric", year: "numeric" });
@@ -10,7 +12,7 @@ function visitDate(date: string) {
 
 /** Fixed recipients from persisted records; called only after the feature's successful write. */
 export async function sendBookingNotice(db: Db, bookingId: string) {
-  const { data: b, error } = await db.from("bookings").select("id, email, customer_name, status, service, preferred_date, time_window, address, frequency, cleaner_id, access_token, paid_at").eq("id", bookingId).single();
+  const { data: b, error } = await db.from("bookings").select("id, email, customer_name, status, service, preferred_date, time_window, address, frequency, cleaner_id, access_token, paid_at, appointment_start, appointment_end").eq("id", bookingId).single();
   if (error) throw new Error("Cannot load booking for confirmation.");
   if (!b || b.status !== "confirmed") return { sent: false as const, reason: "not_confirmed" };
   let cleaner = "Assignment pending";
@@ -19,7 +21,7 @@ export async function sendBookingNotice(db: Db, bookingId: string) {
     cleaner = profile?.full_name || "Cleaner assigned";
   }
   return sendTemplateEmail("booking-confirmation", b.email, {
-    templateData: { name: b.customer_name, service: b.service, date: visitDate(b.preferred_date), time: b.time_window, address: b.address, frequency: b.frequency, cleaner, paid: Boolean(b.paid_at), url: `https://housekeepingbooking.com/booking/${b.id}?t=${b.access_token}` },
+    templateData: { name: b.customer_name, service: b.service, date: visitDate(b.preferred_date), time: b.appointment_start && b.appointment_end ? slotLabel({ start_time: b.appointment_start, end_time: b.appointment_end }) : b.time_window, address: b.address, frequency: b.frequency, cleaner, paid: Boolean(b.paid_at), url: `https://housekeepingbooking.com/booking/${b.id}?t=${b.access_token}` },
     idempotencyKey: `booking-confirmation-${b.id}-${b.preferred_date}-${b.time_window}-${b.cleaner_id ?? "unassigned"}`,
   });
 }
@@ -58,6 +60,7 @@ export async function sendOwnerBookingNotice(db: Db, bookingId: string) {
 export async function notifyBookingEvent(db: Db, id: string, event: "confirmed" | "paid") {
   // Attempt each recipient independently: a customer email failure must not hide a new booking from the owner.
   if (event === "confirmed") {
+    await safeBookingNotice(() => sendCleanerBookingNotice(db, id), id, "cleaner-confirmed");
     await safeBookingNotice(() => sendOwnerBookingNotice(db, id), id, "owner-confirmed");
   } else {
     await notifyPaymentReceipt(db, id, "customer-payment");
@@ -73,4 +76,14 @@ async function safeBookingNotice(send: () => Promise<{ sent: boolean; reason?: s
     console.error("Booking email not sent", { bookingId: id, event, code });
     return { sent: false as const, reason: code };
   }
+}
+export async function sendCleanerBookingNotice(db: Db, bookingId: string) {
+ const { data: b, error } = await db.from("bookings").select("id,status,cleaner_id,customer_name,email,phone,address,service,preferred_date,time_window,appointment_start,appointment_end,notes").eq("id", bookingId).single();
+ if (error) throw new Error("Cannot load housekeeper appointment confirmation.");
+ if (!b || b.status !== "confirmed" || !b.cleaner_id) return { sent: false, reason: "no_confirmed_assignment" };
+ const { data, error: accountError } = await db.auth.admin.getUserById(b.cleaner_id);
+ if (accountError || !data.user?.email) return { sent: false, reason: "no_cleaner_email" };
+ const { data: profile } = await db.from("profiles").select("full_name").eq("id", b.cleaner_id).maybeSingle();
+ const time = b.appointment_start && b.appointment_end ? slotLabel({ start_time: b.appointment_start, end_time: b.appointment_end }) : b.time_window;
+ return sendTemplateEmail("cleaner-booking-confirmation", data.user.email, { templateData: { name: profile?.full_name, customer: b.customer_name, email: b.email, phone: b.phone, address: b.address, service: b.service, date: visitDate(b.preferred_date), time, notes: b.notes, url: `https://housekeepingbooking.com/appointment/${b.id}` }, idempotencyKey: `cleaner-booking-${b.id}-${b.cleaner_id}-${b.preferred_date}-${b.appointment_start ?? b.time_window}-${b.appointment_end ?? ""}` });
 }

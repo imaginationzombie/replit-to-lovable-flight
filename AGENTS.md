@@ -38,3 +38,5 @@
 
 - Customer tip capture starts a database-enforced 24-hour amount-confirmation period; token-authorized explicit POST confirmation alone enables one-shot payout, and expired unconfirmed tips stay held for review. Why: a collected tip is not consent to release it.
 - Assigned cleaner appointment pages reuse work and clock RPCs, with room guidance and append-only participant notes; add-on selections are recorded requests, never direct changes to captured customer charges. Why: job details remain private and customer totals cannot silently change.
+
+- Housekeeper confirmations reload saved assignments and customer details, independently of customer/owner delivery, and link to the assigned-only appointment route; the cleaner dashboard lists owner-scoped slots and visits. Why: booking emails and client details reach only the responsible cleaner.

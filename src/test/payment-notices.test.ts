@@ -55,3 +55,7 @@ it("email failure cannot fail an already saved payment", async () => {
   await expect(notifyPaymentReceipt(db(), "b1", "customer-payment")).resolves.toEqual({ sent: false, reason: "send_failed" });
   log.mockRestore();
 });
+it("emails the collected amount with a 24-hour deadline before customer confirmation", async () => {
+ await sendCustomerTipReceipt(db({ booking_tips: { ...tip, customer_confirmed_at: null, confirmation_requested_at: "2026-11-12T17:00:00Z", confirmation_expires_at: "2026-11-13T17:00:00Z" } }), "t1");
+ expect(send).toHaveBeenCalledWith("tip-confirmation", "customer@example.com", expect.objectContaining({ idempotencyKey: "tip-confirm-t1-2026-11-12T17:00:00Z", templateData: expect.objectContaining({ amount: "$15.00", deadline: "November 13, 2026 at 12:00 PM Eastern" }) }));
+});
