@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Verify and refine housekeeper booked-slot dashboard and assigned client details; check real booking email sending and report inbox-verification limits
+- [x] Housekeeper booked slots, upcoming appointments and client details verified on desktop/mobile; manual confirmation now includes housekeepers, safe customer retry keys tested; customer/housekeeper test emails recorded as sent to owner at 18:04 UTC, temporary slot/booking removed; inbox arrival cannot be verified from sending records
 
 - [x] Approved applicants: admin-set start date, weekly hours and hourly pay shown privately on /apply; approval, save/reload, applicant readback, edit rejection and mobile fit verified; temporary candidate removed, no wages changed
 
