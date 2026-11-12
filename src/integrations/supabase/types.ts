@@ -652,7 +652,10 @@ export type Database = {
           accepting_jobs: boolean
           bio: string
           hourly_rate_cents: number
+          selected_service_areas: string[] | null
           service_areas: string
+          travel_base_area: string | null
+          travel_radius_miles: number | null
           unavailable_dates: string[]
           updated_at: string
           user_id: string
@@ -662,7 +665,10 @@ export type Database = {
           accepting_jobs?: boolean
           bio?: string
           hourly_rate_cents?: number
+          selected_service_areas?: string[] | null
           service_areas?: string
+          travel_base_area?: string | null
+          travel_radius_miles?: number | null
           unavailable_dates?: string[]
           updated_at?: string
           user_id: string
@@ -672,7 +678,10 @@ export type Database = {
           accepting_jobs?: boolean
           bio?: string
           hourly_rate_cents?: number
+          selected_service_areas?: string[] | null
           service_areas?: string
+          travel_base_area?: string | null
+          travel_radius_miles?: number | null
           unavailable_dates?: string[]
           updated_at?: string
           user_id?: string
@@ -1202,6 +1211,13 @@ export type Database = {
         Args: { _add_ons?: string[]; _body: string; _booking: string }
         Returns: string
       }
+      available_cleaners_for_area: {
+        Args: { _area: string }
+        Returns: {
+          display_name: string
+          id: string
+        }[]
+      }
       available_slot_cleaners: {
         Args: never
         Returns: {
@@ -1229,6 +1245,10 @@ export type Database = {
       cleaner_complete_booking: {
         Args: { _booking_id: string }
         Returns: undefined
+      }
+      cleaner_serves_area: {
+        Args: { _area: string; _cleaner: string }
+        Returns: boolean
       }
       clock_in: {
         Args: {
@@ -1387,6 +1407,10 @@ export type Database = {
       send_thread_message: {
         Args: { _body: string; _thread: string }
         Returns: undefined
+      }
+      service_area_distance_miles: {
+        Args: { _from: string; _to: string }
+        Returns: number
       }
       set_cleaner_date_block: {
         Args: { _blocked: boolean; _cleaner_id: string; _date: string }
