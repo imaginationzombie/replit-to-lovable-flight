@@ -1,6 +1,15 @@
 import { quote, type CleaningLevel } from "./pricing";
 import { bookingBalance } from "./gift-certificates";
 import { notifyBookingEvent } from "./booking-notices.server";
+import { quotePaypal } from './service-quote-paypal.server';
+
+async function paypalFetch(url: string, init: RequestInit) {
+  if (process.env['PAYPAL_API_KEY']) {
+    const headers = new Headers(init.headers);
+    return quotePaypal(new URL(url).pathname, init.method ?? 'GET', typeof init.body === 'string' ? JSON.parse(init.body) : undefined, headers.get('PayPal-Request-Id') ?? undefined);
+  }
+  return fetch(url, init);
+}
 
 function paypalBase() {
   return process.env["PAYPAL_ENV"] === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
@@ -13,6 +22,7 @@ export function paypalClientId() {
 }
 
 async function paypalToken() {
+  if (process.env['PAYPAL_API_KEY']) return 'connector-managed';
   const id = paypalClientId();
   const secret = process.env["PAYPAL_CLIENT_SECRET"];
   if (!secret) throw new Error("PayPal is not configured yet.");
@@ -86,7 +96,7 @@ export async function createBookingOrder(input: BookingInput, userId: string | n
 
 async function paypalOrder(intent: "AUTHORIZE" | "CAPTURE", bookingId: string, service: string, cents: number, requestId: string, paymentSource?: unknown) {
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": requestId },
     body: JSON.stringify({
@@ -136,7 +146,7 @@ export async function authorizeBookingOrder(orderId: string) {
     return { bookingId: booking.id, token: booking.access_token };
   }
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/authorize`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/authorize`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
   });
@@ -166,7 +176,7 @@ export async function authorizeBookingOrder(orderId: string) {
 /** Charge a vaulted (saved) PayPal account for one visit — no customer action needed. */
 async function chargeVault(b: { id: string; service: string; amount_cents: number; paypal_vault_id: string }) {
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": `vault-${b.id}` },
     body: JSON.stringify({
@@ -206,7 +216,7 @@ export async function collectBookingPayment(bookingId: string) {
   }
   if (b.paypal_authorization_id) {
     const token = await paypalToken();
-    const res = await fetch(`${paypalBase()}/v2/payments/authorizations/${encodeURIComponent(b.paypal_authorization_id)}/capture`, {
+    const res = await paypalFetch(`${paypalBase()}/v2/payments/authorizations/${encodeURIComponent(b.paypal_authorization_id)}/capture`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "PayPal-Request-Id": `cap-${b.id}` },
       body: JSON.stringify({ final_capture: true, amount: { currency_code: "USD", value: (dueCents / 100).toFixed(2) } }),
@@ -306,7 +316,7 @@ export async function captureBookingOrder(orderId: string) {
   }
 
   const token = await paypalToken();
-  const res = await fetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`, {
+  const res = await paypalFetch(`${paypalBase()}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
   });
