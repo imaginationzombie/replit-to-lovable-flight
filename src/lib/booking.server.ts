@@ -109,11 +109,10 @@ async function paypalOrder(intent: "AUTHORIZE" | "CAPTURE", bookingId: string, s
 /** Resume an emailed estimate without creating another booking or charging upfront. */
 export async function createPendingBookingOrder(id: string, accessToken: string) {
   const db = await admin();
-  const { data: b } = await db.from("bookings").select("id, status, service, amount_cents, frequency, preferred_date").eq("id", id).eq("access_token", accessToken).maybeSingle();
+  const { data: b } = await db.from("bookings").select("id, status, service, amount_cents, frequency, preferred_date, service_quote").eq("id", id).eq("access_token", accessToken).maybeSingle();
   if (!b) throw new Error("Booking not found.");
   if (b.status !== "pending_payment") throw new Error("This booking is no longer awaiting checkout.");
-  const { data: quoteBooking } = await db.from("bookings").select("service_quote").eq("id", id).single();
-  if (quoteBooking?.service_quote) throw new Error("Use the approved service quote payment button.");
+  if (b.service_quote) throw new Error("Use the approved service quote payment button.");
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
   if (b.preferred_date < today) throw new Error("This requested date has passed. Please contact us for a new estimate.");
   const source = b.frequency !== "One-time" ? { paypal: {
