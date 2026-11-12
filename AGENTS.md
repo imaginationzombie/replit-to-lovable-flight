@@ -12,7 +12,7 @@
 - Marketing uses public/*.html ("/" redirects to /index.html); interactive features use React routes and shared tokens. Maintain public/sitemap.xml for inspected public pages only, excluding private/demo/checkout pages; omit lastmod without page-specific dates. Why: preserves the migrated design without advertising internal demos.
 - Homepage phone styles stay inline; its location module selects the nearest area with browser permission and syncs the estimator. Why: keep coordinates on-device and manual choices intact.
 - Cleaning levels use shared quote fees persisted and copied to repeat bookings; static estimators mirror them. Why: charges match the chosen level.
-- AI uses server-only helpers behind server functions. Why: keeps keys private.
+- AI is server-only. Why: private keys.
 - Accounts: roles live in user_roles (admin/cleaner/customer, checked via has_role); a signup trigger creates the profile + customer role. Signed-in pages live under src/routes/_authenticated and read data with the browser client under RLS. Why: no privilege escalation, and access is enforced by the database.
 - Staff calendars use shared dnd-kit and schedule_booking with permissions, conflicts and versions; creator-owned pending phone requests allow date/window moves without confirmation or assignment. Customer AppointmentCalendar requests windows, not live availability. Why: no private schedule leaks or false confirmations.
 - The availability creator edits only the signed-in cleaner's existing cleaner_settings hours, days off and accepting status; shared validation also applies to the profile editor. Why: availability is consistent across jobs and admin views without replacing profile or rate data.
@@ -41,4 +41,6 @@
 
 - Automatic/manual cleaner confirmations reload saved assignments independently of customer sends; dashboards match slot IDs and owner-scoped appointments. Why: only assigned cleaners receive client details; accepted sends never imply inbox delivery.
 
-- Homepage video uses CDN pointers, muted inline looping, pause controls and reduced-motion pause. Why: booking controls stay usable without forced motion.
+- Homepage video uses CDN media, muted looping and pause/reduced-motion controls. Why: no forced motion.
+
+- Gifts use verified receipts and locked credit, not wages; income separates tips from settlement. Why: no double spending.

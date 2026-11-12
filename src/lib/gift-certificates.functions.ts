@@ -1,0 +1,8 @@
+import { createServerFn } from "@tanstack/react-start";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { z } from "zod";
+import { giftPurchaseSchema } from "./gift-certificates";
+export const purchaseGift = createServerFn({ method: "POST" }).middleware([requireSupabaseAuth]).validator((d: unknown) => giftPurchaseSchema.parse(d)).handler(async ({ data, context }) => { const { startGift } = await import("./gift-certificates.server"); return startGift(context.userId, data); });
+export const captureGift = createServerFn({ method: "POST" }).middleware([requireSupabaseAuth]).validator((d: unknown) => z.object({ id: z.string().uuid(), orderId: z.string().min(5).max(64) }).parse(d)).handler(async ({ data, context }) => { const { finishGift } = await import("./gift-certificates.server"); return finishGift(context.userId, data.id, data.orderId); });
+export const fetchGift = createServerFn({ method: "GET" }).validator((d: unknown) => z.object({ id: z.string().uuid(), token: z.string().uuid() }).parse(d)).handler(async ({ data }) => { const { readGift } = await import("./gift-certificates.server"); return readGift(data.id, data.token); });
+export const applyGift = createServerFn({ method: "POST" }).validator((d: unknown) => z.object({ id: z.string().uuid(), token: z.string().uuid(), code: z.string().uuid("Enter the gift certificate code.") }).parse(d)).handler(async ({ data }) => { const { redeemGift } = await import("./gift-certificates.server"); return redeemGift(data.id, data.token, data.code); });

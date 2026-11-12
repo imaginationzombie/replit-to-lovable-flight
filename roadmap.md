@@ -1,5 +1,13 @@
 # Roadmap
 
+- [x] Admin housekeeper income dashboard: earnings, confirmed live tips, completed appointments and verified PayPal settlement; populated desktop/mobile readback checked and test records removed
+- [x] Confirmed-tip payout wiring, missing-email and unconfirmed-tip guards, matching PayPal delivery and ambiguous-send behavior tested; admin PayPal includes tip controls and cleaners can check own transfer
+- [ ] Actual confirmed-tip PayPal transfer: blocked by no eligible paid/confirmed tip and no saved cleaner receiving account; no fabricated/live payment sent
+
+- [x] Client portal: owner-booked appointments, add-ons, tip totals/status and private housekeeper messaging; signed-in save/readback and mobile fit verified with temporary records removed
+
+- [x] $50/$100/$150 PayPal gift purchases, private certificate/email and account links; live checkout buttons loaded without purchase, test-only partial credit/readback, repeat redemption and cancellation restoration verified; remaining-charge payload tested, no real gift purchase performed
+
 - [x] Housekeeper booked slots, upcoming appointments and client details verified on desktop/mobile; manual confirmation now includes housekeepers, safe customer retry keys tested; customer/housekeeper test emails recorded as sent to owner at 18:04 UTC, temporary slot/booking removed; inbox arrival cannot be verified from sending records
 
 - [x] Approved applicants: admin-set start date, weekly hours and hourly pay shown privately on /apply; approval, save/reload, applicant readback, edit rejection and mobile fit verified; temporary candidate removed, no wages changed

@@ -44,7 +44,8 @@ it("pending PayPal money is not marked paid or emailed as received", async () =>
   mocks.row.status = "completed";
   paypal({ id: "capture-1", status: "PENDING" });
   await expect(collectBookingPayment("booking-1")).resolves.toEqual({ paid: false, needsCustomerPayment: false });
-  expect(mocks.writes).toEqual([]);
+  expect(mocks.writes).toEqual([{ payment_checkout_started: true }]);
+  expect(mocks.row.paid_at).toBeNull();
   expect(mocks.notice).not.toHaveBeenCalled();
 });
 it("a receipt with the wrong amount cannot trigger a payment confirmation", async () => {
@@ -59,4 +60,11 @@ it("retrying a paid visit retries only the idempotent notice, not the PayPal cha
   await collectBookingPayment("booking-1");
   expect(fetch).not.toHaveBeenCalled();
   expect(mocks.notice).toHaveBeenCalledWith(expect.anything(), "booking-1", "paid");
+});
+it("captures only the remaining $45 after a $50 certificate on a $95 cleaning", async () => {
+ mocks.row.status = "completed"; mocks.row["gift_credit_cents"] = 5000;
+ const fetch = paypal({ id: "capture-1", status: "COMPLETED", amount: { value: "45.00", currency_code: "USD" } });
+ await expect(collectBookingPayment("booking-1")).resolves.toMatchObject({ paid: true });
+ const body = JSON.parse(fetch.mock.calls[1]?.[1].body);
+ expect(body.amount).toEqual({ value: "45.00", currency_code: "USD" });
 });

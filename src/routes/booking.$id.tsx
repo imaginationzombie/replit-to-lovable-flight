@@ -5,6 +5,8 @@ import { PayBalance } from "@/components/PayBalance";
 import { LeaveTip } from "@/components/LeaveTip";
 import { canTip } from "@/lib/tips";
 import { EstimateCheckout } from "@/components/EstimateCheckout";
+import { GiftCredit } from "@/components/GiftCredit";
+import { bookingBalance } from "@/lib/gift-certificates";
 import { slotLabel } from "@/lib/appointment-slots";
 
 export const Route = createFileRoute("/booking/$id")({
@@ -64,7 +66,9 @@ function Confirmation() {
           <Item k="Address" v={b.address} />
           <Item k={b.paid_at ? "Paid" : "Charged after cleaning"} v={`$${(b.amount_cents / 100).toFixed(2)}`} />
         </dl>
-        {due && <PayBalance id={b.id} token={t} />}
+        {!!b.gift_credit_cents && <p className="mt-4 text-primary">Gift credit: ${(b.gift_credit_cents / 100).toFixed(2)} · Remaining balance: ${(bookingBalance(b) / 100).toFixed(2)}</p>}
+        {confirmed && !b.paid_at && !b.payment_checkout_started && <GiftCredit id={b.id} token={t} />}
+        {due && bookingBalance(b) > 0 && <PayBalance id={b.id} token={t} />}
         {b.status === "pending_payment" && <EstimateCheckout id={b.id} token={t} />}
         {canTip(b) && <LeaveTip id={b.id} token={t} />}
         {b.add_ons.length > 0 && <p className="mt-4 text-sm text-foreground"><strong>Add-ons:</strong> {b.add_ons.join(", ")}{b.rush ? ", Rush dispatch" : ""}</p>}

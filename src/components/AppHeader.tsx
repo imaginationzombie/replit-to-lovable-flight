@@ -24,6 +24,7 @@ export function AppHeader() {
         <nav aria-label="Account navigation" className="grid min-w-0 max-w-full grid-cols-2 items-center gap-x-3 gap-y-3 sm:flex sm:flex-wrap sm:gap-4 [&>*]:min-w-0 [&>*]:break-words">
           <Link to="/booking-assistant" className={link}>AI Assistant</Link>
           <Link to="/book" className={link}>Book</Link>
+          <Link to="/gift-certificates" className={link}>Gift certificates</Link>
           {user ? <Link to="/apply" className={link}>{isCleaner ? "Join our team" : "Application & hiring"}</Link> : <Link to="/auth" search={{ next: "/apply" }} className={link}>Apply as a housekeeper</Link>}
           {!loading && user && (
             <>
@@ -42,6 +43,7 @@ export function AppHeader() {
               {(isCleaner || isAdmin) && <Link to="/phone-booking" className={link}>Phone bookings</Link>}
               {(isCleaner || isAdmin) && <Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }} className={link}>Staff dashboard</Link>}
               {isAdmin && <Link to="/admin" className={link}>Admin</Link>}
+              {isAdmin && <Link to="/housekeeper-income" className={link}>Housekeeper income</Link>}
               {isAdmin && <Link to="/admin-paypal" search={{ view: "all" }} className={link}>PayPal</Link>}
               <Button onClick={signOut} variant="outline" size="sm">Sign out</Button>
             </>

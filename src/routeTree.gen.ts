@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingAssistantRouteImport } from './routes/booking-assistant'
+import { Route as GiftCertificatesRouteImport } from './routes/gift-certificates'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -26,6 +27,7 @@ import { Route as AuthenticatedCleanerRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedCleanerProfileRouteImport } from './routes/_authenticated/cleaner-profile'
 import { Route as AuthenticatedCleanerScheduleRouteImport } from './routes/_authenticated/cleaner-schedule'
 import { Route as AuthenticatedDisputesRouteImport } from './routes/_authenticated/disputes'
+import { Route as AuthenticatedHousekeeperIncomeRouteImport } from './routes/_authenticated/housekeeper-income'
 import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
 import { Route as AuthenticatedMyPageRouteImport } from './routes/_authenticated/my-page'
 import { Route as AuthenticatedPhoneBookingRouteImport } from './routes/_authenticated/phone-booking'
@@ -34,6 +36,7 @@ import { Route as AuthenticatedTimeClockRouteImport } from './routes/_authentica
 import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authenticated/timesheets'
 import { Route as AuthenticatedWaitingListRouteImport } from './routes/_authenticated/waiting-list'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
+import { Route as GiftIdRouteImport } from './routes/gift.$id'
 import { Route as HousekeepersIdRouteImport } from './routes/housekeepers.$id'
 import { Route as AuthenticatedAppointmentIdRouteImport } from './routes/_authenticated/appointment.$id'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
@@ -62,6 +65,11 @@ const BookRoute = BookRouteImport.update({
 const BookingAssistantRoute = BookingAssistantRouteImport.update({
   id: '/booking-assistant',
   path: '/booking-assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GiftCertificatesRoute = GiftCertificatesRouteImport.update({
+  id: '/gift-certificates',
+  path: '/gift-certificates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
@@ -130,6 +138,12 @@ const AuthenticatedDisputesRoute = AuthenticatedDisputesRouteImport.update({
   path: '/disputes',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedHousekeeperIncomeRoute =
+  AuthenticatedHousekeeperIncomeRouteImport.update({
+    id: '/housekeeper-income',
+    path: '/housekeeper-income',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
   id: '/messages',
   path: '/messages',
@@ -173,6 +187,11 @@ const BookingIdRoute = BookingIdRouteImport.update({
   path: '/booking/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GiftIdRoute = GiftIdRouteImport.update({
+  id: '/gift/$id',
+  path: '/gift/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HousekeepersIdRoute = HousekeepersIdRouteImport.update({
   id: '/housekeepers/$id',
   path: '/housekeepers/$id',
@@ -206,6 +225,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
+  '/gift-certificates': typeof GiftCertificatesRoute
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -218,6 +238,7 @@ export interface FileRoutesByFullPath {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/disputes': typeof AuthenticatedDisputesRoute
+  '/housekeeper-income': typeof AuthenticatedHousekeeperIncomeRoute
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/phone-booking': typeof AuthenticatedPhoneBookingRoute
@@ -226,6 +247,7 @@ export interface FileRoutesByFullPath {
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -237,6 +259,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
+  '/gift-certificates': typeof GiftCertificatesRoute
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -249,6 +272,7 @@ export interface FileRoutesByTo {
   '/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/disputes': typeof AuthenticatedDisputesRoute
+  '/housekeeper-income': typeof AuthenticatedHousekeeperIncomeRoute
   '/messages': typeof AuthenticatedMessagesRoute
   '/my-page': typeof AuthenticatedMyPageRoute
   '/phone-booking': typeof AuthenticatedPhoneBookingRoute
@@ -257,6 +281,7 @@ export interface FileRoutesByTo {
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -270,6 +295,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
+  '/gift-certificates': typeof GiftCertificatesRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
@@ -282,6 +308,7 @@ export interface FileRoutesById {
   '/_authenticated/cleaner-profile': typeof AuthenticatedCleanerProfileRoute
   '/_authenticated/cleaner-schedule': typeof AuthenticatedCleanerScheduleRoute
   '/_authenticated/disputes': typeof AuthenticatedDisputesRoute
+  '/_authenticated/housekeeper-income': typeof AuthenticatedHousekeeperIncomeRoute
   '/_authenticated/messages': typeof AuthenticatedMessagesRoute
   '/_authenticated/my-page': typeof AuthenticatedMyPageRoute
   '/_authenticated/phone-booking': typeof AuthenticatedPhoneBookingRoute
@@ -290,6 +317,7 @@ export interface FileRoutesById {
   '/_authenticated/timesheets': typeof AuthenticatedTimesheetsRoute
   '/_authenticated/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/_authenticated/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -303,6 +331,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/booking-assistant'
+    | '/gift-certificates'
     | '/reset-password'
     | '/account'
     | '/admin'
@@ -315,6 +344,7 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/disputes'
+    | '/housekeeper-income'
     | '/messages'
     | '/my-page'
     | '/phone-booking'
@@ -323,6 +353,7 @@ export interface FileRouteTypes {
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
+    | '/gift/$id'
     | '/housekeepers/$id'
     | '/appointment/$id'
     | '/lovable/email/auth/preview'
@@ -334,6 +365,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/booking-assistant'
+    | '/gift-certificates'
     | '/reset-password'
     | '/account'
     | '/admin'
@@ -346,6 +378,7 @@ export interface FileRouteTypes {
     | '/cleaner-profile'
     | '/cleaner-schedule'
     | '/disputes'
+    | '/housekeeper-income'
     | '/messages'
     | '/my-page'
     | '/phone-booking'
@@ -354,6 +387,7 @@ export interface FileRouteTypes {
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
+    | '/gift/$id'
     | '/housekeepers/$id'
     | '/appointment/$id'
     | '/lovable/email/auth/preview'
@@ -366,6 +400,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/booking-assistant'
+    | '/gift-certificates'
     | '/reset-password'
     | '/_authenticated/account'
     | '/_authenticated/admin'
@@ -378,6 +413,7 @@ export interface FileRouteTypes {
     | '/_authenticated/cleaner-profile'
     | '/_authenticated/cleaner-schedule'
     | '/_authenticated/disputes'
+    | '/_authenticated/housekeeper-income'
     | '/_authenticated/messages'
     | '/_authenticated/my-page'
     | '/_authenticated/phone-booking'
@@ -386,6 +422,7 @@ export interface FileRouteTypes {
     | '/_authenticated/timesheets'
     | '/_authenticated/waiting-list'
     | '/booking/$id'
+    | '/gift/$id'
     | '/housekeepers/$id'
     | '/_authenticated/appointment/$id'
     | '/lovable/email/auth/preview'
@@ -399,8 +436,10 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BookRoute: typeof BookRoute
   BookingAssistantRoute: typeof BookingAssistantRoute
+  GiftCertificatesRoute: typeof GiftCertificatesRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   BookingIdRoute: typeof BookingIdRoute
+  GiftIdRoute: typeof GiftIdRoute
   HousekeepersIdRoute: typeof HousekeepersIdRoute
   LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
   LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
@@ -442,6 +481,13 @@ declare module '@tanstack/react-router' {
       path: '/booking-assistant'
       fullPath: '/booking-assistant'
       preLoaderRoute: typeof BookingAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gift-certificates': {
+      id: '/gift-certificates'
+      path: '/gift-certificates'
+      fullPath: '/gift-certificates'
+      preLoaderRoute: typeof GiftCertificatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reset-password': {
@@ -528,6 +574,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDisputesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/housekeeper-income': {
+      id: '/_authenticated/housekeeper-income'
+      path: '/housekeeper-income'
+      fullPath: '/housekeeper-income'
+      preLoaderRoute: typeof AuthenticatedHousekeeperIncomeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/messages': {
       id: '/_authenticated/messages'
       path: '/messages'
@@ -584,6 +637,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gift/$id': {
+      id: '/gift/$id'
+      path: '/gift/$id'
+      fullPath: '/gift/$id'
+      preLoaderRoute: typeof GiftIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/housekeepers/$id': {
       id: '/housekeepers/$id'
       path: '/housekeepers/$id'
@@ -634,6 +694,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCleanerProfileRoute: typeof AuthenticatedCleanerProfileRoute
   AuthenticatedCleanerScheduleRoute: typeof AuthenticatedCleanerScheduleRoute
   AuthenticatedDisputesRoute: typeof AuthenticatedDisputesRoute
+  AuthenticatedHousekeeperIncomeRoute: typeof AuthenticatedHousekeeperIncomeRoute
   AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
   AuthenticatedMyPageRoute: typeof AuthenticatedMyPageRoute
   AuthenticatedPhoneBookingRoute: typeof AuthenticatedPhoneBookingRoute
@@ -656,6 +717,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCleanerProfileRoute: AuthenticatedCleanerProfileRoute,
   AuthenticatedCleanerScheduleRoute: AuthenticatedCleanerScheduleRoute,
   AuthenticatedDisputesRoute: AuthenticatedDisputesRoute,
+  AuthenticatedHousekeeperIncomeRoute: AuthenticatedHousekeeperIncomeRoute,
   AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
   AuthenticatedMyPageRoute: AuthenticatedMyPageRoute,
   AuthenticatedPhoneBookingRoute: AuthenticatedPhoneBookingRoute,
@@ -675,8 +737,10 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BookRoute: BookRoute,
   BookingAssistantRoute: BookingAssistantRoute,
+  GiftCertificatesRoute: GiftCertificatesRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   BookingIdRoute: BookingIdRoute,
+  GiftIdRoute: GiftIdRoute,
   HousekeepersIdRoute: HousekeepersIdRoute,
   LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
   LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,

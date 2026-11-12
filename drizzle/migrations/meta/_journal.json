@@ -197,6 +197,20 @@
       "when": 1794506179440,
       "tag": "0027_approved_applicant_hiring_details",
       "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1794506893917,
+      "tag": "0028_gift_certificates_and_booking_credit",
+      "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "7",
+      "when": 1794507106114,
+      "tag": "0029_gift_credit_payment_guards",
+      "breakpoints": true
     }
   ]
 }
