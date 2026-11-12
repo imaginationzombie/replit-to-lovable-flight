@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Housekeeper-selected service locations and travel radius from a chosen base town; customer matching and assignment guards, save/readback and phone fit
+- [x] Housekeeper-selected service locations and town-centre travel radius; customer/waiting-list matching and assignment guards; signed-in save/reload, excluded-area readback and phone fit verified; original settings restored, 151 tests passed
 
 - [x] Admin housekeeper income dashboard: earnings, confirmed live tips, completed appointments and verified PayPal settlement; populated desktop/mobile readback checked and test records removed
 - [x] Confirmed-tip payout wiring, missing-email and unconfirmed-tip guards, matching PayPal delivery and ambiguous-send behavior tested; admin PayPal includes tip controls and cleaners can check own transfer
