@@ -1,0 +1,17 @@
+import { useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { MessageSquare, Gift } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { supabase } from "@/integrations/supabase/client";
+import { messageSchema } from "@/lib/people-portals";
+import { LeaveTip } from "@/components/LeaveTip";
+import { GiftCredit } from "@/components/GiftCredit";
+import { canTip } from "@/lib/tips";
+import type { BookingRow } from "@/components/BookingCard";
+export function ClientAppointmentActions({ booking }: { booking: BookingRow }) {
+ const [open, setOpen] = useState<"message" | "tip" | "gift" | null>(null); const [body, setBody] = useState(""); const qc = useQueryClient();
+ const send = useMutation({ mutationFn: async () => { const { data: thread, error } = await supabase.rpc("open_message_thread", { _booking: booking.id }); if (error || !thread) throw new Error("Could not open this appointment conversation."); const { error: sendError } = await supabase.rpc("send_thread_message", { _thread: thread, _body: messageSchema.parse(body) }); if (sendError) throw sendError; }, onSuccess: () => { setBody(""); qc.invalidateQueries({ queryKey: ["message-threads"] }); } });
+ return <><div className="flex flex-wrap gap-2">{booking.cleaner_id && <Button variant="outline" size="sm" onClick={() => { send.reset(); setOpen("message"); }}><MessageSquare />Message housekeeper</Button>}{booking.access_token && <Button asChild variant="outline" size="sm"><Link to="/booking/$id" params={{ id: booking.id }} search={{ t: booking.access_token }}>Appointment details</Link></Button>}{canTip(booking) && <Button variant="outline" size="sm" onClick={() => setOpen("tip")}>Tip & confirmation</Button>}{booking.status === "confirmed" && !booking.paid_at && booking.access_token && <Button variant="outline" size="sm" onClick={() => setOpen("gift")}><Gift />Gift credit</Button>}</div><Dialog open={open !== null} onOpenChange={value => !value && setOpen(null)}><DialogContent><DialogTitle>{open === "message" ? "Message your housekeeper" : open === "gift" ? "Apply gift certificate" : "Your tip"}</DialogTitle><DialogDescription>{booking.service} · {booking.preferred_date}</DialogDescription>{open === "message" ? <form onSubmit={e => { e.preventDefault(); send.mutate(); }}><label className="block text-sm font-semibold">Message<textarea required maxLength={3000} rows={4} value={body} onChange={e => setBody(e.target.value)} className="mt-2 w-full rounded-md border border-input bg-background p-3" /></label>{send.error && <p role="alert" className="mt-2 text-sm text-destructive">{send.error.message}</p>}{send.isSuccess && <p role="status" className="mt-2 text-sm text-primary">Message sent to your appointment conversation.</p>}<Button className="mt-3" disabled={send.isPending || !body.trim()}>Send message</Button></form> : booking.access_token && (open === "gift" ? <GiftCredit id={booking.id} token={booking.access_token} /> : <LeaveTip id={booking.id} token={booking.access_token} />)}</DialogContent></Dialog></>;
+}

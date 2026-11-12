@@ -1,0 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+export function MyGiftCertificates() {
+ const gifts = useQuery({ queryKey: ["my-gift-certificates"], queryFn: async () => { const { data: auth } = await supabase.auth.getUser(); if (!auth.user) throw new Error("Sign in required."); const { data, error } = await supabase.from("gift_certificates").select("id,access_token,amount_cents,balance_cents,status,environment").eq("buyer_id", auth.user.id).order("created_at", { ascending: false }); if (error) throw error; return data; }, refetchInterval: 15000 });
+ return <section className="mt-8 border-t border-border pt-5"><h2 className="font-bold">My gift certificates</h2>{gifts.error && <p role="alert" className="mt-3 text-sm text-destructive">Couldn’t load gift certificates.</p>}{gifts.data?.filter(g => g.status === "paid").map(g => <div key={g.id} className="mt-4"><p className="text-sm">${g.amount_cents / 100} gift · ${(g.balance_cents / 100).toFixed(2)} remaining{g.environment !== "live" && " · Test"}</p><Button asChild size="sm" variant="outline" className="mt-2"><Link to="/gift/$id" params={{ id: g.id }} search={{ t: g.access_token }}>View certificate</Link></Button></div>)}<Button asChild variant="outline" className="mt-4"><Link to="/gift-certificates">Buy a gift certificate</Link></Button></section>;
+}

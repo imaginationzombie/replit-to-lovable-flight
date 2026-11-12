@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingAssistantRouteImport } from './routes/booking-assistant'
+import { Route as GiftCertificatesRouteImport } from './routes/gift-certificates'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -34,6 +35,7 @@ import { Route as AuthenticatedTimeClockRouteImport } from './routes/_authentica
 import { Route as AuthenticatedTimesheetsRouteImport } from './routes/_authenticated/timesheets'
 import { Route as AuthenticatedWaitingListRouteImport } from './routes/_authenticated/waiting-list'
 import { Route as BookingIdRouteImport } from './routes/booking.$id'
+import { Route as GiftIdRouteImport } from './routes/gift.$id'
 import { Route as HousekeepersIdRouteImport } from './routes/housekeepers.$id'
 import { Route as AuthenticatedAppointmentIdRouteImport } from './routes/_authenticated/appointment.$id'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
@@ -62,6 +64,11 @@ const BookRoute = BookRouteImport.update({
 const BookingAssistantRoute = BookingAssistantRouteImport.update({
   id: '/booking-assistant',
   path: '/booking-assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GiftCertificatesRoute = GiftCertificatesRouteImport.update({
+  id: '/gift-certificates',
+  path: '/gift-certificates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
@@ -173,6 +180,11 @@ const BookingIdRoute = BookingIdRouteImport.update({
   path: '/booking/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GiftIdRoute = GiftIdRouteImport.update({
+  id: '/gift/$id',
+  path: '/gift/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HousekeepersIdRoute = HousekeepersIdRouteImport.update({
   id: '/housekeepers/$id',
   path: '/housekeepers/$id',
@@ -206,6 +218,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
+  '/gift-certificates': typeof GiftCertificatesRoute
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -226,6 +239,7 @@ export interface FileRoutesByFullPath {
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -237,6 +251,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
+  '/gift-certificates': typeof GiftCertificatesRoute
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -257,6 +272,7 @@ export interface FileRoutesByTo {
   '/timesheets': typeof AuthenticatedTimesheetsRoute
   '/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -270,6 +286,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
+  '/gift-certificates': typeof GiftCertificatesRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
@@ -290,6 +307,7 @@ export interface FileRoutesById {
   '/_authenticated/timesheets': typeof AuthenticatedTimesheetsRoute
   '/_authenticated/waiting-list': typeof AuthenticatedWaitingListRoute
   '/booking/$id': typeof BookingIdRoute
+  '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/_authenticated/appointment/$id': typeof AuthenticatedAppointmentIdRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -303,6 +321,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/booking-assistant'
+    | '/gift-certificates'
     | '/reset-password'
     | '/account'
     | '/admin'
@@ -323,6 +342,7 @@ export interface FileRouteTypes {
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
+    | '/gift/$id'
     | '/housekeepers/$id'
     | '/appointment/$id'
     | '/lovable/email/auth/preview'
@@ -334,6 +354,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/booking-assistant'
+    | '/gift-certificates'
     | '/reset-password'
     | '/account'
     | '/admin'
@@ -354,6 +375,7 @@ export interface FileRouteTypes {
     | '/timesheets'
     | '/waiting-list'
     | '/booking/$id'
+    | '/gift/$id'
     | '/housekeepers/$id'
     | '/appointment/$id'
     | '/lovable/email/auth/preview'
@@ -366,6 +388,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/book'
     | '/booking-assistant'
+    | '/gift-certificates'
     | '/reset-password'
     | '/_authenticated/account'
     | '/_authenticated/admin'
@@ -386,6 +409,7 @@ export interface FileRouteTypes {
     | '/_authenticated/timesheets'
     | '/_authenticated/waiting-list'
     | '/booking/$id'
+    | '/gift/$id'
     | '/housekeepers/$id'
     | '/_authenticated/appointment/$id'
     | '/lovable/email/auth/preview'
@@ -399,8 +423,10 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BookRoute: typeof BookRoute
   BookingAssistantRoute: typeof BookingAssistantRoute
+  GiftCertificatesRoute: typeof GiftCertificatesRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   BookingIdRoute: typeof BookingIdRoute
+  GiftIdRoute: typeof GiftIdRoute
   HousekeepersIdRoute: typeof HousekeepersIdRoute
   LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
   LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
@@ -442,6 +468,13 @@ declare module '@tanstack/react-router' {
       path: '/booking-assistant'
       fullPath: '/booking-assistant'
       preLoaderRoute: typeof BookingAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gift-certificates': {
+      id: '/gift-certificates'
+      path: '/gift-certificates'
+      fullPath: '/gift-certificates'
+      preLoaderRoute: typeof GiftCertificatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reset-password': {
@@ -584,6 +617,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gift/$id': {
+      id: '/gift/$id'
+      path: '/gift/$id'
+      fullPath: '/gift/$id'
+      preLoaderRoute: typeof GiftIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/housekeepers/$id': {
       id: '/housekeepers/$id'
       path: '/housekeepers/$id'
@@ -675,8 +715,10 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BookRoute: BookRoute,
   BookingAssistantRoute: BookingAssistantRoute,
+  GiftCertificatesRoute: GiftCertificatesRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   BookingIdRoute: BookingIdRoute,
+  GiftIdRoute: GiftIdRoute,
   HousekeepersIdRoute: HousekeepersIdRoute,
   LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
   LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,

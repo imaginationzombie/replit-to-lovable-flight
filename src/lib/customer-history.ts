@@ -6,6 +6,7 @@ import { tipDetails } from "./tips.functions";
 export type TipReceipt = {
   amount_cents: number; status: string; environment: string;
   paid_at: string | null; payout_status: string; payout_paid_at: string | null;
+  customer_confirmed_at?: string | null; confirmation_expires_at?: string | null;
 };
 
 export function cleaningSettlement(booking: Pick<BookingRow, "paid_at" | "status">) {

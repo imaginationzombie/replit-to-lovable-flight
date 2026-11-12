@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { AppHeader } from "@/components/AppHeader";
@@ -7,14 +7,21 @@ import { BookingCard, type BookingRow } from "@/components/BookingCard";
 import { customerBookingsOptions } from "@/lib/customer-bookings";
 import { Button } from "@/components/ui/button";
 import { ReviewRequests } from "@/components/ReviewRequests";
+import { customerHistoryOptions } from "@/lib/customer-history";
+import { ClientAppointmentActions } from "@/components/ClientAppointmentActions";
+import { ClientTipSummary } from "@/components/ClientTipSummary";
+import { MyGiftCertificates } from "@/components/MyGiftCertificates";
 
 export const Route = createFileRoute("/_authenticated/account")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(customerHistoryOptions),
+  errorComponent: () => <div><AppHeader /><main className="p-6"><p>Couldn’t load your client portal.</p><Button asChild><Link to="/account">Try again</Link></Button></main></div>,
+  notFoundComponent: () => <p>Client portal not found.</p>,
   head: () => ({
     meta: [
-      { title: "My Account | HousekeepingBooking.com" },
-      { name: "description", content: "Your bookings and profile." },
-      { property: "og:title", content: "My Account | HousekeepingBooking.com" },
-      { property: "og:description", content: "Your bookings and profile." },
+      { title: "Client Portal | HousekeepingBooking.com" },
+      { name: "description", content: "Your appointments, add-ons, tips and private housekeeper messages." },
+      { property: "og:title", content: "Client Portal | HousekeepingBooking.com" },
+      { property: "og:description", content: "Manage your cleaning appointments, gift credit and tips." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -25,6 +32,10 @@ export const Route = createFileRoute("/_authenticated/account")({
 function Account() {
   const qc = useQueryClient();
   const bookings = useQuery(customerBookingsOptions);
+  const history = useSuspenseQuery(customerHistoryOptions);
+  const tips = new Map(history.data.map(row => [row.booking.id, row.tip]));
+  const tipPaid = history.data.reduce((total, row) => total + (row.tip?.status === "paid" && row.tip.environment === "live" ? row.tip.amount_cents : 0), 0);
+  const tipHeld = history.data.reduce((total, row) => total + (row.tip?.status === "paid" && row.tip.environment === "live" && row.tip.payout_status !== "paid" ? row.tip.amount_cents : 0), 0);
   const profile = useQuery({
     queryKey: ["my-profile"],
     queryFn: async () => {
@@ -60,23 +71,25 @@ function Account() {
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
-      <main className="mx-auto grid max-w-5xl gap-8 px-6 py-10 lg:grid-cols-[1.5fr_1fr]">
-        <section>
+      <main className="mx-auto grid max-w-5xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.5fr_1fr]">
+        <section className="min-w-0">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h1 className="text-3xl font-extrabold text-foreground">Customer portal</h1>
+            <h1 className="text-3xl font-extrabold text-foreground">Client portal</h1>
             <div className="flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/booking-status">Track my bookings</Link></Button><Button asChild variant="outline"><Link to="/booking-history">Payments & history</Link></Button><Button asChild><Link to="/book">Request a cleaning</Link></Button></div>
           </div>
+          <dl className="mt-6 grid grid-cols-2 gap-4 border-y border-border py-5"><div><dt className="text-sm text-muted-foreground">Tips paid</dt><dd className="mt-1 text-2xl font-bold text-primary">${(tipPaid / 100).toFixed(2)}</dd></div><div><dt className="text-sm text-muted-foreground">Tips awaiting delivery</dt><dd className="mt-1 text-2xl font-bold text-primary">${(tipHeld / 100).toFixed(2)}</dd></div></dl>
           {bookings.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
           {bookings.error && <p className="mt-6 text-destructive">Couldn't load your bookings.</p>}
           {bookings.data && bookings.data.length === 0 && (
             <p className="mt-6 rounded-xl bg-muted p-6 text-center text-muted-foreground">No bookings yet. Try the <Link to="/booking-assistant" className="text-primary underline">AI assistant</Link> to get started.</p>
           )}
           {upcoming.length > 0 && <h2 className="mt-6 text-sm font-bold uppercase text-muted-foreground">Upcoming</h2>}
-          <div className="mt-3 space-y-3">{upcoming.map((b) => <BookingCard key={b.id} b={b} customerPayment />)}</div>
+          <div className="mt-3 space-y-3">{upcoming.map((b) => <div key={b.id}><BookingCard b={b} customerPayment><ClientAppointmentActions booking={b} /></BookingCard><ClientTipSummary tip={tips.get(b.id)} /></div>)}</div>
           {past.length > 0 && <h2 className="mt-8 text-sm font-bold uppercase text-muted-foreground">Past</h2>}
-          <div className="mt-3 space-y-3">{past.map((b) => <BookingCard key={b.id} b={b} customerPayment />)}</div>
+          <div className="mt-3 space-y-3">{past.map((b) => <div key={b.id}><BookingCard b={b} customerPayment><ClientAppointmentActions booking={b} /></BookingCard><ClientTipSummary tip={tips.get(b.id)} /></div>)}</div>
           <Button asChild variant="outline" className="mt-5"><Link to="/disputes">Report a booking issue</Link></Button>
           <ReviewRequests bookings={bookings.data ?? []} />
+          <MyGiftCertificates />
         </section>
 
         <aside className="h-fit rounded-2xl border border-border bg-card p-6">
