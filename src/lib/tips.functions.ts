@@ -21,3 +21,7 @@ export const payoutTip = createServerFn({ method: "POST" }).middleware([requireS
   const { transferTip } = await import("./tips.server");
   return transferTip(data.id, data.send);
 });
+export const confirmTip = createServerFn({ method: "POST" }).inputValidator((d: unknown) => access.extend({ confirmed: z.literal(true) }).parse(d)).handler(async ({ data }) => {
+ const { confirmCustomerTip } = await import("./tips.server");
+ return confirmCustomerTip(data.id, data.token);
+});
