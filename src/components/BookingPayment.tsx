@@ -1,3 +1,4 @@
+import { bookingBalance } from "@/lib/gift-certificates";
 import { useState } from "react";
 import { CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import type { BookingRow } from "@/components/BookingCard";
 export function BookingPayment({ booking }: { booking: BookingRow }) {
   const [open, setOpen] = useState(false);
   if (!canPayBooking(booking) || !booking.access_token) return null;
-  const amount = `$${(booking.amount_cents / 100).toFixed(2)}`;
+  const amount = `$${(bookingBalance(booking) / 100).toFixed(2)}`;
   return <>
     <Button onClick={() => setOpen(true)}><CreditCard />Pay {amount} with PayPal</Button>
     <Dialog open={open} onOpenChange={setOpen}><DialogContent>

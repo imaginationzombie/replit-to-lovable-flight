@@ -12,6 +12,7 @@ export type BookingRow = {
   created_by_staff?: string | null;
   appointment_start?: string | null; appointment_end?: string | null;
   appointment_slot_id?: string | null;
+  gift_credit_cents?: number;
 };
 
 export const STATUS_LABEL: Record<string, string> = {
@@ -38,6 +39,7 @@ export function BookingCard({ b, showCustomer, customerPayment = false, cleanerP
       <p className="mt-2 text-sm text-foreground">{b.bedrooms} bed / {b.bathrooms} bath • {b.address} ({b.service_area}){cleanerPayment && b.address && <> · <a className="font-semibold text-primary underline" href={directionsLink(b.address)} target="_blank" rel="noreferrer">Get directions</a></>}</p>
       {b.add_ons.length > 0 && <p className="text-sm text-muted-foreground">Add-ons: {b.add_ons.join(", ")}{b.rush ? ", Rush" : ""}</p>}
       {showCustomer && <p className="mt-1 text-sm text-foreground"><strong>{b.customer_name}</strong> • {b.phone} • {b.email}</p>}
+      {!!b.gift_credit_cents && <p className="mt-2 text-sm text-primary">Gift credit: ${(b.gift_credit_cents / 100).toFixed(2)} · Remaining: ${(Math.max(0, b.amount_cents - b.gift_credit_cents) / 100).toFixed(2)}</p>}
       {b.notes && <p className="mt-1 whitespace-pre-line text-sm text-muted-foreground">Notes: {b.notes}</p>}
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
         <span className="text-sm font-bold text-primary">{cleanerPayment ? "Customer booking amount: " : ""}${(b.amount_cents / 100).toFixed(2)}
