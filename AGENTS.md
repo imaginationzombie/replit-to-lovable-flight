@@ -43,4 +43,4 @@
 
 - Homepage video uses CDN media, muted looping and pause/reduced-motion controls. Why: no forced motion.
 
-- Gifts use verified receipts and locked credit, not wages; income separates tips from settlement. Why: no double spending.
+- Gifts lock verified credit; income separates settlement. Office/moving share tested estimates with phone review, not checkout. Why: no false charges.

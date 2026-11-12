@@ -24,6 +24,8 @@ export function AppHeader() {
         <nav aria-label="Account navigation" className="grid min-w-0 max-w-full grid-cols-2 items-center gap-x-3 gap-y-3 sm:flex sm:flex-wrap sm:gap-4 [&>*]:min-w-0 [&>*]:break-words">
           <Link to="/booking-assistant" className={link}>AI Assistant</Link>
           <Link to="/book" className={link}>Book</Link>
+          <Link to="/office-quote" className={link}>Office quote</Link>
+          <Link to="/moving-quote" className={link}>Moving quote</Link>
           <Link to="/gift-certificates" className={link}>Gift certificates</Link>
           {user ? <Link to="/apply" className={link}>{isCleaner ? "Join our team" : "Application & hiring"}</Link> : <Link to="/auth" search={{ next: "/apply" }} className={link}>Apply as a housekeeper</Link>}
           {!loading && user && (

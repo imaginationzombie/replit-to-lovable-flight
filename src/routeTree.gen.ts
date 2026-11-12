@@ -15,6 +15,8 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingAssistantRouteImport } from './routes/booking-assistant'
 import { Route as GiftCertificatesRouteImport } from './routes/gift-certificates'
+import { Route as MovingQuoteRouteImport } from './routes/moving-quote'
+import { Route as OfficeQuoteRouteImport } from './routes/office-quote'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -70,6 +72,16 @@ const BookingAssistantRoute = BookingAssistantRouteImport.update({
 const GiftCertificatesRoute = GiftCertificatesRouteImport.update({
   id: '/gift-certificates',
   path: '/gift-certificates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MovingQuoteRoute = MovingQuoteRouteImport.update({
+  id: '/moving-quote',
+  path: '/moving-quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfficeQuoteRoute = OfficeQuoteRouteImport.update({
+  id: '/office-quote',
+  path: '/office-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
@@ -226,6 +238,8 @@ export interface FileRoutesByFullPath {
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
   '/gift-certificates': typeof GiftCertificatesRoute
+  '/moving-quote': typeof MovingQuoteRoute
+  '/office-quote': typeof OfficeQuoteRoute
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -260,6 +274,8 @@ export interface FileRoutesByTo {
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
   '/gift-certificates': typeof GiftCertificatesRoute
+  '/moving-quote': typeof MovingQuoteRoute
+  '/office-quote': typeof OfficeQuoteRoute
   '/reset-password': typeof ResetPasswordRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -296,6 +312,8 @@ export interface FileRoutesById {
   '/book': typeof BookRoute
   '/booking-assistant': typeof BookingAssistantRoute
   '/gift-certificates': typeof GiftCertificatesRoute
+  '/moving-quote': typeof MovingQuoteRoute
+  '/office-quote': typeof OfficeQuoteRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
@@ -332,6 +350,8 @@ export interface FileRouteTypes {
     | '/book'
     | '/booking-assistant'
     | '/gift-certificates'
+    | '/moving-quote'
+    | '/office-quote'
     | '/reset-password'
     | '/account'
     | '/admin'
@@ -366,6 +386,8 @@ export interface FileRouteTypes {
     | '/book'
     | '/booking-assistant'
     | '/gift-certificates'
+    | '/moving-quote'
+    | '/office-quote'
     | '/reset-password'
     | '/account'
     | '/admin'
@@ -401,6 +423,8 @@ export interface FileRouteTypes {
     | '/book'
     | '/booking-assistant'
     | '/gift-certificates'
+    | '/moving-quote'
+    | '/office-quote'
     | '/reset-password'
     | '/_authenticated/account'
     | '/_authenticated/admin'
@@ -437,6 +461,8 @@ export interface RootRouteChildren {
   BookRoute: typeof BookRoute
   BookingAssistantRoute: typeof BookingAssistantRoute
   GiftCertificatesRoute: typeof GiftCertificatesRoute
+  MovingQuoteRoute: typeof MovingQuoteRoute
+  OfficeQuoteRoute: typeof OfficeQuoteRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   BookingIdRoute: typeof BookingIdRoute
   GiftIdRoute: typeof GiftIdRoute
@@ -488,6 +514,20 @@ declare module '@tanstack/react-router' {
       path: '/gift-certificates'
       fullPath: '/gift-certificates'
       preLoaderRoute: typeof GiftCertificatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/moving-quote': {
+      id: '/moving-quote'
+      path: '/moving-quote'
+      fullPath: '/moving-quote'
+      preLoaderRoute: typeof MovingQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/office-quote': {
+      id: '/office-quote'
+      path: '/office-quote'
+      fullPath: '/office-quote'
+      preLoaderRoute: typeof OfficeQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reset-password': {
@@ -738,6 +778,8 @@ const rootRouteChildren: RootRouteChildren = {
   BookRoute: BookRoute,
   BookingAssistantRoute: BookingAssistantRoute,
   GiftCertificatesRoute: GiftCertificatesRoute,
+  MovingQuoteRoute: MovingQuoteRoute,
+  OfficeQuoteRoute: OfficeQuoteRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   BookingIdRoute: BookingIdRoute,
   GiftIdRoute: GiftIdRoute,

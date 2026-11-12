@@ -174,7 +174,7 @@
 </div>
 </div>
 </section>
-<!-- STEP 3: Primary Service Tier Selector + Movers & Fall Yard Work -->
+<!-- STEP 3: Primary Service Tier Selector + Moving Assistance -->
 <section class="p-space-lg bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-space-md">
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
 <div class="flex items-center gap-space-sm">
@@ -282,7 +282,7 @@
 </div>
 </div>
 </div>
-<!-- Auxiliary Services: Moving Assistance & Fall Yard Work -->
+<!-- Auxiliary Services: Moving Assistance -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
 <!-- Moving Assistance -->
 <div class="p-space-md rounded-xl bg-surface-container-high/60 flex flex-col justify-between gap-space-sm">
@@ -304,29 +304,8 @@
 </button>
 </div>
 </div>
-<!-- Fall Yard Work -->
-<div class="p-space-md rounded-xl bg-surface-container-high/60 flex flex-col justify-between gap-space-sm">
-<div class="flex items-start gap-space-sm">
-<div class="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shrink-0">
-<span class="material-symbols-outlined text-[20px]">yard</span>
-</div>
-<div>
-<span class="font-label-md text-label-md font-bold text-on-surface">Fall Yard Work &amp; Seasonal Cleanup</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Leaf raking, porch sweeping, and debris bagging.</p>
-</div>
-</div>
-<div class="grid grid-cols-3 gap-1.5 pt-1">
-<button class="yard-btn py-1.5 px-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold transition-all text-center border border-outline-variant/40" data-yard-hours="1" data-yard-price="50" type="button">
-  1h +$50
-</button>
-<button class="yard-btn py-1.5 px-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold transition-all text-center border border-outline-variant/40" data-yard-hours="2" data-yard-price="95" type="button">
-  2h +$95
-</button>
-<button class="yard-btn py-1.5 px-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold transition-all text-center border border-outline-variant/40" data-yard-hours="3" data-yard-price="140" type="button">
-  3h +$140
-</button>
-</div>
-</div>
+
+
 </div>
 </section>
 <!-- STEP 4: Comprehensive 12 Specialty Add-Ons at 50% Off -->
@@ -642,13 +621,6 @@
 <span class="material-symbols-outlined text-[14px] text-primary">inventory_2</span> <span id="sum-movers-title">Moving Crew</span>
 </span>
 <span class="font-body-sm text-body-sm font-semibold text-on-surface" id="sum-movers-price">+$0.00</span>
-</div>
-<!-- Fall Yard Work Row (dynamic) -->
-<div class="hidden items-center justify-between pt-1 border-t border-surface-container-high/40" id="sum-yard-row">
-<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px] text-secondary">yard</span> <span id="sum-yard-title">Fall Yard Work</span>
-</span>
-<span class="font-body-sm text-body-sm font-semibold text-on-surface" id="sum-yard-price">+$0.00</span>
 </div>
 <!-- Rush Surcharge Row (dynamic) -->
 <div class="hidden items-center justify-between pt-1 border-t border-surface-container-high/40" id="sum-rush-row">
@@ -1001,17 +973,6 @@
         sumMoversRow.classList.remove('flex');
       }
 
-      // Yard Work Row
-      if (state.yardHours) {
-        sumYardRow.classList.remove('hidden');
-        sumYardRow.classList.add('flex');
-        sumYardTitle.textContent = `Fall Yard Work (${state.yardHours}h)`;
-        sumYardPrice.textContent = '+$' + state.yardPrice.toFixed(2);
-      } else {
-        sumYardRow.classList.add('hidden');
-        sumYardRow.classList.remove('flex');
-      }
-
       // Rush Surcharge
       if (state.rushNotice) {
         const rushAmt = state.tierBasePrice * 0.5;
@@ -1160,7 +1121,7 @@
       });
     });
 
-    // Fall Yard Work
+    // Retired auxiliary service
     yardBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const hrs = btn.getAttribute('data-yard-hours');
