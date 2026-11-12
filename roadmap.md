@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Admin housekeeper income dashboard: earned wages, customer-confirmed tips and completed appointments, separate actual settlement
+- [ ] Verify confirmed-tip PayPal payout wiring and receiving-account guards; real transfer only for actual eligible tip
+
 - [ ] Client portal for owner-booked appointments, add-ons and tip balances/status with existing private housekeeper messaging
 
 - [ ] PayPal gift certificates in $50/$100/$150 denominations, private certificate delivery and partial cleaning credit redemption; verify balances and payment guards without live charges
