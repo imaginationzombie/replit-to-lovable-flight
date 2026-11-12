@@ -43,7 +43,8 @@
     #home-cleaning-intro::before { content: ""; position: absolute; inset: 0; background: var(--home-video-shade); opacity: .48; z-index: -1; }
     #home-cleaning-intro h1, #home-cleaning-intro h1 + p { color: var(--home-video-text); }
     #home-cleaning-intro .video-toggle { position: absolute; right: 16px; bottom: 14px; }
-    @media (max-width: 767px) { #home-cleaning-intro .home-cleaning-video { object-position: 58% center; } }
+    @media (max-width: 767px) { #home-cleaning-intro { padding-bottom: 64px; } #home-cleaning-intro h1 { font-size: 18px !important; overflow-wrap: normal; } #home-cleaning-intro .home-cleaning-video { object-position: 58% center; } }
+    @media (max-width: 359px) { #home-cleaning-intro h1 { font-size: 16px !important; } }
     /* Phone layouts wrap content instead of clipping or creating scroll strips. */
     #mobile-location-picker, #estimator-location-picker { display: none; }
     @media (max-width: 767px) {

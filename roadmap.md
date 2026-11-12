@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Generate and place a woman-cleaning video behind homepage top text and buttons; verify desktop and phone readability
+- [x] Generated 8.06-second 720p woman-cleaning video behind homepage top text and buttons; playback, pause control, reduced motion and phone fit verified
 
 - [x] Assigned-housekeeper slot confirmation email with date, exact time and saved customer details; recipient and confirmation guards tested; inbox delivery awaits next real booking
 - [x] Housekeeper dashboard for booked slots, upcoming appointments and assigned customer details; assigned appointment navigation verified
