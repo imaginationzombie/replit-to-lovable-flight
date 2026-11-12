@@ -1,0 +1,16 @@
+import { beforeEach, expect, it, vi } from "vitest";
+const mocks = vi.hoisted(() => ({ api: vi.fn(), notify: vi.fn(), updates: [] as Record<string, unknown>[], tip: { id: "tip-1", cleaner_id: "cleaner-1", amount_cents: 1000, status: "paid", environment: "live", customer_confirmed_at: "2026-11-12", payout_status: "unpaid", paypal_batch_id: null, recipient_email: null, payout_error: "" } as Record<string, unknown>, email: "cleaner@example.test" }));
+vi.mock("../lib/payouts.server", () => ({ api: mocks.api, payoutEnvironment: () => "live" }));
+vi.mock("../lib/payment-notices.server", () => ({ notifyPaymentReceipt: mocks.notify }));
+vi.mock("@/integrations/supabase/client.server", () => ({ supabaseAdmin: { from: (table: string) => ({ select: () => ({ eq: () => ({ single: async () => ({ data: table === "cleaner_payout_accounts" ? (mocks.email ? { paypal_email: mocks.email } : null) : mocks.tip }) }) }), update: (value: Record<string, unknown>) => { mocks.updates.push(value); const chain = { eq: () => chain, select: () => ({ maybeSingle: async () => ({ data: { id: "tip-1" }, error: null }) }), then: (resolve: (v: unknown) => unknown) => Promise.resolve(resolve({ error: null })) }; return chain; } }) } }));
+import { transferTip } from "../lib/tips.server";
+beforeEach(() => { mocks.api.mockReset(); mocks.notify.mockReset(); mocks.updates.length = 0; mocks.email = "cleaner@example.test"; mocks.tip.customer_confirmed_at = "2026-11-12"; mocks.tip.paypal_batch_id = null; mocks.tip.payout_status = "unpaid"; });
+it("sends a confirmed tip to the saved receiving email and settles only a matching SUCCESS receipt", async () => {
+ mocks.api.mockResolvedValueOnce(new Response(JSON.stringify({ batch_header: { payout_batch_id: "batch-1" } }))).mockResolvedValueOnce(new Response(JSON.stringify({ items: [{ payout_item_id: "item-1", transaction_status: "SUCCESS", payout_item: { sender_item_id: "tip-1", receiver: "cleaner@example.test", amount: { value: "10.00", currency: "USD" } } }] })));
+ await expect(transferTip("tip-1", true)).resolves.toEqual({ message: "Tip delivered through PayPal." });
+ expect(mocks.api.mock.calls[0]?.[2].items[0]).toMatchObject({ receiver: "cleaner@example.test", amount: { value: "10.00", currency: "USD" } });
+ expect(mocks.updates.at(-1)).toMatchObject({ payout_status: "paid", paypal_item_id: "item-1" });
+});
+it("cannot send before customer confirmation", async () => { mocks.tip.customer_confirmed_at = null; await expect(transferTip("tip-1",true)).rejects.toThrow("confirm"); expect(mocks.api).not.toHaveBeenCalled(); });
+it("requires a receiving email before any transfer", async () => { mocks.email = ""; await expect(transferTip("tip-1",true)).rejects.toThrow("receiving email"); expect(mocks.api).not.toHaveBeenCalled(); });
+it("holds ambiguous sends for review instead of claiming settlement", async () => { mocks.api.mockRejectedValueOnce(new Error("Network uncertain")); await expect(transferTip("tip-1",true)).resolves.toMatchObject({ message: expect.stringContaining("uncertain") }); expect(mocks.updates.at(-1)).toMatchObject({ payout_status: "needs_review" }); });
