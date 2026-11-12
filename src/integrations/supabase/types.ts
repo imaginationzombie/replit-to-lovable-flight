@@ -284,10 +284,12 @@ export type Database = {
           customer_name: string
           email: string
           frequency: string
+          gift_credit_cents: number
           id: string
           notes: string
           paid_at: string | null
           parent_booking_id: string | null
+          payment_checkout_started: boolean
           paypal_authorization_id: string | null
           paypal_capture_id: string | null
           paypal_order_id: string | null
@@ -322,10 +324,12 @@ export type Database = {
           customer_name: string
           email: string
           frequency: string
+          gift_credit_cents?: number
           id?: string
           notes?: string
           paid_at?: string | null
           parent_booking_id?: string | null
+          payment_checkout_started?: boolean
           paypal_authorization_id?: string | null
           paypal_capture_id?: string | null
           paypal_order_id?: string | null
@@ -360,10 +364,12 @@ export type Database = {
           customer_name?: string
           email?: string
           frequency?: string
+          gift_credit_cents?: number
           id?: string
           notes?: string
           paid_at?: string | null
           parent_booking_id?: string | null
+          payment_checkout_started?: boolean
           paypal_authorization_id?: string | null
           paypal_capture_id?: string | null
           paypal_order_id?: string | null
@@ -678,6 +684,110 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: true
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      gift_certificates: {
+        Row: {
+          access_token: string
+          amount_cents: number
+          balance_cents: number
+          buyer_email: string
+          buyer_id: string
+          code: string
+          created_at: string
+          environment: string
+          id: string
+          message: string
+          paid_at: string | null
+          paypal_capture_id: string | null
+          paypal_order_id: string | null
+          recipient_name: string
+          status: string
+        }
+        Insert: {
+          access_token?: string
+          amount_cents: number
+          balance_cents?: number
+          buyer_email: string
+          buyer_id: string
+          code?: string
+          created_at?: string
+          environment: string
+          id?: string
+          message?: string
+          paid_at?: string | null
+          paypal_capture_id?: string | null
+          paypal_order_id?: string | null
+          recipient_name?: string
+          status?: string
+        }
+        Update: {
+          access_token?: string
+          amount_cents?: number
+          balance_cents?: number
+          buyer_email?: string
+          buyer_id?: string
+          code?: string
+          created_at?: string
+          environment?: string
+          id?: string
+          message?: string
+          paid_at?: string | null
+          paypal_capture_id?: string | null
+          paypal_order_id?: string | null
+          recipient_name?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gift_certificates_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      gift_redemptions: {
+        Row: {
+          amount_cents: number
+          booking_id: string
+          certificate_id: string
+          created_at: string
+          id: string
+          released_at: string | null
+        }
+        Insert: {
+          amount_cents: number
+          booking_id: string
+          certificate_id: string
+          created_at?: string
+          id?: string
+          released_at?: string | null
+        }
+        Update: {
+          amount_cents?: number
+          booking_id?: string
+          certificate_id?: string
+          created_at?: string
+          id?: string
+          released_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gift_redemptions_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "gift_redemptions_certificate_id_fkey"
+            columns: ["certificate_id"]
+            isOneToOne: false
+            referencedRelation: "gift_certificates"
             referencedColumns: ["id"]
           },
         ]
@@ -1175,6 +1285,15 @@ export type Database = {
       record_location: {
         Args: { _accuracy: number; _lat: number; _lng: number }
         Returns: undefined
+      }
+      redeem_gift_certificate: {
+        Args: {
+          _booking: string
+          _code: string
+          _environment: string
+          _token: string
+        }
+        Returns: number
       }
       reschedule_booking: {
         Args: {
