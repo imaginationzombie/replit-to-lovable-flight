@@ -184,10 +184,7 @@
 <span class="material-symbols-outlined text-[20px]">domain</span>
 <span class="">Commercial Office</span>
 </button>
-<button class="cat-tab-btn flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold transition-all bg-transparent text-on-surface-variant hover:bg-surface-container-low" data-category="yard" type="button">
-<span class="material-symbols-outlined text-[20px]">yard</span>
-<span class="">Fall &amp; Seasonal Yard</span>
-</button>
+
 <button class="cat-tab-btn flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold transition-all bg-transparent text-on-surface-variant hover:bg-surface-container-low" data-category="moving" type="button">
 <span class="material-symbols-outlined text-[20px]">local_shipping</span>
 <span class="">Moving &amp; Turnover</span>
@@ -1061,16 +1058,6 @@
               { title: 'Multi-Room Practice', desc: '1,500–3,500 sq ft • 6–15 Desks', price: 210, duration: 210 },
               { title: 'Full Floor Executive', desc: '3,500+ sq ft • Restrooms & Breakrooms', price: 340, duration: 300 }
             );
-          } else if (state.category === 'yard') {
-            addonsSec.classList.add('hidden');
-            roomScopeContainer.classList.add('hidden');
-            summaryCatTitle.textContent = 'Seasonal Yard Grounds';
-            packageTierLabel.textContent = 'Yard Acreage & Grounds Scope';
-            setTierOptions(
-              { title: 'Township Lot Tidy', desc: '0.25 Acre • Leaf blowing & curb sweep', price: 65, duration: 60 },
-              { title: 'Standard Lot & Gutters', desc: '0.5 Acre • Full gutter clearance', price: 120, duration: 120 },
-              { title: 'Estate Property Reset', desc: '1+ Acre • Perimeter haul & bag', price: 175, duration: 180 }
-            );
           } else if (state.category === 'moving') {
             addonsSec.classList.add('hidden');
             roomScopeContainer.classList.add('hidden');
@@ -1330,4 +1317,4 @@
   </script>
 
 
-</body></html>
+<script>document.addEventListener('click',function(e){var b=e.target.closest('[data-cat],[data-category]');if(!b)return;var c=b.dataset.cat||b.dataset.category;if(c==='commercial'||c==='office'){e.preventDefault();e.stopImmediatePropagation();location.href='/office-quote';}else if(c==='moving'||c==='movers'){e.preventDefault();e.stopImmediatePropagation();location.href='/moving-quote';}},true);</script></body></html>
