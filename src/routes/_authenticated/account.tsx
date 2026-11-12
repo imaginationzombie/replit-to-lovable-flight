@@ -84,9 +84,9 @@ function Account() {
             <p className="mt-6 rounded-xl bg-muted p-6 text-center text-muted-foreground">No bookings yet. Try the <Link to="/booking-assistant" className="text-primary underline">AI assistant</Link> to get started.</p>
           )}
           {upcoming.length > 0 && <h2 className="mt-6 text-sm font-bold uppercase text-muted-foreground">Upcoming</h2>}
-          <div className="mt-3 space-y-3">{upcoming.map((b) => <div key={b.id}><BookingCard b={b} customerPayment><ClientAppointmentActions booking={b} /></BookingCard><ClientTipSummary tip={tips.get(b.id)} /></div>)}</div>
+          <div className="mt-3 space-y-3">{upcoming.map((b) => <div key={b.id}><BookingCard b={b} customerPayment><ClientAppointmentActions booking={b} /></BookingCard><ClientTipSummary tip={tips.get(b.id) ?? null} /></div>)}</div>
           {past.length > 0 && <h2 className="mt-8 text-sm font-bold uppercase text-muted-foreground">Past</h2>}
-          <div className="mt-3 space-y-3">{past.map((b) => <div key={b.id}><BookingCard b={b} customerPayment><ClientAppointmentActions booking={b} /></BookingCard><ClientTipSummary tip={tips.get(b.id)} /></div>)}</div>
+          <div className="mt-3 space-y-3">{past.map((b) => <div key={b.id}><BookingCard b={b} customerPayment><ClientAppointmentActions booking={b} /></BookingCard><ClientTipSummary tip={tips.get(b.id) ?? null} /></div>)}</div>
           <Button asChild variant="outline" className="mt-5"><Link to="/disputes">Report a booking issue</Link></Button>
           <ReviewRequests bookings={bookings.data ?? []} />
           <MyGiftCertificates />
