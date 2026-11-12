@@ -15,7 +15,7 @@ export function SendConfirmation({ bookingId, status }: { bookingId: string; sta
     finally { setPending(false); }
   }
   return <div className="flex flex-wrap items-center gap-2">
-    <Button type="button" variant="outline" size="sm" disabled={pending || status !== "confirmed" || result?.sent} title={status !== "confirmed" ? "Confirm the visit before sending" : "Send confirmation to customer"} onClick={submit}><Mail />{pending ? "Sending…" : result?.sent ? "Confirmation sent" : "Send confirmation"}</Button>
+    <Button type="button" variant="outline" size="sm" disabled={pending || status !== "confirmed" || result?.sent} title={status !== "confirmed" ? "Confirm the visit before sending" : "Send confirmation to customer and assigned housekeeper"} onClick={submit}><Mail />{pending ? "Sending…" : result?.sent ? "Confirmations sent" : "Send confirmation"}</Button>
     {result && <p role={result.sent ? "status" : "alert"} className={`max-w-80 text-xs ${result.sent ? "text-primary" : "text-destructive"}`}>{result.message}</p>}
   </div>;
 }

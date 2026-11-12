@@ -9,6 +9,11 @@ type Db = SupabaseClient<Database>;
 function visitDate(date: string) {
   return new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", month: "long", day: "numeric", year: "numeric" });
 }
+async function customerConfirmationKey(b: { id: string; preferred_date: string; time_window: string; cleaner_id: string | null; appointment_start?: string | null; appointment_end?: string | null }) {
+  const event = JSON.stringify([b.id, b.preferred_date, b.time_window, b.cleaner_id, b.appointment_start, b.appointment_end]);
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(event));
+  return `booking-confirmation-${Array.from(new Uint8Array(digest), value => value.toString(16).padStart(2, "0")).join("")}`;
+}
 
 /** Fixed recipients from persisted records; called only after the feature's successful write. */
 export async function sendBookingNotice(db: Db, bookingId: string) {
@@ -22,7 +27,7 @@ export async function sendBookingNotice(db: Db, bookingId: string) {
   }
   return sendTemplateEmail("booking-confirmation", b.email, {
     templateData: { name: b.customer_name, service: b.service, date: visitDate(b.preferred_date), time: b.appointment_start && b.appointment_end ? slotLabel({ start_time: b.appointment_start, end_time: b.appointment_end }) : b.time_window, address: b.address, frequency: b.frequency, cleaner, paid: Boolean(b.paid_at), url: `https://housekeepingbooking.com/booking/${b.id}?t=${b.access_token}` },
-    idempotencyKey: `booking-confirmation-${b.id}-${b.preferred_date}-${b.time_window}-${b.cleaner_id ?? "unassigned"}`,
+    idempotencyKey: await customerConfirmationKey(b),
   });
 }
 
@@ -76,6 +81,12 @@ async function safeBookingNotice(send: () => Promise<{ sent: boolean; reason?: s
     console.error("Booking email not sent", { bookingId: id, event, code });
     return { sent: false as const, reason: code };
   }
+}
+/** Manual confirmation retries both participants independently without repeating owner alerts. */
+export async function sendParticipantConfirmations(db: Db, id: string) {
+  const customer = await safeBookingNotice(() => sendBookingNotice(db, id), id, "confirmed");
+  const cleaner = await safeBookingNotice(() => sendCleanerBookingNotice(db, id), id, "cleaner-confirmed");
+  return { customer, cleaner };
 }
 export async function sendCleanerBookingNotice(db: Db, bookingId: string) {
  const { data: b, error } = await db.from("bookings").select("id,status,cleaner_id,customer_name,email,phone,address,service,preferred_date,time_window,appointment_start,appointment_end,notes").eq("id", bookingId).single();

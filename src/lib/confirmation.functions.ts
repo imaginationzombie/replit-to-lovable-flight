@@ -12,16 +12,13 @@ export const sendBookingConfirmation = createServerFn({ method: "POST" })
     const { data: booking, error } = await context.supabase.from("bookings").select("id, email, customer_name, status, service, preferred_date, time_window, address, frequency, cleaner_id, access_token").eq("id", data.bookingId).single();
     if (error || !booking) return { sent: false, message: "Booking not found." };
     if (!canSendConfirmation(admin, booking.status)) return { sent: false, message: "Only confirmed visits can receive a confirmation." };
-    const { sendBookingNotice } = await import("./booking-notices.server");
-    const { EmailAPIError } = await import("@lovable.dev/email-js");
+    const { sendParticipantConfirmations } = await import("./booking-notices.server");
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     try {
-      const result = await sendBookingNotice(context.supabase, booking.id);
-      return result.sent ? { sent: true, message: "Confirmation sent to the customer." } : { sent: false, message: "This customer’s address cannot receive app emails." };
+      const result = await sendParticipantConfirmations(supabaseAdmin, booking.id);
+      const sent = result.customer.sent && (!booking.cleaner_id || result.cleaner.sent);
+      return { sent, message: [result.customer.sent ? "Customer confirmation accepted for sending." : "Customer confirmation was not sent.", booking.cleaner_id ? (result.cleaner.sent ? "Housekeeper confirmation accepted for sending." : "Housekeeper confirmation was not sent; retry after checking email settings.") : "Housekeeper assignment is pending."].join(" ") };
     } catch (error) {
-      if (error instanceof EmailAPIError) {
-        if (error.code === "domain_not_verified") return { sent: false, message: "Sender domain is still verifying. Try again once verification finishes." };
-        if (error.status === 429) return { sent: false, message: `Please wait ${error.retryAfterSeconds ?? 60} seconds before trying again.` };
-      }
       return { sent: false, message: "Email wasn’t sent. Check email settings and try again." };
     }
   });

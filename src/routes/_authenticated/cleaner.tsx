@@ -13,14 +13,15 @@ import { Button } from "@/components/ui/button";
 import { CalendarDays, Pencil, Phone, LayoutDashboard } from "lucide-react";
 import { refreshBookingViews } from "@/lib/booking-sync";
 import { slotLabel } from "@/lib/appointment-slots";
+import { bookedSlot } from "@/lib/housekeeper-dashboard";
 
 export const Route = createFileRoute("/_authenticated/cleaner")({
   head: () => ({
     meta: [
-      { title: "My Jobs | HousekeepingBooking.com" },
-      { name: "description", content: "Cleaning jobs assigned to you." },
-      { property: "og:title", content: "My Jobs | HousekeepingBooking.com" },
-      { property: "og:description", content: "Cleaning jobs assigned to you." },
+      { title: "Housekeeper Dashboard | HousekeepingBooking.com" },
+      { name: "description", content: "Your booked slots, upcoming appointments and assigned client details." },
+      { property: "og:title", content: "Housekeeper Dashboard | HousekeepingBooking.com" },
+      { property: "og:description", content: "Your booked slots, upcoming appointments and assigned client details." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -72,11 +73,11 @@ function CleanerJobs() {
   return (
     <div className="min-h-screen bg-background">
       <AppHeader />
-      <main className="mx-auto max-w-5xl px-6 py-10">
+      <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
         <div className="flex flex-wrap items-center justify-between gap-3"><h1 className="text-3xl font-extrabold text-foreground">Housekeeper dashboard</h1>{isCleaner && <div className="flex flex-wrap items-center gap-3"><Button asChild variant="outline"><Link to="/cleaner-schedule"><CalendarDays />My schedule</Link></Button><Link to="/cleaner-profile" className="text-sm font-bold text-primary">Hours, rates & profile →</Link></div>}</div>
         {!loading && !isCleaner && <section className="mt-6 border-t border-border py-6"><h2 className="text-xl font-bold">Housekeeper application</h2><p className="mt-2 text-muted-foreground">Cleaner access begins after your application is approved.</p><Button asChild className="mt-4"><Link to="/apply">Apply or check hiring progress</Link></Button></section>}
         {isCleaner && settings.isSuccess && (
-          <div className="mt-6 rounded-2xl border border-border bg-card p-4 text-sm">
+          <div className="mt-6 border-y border-border py-4 text-sm">
             {settings.data ? (<>
               <p className="font-bold text-foreground">${(settings.data.hourly_rate_cents / 100).toFixed(2)}/hr · {settings.data.accepting_jobs ? "Accepting new jobs" : "Not accepting new jobs"}{settings.data.service_areas ? ` · ${settings.data.service_areas}` : ""}</p>
               <p className="mt-1 text-muted-foreground">Hours: {hoursSummary(settings.data.weekly_hours)}</p>
@@ -84,9 +85,9 @@ function CleanerJobs() {
             </>) : <p className="text-muted-foreground">You haven't set your rate or hours yet.</p>}
           </div>
         )}
-        {isCleaner && <section className="mt-8 border-t border-border py-6"><div className="grid grid-cols-2 gap-6 sm:grid-cols-3"><div><p className="text-sm text-muted-foreground">Upcoming appointments</p><p className="mt-1 text-3xl font-bold">{upcoming.length}</p></div><div><p className="text-sm text-muted-foreground">Booked today</p><p className="mt-1 text-3xl font-bold">{upcoming.filter(b => b.preferred_date === today).length}</p></div><div><p className="text-sm text-muted-foreground">Available slot listings</p><p className="mt-1 text-3xl font-bold">{(slots.data ?? []).filter(s => !(jobs.data ?? []).some(b => b.appointment_start === s.start_time && b.preferred_date === s.slot_date && b.status === "confirmed")).length}</p></div></div></section>}
-        {isCleaner && <BookingScheduler />}
-        {isCleaner && <section className="mt-8 border-t border-border py-6"><div className="flex flex-wrap justify-between gap-3"><h2 className="text-xl font-bold">Appointment slots</h2><Button asChild variant="outline"><Link to="/availability">Create or move slots</Link></Button></div>{slots.error && <p role="alert" className="mt-3 text-destructive">{slots.error.message}</p>}<div className="mt-4 divide-y divide-border">{slots.data?.map(slot => { const b = jobs.data?.find(b => b.preferred_date === slot.slot_date && b.appointment_start === slot.start_time && b.status === "confirmed"); return <article key={slot.id} className="flex flex-wrap items-center justify-between gap-3 py-4"><div><p className="font-semibold">{slot.slot_date} · {slotLabel(slot)}</p><p className="mt-1 text-sm text-muted-foreground">{b ? `Booked · ${b.customer_name}` : "Available"}</p></div>{b && <Button asChild variant="outline"><Link to="/appointment/$id" params={{ id: b.id }}>View client</Link></Button>}</article>; })}</div>{slots.isSuccess && slots.data.length === 0 && <p className="mt-4 text-sm text-muted-foreground">No upcoming slot listings.</p>}</section>}
+        {isCleaner && <section className="mt-8 border-t border-border py-6"><div className="grid grid-cols-2 gap-6 sm:grid-cols-3"><div><p className="text-sm text-muted-foreground">Upcoming appointments</p><p className="mt-1 text-3xl font-bold">{upcoming.length}</p></div><div><p className="text-sm text-muted-foreground">Booked today</p><p className="mt-1 text-3xl font-bold">{upcoming.filter(b => b.preferred_date === today).length}</p></div><div><p className="text-sm text-muted-foreground">Available slot listings</p><p className="mt-1 text-3xl font-bold">{(slots.data ?? []).filter(s => !bookedSlot(s, jobs.data ?? [])).length}</p></div></div></section>}
+        
+        {isCleaner && <section className="mt-8 border-t border-border py-6"><div className="flex flex-wrap justify-between gap-3"><h2 className="text-xl font-bold">Appointment slots</h2><Button asChild variant="outline"><Link to="/availability">Create or move slots</Link></Button></div>{slots.error && <p role="alert" className="mt-3 text-destructive">{slots.error.message}</p>}<div className="mt-4 divide-y divide-border">{slots.data?.map(slot => { const b = bookedSlot(slot, jobs.data ?? []); return <article key={slot.id} className="flex flex-wrap items-center justify-between gap-3 py-4"><div className="min-w-0 break-words"><p className="font-semibold">{slot.slot_date} · {slotLabel(slot)}</p><p className="mt-1 text-sm text-muted-foreground">{b ? `Booked · ${b.customer_name}` : "Available"}</p>{b && <><p className="mt-1 text-sm">{b.address}</p><p className="mt-1 break-all text-sm text-muted-foreground">{b.phone} · {b.email}</p></>}</div>{b && <Button asChild variant="outline"><Link to="/appointment/$id" params={{ id: b.id }}>View client</Link></Button>}</article>; })}</div>{slots.isSuccess && slots.data.length === 0 && <p className="mt-4 text-sm text-muted-foreground">No upcoming slot listings.</p>}</section>}
         {isCleaner && <Button asChild variant="outline" className="mt-6"><Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }}><LayoutDashboard />Staff dashboard</Link></Button>}
         {isCleaner && <div className="mt-6 flex flex-wrap gap-2"><Button asChild variant="outline"><Link to="/phone-booking"><Phone />Phone bookings</Link></Button><Button asChild variant="outline"><Link to="/my-page"><Pencil />Edit my public page</Link></Button><Button asChild><Link to="/waiting-list">Choose from waiting list</Link></Button><Button asChild variant="outline"><Link to="/timesheets">Timesheets & payments</Link></Button></div>}
         {jobs.isLoading && <p className="mt-6 text-muted-foreground">Loading…</p>}
@@ -94,6 +95,7 @@ function CleanerJobs() {
         {jobs.data?.length === 0 && <p className="mt-6 rounded-xl bg-muted p-6 text-muted-foreground">No jobs assigned yet.</p>}
         <div className="mt-6 space-y-3">
           {isCleaner && <div className="flex flex-wrap items-center justify-between gap-3"><h2 className="text-xl font-bold">{showPast ? "All appointments" : "Upcoming appointments"}</h2><Button variant="outline" onClick={() => setShowPast(!showPast)}>{showPast ? "Upcoming only" : "Include past visits"}</Button></div>}
+          {jobs.isSuccess && shown.length === 0 && jobs.data.length > 0 && <p className="text-sm text-muted-foreground">No upcoming appointments.</p>}
           {shown.map((b) => (
             <article key={b.id}>
             <BookingCard b={b} showCustomer cleanerPayment>
@@ -106,6 +108,7 @@ function CleanerJobs() {
             </article>
           ))}
         </div>
+        {isCleaner && <section className="mt-8 border-t border-border py-6"><h2 className="mb-4 text-xl font-bold">Appointment calendar</h2><BookingScheduler /></section>}
       </main>
     </div>
   );

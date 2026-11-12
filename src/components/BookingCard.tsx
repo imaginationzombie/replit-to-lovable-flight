@@ -11,6 +11,7 @@ export type BookingRow = {
   paid_at?: string | null; access_token?: string; visit_number?: number;
   created_by_staff?: string | null;
   appointment_start?: string | null; appointment_end?: string | null;
+  appointment_slot_id?: string | null;
 };
 
 export const STATUS_LABEL: Record<string, string> = {

@@ -1,7 +1,7 @@
 import { beforeEach, expect, it, vi } from "vitest";
 const send = vi.hoisted(() => vi.fn().mockResolvedValue({ sent: true }));
 vi.mock("../lib/email-templates/send-email", () => ({ sendTemplateEmail: send }));
-import { notifyBookingEvent, sendBookingNotice, sendCleanerPaymentNotice, sendOwnerBookingNotice, sendCleanerBookingNotice } from "../lib/booking-notices.server";
+import { notifyBookingEvent, sendBookingNotice, sendCleanerPaymentNotice, sendOwnerBookingNotice, sendCleanerBookingNotice, sendParticipantConfirmations } from "../lib/booking-notices.server";
 import { template as ownerTemplate } from "../lib/email-templates/owner-booking-notification";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "../integrations/supabase/types";
@@ -23,6 +23,12 @@ it("does not email abandoned or cancelled bookings", async () => {
   await sendBookingNotice(db({ ...booking, status: "pending_payment" }), booking.id);
   await sendBookingNotice(db({ ...booking, status: "cancelled" }), booking.id);
   expect(send).not.toHaveBeenCalled();
+});
+it("keeps confirmation retry keys ASCII and short for real UUIDs and Eastern arrival windows", async () => {
+ await sendBookingNotice(db({ ...booking, id: "472ebb5d-1d5f-4706-a958-c5d1a000f6d8", cleaner_id: "472ebb5d-1d5f-4706-a958-c5d1a000f6d8", time_window: "Morning (8am–12pm)" }), booking.id);
+ const key = send.mock.calls[0]?.[2].idempotencyKey;
+ expect(key).toMatch(/^booking-confirmation-[a-f0-9]{64}$/);
+ expect(key.length).toBeLessThan(128);
 });
 it("sends the assigned cleaner the verified customer amount, not their payout address", async () => {
   await sendCleanerPaymentNotice(db({ ...booking, paid_at: "2026-11-09", paypal_capture_id: "capture-1" }), booking.id);
@@ -73,4 +79,17 @@ it("emails only the assigned housekeeper with exact slot time and saved customer
 it("never sends housekeeper customer details for an unconfirmed visit", async () => {
  await sendCleanerBookingNotice(db({ ...booking, status: "pending_payment" }), booking.id);
  expect(send).not.toHaveBeenCalled();
+});
+it("manual confirmation sends both customer and assigned housekeeper without another owner alert", async () => {
+ await expect(sendParticipantConfirmations(db(), booking.id)).resolves.toEqual({ customer: { sent: true }, cleaner: { sent: true } });
+ expect(send.mock.calls.map(call => call[0])).toEqual(["booking-confirmation", "cleaner-booking-confirmation"]);
+});
+it("still attempts the housekeeper confirmation when customer sending fails", async () => {
+ send.mockRejectedValueOnce(new Error("Customer send unavailable"));
+ const log = vi.spyOn(console, "error").mockImplementation(() => {});
+ const result = await sendParticipantConfirmations(db(), booking.id);
+ expect(result.customer.sent).toBe(false);
+ expect(result.cleaner.sent).toBe(true);
+ expect(send.mock.calls[1]?.[1]).toBe("cleaner@example.com");
+ log.mockRestore();
 });

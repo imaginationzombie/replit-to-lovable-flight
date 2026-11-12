@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Housekeeper booked slots, upcoming appointments and client details verified on desktop/mobile; manual confirmation now includes housekeepers, safe customer retry keys tested; customer/housekeeper test emails recorded as sent to owner at 18:04 UTC, temporary slot/booking removed; inbox arrival cannot be verified from sending records
+
 - [x] Approved applicants: admin-set start date, weekly hours and hourly pay shown privately on /apply; approval, save/reload, applicant readback, edit rejection and mobile fit verified; temporary candidate removed, no wages changed
 
 - [x] Generated 8.06-second 720p woman-cleaning video behind homepage top text and buttons; playback, pause control, reduced motion and phone fit verified
