@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Add office cleaning estimate quoter and movers quoter; remove yardwork from offerings and estimates
+
 - [x] Housekeeper-selected service locations and town-centre travel radius; customer/waiting-list matching and assignment guards; signed-in save/reload, excluded-area readback and phone fit verified; original settings restored, 151 tests passed
 
 - [x] Admin housekeeper income dashboard: earnings, confirmed live tips, completed appointments and verified PayPal settlement; populated desktop/mobile readback checked and test records removed
