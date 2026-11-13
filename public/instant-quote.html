@@ -94,40 +94,26 @@
       }
     };
   </script>
-</head>
+<style id="quote-header-layout">
+html { height: auto; min-height: 100%; overflow-y: auto; }
+body { height: auto; overflow: visible; overscroll-behavior-y: auto; }
+header > div:first-child { flex-wrap: wrap; }
+.quote-brand { width: 240px; max-width: 100%; }
+.quote-brand img { display: block; width: 100%; height: auto; }
+@media (max-width: 767px) {
+  header > div:first-child { padding: 12px 16px; gap: 12px; }
+  header > div:first-child > div { flex-wrap: wrap; gap: 12px; }
+  header nav { width: 100%; }
+  header nav > a { white-space: normal; }
+}
+</style></head>
 <body class="bg-surface font-sans text-on-surface antialiased min-h-screen flex flex-col">
-<!-- TOP PRIORITY ANNOUNCEMENT BAR -->
-<aside aria-label="Announcement" class="w-full bg-primary text-on-primary">
-<div class="max-w-7xl mx-auto px-gutter py-2 flex items-center justify-between text-xs tracking-wide">
-<div class="flex items-center gap-space-sm flex-wrap w-full justify-between">
-<div class="flex items-center gap-2">
-<span class="inline-block w-2 h-2 rounded-full bg-primary-fixed animate-ping"></span>
-<span class="font-bold tracking-tight uppercase text-primary-fixed">Priority Corridor</span>
-<span class="opacity-30">|</span>
-<span class="font-medium text-white/95">Central PA Same-Day, Weekend &amp; Seasonal Yard Dispatches Active</span>
-</div>
-<div class="hidden md:flex items-center gap-4 text-white/90">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-primary-fixed">timelapse</span>Strict 30-min buffer between jobs</span>
-<span class="opacity-30">•</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-primary-fixed">shield</span>$0 Upfront Pay-After-Clean</span>
-<span class="opacity-30">•</span>
-<a class="font-bold text-white hover:text-primary-fixed flex items-center gap-1 transition-colors" href="tel:8149521964">
-<span class="material-symbols-outlined text-[15px]">call</span>(814) 952-1964
-          </a>
-</div>
-</div>
-</div>
-</aside>
 <!-- PRIMARY HEADER -->
-<header class="w-full bg-surface-container-lowest shadow-sm z-40 sticky top-0">
+<header class="w-full bg-surface-container-lowest shadow-sm z-30 relative">
 <div class="max-w-7xl mx-auto px-gutter py-2.5 flex items-center justify-between gap-space-md">
 <!-- Brand Logo -->
-<a class="flex items-center gap-3" href="index.html">
-<img alt="HousekeepingBooking.com emblem" class="w-10 h-10 rounded-lg object-contain shadow-sm bg-primary-container p-1" src="/logo.png">
-<div class="flex flex-col">
-<span class="text-xl sm:text-2xl text-primary font-extrabold tracking-tight">HousekeepingBooking<span class="text-secondary">.com</span></span>
-<span class="text-[11px] text-on-surface-variant uppercase tracking-widest -mt-1 font-semibold">Natural Domestic Care • Central PA</span>
-</div>
+<a class="quote-brand flex min-w-0 items-center gap-3" href="index.html">
+<img alt="HousekeepingBooking.com" class="h-auto w-60 max-w-full object-contain" src="/logo.png">
 </a>
 <!-- Actions & Profile Avatar -->
 <div class="flex items-center gap-space-md">
@@ -147,7 +133,7 @@
 </div>
 <!-- SUB-NAVIGATION BAR (NO 'My Account' text link) -->
 <div class="w-full bg-surface-container-low border-t border-surface-container-high/60 shadow-sm">
-<div class="max-w-7xl mx-auto px-gutter flex flex-nowrap items-center justify-between gap-4 h-11"><nav class="flex flex-nowrap items-center space-x-1 text-xs font-semibold shrink-0"><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="index.html">Home</a><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="index.html#pricing">Services &amp; Pricing</a><a class="px-2.5 py-1 rounded-md bg-surface-container-lowest text-primary font-bold shadow-sm ring-1 ring-primary/20 whitespace-nowrap" href="instant-quote.html">Instant Quote &amp; Estimator</a><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="coupons.html">Coupons &amp; Specials</a><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="standards.html">Why Us &amp; Standards</a></nav><div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container text-xs font-semibold shrink-0 whitespace-nowrap"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0"></span><span class="whitespace-nowrap">Central PA Crew Dispatch Active (DuBois, Lewistown, Punxsy, Reynoldsville, Sykesville)</span></div></div>
+<div class="max-w-7xl mx-auto px-gutter flex flex-wrap items-center justify-between gap-4 py-2"><nav class="flex flex-wrap items-center gap-1 text-xs font-semibold min-w-0"><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="index.html">Home</a><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="index.html#pricing">Services &amp; Pricing</a><a class="px-2.5 py-1 rounded-md bg-surface-container-lowest text-primary font-bold shadow-sm ring-1 ring-primary/20 whitespace-nowrap" href="instant-quote.html">Instant Quote &amp; Estimator</a><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="coupons.html">Coupons &amp; Specials</a><a class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest transition-all whitespace-nowrap" href="standards.html">Why Us &amp; Standards</a></nav><div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container text-xs font-semibold shrink-0 whitespace-nowrap"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse shrink-0"></span><span class="whitespace-nowrap">Central PA Crew Dispatch Active (DuBois, Lewistown, Punxsy, Reynoldsville, Sykesville)</span></div></div>
 </div>
 </header>
 <!-- MAIN CONTENT AREA -->
