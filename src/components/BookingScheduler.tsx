@@ -32,8 +32,8 @@ function Job({ booking, movable, open, cleaner }: { booking: BookingRow; movable
   </article>;
 }
 
-function Cell({ target, children }: { target: Target; children: React.ReactNode }) {
-  const { setNodeRef, isOver } = useDroppable({ id: `${target.date}:${target.cleanerId ?? "unassigned"}`, data: target });
+function Cell({ target, children, agenda = false }: { target: Target; children: React.ReactNode; agenda?: boolean }) {
+  const { setNodeRef, isOver } = useDroppable({ id: `${agenda ? "agenda" : "grid"}:${target.date}:${target.cleanerId ?? "unassigned"}`, data: target });
   return <div ref={setNodeRef} aria-label={`${target.date} ${target.cleanerId ?? "unassigned"}`} className={`min-h-32 space-y-2 border-b border-r border-border p-2 ${isOver ? "bg-secondary/20 ring-2 ring-inset ring-primary" : "bg-card"}`}>{children}</div>;
 }
 
@@ -99,7 +99,7 @@ export function BookingScheduler({ admin = false, view = "week", bookingFilters 
     {(bookings.error || cleaners.error) && <p role="alert" className="mb-3 text-sm text-destructive">Couldn’t load the schedule. Please refresh.</p>}
     {bookings.isLoading && <p className="mb-3 text-sm text-muted-foreground">Loading schedule…</p>}
     <DndContext sensors={sensors} collisionDetection={args => args.pointerCoordinates ? pointerWithin(args) : rectIntersection(args)} onDragStart={e => setActiveId(String(e.active.id))} onDragCancel={() => setActiveId(null)} onDragEnd={drop}>
-      <div className="space-y-3 md:hidden">{(view === "month" ? monthDays : days).filter(day => view === "week" || day.getMonth() === week.getMonth()).map(day => <Cell key={`agenda-${dateKey(day)}`} target={{ date: dateKey(day), cleanerId: null, preserveCleaner: true }}><p className="mb-3 text-sm font-bold">{format(day, "EEE, MMM d")}</p>{visibleRows.filter(b => b.preferred_date === dateKey(day)).map(b => <Job key={b.id} booking={b} cleaner={cleanerName(b.cleaner_id)} movable={canMoveJob(canAdmin, user?.id, b)} open={() => beginMove(b, { date: b.preferred_date, cleanerId: b.cleaner_id })} />)}</Cell>)}</div>
+      <div className="space-y-3 md:hidden">{(view === "month" ? monthDays : days).filter(day => view === "week" || day.getMonth() === week.getMonth()).map(day => <Cell agenda key={`agenda-${dateKey(day)}`} target={{ date: dateKey(day), cleanerId: null, preserveCleaner: true }}><p className="mb-3 text-sm font-bold">{format(day, "EEE, MMM d")}</p>{visibleRows.filter(b => b.preferred_date === dateKey(day)).map(b => <Job key={b.id} booking={b} cleaner={cleanerName(b.cleaner_id)} movable={canMoveJob(canAdmin, user?.id, b)} open={() => beginMove(b, { date: b.preferred_date, cleanerId: b.cleaner_id })} />)}</Cell>)}</div>
       {view === "month" ? <div className="hidden overflow-x-auto rounded-md border border-border md:block"><div className="grid min-w-[980px] grid-cols-7">
         {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(day => <div key={day} className="border-b border-r border-border bg-muted p-3 text-center text-xs font-bold text-muted-foreground">{day}</div>)}
         {monthDays.map(day => <Cell key={dateKey(day)} target={{ date: dateKey(day), cleanerId: null, preserveCleaner: true }}>
