@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Sweep appointment drag-and-drop across customer, housekeeper and staff calendars; preserve saved bookings, payments and permissions.
+
 - [x] Office/moving slot requests, assigned-housekeeper phone review and approved-estimate PayPal buttons; office payment covers one visit; verified capture confirms booking and triggers participant emails. Signed-in request/review/reload and real PayPal buttons checked without payment; three quote emails recorded sent, temporary records removed, 160 tests passed. Actual paid appointment and inbox receipt remain unverified.
 
 - [x] Office and moving-labor quote pages, 10%-below published regional comparisons, phone review and printing; homepage/instant quote links, mobile price changes and 156 tests verified; yardwork removed from offerings and recommendations, existing bookings untouched

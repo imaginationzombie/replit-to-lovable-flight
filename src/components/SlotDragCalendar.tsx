@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DndContext, useDraggable, useDroppable, PointerSensor, KeyboardSensor, useSensors, useSensor, type DragEndEvent } from "@dnd-kit/core";
+import { DndContext, DragOverlay, useDraggable, useDroppable, PointerSensor, KeyboardSensor, useSensors, useSensor, type DragEndEvent } from "@dnd-kit/core";
 import { addDays, format } from "date-fns";
 import { ChevronLeft, ChevronRight, GripVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,9 @@ function Day({ date, slots, disabled }: { date: Date; slots: AppointmentSlot[]; 
 }
 export function SlotDragCalendar({ slots, disabled, move }: { slots: AppointmentSlot[]; disabled: boolean; move: (slot: AppointmentSlot, date: string) => void }) {
   const [week, setWeek] = useState(() => new Date());
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const active = slots.find(slot => slot.id === activeId);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }), useSensor(KeyboardSensor));
-  function end(e: DragEndEvent) { const slot = slots.find(s => s.id === e.active.id); if (slot && e.over && slot.slot_date !== e.over.id) move(slot, String(e.over.id)); }
-  return <div className="mt-6"><div className="mb-3 flex items-center justify-between gap-2"><h3 className="font-semibold">{format(weekDates(week)[0] ?? week, "MMM d")} – {format(weekDates(week)[6] ?? week, "MMM d, yyyy")}</h3><div className="flex gap-2"><Button type="button" size="icon" variant="outline" aria-label="Previous slot week" onClick={() => setWeek(addDays(week,-7))}><ChevronLeft/></Button><Button type="button" size="icon" variant="outline" aria-label="Next slot week" onClick={() => setWeek(addDays(week,7))}><ChevronRight/></Button></div></div><DndContext sensors={sensors} onDragEnd={end}><div className="grid min-w-0 grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">{weekDates(week).map(d => <Day key={dateKey(d)} date={d} slots={slots} disabled={disabled}/>)}</div></DndContext></div>;
+  function end(e: DragEndEvent) { setActiveId(null); const slot = slots.find(s => s.id === e.active.id); if (!disabled && slot && e.over && slot.slot_date !== e.over.id) move(slot, String(e.over.id)); }
+  return <div className="mt-6"><div className="mb-3 flex items-center justify-between gap-2"><h3 className="font-semibold">{format(weekDates(week)[0] ?? week, "MMM d")} – {format(weekDates(week)[6] ?? week, "MMM d, yyyy")}</h3><div className="flex gap-2"><Button type="button" size="icon" variant="outline" aria-label="Previous slot week" onClick={() => setWeek(addDays(week,-7))}><ChevronLeft/></Button><Button type="button" size="icon" variant="outline" aria-label="Next slot week" onClick={() => setWeek(addDays(week,7))}><ChevronRight/></Button></div></div><DndContext sensors={sensors} onDragStart={e => setActiveId(String(e.active.id))} onDragCancel={() => setActiveId(null)} onDragEnd={end}><div className="grid min-w-0 grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">{weekDates(week).map(d => <Day key={dateKey(d)} date={d} slots={slots} disabled={disabled}/>)}</div><DragOverlay>{active && <div className="w-44 rounded-md border border-primary bg-card p-3 text-sm text-foreground shadow-lg">{slotLabel(active)}</div>}</DragOverlay></DndContext></div>;
 }
