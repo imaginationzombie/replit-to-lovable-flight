@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Enable optional tips on confirmed calendar bookings; preserve separate payment approval, 24-hour amount confirmation and one-shot PayPal payout.
+- [x] Enable optional tips on confirmed assigned calendar bookings; retain separate approval, 24-hour confirmation and one-shot payout. Eleven tests passed; signed-in account has no eligible appointment, so real checkout/payout was not exercised.
 
 - [ ] Sweep appointment drag-and-drop across customer, housekeeper and staff calendars; preserve saved bookings, payments and permissions.
 
