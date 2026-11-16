@@ -13,10 +13,11 @@ beforeEach(() => {
   mocks.notice.mockClear(); mocks.writes.length = 0;
   mocks.row = { id: "booking-1", access_token: "token", status: "pending_payment", amount_cents: 9500, paypal_authorization_id: "auth-1", paid_at: null };
   vi.stubEnv("PAYPAL_CLIENT_ID", "test-client"); vi.stubEnv("PAYPAL_CLIENT_SECRET", "test-secret");
+  vi.stubEnv("PAYPAL_API_KEY", "test-connection"); vi.stubEnv("LOVABLE_API_KEY", "test-gateway");
 });
 afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 function paypal(receipt: unknown) {
-  const fetch = vi.fn().mockResolvedValueOnce(Response.json({ access_token: "test-token" })).mockResolvedValueOnce(Response.json(receipt));
+  const fetch = vi.fn().mockResolvedValueOnce(Response.json(receipt));
   vi.stubGlobal("fetch", fetch);
   return fetch;
 }
@@ -65,6 +66,6 @@ it("captures only the remaining $45 after a $50 certificate on a $95 cleaning", 
  mocks.row.status = "completed"; mocks.row["gift_credit_cents"] = 5000;
  const fetch = paypal({ id: "capture-1", status: "COMPLETED", amount: { value: "45.00", currency_code: "USD" } });
  await expect(collectBookingPayment("booking-1")).resolves.toMatchObject({ paid: true });
- const body = JSON.parse(fetch.mock.calls[1]?.[1].body);
+ const body = JSON.parse(fetch.mock.calls[0]?.[1].body);
  expect(body.amount).toEqual({ value: "45.00", currency_code: "USD" });
 });

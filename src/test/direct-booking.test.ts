@@ -1,4 +1,5 @@
-import { afterEach, expect, it, vi } from "vitest";
+import { beforeEach, afterEach, expect, it, vi } from "vitest";
+beforeEach(() => { vi.stubEnv("PAYPAL_API_KEY", "test-connection"); vi.stubEnv("LOVABLE_API_KEY", "test-gateway"); });
 const mocks = vi.hoisted(() => ({ insert: vi.fn(), error: null as { message: string } | null }));
 vi.mock("@/integrations/supabase/client.server", () => ({ supabaseAdmin: { from: () => {
   const q = { insert: (data: unknown) => { mocks.insert(data); return q; }, select: () => q,
@@ -12,7 +13,7 @@ const input = { customerName: "Test Customer", email: "test@example.com", phone:
 afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); mocks.insert.mockClear(); mocks.error = null; });
 it("preserves the customer's chosen housekeeper, date, time and estimator price", async () => {
   vi.stubEnv("PAYPAL_CLIENT_ID", "test"); vi.stubEnv("PAYPAL_CLIENT_SECRET", "test");
-  vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce(Response.json({ access_token: "test" })).mockResolvedValueOnce(Response.json({ id: "order-test" })));
+  vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce(Response.json({ id: "order-test" })));
   await createBookingOrder(input, null);
   expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ requested_cleaner_id: input.requestedCleanerId, preferred_date: "2026-11-10", time_window: "Afternoon (12pm–4pm)", amount_cents: 12000 }));
 });
@@ -24,16 +25,16 @@ it("does not open PayPal when the selected housekeeper cannot accept the appoint
 });
 it("saves Heavy level and includes its $30 fee in the PayPal order", async () => {
   vi.stubEnv("PAYPAL_CLIENT_ID", "test"); vi.stubEnv("PAYPAL_CLIENT_SECRET", "test");
-  const fetch = vi.fn().mockResolvedValueOnce(Response.json({ access_token: "test" })).mockResolvedValueOnce(Response.json({ id: "order-test" }));
+  const fetch = vi.fn().mockResolvedValueOnce(Response.json({ id: "order-test" }));
   vi.stubGlobal("fetch", fetch);
   await createBookingOrder({ ...input, cleaningLevel: "Heavy" }, null);
   expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ cleaning_level: "Heavy", amount_cents: 15000 }));
-  const order = JSON.parse(fetch.mock.calls[1]?.[1]?.body ?? "{}");
+  const order = JSON.parse(fetch.mock.calls[0]?.[1]?.body ?? "{}");
   expect(order.purchase_units[0].amount.value).toBe("150.00");
 });
 it("stores the individual appointment slot selected by the customer", async () => {
   vi.stubEnv("PAYPAL_CLIENT_ID", "test"); vi.stubEnv("PAYPAL_CLIENT_SECRET", "test");
-  vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce(Response.json({ access_token: "test" })).mockResolvedValueOnce(Response.json({ id: "order-test" })));
+  vi.stubGlobal("fetch", vi.fn().mockResolvedValueOnce(Response.json({ id: "order-test" })));
   await createBookingOrder({ ...input, appointmentSlotId: "22222222-2222-4222-8222-222222222222" }, null);
   expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ appointment_slot_id: "22222222-2222-4222-8222-222222222222" }));
 });
