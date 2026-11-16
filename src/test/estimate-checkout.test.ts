@@ -16,10 +16,11 @@ it("requires the matching booking token before opening PayPal", async () => {
 it("authorizes the saved estimate amount without charging or creating a second booking", async () => {
   mocks.row = { id: "booking-id", status: "pending_payment", service: "Standard Housekeeping", amount_cents: 13500, frequency: "One-time", preferred_date: "2099-11-10" };
   vi.stubEnv("PAYPAL_CLIENT_ID", "test"); vi.stubEnv("PAYPAL_CLIENT_SECRET", "test");
-  const fetch = vi.fn().mockResolvedValueOnce(Response.json({ access_token: "test" })).mockResolvedValueOnce(Response.json({ id: "test-order" }));
+  vi.stubEnv("PAYPAL_API_KEY", "test-connection"); vi.stubEnv("LOVABLE_API_KEY", "test-gateway");
+  const fetch = vi.fn().mockResolvedValueOnce(Response.json({ id: "test-order" }));
   vi.stubGlobal("fetch", fetch);
   expect(await createPendingBookingOrder("booking-id", "valid-token")).toEqual({ orderId: "test-order" });
-  const order = JSON.parse(fetch.mock.calls[1]?.[1]?.body ?? "{}");
+  const order = JSON.parse(fetch.mock.calls[0]?.[1]?.body ?? "{}");
   expect(order.intent).toBe("AUTHORIZE");
   expect(order.purchase_units[0]).toMatchObject({ reference_id: "booking-id", amount: { value: "135.00", currency_code: "USD" } });
 });

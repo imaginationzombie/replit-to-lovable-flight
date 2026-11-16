@@ -4,38 +4,24 @@ import { notifyBookingEvent } from "./booking-notices.server";
 import { quotePaypal } from './service-quote-paypal.server';
 
 async function paypalFetch(url: string, init: RequestInit) {
-  if (process.env['PAYPAL_API_KEY']) {
-    const headers = new Headers(init.headers);
-    return quotePaypal(new URL(url).pathname, init.method ?? 'GET', typeof init.body === 'string' ? JSON.parse(init.body) : undefined, headers.get('PayPal-Request-Id') ?? undefined);
-  }
-  return fetch(url, init);
+  const headers = new Headers(init.headers);
+  const parsed = new URL(url);
+  return quotePaypal(parsed.pathname + parsed.search, init.method ?? 'GET', typeof init.body === 'string' ? JSON.parse(init.body) : undefined, headers.get('PayPal-Request-Id') ?? undefined);
 }
 
 function paypalBase() {
-  return process.env["PAYPAL_ENV"] === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
+  return "https://connector-gateway.lovable.dev/paypal";
 }
 
 export function paypalClientId() {
-  const id = process.env["PAYPAL_CLIENT_ID"];
+  const id = process.env["VITE_LOVABLE_CONNECTOR_PAYPAL_CLIENT_ID"] || process.env["PAYPAL_CLIENT_ID"];
   if (!id) throw new Error("PayPal is not configured yet.");
   return id;
 }
 
 async function paypalToken() {
-  if (process.env['PAYPAL_API_KEY']) return 'connector-managed';
-  const id = paypalClientId();
-  const secret = process.env["PAYPAL_CLIENT_SECRET"];
-  if (!secret) throw new Error("PayPal is not configured yet.");
-  const res = await fetch(`${paypalBase()}/v1/oauth2/token`, {
-    method: "POST",
-    headers: { Authorization: `Basic ${btoa(`${id}:${secret}`)}`, "Content-Type": "application/x-www-form-urlencoded" },
-    body: "grant_type=client_credentials",
-  });
-  if (!res.ok) {
-    console.error("PayPal auth failed", res.status, await res.text());
-    throw new Error("Couldn't connect to PayPal.");
-  }
-  return ((await res.json()) as { access_token: string }).access_token;
+  if (!process.env['PAYPAL_API_KEY'] || !process.env['LOVABLE_API_KEY']) throw new Error("PayPal is not connected.");
+  return 'connector-managed';
 }
 
 async function admin() {

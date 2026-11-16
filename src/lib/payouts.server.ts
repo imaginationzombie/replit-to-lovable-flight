@@ -5,16 +5,10 @@ import type { Database } from "@/integrations/supabase/types";
 type Payout = Database["public"]["Tables"]["cleaner_payouts"]["Row"];
 
 export function payoutEnvironment() { return process.env["PAYPAL_ENV"] === "live" ? "live" : "sandbox"; }
-export function payoutsConfigured() { return !!process.env["PAYPAL_CLIENT_ID"] && !!process.env["PAYPAL_CLIENT_SECRET"]; }
+export function payoutsConfigured() { return !!process.env["PAYPAL_API_KEY"] && !!process.env["LOVABLE_API_KEY"]; }
 export async function api(path: string, method = "GET", body?: unknown, environment = payoutEnvironment(), requestId?: string) {
-  if (process.env['PAYPAL_API_KEY'] && environment === 'live') return quotePaypal(path, method, body, requestId);
-  const id = process.env["PAYPAL_CLIENT_ID"]; const secret = process.env["PAYPAL_CLIENT_SECRET"];
-  if (!id || !secret) throw new Error("PayPal credentials are not configured.");
-  const base = environment === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
-  const auth = await fetch(`${base}/v1/oauth2/token`, { method: "POST", headers: { Authorization: `Basic ${btoa(`${id}:${secret}`)}`, "Content-Type": "application/x-www-form-urlencoded" }, body: "grant_type=client_credentials", signal: AbortSignal.timeout(15000) });
-  if (!auth.ok) throw new Error("Could not authenticate with PayPal. Check the configured credentials.");
-  const token = (await auth.json()) as { access_token: string };
-  return fetch(`${base}${path}`, { method, headers: { Authorization: `Bearer ${token.access_token}`, "Content-Type": "application/json", ...(requestId ? { "PayPal-Request-Id": requestId } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(20000) });
+  if (environment !== payoutEnvironment()) throw new Error("This payment belongs to a different PayPal environment. Review it without sending another transfer.");
+  return quotePaypal(path, method, body, requestId);
 }
 
 export async function transferPayout(payout: Payout, send: boolean) {
