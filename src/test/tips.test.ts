@@ -1,12 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { canTip, canConfirmTip, canPayTip, TIP_CONFIRMATION_HOURS, tipAmountSchema, tipReceiptMatches } from "../lib/tips";
 describe("optional customer tips", () => {
-  it("only opens after an assigned visit is completed and paid", () => {
+  it("opens when an assigned calendar appointment is confirmed, before the cleaning is charged", () => {
+    expect(canTip({ status: "confirmed", paid_at: null, cleaner_id: "cleaner" })).toBe(true);
+  });
+  it("keeps completed visits eligible only when paid and assigned", () => {
     const b = { status: "completed", paid_at: "2026-11-02", cleaner_id: "cleaner" };
     expect(canTip(b)).toBe(true);
-    expect(canTip({ ...b, status: "confirmed" })).toBe(false);
+    expect(canTip({ ...b, status: "pending_payment" })).toBe(false);
     expect(canTip({ ...b, paid_at: null })).toBe(false);
     expect(canTip({ ...b, cleaner_id: null })).toBe(false);
+  });
+  it("does not offer tips on cancelled appointments or without an assigned housekeeper", () => {
+    expect(canTip({ status: "cancelled", paid_at: null, cleaner_id: "cleaner" })).toBe(false);
+    expect(canTip({ status: "confirmed", paid_at: null, cleaner_id: null })).toBe(false);
   });
   it("accepts dollar amounts without fractional cents", () => {
     expect(tipAmountSchema.safeParse(1000).success).toBe(true);

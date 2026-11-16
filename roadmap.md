@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Enable optional tips on confirmed calendar bookings; preserve separate payment approval, 24-hour amount confirmation and one-shot PayPal payout.
+
 - [ ] Sweep appointment drag-and-drop across customer, housekeeper and staff calendars; preserve saved bookings, payments and permissions.
 
 - [x] Office/moving slot requests, assigned-housekeeper phone review and approved-estimate PayPal buttons; office payment covers one visit; verified capture confirms booking and triggers participant emails. Signed-in request/review/reload and real PayPal buttons checked without payment; three quote emails recorded sent, temporary records removed, 160 tests passed. Actual paid appointment and inbox receipt remain unverified.

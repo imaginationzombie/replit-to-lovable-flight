@@ -22,7 +22,7 @@ export function LeaveTip({ id, token }: { id: string; token: string }) {
   const qc = useQueryClient();
   const confirmFn = useServerFn(confirmTip);
   const confirmation = useMutation({ mutationFn: () => confirmFn({ data: { id, token, confirmed: true } }), onSuccess: () => qc.invalidateQueries({ queryKey: ["customer-tip", id] }) });
-  const receipt = useQuery({ queryKey: ["customer-tip", id], queryFn: () => details({ data: { id, token } }) });
+  const receipt = useQuery({ queryKey: ["customer-tip", id], queryFn: () => details({ data: { id, token } }), refetchInterval: 15000 });
   const cents = Math.round(Number(amount) * 100);
   const valid = /^\d+(\.\d{1,2})?$/.test(amount) && cents >= 100 && cents <= 50000;
   useEffect(() => {
@@ -67,6 +67,7 @@ export function LeaveTip({ id, token }: { id: string; token: string }) {
   </section>;
   return <section className="mt-6 border-t border-border pt-6">
     <h2 className="flex items-center gap-2 text-lg font-bold"><Heart className="h-5 w-5 text-primary" />Leave your cleaner a tip</h2>
+    <p className="mt-2 text-sm text-muted-foreground">Optional tip · charged now, separately from your cleaning. Confirm the amount within 24 hours after payment to release it to your housekeeper.</p>
     {receipt.data && <p className="mt-2 text-sm text-muted-foreground">Resume your ${(receipt.data.amount_cents / 100).toFixed(2)} tip checkout.</p>}
     <fieldset disabled={checkout} className="mt-4 flex flex-wrap gap-3"><legend className="sr-only">Tip amount</legend>{[5, 10, 20].map(value => <label key={value} className="flex items-center gap-2 text-sm"><input type="radio" name={`tip-${id}`} checked={amount === String(value)} onChange={() => setAmount(String(value))} />${value}</label>)}</fieldset>
     <label className="mt-4 block text-sm font-semibold">Custom tip ($)<Input type="number" min="1" max="500" step="0.01" value={amount} disabled={checkout} onChange={e => setAmount(e.target.value)} className="mt-2 max-w-48" /></label>
