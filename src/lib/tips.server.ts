@@ -17,7 +17,7 @@ export async function getTip(id: string, token: string) {
 }
 export async function startTip(id: string, token: string, amountCents: number) {
   const { db, booking } = await bookingAccess(id, token);
-  if (!canTip(booking) || !booking.cleaner_id) throw new Error("Tips open after your cleaner finishes and the visit is paid.");
+  if (!canTip(booking) || !booking.cleaner_id) throw new Error("Tips open after your appointment is confirmed and a housekeeper is assigned.");
   const { data: inserted, error } = await db.from("booking_tips").insert({ booking_id: id, cleaner_id: booking.cleaner_id, amount_cents: amountCents, environment: payoutEnvironment() }).select("*").maybeSingle();
   if (error && error.code !== "23505") throw new Error("Could not save your tip.");
   const { data: existing } = inserted ? { data: inserted } : await db.from("booking_tips").select("*").eq("booking_id", id).single();
