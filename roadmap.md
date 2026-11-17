@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Consolidate the housekeeper dashboard: pending quotes, confirmed bookings, earned tips, payment review and schedule management; verify signed-in desktop and phone views without moving money.
+
 - [x] Enable optional tips on confirmed assigned calendar bookings; retain separate approval, 24-hour confirmation and one-shot payout. Eleven tests passed; signed-in account has no eligible appointment, so real checkout/payout was not exercised.
 
 - [x] Retire five pretend calendars into real booking, availability and staff tools; signed-in redirects, admin calendar, PayPal buttons and phone fit verified without changing visits. Shared calendar fixes and 162 tests passed.
