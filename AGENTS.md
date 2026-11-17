@@ -9,7 +9,7 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Marketing uses public/*.html ("/" redirects to /index.html); interactive features use React routes and shared tokens. Maintain public/sitemap.xml for inspected public pages only, excluding private/demo/checkout pages; omit lastmod without page-specific dates. Why: preserves the migrated design without advertising internal demos.
+- Marketing uses public/*.html; legacy calendars redirect to live React booking/staff tools. Sitemap lists inspected public pages only, excluding private/demo/checkout; omit undated lastmod. Why: no pretend bookings.
 - Homepage phone styles stay inline; its location module selects the nearest area with browser permission and syncs the estimator. Why: keep coordinates on-device and manual choices intact.
 - Cleaning levels use shared quote fees persisted and copied to repeat bookings; static estimators mirror them. Why: charges match the chosen level.
 - AI is server-only. Why: private keys.
