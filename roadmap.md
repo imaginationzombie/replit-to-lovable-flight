@@ -2,7 +2,8 @@
 
 - [x] Enable optional tips on confirmed assigned calendar bookings; retain separate approval, 24-hour confirmation and one-shot payout. Eleven tests passed; signed-in account has no eligible appointment, so real checkout/payout was not exercised.
 
-- [ ] Sweep appointment drag-and-drop across customer, housekeeper and staff calendars; preserve saved bookings, payments and permissions.
+- [x] Retire five pretend calendars into real booking, availability and staff tools; signed-in redirects, admin calendar, PayPal buttons and phone fit verified without changing visits. Shared calendar fixes and 162 tests passed.
+- [x] Essential PayPal connection repair: booking and payout requests use the connector only, preserve request keys and refuse cross-environment payouts; two additional gateway tests passed.
 
 - [x] Office/moving slot requests, assigned-housekeeper phone review and approved-estimate PayPal buttons; office payment covers one visit; verified capture confirms booking and triggers participant emails. Signed-in request/review/reload and real PayPal buttons checked without payment; three quote emails recorded sent, temporary records removed, 160 tests passed. Actual paid appointment and inbox receipt remain unverified.
 
