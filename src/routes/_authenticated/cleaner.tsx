@@ -16,7 +16,6 @@ import { slotLabel } from "@/lib/appointment-slots";
 import { bookedSlot } from "@/lib/housekeeper-dashboard";
 import { ServiceQuoteReview } from '@/components/ServiceQuoteReview';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { TipPayments } from '@/components/TipPayments';
 import { TimesheetList } from '@/components/TimesheetList';
 import { PayoutAccount } from '@/components/PayoutAccount';
 import { cleanerIncomeOptions } from '@/lib/cleaner-dashboard-query';
@@ -116,7 +115,7 @@ function CleanerJobs() {
         <TabsContent value="quotes">{user && <ServiceQuoteReview userId={user.id}/>}</TabsContent>
         <TabsContent value="payments">{user && <>
           <section className="mt-6 border-b border-border pb-6"><h2 className="text-xl font-bold">Payment overview</h2>{income.isPending && <p role="status" className="mt-3">Loading payments…</p>}{income.data && <dl className="mt-4 grid grid-cols-2 gap-5 sm:grid-cols-3">{[["Wages delivered by PayPal", income.data.settledWages], ["Tips delivered by PayPal", income.data.settledTips], ["Earned, not PayPal-settled", income.data.total - income.data.settledTotal]].map(([label, cents]) => <div key={label}><dt className="text-sm text-muted-foreground">{label}</dt><dd className="mt-1 text-xl font-bold">${(Number(cents) / 100).toFixed(2)}</dd></div>)}</dl>}</section>
-          <PayoutAccount userId={user.id}/><TipPayments userId={user.id}/><TimesheetList userId={user.id}/>
+          <PayoutAccount userId={user.id}/><TimesheetList userId={user.id}/>
         </>}</TabsContent>
         <TabsContent value="bookings">
         <Button asChild variant="outline" className="mt-6"><Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }}><LayoutDashboard />Staff dashboard</Link></Button>
