@@ -44,3 +44,4 @@
 - Homepage video uses CDN media, muted looping and pause/reduced-motion controls. Why: no forced motion.
 
 - Gifts lock credit; income separates settlement. Slot-based office/moving quotes require cleaner phone approval before token PayPal capture and booking emails. Why: no unreviewed charges.
+- Cleaner dashboard uses owner-filtered reads and shared income math. Why: quotes, tips and wages stay private and settlement remains receipt-based.
