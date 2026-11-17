@@ -23,7 +23,7 @@ export async function transferPayout(payout: Payout, send: boolean) {
       const response = await api("/v1/payments/payouts", "POST", {
         sender_batch_header: { sender_batch_id: payout.id, email_subject: "Your cleaning earnings from HousekeepingBooking.com", email_message: "Payment for your approved cleaning timesheet." },
         items: [{ recipient_type: "EMAIL", receiver: payout.recipient_email, amount: { value: payoutValue(payout.amount_cents), currency: payout.currency }, sender_item_id: payout.id, note: "Approved cleaning earnings" }],
-      }, payout.environment);
+      }, payout.environment, payout.id);
       const body = await response.json() as { batch_header?: { payout_batch_id?: string }; name?: string };
       if (!response.ok || !body.batch_header?.payout_batch_id) {
         const reason = response.status === 403 ? "PayPal has not authorized Payouts for this business account. Request Payouts access in PayPal." : "PayPal did not confirm this transfer. Review your PayPal account before making another payment.";

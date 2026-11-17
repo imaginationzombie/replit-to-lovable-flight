@@ -73,7 +73,7 @@ export async function transferTip(tipId: string, send: boolean) {
     const { data: locked, error } = await db.from("booking_tips").update({ payout_status: "sending", recipient_email: recipient }).eq("id", tip.id).eq("payout_status", "unpaid").select("id").maybeSingle();
     if (error || !locked) throw new Error("Transfer already started. Check its status instead of paying again.");
     try {
-      const response = await api("/v1/payments/payouts", "POST", { sender_batch_header: { sender_batch_id: `tip-${tip.id}`, email_subject: "Your customer tip from HousekeepingBooking.com" }, items: [{ recipient_type: "EMAIL", receiver: recipient, amount: { value: payoutValue(tip.amount_cents), currency: "USD" }, sender_item_id: tip.id, note: "Customer cleaning tip" }] }, tip.environment);
+      const response = await api("/v1/payments/payouts", "POST", { sender_batch_header: { sender_batch_id: `tip-${tip.id}`, email_subject: "Your customer tip from HousekeepingBooking.com" }, items: [{ recipient_type: "EMAIL", receiver: recipient, amount: { value: payoutValue(tip.amount_cents), currency: "USD" }, sender_item_id: tip.id, note: "Customer cleaning tip" }] }, tip.environment, `tip-${tip.id}`);
       const body = await response.json() as { batch_header?: { payout_batch_id?: string } };
       if (!response.ok || !body.batch_header?.payout_batch_id) throw new Error("Unconfirmed transfer");
       batch = body.batch_header.payout_batch_id;
