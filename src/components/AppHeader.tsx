@@ -13,7 +13,7 @@ export function AppHeader() {
     await qc.cancelQueries();
     qc.clear();
     await supabase.auth.signOut();
-    navigate({ to: "/auth", replace: true });
+    navigate({ to: "/auth", search: { next: isCleaner ? "/cleaner" : undefined }, replace: true });
   }
 
   const link = "text-sm font-semibold text-muted-foreground hover:text-primary";
@@ -36,7 +36,7 @@ export function AppHeader() {
               <Link to="/disputes" className={link}>Disputes</Link>
               <Link to="/messages" className={link}>Messages</Link>
               {isCleaner && <Link to="/my-page" className={link}>Edit my page</Link>}
-              {isCleaner && <Link to="/cleaner" className={link}>My jobs</Link>}
+              {isCleaner && <Link to="/cleaner" className={link}>Housekeeper dashboard</Link>}
               {isCleaner && <Link to="/cleaner-schedule" className={link}>My schedule</Link>}
               {isCleaner && <Link to="/availability" className={link}>Appointment slots</Link>}
               {isCleaner && <Link to="/waiting-list" className={link}>Waiting list</Link>}
@@ -51,7 +51,7 @@ export function AppHeader() {
             </>
           )}
           {!loading && !user && (
-            <Link to="/auth" className="rounded-lg bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground">Sign in</Link>
+            <><Button asChild variant="outline" size="sm"><Link to="/auth" search={{ next: "/cleaner" }}>Housekeeper sign in</Link></Button><Button asChild size="sm"><Link to="/auth">Sign in</Link></Button></>
           )}
         </nav>
       </div>

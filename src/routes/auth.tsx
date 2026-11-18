@@ -6,14 +6,13 @@ import { lovable } from "@/integrations/lovable/index";
 import "@lovable.dev/cloud-auth-js/styles.css";
 import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
-
-const safeNext = (n?: string) => (n && n.startsWith("/") && !n.startsWith("//") ? n : "/account");
+import { safeAuthDestination as safeNext } from "@/lib/auth-destination";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: z.object({ next: z.string().optional() }),
-  head: () => ({
+  head: ({ match }) => ({
     meta: [
-      { title: "Sign in | HousekeepingBooking.com" },
+      { title: match.search.next === "/cleaner" ? "Housekeeper Sign In | HousekeepingBooking.com" : "Sign in | HousekeepingBooking.com" },
       { name: "description", content: "Sign in or create your HousekeepingBooking.com account." },
       { property: "og:title", content: "Sign in | HousekeepingBooking.com" },
       { property: "og:description", content: "Sign in or create your HousekeepingBooking.com account." },
@@ -35,13 +34,15 @@ function AuthPage() {
   const [msg, setMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const dest = safeNext(next);
+  const housekeeperLogin = dest === "/cleaner";
 
   useEffect(() => {
     if (next) sessionStorage.setItem("hkb-auth-next", dest);
     const go = () => {
       const target = sessionStorage.getItem("hkb-auth-next") ?? dest;
       sessionStorage.removeItem("hkb-auth-next");
-      navigate({ to: safeNext(target) as "/account" });
+      if (safeNext(target) === "/cleaner") navigate({ to: "/cleaner", replace: true });
+      else navigate({ to: safeNext(target) as "/account", replace: true });
     };
     supabase.auth.getUser().then(({ data }) => data.user && go());
     const { data: sub } = supabase.auth.onAuthStateChange((e) => e === "SIGNED_IN" && go());
@@ -89,9 +90,10 @@ function AuthPage() {
       <main className="mx-auto max-w-md px-4 py-10 sm:px-6">
         <div className="min-w-0 py-4">
           <h1 className="text-2xl font-extrabold text-foreground">
-            {mode === "signin" ? "Welcome back" : mode === "signup" ? dest === "/apply" ? "Create your applicant account" : "Create your account" : "Reset your password"}
+            {mode === "signin" ? housekeeperLogin ? "Housekeeper sign in" : "Welcome back" : mode === "signup" ? dest === "/apply" || housekeeperLogin ? "Create your housekeeper account" : "Create your account" : "Reset your password"}
           </h1>
-          <p className="mt-1 text-sm text-muted-foreground">{dest === "/apply" || dest === "/cleaner" ? "Housekeeper applications · create an account or sign in to apply." : "For customers, cleaners and staff."}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{housekeeperLogin ? "Your account · your appointments, earnings and schedule." : dest === "/apply" ? "Housekeeper applications · create an account or sign in to apply." : "For customers, cleaners and staff."}</p>
+          {housekeeperLogin && mode === "signup" && <p className="mt-3 text-sm text-muted-foreground">New housekeepers complete an application before staff access is approved.</p>}
 
           {mode !== "forgot" && (
             <div className="mt-6 space-y-3">
@@ -109,10 +111,10 @@ function AuthPage() {
                 <input required maxLength={100} className={field} value={name} onChange={(e) => setName(e.target.value)} /></label>
             )}
             <label className="block text-sm font-semibold text-foreground">Email
-              <input required type="email" maxLength={255} className={field} value={email} onChange={(e) => setEmail(e.target.value)} /></label>
+                <input required type="email" autoComplete="username" maxLength={255} className={field} value={email} onChange={(e) => setEmail(e.target.value)} /></label>
             {mode !== "forgot" && (
               <label className="block text-sm font-semibold text-foreground">Password
-                <input required type="password" minLength={8} className={field} value={password} onChange={(e) => setPassword(e.target.value)} /></label>
+                <input required type="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} minLength={8} className={field} value={password} onChange={(e) => setPassword(e.target.value)} /></label>
             )}
             {msg && <p role="alert" className={`rounded-lg p-3 text-sm ${msg.type === "ok" ? "bg-accent text-accent-foreground" : "bg-destructive/10 text-destructive"}`}>{msg.text}</p>}
             <Button disabled={busy || !hydrated} className="w-full" type="submit">

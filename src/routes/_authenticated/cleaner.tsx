@@ -37,6 +37,12 @@ export const Route = createFileRoute("/_authenticated/cleaner")({
 function CleanerJobs() {
   const { user, isCleaner, loading } = useAuth();
   const qc = useQueryClient();
+  const profile = useQuery({ queryKey: ["cleaner-dashboard-profile", user?.id], enabled: !!user && isCleaner, queryFn: async () => {
+    if (!user) throw new Error("Sign in required.");
+    const { data, error } = await supabase.from("profiles").select("full_name,email").eq("id", user.id).maybeSingle();
+    if (error) throw error;
+    return data;
+  } });
   const jobs = useQuery({
     queryKey: ["cleaner-jobs", user?.id],
     refetchInterval: 15000,
@@ -87,6 +93,7 @@ function CleanerJobs() {
       <AppHeader />
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
         <div className="flex flex-wrap items-center justify-between gap-3"><h1 className="text-3xl font-extrabold text-foreground">Housekeeper dashboard</h1>{isCleaner && <div className="flex flex-wrap items-center gap-3"><Button asChild variant="outline"><Link to="/cleaner-schedule"><CalendarDays />My schedule</Link></Button><Link to="/cleaner-profile" className="text-sm font-bold text-primary">Hours, rates & profile →</Link></div>}</div>
+        {isCleaner && user && <p className="mt-3 break-words text-sm text-muted-foreground">Signed in as <strong className="text-foreground">{profile.data?.full_name || "Housekeeper"}</strong><span className="block break-all">{user.email}</span></p>}
         {!loading && !isCleaner && <section className="mt-6 border-t border-border py-6"><h2 className="text-xl font-bold">Housekeeper application</h2><p className="mt-2 text-muted-foreground">Cleaner access begins after your application is approved.</p><Button asChild className="mt-4"><Link to="/apply">Apply or check hiring progress</Link></Button></section>}
         {isCleaner && settings.isSuccess && (
           <div className="mt-6 border-y border-border py-4 text-sm">
