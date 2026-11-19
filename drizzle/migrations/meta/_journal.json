@@ -225,6 +225,13 @@
       "when": 1794508996488,
       "tag": "0031_reviewed_service_quote_bookings",
       "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "7",
+      "when": 1795052013557,
+      "tag": "0032_admin_active_service_towns",
+      "breakpoints": true
     }
   ]
 }

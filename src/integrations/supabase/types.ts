@@ -1143,6 +1143,24 @@ export type Database = {
         }
         Relationships: []
       }
+      service_towns: {
+        Row: {
+          active: boolean
+          name: string
+          sort_order: number
+        }
+        Insert: {
+          active?: boolean
+          name: string
+          sort_order?: number
+        }
+        Update: {
+          active?: boolean
+          name?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
       time_clock_entries: {
         Row: {
           booking_id: string | null
@@ -1438,6 +1456,7 @@ export type Database = {
         Args: { _from: string; _to: string }
         Returns: number
       }
+      service_town_active: { Args: { _area: string }; Returns: boolean }
       set_cleaner_date_block: {
         Args: { _blocked: boolean; _cleaner_id: string; _date: string }
         Returns: undefined

@@ -21,6 +21,7 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminPaypalRouteImport } from './routes/_authenticated/admin-paypal'
+import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin-settings'
 import { Route as AuthenticatedApplyRouteImport } from './routes/_authenticated/apply'
 import { Route as AuthenticatedAvailabilityRouteImport } from './routes/_authenticated/availability'
 import { Route as AuthenticatedBookingHistoryRouteImport } from './routes/_authenticated/booking-history'
@@ -41,6 +42,7 @@ import { Route as BookingIdRouteImport } from './routes/booking.$id'
 import { Route as GiftIdRouteImport } from './routes/gift.$id'
 import { Route as HousekeepersIdRouteImport } from './routes/housekeepers.$id'
 import { Route as AuthenticatedAppointmentIdRouteImport } from './routes/_authenticated/appointment.$id'
+import { Route as ApiPublicServiceTownsRouteImport } from './routes/api/public/service-towns'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
 import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -103,6 +105,12 @@ const AuthenticatedAdminPaypalRoute =
   AuthenticatedAdminPaypalRouteImport.update({
     id: '/admin-paypal',
     path: '/admin-paypal',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAdminSettingsRoute =
+  AuthenticatedAdminSettingsRouteImport.update({
+    id: '/admin-settings',
+    path: '/admin-settings',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedApplyRoute = AuthenticatedApplyRouteImport.update({
@@ -215,6 +223,11 @@ const AuthenticatedAppointmentIdRoute =
     path: '/appointment/$id',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const ApiPublicServiceTownsRoute = ApiPublicServiceTownsRouteImport.update({
+  id: '/api/public/service-towns',
+  path: '/api/public/service-towns',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
   id: '/lovable/email/auth/preview',
   path: '/lovable/email/auth/preview',
@@ -244,6 +257,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/admin-paypal': typeof AuthenticatedAdminPaypalRoute
+  '/admin-settings': typeof AuthenticatedAdminSettingsRoute
   '/apply': typeof AuthenticatedApplyRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
   '/booking-history': typeof AuthenticatedBookingHistoryRoute
@@ -264,6 +278,7 @@ export interface FileRoutesByFullPath {
   '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
+  '/api/public/service-towns': typeof ApiPublicServiceTownsRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -280,6 +295,7 @@ export interface FileRoutesByTo {
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/admin-paypal': typeof AuthenticatedAdminPaypalRoute
+  '/admin-settings': typeof AuthenticatedAdminSettingsRoute
   '/apply': typeof AuthenticatedApplyRoute
   '/availability': typeof AuthenticatedAvailabilityRoute
   '/booking-history': typeof AuthenticatedBookingHistoryRoute
@@ -300,6 +316,7 @@ export interface FileRoutesByTo {
   '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/appointment/$id': typeof AuthenticatedAppointmentIdRoute
+  '/api/public/service-towns': typeof ApiPublicServiceTownsRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -318,6 +335,7 @@ export interface FileRoutesById {
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/admin-paypal': typeof AuthenticatedAdminPaypalRoute
+  '/_authenticated/admin-settings': typeof AuthenticatedAdminSettingsRoute
   '/_authenticated/apply': typeof AuthenticatedApplyRoute
   '/_authenticated/availability': typeof AuthenticatedAvailabilityRoute
   '/_authenticated/booking-history': typeof AuthenticatedBookingHistoryRoute
@@ -338,6 +356,7 @@ export interface FileRoutesById {
   '/gift/$id': typeof GiftIdRoute
   '/housekeepers/$id': typeof HousekeepersIdRoute
   '/_authenticated/appointment/$id': typeof AuthenticatedAppointmentIdRoute
+  '/api/public/service-towns': typeof ApiPublicServiceTownsRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -356,6 +375,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/admin'
     | '/admin-paypal'
+    | '/admin-settings'
     | '/apply'
     | '/availability'
     | '/booking-history'
@@ -376,6 +396,7 @@ export interface FileRouteTypes {
     | '/gift/$id'
     | '/housekeepers/$id'
     | '/appointment/$id'
+    | '/api/public/service-towns'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
     | '/lovable/email/transactional/preview'
@@ -392,6 +413,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/admin'
     | '/admin-paypal'
+    | '/admin-settings'
     | '/apply'
     | '/availability'
     | '/booking-history'
@@ -412,6 +434,7 @@ export interface FileRouteTypes {
     | '/gift/$id'
     | '/housekeepers/$id'
     | '/appointment/$id'
+    | '/api/public/service-towns'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
     | '/lovable/email/transactional/preview'
@@ -429,6 +452,7 @@ export interface FileRouteTypes {
     | '/_authenticated/account'
     | '/_authenticated/admin'
     | '/_authenticated/admin-paypal'
+    | '/_authenticated/admin-settings'
     | '/_authenticated/apply'
     | '/_authenticated/availability'
     | '/_authenticated/booking-history'
@@ -449,6 +473,7 @@ export interface FileRouteTypes {
     | '/gift/$id'
     | '/housekeepers/$id'
     | '/_authenticated/appointment/$id'
+    | '/api/public/service-towns'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
     | '/lovable/email/transactional/preview'
@@ -467,6 +492,7 @@ export interface RootRouteChildren {
   BookingIdRoute: typeof BookingIdRoute
   GiftIdRoute: typeof GiftIdRoute
   HousekeepersIdRoute: typeof HousekeepersIdRoute
+  ApiPublicServiceTownsRoute: typeof ApiPublicServiceTownsRoute
   LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
   LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -556,6 +582,13 @@ declare module '@tanstack/react-router' {
       path: '/admin-paypal'
       fullPath: '/admin-paypal'
       preLoaderRoute: typeof AuthenticatedAdminPaypalRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin-settings': {
+      id: '/_authenticated/admin-settings'
+      path: '/admin-settings'
+      fullPath: '/admin-settings'
+      preLoaderRoute: typeof AuthenticatedAdminSettingsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/apply': {
@@ -698,6 +731,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppointmentIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/api/public/service-towns': {
+      id: '/api/public/service-towns'
+      path: '/api/public/service-towns'
+      fullPath: '/api/public/service-towns'
+      preLoaderRoute: typeof ApiPublicServiceTownsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/auth/preview': {
       id: '/lovable/email/auth/preview'
       path: '/lovable/email/auth/preview'
@@ -726,6 +766,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedAdminPaypalRoute: typeof AuthenticatedAdminPaypalRoute
+  AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
   AuthenticatedApplyRoute: typeof AuthenticatedApplyRoute
   AuthenticatedAvailabilityRoute: typeof AuthenticatedAvailabilityRoute
   AuthenticatedBookingHistoryRoute: typeof AuthenticatedBookingHistoryRoute
@@ -749,6 +790,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAccountRoute: AuthenticatedAccountRoute,
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedAdminPaypalRoute: AuthenticatedAdminPaypalRoute,
+  AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
   AuthenticatedApplyRoute: AuthenticatedApplyRoute,
   AuthenticatedAvailabilityRoute: AuthenticatedAvailabilityRoute,
   AuthenticatedBookingHistoryRoute: AuthenticatedBookingHistoryRoute,
@@ -784,6 +826,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookingIdRoute: BookingIdRoute,
   GiftIdRoute: GiftIdRoute,
   HousekeepersIdRoute: HousekeepersIdRoute,
+  ApiPublicServiceTownsRoute: ApiPublicServiceTownsRoute,
   LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
   LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
