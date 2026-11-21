@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useServiceTowns } from '@/hooks/use-service-towns';
+import { activeTownSelection } from '@/lib/service-towns';
 import { Phone, Mail, Save, Plus, ExternalLink } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { Button } from "@/components/ui/button";
@@ -33,6 +35,10 @@ function PhoneBooking() {
   const allowed = isAdmin || isCleaner;
   const [form, setForm] = useState<BookingFormInput>(blank);
   const [savedId, setSavedId] = useState("");
+  const towns = useServiceTowns();
+  useEffect(() => {
+    if (towns.isSuccess && !savedId) setForm(f => ({ ...f, serviceArea: activeTownSelection(f.serviceArea,towns.areas) }));
+  },[towns.data,towns.isSuccess,savedId]);
   const [message, setMessage] = useState("");
   const [validationError, setValidationError] = useState("");
   const saveFn = useServerFn(savePhoneBooking);
@@ -76,7 +82,7 @@ function PhoneBooking() {
             {([{ key: "customerName", label: "Customer name", type: "text", max: 100 }, { key: "email", label: "Customer email", type: "email", max: 255 }, { key: "phone", label: "Customer phone", type: "tel", max: 30 }, { key: "address", label: "Cleaning address", type: "text", max: 300 }] as const).map(f => <label key={f.key} className="min-w-0 text-sm font-semibold">{f.label}<input required type={f.type} maxLength={f.max} value={form[f.key]} onChange={e => setForm({ ...form, [f.key]: e.target.value })} className={input} /></label>)}
           </div></section>
           <section className="border-t border-border pt-5"><h2 className="text-xl font-bold">Cleaning</h2><div className="mt-4 grid min-w-0 gap-4 sm:grid-cols-2">
-            <label className="min-w-0 text-sm font-semibold">Service area<select className={input} value={form.serviceArea} onChange={e => setForm({ ...form, serviceArea: e.target.value })}>{SERVICE_AREAS.map(s => <option key={s}>{s}</option>)}</select></label>
+            <label className="min-w-0 text-sm font-semibold">Service area<select className={input} value={form.serviceArea} onChange={e => setForm({ ...form, serviceArea: e.target.value })}>{towns.areas.map(s => <option key={s}>{s}</option>)}</select></label>
             <label className="min-w-0 text-sm font-semibold">Service<select className={input} value={form.service} onChange={e => setForm({ ...form, service: e.target.value })}>{Object.keys(SERVICE_BASE).map(s => <option key={s}>{s}</option>)}</select></label>
             <label className="min-w-0 text-sm font-semibold">Frequency<select className={input} value={form.frequency} onChange={e => setForm({ ...form, frequency: e.target.value })}>{FREQUENCIES.map(s => <option key={s}>{s}</option>)}</select></label>
             <div className="grid min-w-0 grid-cols-2 gap-3">{(["bedrooms", "bathrooms"] as const).map(key => <label key={key} className="min-w-0 text-sm font-semibold">{key === "bedrooms" ? "Bedrooms" : "Bathrooms"}<input required type="number" min={1} max={10} value={form[key]} onChange={e => setForm({ ...form, [key]: Number(e.target.value) })} className={input} /></label>)}</div>

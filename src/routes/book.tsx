@@ -1,6 +1,8 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AppHeader } from "@/components/AppHeader";
+import { useServiceTowns } from '@/hooks/use-service-towns';
+import { activeTownSelection } from '@/lib/service-towns';
 import { AppointmentSlotPicker } from "@/components/AppointmentSlotPicker";
 import { availableSlotCleaners } from "@/lib/appointment-slots.functions";
 import { slotLabel, slotWindow, type AppointmentSlot } from "@/lib/appointment-slots";
@@ -63,6 +65,15 @@ function BookPage() {
   const portfolio = useServerFn(publicPortfolio);
   const navigate = useNavigate();
   const [form, setForm] = useState<Form>(empty);
+  const towns = useServiceTowns();
+  useEffect(() => {
+    if (!towns.isSuccess) return;
+    const area = activeTownSelection(form.serviceArea, towns.areas);
+    if (area !== form.serviceArea) {
+      setChosenSlot(null);
+      setForm(f => ({ ...f, serviceArea: area, appointmentSlotId: undefined, preferredDate: '' }));
+    }
+  }, [towns.data, towns.isSuccess, form.serviceArea]);
   const cleaners = useQuery({ queryKey: ["available-slot-cleaners", form.serviceArea], queryFn: () => availableSlotCleaners({ data: { area: form.serviceArea } }), refetchInterval: 15000 });
   const servesArea = !!cleaners.data?.some(c => c.id === chosenCleaner);
   const [fromAi, setFromAi] = useState(false);
@@ -210,7 +221,7 @@ function BookPage() {
                   {FREQUENCIES.map((f) => <option key={f}>{f}</option>)}</select></label>
               <label><span className={label}>Area</span>
                 <select className={field} value={form.serviceArea} onChange={(e) => { setChosenSlot(null); if (!housekeeper) setChosenCleaner(""); setForm(f => ({ ...f, serviceArea: e.target.value, appointmentSlotId: undefined, preferredDate: "", requestedCleanerId: housekeeper })); }}>
-                  {SERVICE_AREAS.map((a) => <option key={a}>{a}</option>)}</select></label>
+                  {towns.areas.map((a) => <option key={a}>{a}</option>)}</select>{towns.error && <p role="alert">Could not load service towns.</p>}{towns.isSuccess && !towns.areas.length && <p>No towns are currently accepting appointments.</p>}</label>
             </section>
 
             <CleaningLevelPicker value={form.cleaningLevel} onChange={value => set("cleaningLevel", value)} />

@@ -49,6 +49,7 @@ function Admin() {
               <Button asChild variant="outline"><Link to="/phone-booking">Phone bookings</Link></Button>
               <Button asChild variant="outline"><Link to="/staff-dashboard" search={{ from: "", to: "", cleaner: "all", view: "all" }}>Staff dashboard</Link></Button>
               <Button asChild variant="outline"><Link to="/admin-paypal" search={{ view: "all" }}>PayPal dashboard</Link></Button>
+              <Button asChild variant="outline"><Link to="/admin-settings">Settings · Service towns</Link></Button>
               {(["scheduler", "calendar", "schedules", "bookings", "people", "timesheets", "hiring", "disputes"] as const).map((t) => (
                 <Button key={t} onClick={() => navigate({ search: { tab: t }, replace: true })} variant={tab === t ? "default" : "secondary"}>
                   {TAB_LABEL[t]}
